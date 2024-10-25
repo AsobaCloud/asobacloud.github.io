@@ -2,6 +2,7 @@
 title: "API Documentation"
 layout: default
 nav_order: 1
+permalink: /
 ---
 
 # API Documentation
