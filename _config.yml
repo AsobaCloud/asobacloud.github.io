@@ -2,23 +2,8 @@ title: "Asoba API Documentation"
 description: "Energy-as-a-Service API documentation"
 remote_theme: just-the-docs/just-the-docs
 
-# Configure table of contents
+# Configure table of contents and navigation
 just_the_docs:
   show_toc: true           # Enable table of contents in sidebar
   toc_level: 2             # Start at ## headers
   search_enabled: true     # Enable search functionality
-
-# Sidebar navigation configuration
-collections:
-  nav:
-    - title: "API Documentation"
-      url: "/"
-      children:
-        - title: "Introduction"
-          url: "#introduction"
-        - title: "API Endpoints"
-          url: "#api-endpoints"
-        - title: "Error Handling"
-          url: "#error-handling"
-        - title: "Conclusion"
-          url: "#conclusion"
