@@ -1,3 +1,4 @@
 theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 title: Asoba Electricity Forecasting and Dispatch API
 description: API documentation for python and nodejs
