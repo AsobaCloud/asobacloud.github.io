@@ -86,7 +86,7 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
     ```python
     import requests
     
-    url = 'https://api.yourdomain.com/ingest/nowcastLoadData'
+    url = 'https://api.asoba.co/ingest/nowcastLoadData'
     payload = {
         'device_id': '98765',
         'customer_id': '28005',
@@ -102,7 +102,7 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
     ```javascript
     const axios = require('axios');
     
-    const url = 'https://api.yourdomain.com/ingest/nowcastLoadData';
+    const url = 'https://api.asoba.co/ingest/nowcastLoadData';
     const payload = {
         device_id: '98765',
         customer_id: '28005',
