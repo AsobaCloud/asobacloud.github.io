@@ -23,7 +23,7 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
 - **Method**: `POST`
 - **URL**: `/ingest/data`
 - **Parameters**:
-  - `device_id`: (Required) The unique identifier for the energy device.
+  - `device_id`: (Optional) The unique identifier for the energy device; this may already be included in the ingest dataset.
   - `timestamp`: (Required) The timestamp for the data in ISO 8601 format.
   - `total_load`: (Required) The total load of the system at that time.
   - `total_solar`: (Optional) Solar generation data (if applicable).
