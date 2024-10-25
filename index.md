@@ -3,6 +3,8 @@
 
 Our Energy-as-a-Service platform provides robust forecasting and dispatching APIs tailored for energy traders, Independent Power Producers (IPPs), and bulk electricity buyers and resellers. The platform empowers users by integrating advanced AI models for energy demand and generation forecasting, allowing optimal dispatch strategies for improved profitability and efficiency.
 
+<code> This product is currently in beta, so endpoint parameters and syntax are subject to change.  An API Key is also required to make successful requests via these API endpoints.  We provide access to the API and to our most up-to-date docs for clients in our API beta program.  You can [register here](https://asoba.co/on-demand/) </code>
+
 ![Architecture diagram of API's](https://staging-internal.asoba.co/api-architecture.png)
 
 
