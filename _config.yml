@@ -1,3 +1,10 @@
+title: "Asoba API Documentation"
+description: "Energy-as-a-Service API documentation"
 remote_theme: just-the-docs/just-the-docs
-title: Asoba Electricity Forecasting and Dispatch API
-description: API documentation for python and nodejs
+
+# Configure table of contents
+just_the_docs:
+  show_toc: true           # Enable table of contents in sidebar
+  toc_level: 2             # Start at ## headers
+  show_nav: true           # Show main navigation on the left sidebar
+  search_enabled: true     # Enable search functionality
