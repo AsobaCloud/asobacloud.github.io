@@ -1,9 +1,31 @@
+# Minimal Mistakes Jekyll Theme Configuration
 title: "Asoba API Documentation"
-description: "Energy-as-a-Service API documentation"
-remote_theme: just-the-docs/just-the-docs
+description: "Documentation for Asoba's Energy platform"
+remote_theme: "mmistakes/minimal-mistakes"
+theme: "minimal-mistakes"
 
-# Configure table of contents and navigation
-just_the_docs:
-  show_toc: true           # Enable table of contents in sidebar
-  toc_level: 2             # Start at ## headers
-  search_enabled: true     # Enable search functionality
+# Enable navigation and sidebar options
+plugins:
+  - jekyll-optional-front-matter
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Enable table of contents
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "single"
+      author_profile: true
+      toc: true            # Enable table of contents
+      toc_sticky: true      # Keep ToC visible
+      sidebar: true         # Enable sidebar
+
+# Configure navigation
+header:
+  nav:
+    - title: "Home"
+      url: "/"
+    - title: "Documentation"
+      url: "/docs/"
