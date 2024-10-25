@@ -1,8 +1,5 @@
 ---
-layout: single
 title: "API Documentation"
-author_profile: false
-toc: true
 ---
 
 # API Documentation
