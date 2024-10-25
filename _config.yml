@@ -2,7 +2,6 @@
 title: "Asoba API Documentation"
 description: "Documentation for Asoba's Energy platform"
 remote_theme: "mmistakes/minimal-mistakes"
-theme: "minimal-mistakes"
 
 # Enable navigation and sidebar options
 plugins:
