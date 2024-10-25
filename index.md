@@ -1,7 +1,8 @@
 ---
+layout: single
 title: "API Documentation"
-layout: default
-nav_order: 1
+author_profile: false
+toc: true
 ---
 
 # API Documentation
