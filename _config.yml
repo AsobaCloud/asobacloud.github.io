@@ -6,5 +6,4 @@ remote_theme: just-the-docs/just-the-docs
 just_the_docs:
   show_toc: true           # Enable table of contents in sidebar
   toc_level: 2             # Start at ## headers
-  show_nav: true           # Show main navigation on the left sidebar
   search_enabled: true     # Enable search functionality
