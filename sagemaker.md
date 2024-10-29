@@ -1,8 +1,4 @@
-Certainly, with these specific Lambda functions in mind, here’s how we could adapt the workflow for a SageMaker-based paradigm. This will involve moving data processing, model training, and lifecycle management into SageMaker services, while keeping API Gateway as the entry point.
-
----
-
-### Step-by-Step Guide: Moving the Workflow to Amazon SageMaker
+## Step-by-Step Guide: Moving the Workflow to Amazon SageMaker
 
 ---
 
