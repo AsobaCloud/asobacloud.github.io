@@ -1,4 +1,10 @@
-## API Examples
+---
+title: "Getting Started"
+layout: default
+nav_order: 3
+---
+
+## Getting Started
 
 Our APIs are designed for easy integration within existing technology stacks. Here’s a quick guide to implement the historical data ingest API in Python, Node.js, and Curl.
 
