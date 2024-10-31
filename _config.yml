@@ -2,6 +2,11 @@ title: "Asoba API Documentation"
 description: "Energy-as-a-Service API documentation"
 remote_theme: "just-the-docs/just-the-docs"
 
+# Just the Docs configuration
 just_the_docs:
-  show_toc: true         # Enable the table of contents sidebar
-  toc_level: 2           # Show headers starting from ## in the ToC
+  show_toc: true          # Enable sidebar ToC for sections within a single page
+  toc_level: 2            # Sidebar starts at ## level
+  search_enabled: true    # Enable search
+
+# Set base URL if using a subfolder
+baseurl: "/"
