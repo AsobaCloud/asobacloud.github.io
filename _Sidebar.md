@@ -1,4 +1,0 @@
-- [Introduction](#introduction)
-- [API Endpoints](#api-endpoints)
-- [Error Handling](#error-handling)
-- [Conclusion](#conclusion)
