@@ -6,23 +6,3 @@ just_the_docs:
   show_toc: true
   toc_level: 2
 
-# Define sidebar content
-collections:
-  nav:
-    - title: "API Documentation"
-      url: "/"
-      children:
-        - title: "Introduction"
-          url: "/#introduction"  # Links to anchor in index.md
-        - title: "Key Use Cases"
-          url: "/#key-use-cases"  # Links to anchor in index.md
-        - title: "API Endpoints"
-          url: "/#api-endpoints"  # Links to anchor in index.md
-        - title: "/ingest/data"
-          url: "/#ingest-data"  # Links to specific endpoint anchor
-        - title: "/ingest/nowcastLoadData"
-          url: "/#ingest-nowcastloaddata"  # Links to specific endpoint anchor
-        - title: "Error Handling"
-          url: "/#error-handling"
-        - title: "Conclusion"
-          url: "/#conclusion"
