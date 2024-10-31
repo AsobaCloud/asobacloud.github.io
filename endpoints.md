@@ -1,8 +1,6 @@
 ## API Endpoints 
-{: #api-endpoints }
 
 ### 1. **/ingest/data**
-{: #ingest-data }
 
 **Purpose**: This endpoint allows you to ingest historical energy data into our system for model training and validation. Data should follow the required format for each device or energy station.
 
@@ -56,7 +54,6 @@
 ---
 
 ### 2. **/ingest/nowcastLoadData**
-{: #ingest-nowcastloaddata }
 
 **Purpose**: This endpoint is used for ingesting historical load data for immediate nowcasting and real-time prediction purposes. The data ingested is processed and used to provide near-term forecasts (nowcasting) of energy demand or generation.
 
@@ -208,7 +205,6 @@
 
 
 ### Error Handling
-{: #error-handling }
 
 Common error responses for this endpoint:
 - **400 Bad Request**: If any required parameters (e.g., `device_id`, `timestamp`, `total_load`, `customer_id`) are missing.
