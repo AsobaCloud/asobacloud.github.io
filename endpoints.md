@@ -1,3 +1,9 @@
+---
+title: "API Endpoints"
+layout: default
+nav_order: 2
+---
+
 ## API Endpoints 
 
 ### 1. **/ingest/data**
