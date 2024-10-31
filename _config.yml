@@ -1,10 +1,9 @@
 title: "Asoba API Documentation"
 description: "Energy-as-a-Service API documentation"
-remote_theme: "just-the-docs/just-the-docs"
-
-# Set base URL if using a subfolder
-baseurl: "/"
-
+theme: jekyll-theme-cayman
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap
 sass:
   load_paths:
     - assets/css
