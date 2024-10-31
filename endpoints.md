@@ -217,4 +217,6 @@ Common error responses for this endpoint:
 - **500 Internal Server Error**: If there is a problem with data processing or a server-side issue.
 - **404 Not Found**: If the device or customer referenced by the ID does not exist in the system.
 
+Configuration is possible through our front end app to provide email-based updates about request statuses.
+
 ---
