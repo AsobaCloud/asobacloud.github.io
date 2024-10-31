@@ -4,16 +4,8 @@ layout: default
 nav_order: 1
 ---
 
-# API Documentation
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
 ## Introduction
+{: #introduction }
 
 Our Energy-as-a-Service platform provides robust forecasting and dispatching APIs tailored for energy traders, Independent Power Producers (IPPs), and bulk electricity buyers and resellers. The platform empowers users by integrating advanced AI models for energy demand and generation forecasting, allowing optimal dispatch strategies for improved profitability and efficiency.
 
@@ -23,6 +15,7 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
 
 
 ### Key Use Cases
+{: #key-use-cases }
 - **Energy Traders**: Leverage accurate demand forecasts to optimize trades in electricity markets, maximize returns, and minimize risks.
 - **IPPs**: Enhance generation scheduling by using our forecasting models to predict production output and optimize grid contributions.
 - **Bulk Buyers/Resellers**: Predict market trends and align purchasing strategies with anticipated demand surges, avoiding high market prices and reducing costs.
@@ -30,8 +23,10 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
 ---
 
 ## API Endpoints 
+{: #api-endpoints }
 
 ### 1. **/ingest/data**
+{: #ingest-data }
 
 **Purpose**: This endpoint allows you to ingest historical energy data into our system for model training and validation. Data should follow the required format for each device or energy station.
 
@@ -85,6 +80,7 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
 ---
 
 ### 2. **/ingest/nowcastLoadData**
+{: #ingest-nowcastloaddata }
 
 **Purpose**: This endpoint is used for ingesting historical load data for immediate nowcasting and real-time prediction purposes. The data ingested is processed and used to provide near-term forecasts (nowcasting) of energy demand or generation.
 
@@ -236,6 +232,7 @@ Our Energy-as-a-Service platform provides robust forecasting and dispatching API
 
 
 ### Error Handling
+{: #error-handling }
 
 Common error responses for this endpoint:
 - **400 Bad Request**: If any required parameters (e.g., `device_id`, `timestamp`, `total_load`, `customer_id`) are missing.
@@ -245,4 +242,6 @@ Common error responses for this endpoint:
 ---
 
 ## Conclusion 
+{: #conclusion }
+
 The APIs provided by the Energy-as-a-Service platform allow developers and energy professionals to integrate powerful forecasting and dispatching functionalities into their applications. Whether you are managing energy portfolios, optimizing dispatch strategies, or trading in real-time markets, these APIs offer flexible and powerful tools to maximize efficiency and profitability.
