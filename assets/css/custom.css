@@ -1,16 +1,19 @@
-/* Style for the in-page TOC as a sidebar */
+/* Force the TOC to appear as a fixed sidebar on the left */
 #markdown-toc {
-    position: fixed;
-    top: 100px;           /* Adjust as needed */
-    left: 20px;           /* Adjust for spacing */
-    width: 200px;         /* Set sidebar width */
+    position: fixed !important;
+    top: 100px !important;  /* Adjust top margin if necessary */
+    left: 20px !important;  /* Adjust left margin for spacing */
+    width: 220px !important; /* Set sidebar width */
     max-height: 80vh;
     overflow-y: auto;
     border-right: 1px solid #ddd;
     padding-right: 10px;
     font-size: 0.9em;
+    background-color: #f8f9fa; /* Optional: background color for sidebar */
+    z-index: 1000;  /* Ensure it stays on top */
 }
 
+/* Adjust main content to provide space for the sidebar */
 #main-content {
-    margin-left: 240px;   /* Push main content to the right to accommodate sidebar */
+    margin-left: 260px !important; /* Push content to the right */
 }
