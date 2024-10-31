@@ -1,4 +1,4 @@
-# API Examples
+## API Examples
 
 Our APIs are designed for easy integration within existing technology stacks. Here’s a quick guide to implement the historical data ingest API in Python, Node.js, and Curl.
 
@@ -28,7 +28,7 @@ else:
 
 ## Node.JS Example
 
-```
+```javascript
 const axios = require('axios');
 
 const api_key = 'YOUR_API_KEY';
@@ -51,7 +51,7 @@ axios.post(`${base_url}${endpoint}`, payload, { headers })
 
 ## Curl Example
 
-```
+```bash
 curl -X POST "https://api.asoba.co/v1/uploadhistorical" \
 -H "Authorization: Bearer YOUR_API_KEY" \
 -H "Content-Type: text/csv" \
