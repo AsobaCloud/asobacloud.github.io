@@ -10,3 +10,7 @@ just_the_docs:
 
 # Set base URL if using a subfolder
 baseurl: "/"
+
+sass:
+  load_paths:
+    - assets/css
