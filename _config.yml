@@ -1,6 +1,10 @@
 title: "Asoba Forecasting and Dispatch APIs"
 remote_theme: "just-the-docs/just-the-docs"
 
+# Exclude specific folders or files
+exclude:
+  - "assets/*"      # Exclude all files in the folder
+
 # Sidebar configuration for custom navigation
 just_the_docs:
   show_toc: true
