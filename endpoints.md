@@ -134,12 +134,15 @@ Content-Type: application/json
 
 ---
 
+
 ## auth0ManagementBackend API
 
 ### Context
+
 This HTTP API is used for metadata management tasks.
 
 ### Base URL
+
 ```
 https://ona.asoba.co/auth0ManagementBackend
 ```
@@ -153,10 +156,12 @@ https://ona.asoba.co/auth0ManagementBackend
 **Request**:
 
 - **Headers**:
+
   - `Authorization` (string, required): A valid Auth0 token.
   - `Content-Type`: `application/json`
 
 - **Body**:
+
   ```json
   {
     "user_id": "auth0|123456789",
@@ -165,6 +170,7 @@ https://ona.asoba.co/auth0ManagementBackend
   ```
 
 **Example Request**:
+
 ```
 POST /assign-role HTTP/1.1
 Host: ona.asoba.co
@@ -180,6 +186,7 @@ Content-Type: application/json
 **Response**:
 
 - **200 OK**: Role successfully assigned.
+
   ```json
   {
     "status": "success",
@@ -188,6 +195,7 @@ Content-Type: application/json
   ```
 
 - **400 Bad Request**: Invalid or missing body parameters.
+
   ```json
   {
     "error": "Invalid user_id or role_id."
@@ -195,6 +203,7 @@ Content-Type: application/json
   ```
 
 - **403 Forbidden**: Unauthorized request.
+
   ```json
   {
     "error": "Unauthorized."
@@ -208,10 +217,12 @@ Content-Type: application/json
 **Request**:
 
 - **Headers**:
+
   - `Authorization` (string, required): A valid Auth0 token.
   - `Content-Type`: `application/json`
 
 - **Body**:
+
   ```json
   {
     "role_name": "admin",
@@ -220,6 +231,7 @@ Content-Type: application/json
   ```
 
 **Example Request**:
+
 ```
 POST /create-role HTTP/1.1
 Host: ona.asoba.co
@@ -235,6 +247,7 @@ Content-Type: application/json
 **Response**:
 
 - **201 Created**: Role successfully created.
+
   ```json
   {
     "status": "success",
@@ -244,6 +257,7 @@ Content-Type: application/json
   ```
 
 - **400 Bad Request**: Missing or invalid body parameters.
+
   ```json
   {
     "error": "Invalid role_name or permissions."
@@ -251,6 +265,7 @@ Content-Type: application/json
   ```
 
 - **403 Forbidden**: Unauthorized request.
+
   ```json
   {
     "error": "Unauthorized."
@@ -264,10 +279,12 @@ Content-Type: application/json
 **Request**:
 
 - **Headers**:
+
   - `Authorization` (string, required): A valid Auth0 token.
   - `Content-Type`: `application/json`
 
 - **Body**:
+
   ```json
   {
     "email": "user@example.com",
@@ -277,6 +294,7 @@ Content-Type: application/json
   ```
 
 **Example Request**:
+
 ```
 POST /create-user HTTP/1.1
 Host: ona.asoba.co
@@ -293,6 +311,7 @@ Content-Type: application/json
 **Response**:
 
 - **201 Created**: User successfully created.
+
   ```json
   {
     "status": "success",
@@ -302,6 +321,7 @@ Content-Type: application/json
   ```
 
 - **400 Bad Request**: Missing or invalid body parameters.
+
   ```json
   {
     "error": "Invalid email or roles."
@@ -309,11 +329,151 @@ Content-Type: application/json
   ```
 
 - **403 Forbidden**: Unauthorized request.
+
   ```json
   {
     "error": "Unauthorized."
   }
   ```
+
+#### GET `/roles`
+
+**Description**: Retrieves a list of all roles.
+
+**Request**:
+
+- **Headers**:
+  - `Authorization` (string, required): A valid Auth0 token.
+
+**Example Request**:
+
+```
+GET /roles HTTP/1.1
+Host: ona.asoba.co
+Authorization: Bearer <token>
+```
+
+**Response**:
+
+- **200 OK**: Successfully retrieved the roles.
+
+  ```json
+  {
+    "roles": [
+      {"role_id": "role123", "name": "admin"},
+      {"role_id": "role124", "name": "user"}
+    ]
+  }
+  ```
+
+- **403 Forbidden**: Unauthorized request.
+
+  ```json
+  {
+    "error": "Unauthorized."
+  }
+  ```
+
+#### POST `/update-user`
+
+**Description**: Updates a user's information.
+
+**Request**:
+
+- **Headers**:
+
+  - `Authorization` (string, required): A valid Auth0 token.
+  - `Content-Type`: `application/json`
+
+- **Body**:
+
+  ```json
+  {
+    "user_id": "auth0|123456789",
+    "new_name": "Jane Doe"
+  }
+  ```
+
+**Example Request**:
+
+```
+POST /update-user HTTP/1.1
+Host: ona.asoba.co
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "user_id": "auth0|123456789",
+  "new_name": "Jane Doe"
+}
+```
+
+**Response**:
+
+- **200 OK**: User information successfully updated.
+
+  ```json
+  {
+    "status": "success",
+    "message": "User updated successfully."
+  }
+  ```
+
+- **400 Bad Request**: Missing or invalid body parameters.
+
+  ```json
+  {
+    "error": "Invalid user_id or new_name."
+  }
+  ```
+
+- **403 Forbidden**: Unauthorized request.
+
+  ```json
+  {
+    "error": "Unauthorized."
+  }
+  ```
+
+#### GET `/users`
+
+**Description**: Retrieves a list of all users.
+
+**Request**:
+
+- **Headers**:
+  - `Authorization` (string, required): A valid Auth0 token.
+
+**Example Request**:
+
+```
+GET /users HTTP/1.1
+Host: ona.asoba.co
+Authorization: Bearer <token>
+```
+
+**Response**:
+
+- **200 OK**: Successfully retrieved the users.
+
+  ```json
+  {
+    "users": [
+      {"user_id": "auth0|123456789", "name": "John Doe", "email": "user@example.com"},
+      {"user_id": "auth0|987654321", "name": "Jane Doe", "email": "jane@example.com"}
+    ]
+  }
+  ```
+
+- **403 Forbidden**: Unauthorized request.
+
+  ```json
+  {
+    "error": "Unauthorized."
+  }
+  ```
+
+
 
 ---
 
