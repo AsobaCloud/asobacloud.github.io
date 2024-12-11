@@ -4,219 +4,315 @@ layout: default
 nav_order: 2
 ---
 
-## API Endpoints 
+# API Documentation
 
-### 1. **/ingest/data**
+## ingestHistoricalLoadData API
 
-**Purpose**: This endpoint allows you to ingest historical energy data into our system for model training and validation. Data should follow the required format for each device or energy station.
+### Context
+This REST API is used for ingesting historical data to train models for forecasting.
 
-- **Method**: `POST`
-- **URL**: `/ingest/data`
-- **Parameters**:
-  - `device_id`: (Optional) The unique identifier for the energy device; this may already be included in the ingest dataset.
-  - `timestamp`: (Required) The timestamp for the data in ISO 8601 format.
-  - `total_load`: (Required) The total load of the system at that time.
-  - `total_solar`: (Optional) Solar generation data (if applicable).
-  - `customer_id`: (Required) The customer’s unique ID.
-  
-- **Request Example** (Python):
-    ```python
-    import requests
-    
-    url = 'https://api.asoba.co/ingest/data'
-    payload = {
-        'device_id': '12345',
-        'timestamp': '2024-09-12T08:00:00Z',
-        'total_load': 500,
-        'total_solar': 120,
-        'customer_id': '28005'
-    }
-    response = requests.post(url, json=payload)
-    print(response.json())
-    ```
+### Base URL
+```
+https://ona.asoba.co/ingestHistoricalLoadData
+```
 
-- **Request Example** (Node.js):
-    ```javascript
-    const axios = require('axios');
-    
-    const url = 'https://api.asoba.co/ingest/data';
-    const payload = {
-        device_id: '12345',
-        timestamp: '2024-09-12T08:00:00Z',
-        total_load: 500,
-        total_solar: 120,
-        customer_id: '28005'
-    };
-    
-    axios.post(url, payload)
-        .then(response => console.log(response.data))
-        .catch(error => console.error(error));
-    ```
+### Endpoints
 
-- **Response Structure**:
-  - `statusCode`: 200 if successful.
-  - `message`: `Data ingested successfully`.
+#### POST `/upload_historical`
 
----
+**Description**: Allows for uploading historical data to the system.
 
-### 2. **/ingest/nowcastLoadData**
+**Request**:
 
-**Purpose**: This endpoint is used for ingesting historical load data for immediate nowcasting and real-time prediction purposes. The data ingested is processed and used to provide near-term forecasts (nowcasting) of energy demand or generation.
+- **Query Parameters**:
+  - `customer_id` (string, required): The unique ID of the customer.
+  - `filename` (string, required): The name of the file being uploaded.
+  - `manufacturer` (string, required): The manufacturer of the data source.
 
-- **Method**: `POST`
-- **URL**: `/ingest/nowcastLoadData`
-- **Parameters**:
-  - `device_id`: (Required) The unique identifier for the energy device.
-  - `customer_id`: (Required) The unique identifier for the customer.
-  - `timestamp`: (Required) The timestamp of the data point in ISO 8601 format.
-  - `total_load`: (Required) The total load recorded at the timestamp.
-  - `total_solar`: (Optional) The total solar generation recorded at the timestamp, if applicable.
-  
-- **Request Example** (Python):
-    ```python
-    import requests
-    
-    url = 'https://api.asoba.co/ingest/nowcastLoadData'
-    payload = {
-        'device_id': '98765',
-        'customer_id': '28005',
-        'timestamp': '2024-09-14T12:30:00Z',
-        'total_load': 520,
-        'total_solar': 110
-    }
-    response = requests.post(url, json=payload)
-    print(response.json())
-    ```
+- **Headers**:
+  - `Content-Type`: `application/json`
 
-- **Request Example** (Node.js):
-    ```javascript
-    const axios = require('axios');
-    
-    const url = 'https://api.asoba.co/ingest/nowcastLoadData';
-    const payload = {
-        device_id: '98765',
-        customer_id: '28005',
-        timestamp: '2024-09-14T12:30:00Z',
-        total_load: 520,
-        total_solar: 110
-    };
-    
-    axios.post(url, payload)
-        .then(response => console.log(response.data))
-        .catch(error => console.error(error));
-    ```
+**Example Request**:
+```
+POST /upload_historical?customer_id=12345&filename=data.csv&manufacturer=exampleCorp HTTP/1.1
+Host: ona.asoba.co
+Content-Type: application/json
 
-- **Response Structure**:
-  - `statusCode`: 200 if successful.
-  - `message`: Confirmation that the data has been successfully ingested.
+{
+  "additional_data": "optional data if required"
+}
+```
+
+**Response**:
+
+- **200 OK**: Data was successfully uploaded.
+  ```json
+  {
+    "status": "success",
+    "message": "Data uploaded successfully."
+  }
+  ```
+
+- **400 Bad Request**: Missing or invalid parameters.
+  ```json
+  {
+    "error": "Invalid or missing query parameter."
+  }
+  ```
+
+- **500 Internal Server Error**: An unexpected error occurred.
+  ```json
+  {
+    "error": "Internal server error."
+  }
+  ```
 
 ---
 
-### 3. **/ondemand/forecast**
+## ingestNowcastLoadData API
 
-**Purpose**: Allows users to generate forecasts based on historical data. This API takes in data points and returns a future prediction for energy consumption and generation.
+### Context
+This REST API is used to ingest nowcast data to generate forecasts.
 
-- **Method**: `POST`
-- **URL**: `/ondemand/forecast`
-- **Parameters**:
-  - `device_id`: (Required) The unique identifier for the energy device.
-  - `customer_id`: (Required) The customer’s unique ID.
-  - `start_time`: (Required) The starting point of the forecast window in ISO 8601 format.
-  - `end_time`: (Required) The ending point of the forecast window in ISO 8601 format.
-  
-- **Request Example** (Python):
-    ```python
-    import requests
-    
-    url = 'https://api.asoba.co/ondemand/forecast'
-    payload = {
-        'device_id': '12345',
-        'customer_id': '28005',
-        'start_time': '2024-09-12T08:00:00Z',
-        'end_time': '2024-09-12T12:00:00Z'
-    }
-    response = requests.post(url, json=payload)
-    print(response.json())
-    ```
+### Base URL
+```
+https://ona.asoba.co/ingestNowcastLoadData
+```
 
-- **Request Example** (Node.js):
-    ```javascript
-    const axios = require('axios');
-    
-    const url = 'https://api.asoba.co/ondemand/forecast';
-    const payload = {
-        device_id: '12345',
-        customer_id: '28005',
-        start_time: '2024-09-12T08:00:00Z',
-        end_time: '2024-09-12T12:00:00Z'
-    };
-    
-    axios.post(url, payload)
-        .then(response => console.log(response.data))
-        .catch(error => console.error(error));
-    ```
+### Endpoints
 
-- **Response Structure**:
-  - `statusCode`: 200 if successful.
-  - `forecast`: Array of predicted values for the specified time range.
+#### POST `/upload_nowcast`
 
----
+**Description**: Allows for uploading nowcast data to the system.
 
-### 4. **/ondemand/dispatch**
+**Request**:
 
-**Purpose**: Dispatch energy resources based on forecasts and current grid status. This endpoint helps users decide optimal dispatch strategies.
+- **Query Parameters**:
+  - `customer_id` (string, required): The unique ID of the customer.
+  - `filename` (string, required): The name of the file being uploaded.
+  - `manufacturer` (string, required): The manufacturer of the data source.
 
-- **Method**: `POST`
-- **URL**: `/ondemand/dispatch`
-- **Parameters**:
-  - `customer_id`: (Required) The customer’s unique ID.
-  - `strategy`: (Required) Dispatch strategy to be used (e.g., `max_solar`, `min_cost`).
-  - `forecast_window`: (Required) The time window for which the dispatch should be planned.
+- **Headers**:
+  - `Content-Type`: `application/json`
 
-- **Request Example** (Python):
-    ```python
-    import requests
-    
-    url = 'https://api.asoba.co/ondemand/dispatch'
-    payload = {
-        'customer_id': '28005',
-        'strategy': 'max_solar',
-        'forecast_window': '2024-09-12T08:00:00Z/2024-09-12T12:00:00Z'
-    }
-    response = requests.post(url, json=payload)
-    print(response.json())
-    ```
+**Example Request**:
+```
+POST /upload_nowcast?customer_id=12345&filename=nowcast_data.csv&manufacturer=exampleCorp HTTP/1.1
+Host: ona.asoba.co
+Content-Type: application/json
 
-- **Request Example** (Node.js):
-    ```javascript
-    const axios = require('axios');
-    
-    const url = 'https://api.asoba.co/ondemand/dispatch';
-    const payload = {
-        customer_id: '28005',
-        strategy: 'max_solar',
-        forecast_window: '2024-09-12T08:00:00Z/2024-09-12T12:00:00Z'
-    };
-    
-    axios.post(url, payload)
-        .then(response => console.log(response.data))
-        .catch(error => console.error(error));
-    ```
+{
+  "additional_data": "optional data if required"
+}
+```
 
-- **Response Structure**:
-  - `statusCode`: 200 if successful.
-  - `dispatch_plan`: Array of recommended dispatch actions.
+**Response**:
+
+- **200 OK**: Data was successfully uploaded.
+  ```json
+  {
+    "status": "success",
+    "message": "Data uploaded successfully."
+  }
+  ```
+
+- **400 Bad Request**: Missing or invalid parameters.
+  ```json
+  {
+    "error": "Invalid or missing query parameter."
+  }
+  ```
+
+- **500 Internal Server Error**: An unexpected error occurred.
+  ```json
+  {
+    "error": "Internal server error."
+  }
+  ```
 
 ---
 
+## auth0ManagementBackend API
 
-### Error Handling
+### Context
+This HTTP API is used for metadata management tasks.
 
-Common error responses for this endpoint:
-- **400 Bad Request**: If any required parameters (e.g., `device_id`, `timestamp`, `total_load`, `customer_id`) are missing.
-- **500 Internal Server Error**: If there is a problem with data processing or a server-side issue.
-- **404 Not Found**: If the device or customer referenced by the ID does not exist in the system.
+### Base URL
+```
+https://ona.asoba.co/auth0ManagementBackend
+```
 
-Configuration is possible through our front end app to provide email-based updates about request statuses.
+### Endpoints
+
+#### POST `/assign-role`
+
+**Description**: Assigns a role to a user.
+
+**Request**:
+
+- **Headers**:
+  - `Authorization` (string, required): A valid Auth0 token.
+  - `Content-Type`: `application/json`
+
+- **Body**:
+  ```json
+  {
+    "user_id": "auth0|123456789",
+    "role_id": "role123"
+  }
+  ```
+
+**Example Request**:
+```
+POST /assign-role HTTP/1.1
+Host: ona.asoba.co
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "user_id": "auth0|123456789",
+  "role_id": "role123"
+}
+```
+
+**Response**:
+
+- **200 OK**: Role successfully assigned.
+  ```json
+  {
+    "status": "success",
+    "message": "Role assigned successfully."
+  }
+  ```
+
+- **400 Bad Request**: Invalid or missing body parameters.
+  ```json
+  {
+    "error": "Invalid user_id or role_id."
+  }
+  ```
+
+- **403 Forbidden**: Unauthorized request.
+  ```json
+  {
+    "error": "Unauthorized."
+  }
+  ```
+
+#### POST `/create-role`
+
+**Description**: Creates a new role.
+
+**Request**:
+
+- **Headers**:
+  - `Authorization` (string, required): A valid Auth0 token.
+  - `Content-Type`: `application/json`
+
+- **Body**:
+  ```json
+  {
+    "role_name": "admin",
+    "permissions": ["read:data", "write:data"]
+  }
+  ```
+
+**Example Request**:
+```
+POST /create-role HTTP/1.1
+Host: ona.asoba.co
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "role_name": "admin",
+  "permissions": ["read:data", "write:data"]
+}
+```
+
+**Response**:
+
+- **201 Created**: Role successfully created.
+  ```json
+  {
+    "status": "success",
+    "role_id": "role123",
+    "message": "Role created successfully."
+  }
+  ```
+
+- **400 Bad Request**: Missing or invalid body parameters.
+  ```json
+  {
+    "error": "Invalid role_name or permissions."
+  }
+  ```
+
+- **403 Forbidden**: Unauthorized request.
+  ```json
+  {
+    "error": "Unauthorized."
+  }
+  ```
+
+#### POST `/create-user`
+
+**Description**: Creates a new user in the system.
+
+**Request**:
+
+- **Headers**:
+  - `Authorization` (string, required): A valid Auth0 token.
+  - `Content-Type`: `application/json`
+
+- **Body**:
+  ```json
+  {
+    "email": "user@example.com",
+    "name": "John Doe",
+    "roles": ["role123"]
+  }
+  ```
+
+**Example Request**:
+```
+POST /create-user HTTP/1.1
+Host: ona.asoba.co
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "name": "John Doe",
+  "roles": ["role123"]
+}
+```
+
+**Response**:
+
+- **201 Created**: User successfully created.
+  ```json
+  {
+    "status": "success",
+    "user_id": "auth0|987654321",
+    "message": "User created successfully."
+  }
+  ```
+
+- **400 Bad Request**: Missing or invalid body parameters.
+  ```json
+  {
+    "error": "Invalid email or roles."
+  }
+  ```
+
+- **403 Forbidden**: Unauthorized request.
+  ```json
+  {
+    "error": "Unauthorized."
+  }
+  ```
 
 ---
+
+Please ensure you have the correct base URL and necessary authorization tokens for all requests. Replace placeholders (e.g., `<token>`) with actual values.
