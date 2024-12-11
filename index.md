@@ -6,7 +6,7 @@ nav_order: 1
 
 ## Introduction
 
-Our Energy-as-a-Service platform provides robust forecasting and dispatching APIs tailored for energy traders, Independent Power Producers (IPPs), and bulk electricity buyers and resellers. The platform empowers users by integrating advanced AI models for energy demand and generation forecasting, allowing optimal dispatch strategies for improved profitability and efficiency.
+Ona - "to see" in Shona - is our Energy-as-a-Service API platform that provides robust forecasting, interpolation and dispatching API's tailored for energy traders, Independent Power Producers (IPPs), and bulk electricity buyers and more. The platform empowers users by integrating advanced AI models for energy demand and generation forecasting, Internet-of-Things data globbing, and electricity dispatch optimization for improved profitability and efficiency.
 
 > This product is currently in beta, so endpoint parameters and syntax are subject to change.  An API Key is also required to make successful requests via these API endpoints.  We provide access to the API and to our most up-to-date docs for clients in our API beta program.  You can [register here](https://asoba.co/on-demand/)
 
