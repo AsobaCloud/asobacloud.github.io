@@ -8,5 +8,5 @@ exclude:
 # Sidebar configuration for custom navigation
 just_the_docs:
   show_toc: true
-  toc_level: 2
+  toc_level: 3
 
