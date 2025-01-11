@@ -6,7 +6,7 @@ nav_order: 2
 
 ## API Endpoints
 
-This guide details each of the API's available in the Ona ecosystem, along with their various endpoints and request parameters and response structures
+This guide details each of the API's available in the Ona ecosystem, along with their various endpoints, request parameters, and response structures.
 
 ## ingestHistoricalLoadData API
 
@@ -27,16 +27,18 @@ https://ona.asoba.co/ingestHistoricalLoadData
 **Request**:
 
 - **Query Parameters**:
-  - `customer_id` (string, required): The unique ID of the customer.
+  - `customer_id` (int, required): The unique ID of the customer.
+  - `serial_number` (string, required): Serial number of the data source.
+  - `location` (string, required): Geographical location of the data source.
   - `filename` (string, required): The name of the file being uploaded.
-  - `manufacturer` (string, required): The manufacturer of the data source.
+  - `type` (string, required): Data type (e.g., solar).
 
 - **Headers**:
   - `Content-Type`: `application/json`
 
 **Example Request**:
 ```
-POST /upload_historical?customer_id=12345&filename=data.csv&manufacturer=exampleCorp HTTP/1.1
+POST /upload_historical?customer_id=12345&serial_number=SN123&location=Lagos&filename=data.csv&type=solar HTTP/1.1
 Host: ona.asoba.co
 Content-Type: application/json
 
@@ -90,16 +92,18 @@ https://ona.asoba.co/ingestNowcastLoadData
 **Request**:
 
 - **Query Parameters**:
-  - `customer_id` (string, required): The unique ID of the customer.
+  - `customer_id` (int, required): The unique ID of the customer.
+  - `serial_number` (string, required): Serial number of the data source.
+  - `location` (string, required): Geographical location of the data source.
   - `filename` (string, required): The name of the file being uploaded.
-  - `manufacturer` (string, required): The manufacturer of the data source.
+  - `type` (string, required): Data type (e.g., solar).
 
 - **Headers**:
   - `Content-Type`: `application/json`
 
 **Example Request**:
 ```
-POST /upload_nowcast?customer_id=12345&filename=nowcast_data.csv&manufacturer=exampleCorp HTTP/1.1
+POST /upload_nowcast?customer_id=12345&serial_number=SN456&location=NewYork&filename=nowcast_data.csv&type=solar HTTP/1.1
 Host: ona.asoba.co
 Content-Type: application/json
 
@@ -134,347 +138,85 @@ Content-Type: application/json
 
 ---
 
-
-## auth0ManagementBackend API
+## interpolateData API
 
 ### Context
-
-This HTTP API is used for metadata management tasks.
+This REST API is used for data interpolation, leveraging machine learning models like LightGBM and LSTM.
 
 ### Base URL
-
 ```
-https://ona.asoba.co/auth0ManagementBackend
+https://ona.asoba.co/dataInterpolation
 ```
 
 ### Endpoints
 
-#### POST `/assign-role`
+#### POST `/interpolate`
 
-**Description**: Assigns a role to a user.
+**Description**: Fills missing production data using advanced machine learning and time-series models.
 
 **Request**:
 
+- **Query Parameters**:
+  - `customer_id` (int, required): Unique ID of the customer.
+  - `serial_number` (string, required): Serial number of the data source.
+  - `location` (string, required): Geographical location of the data source.
+  - `filename` (string, required): Name of the input data file.
+  - `type` (string, required): Data type (e.g., solar).
+  - `date_start` (string, required): Start date for interpolation.
+  - `date_end` (string, required): End date for interpolation.
+  - `interpolation_mode` (string, required): Mode of interpolation (e.g., `lightgbm`, `lightgbm_lstm`).
+  - `api_key` (string, required): API key for authentication.
+
 - **Headers**:
+  - `Content-Type`: application/json
 
-  - `Authorization` (string, required): A valid Auth0 token.
-  - `Content-Type`: `application/json`
-
-- **Body**:
-
+- **Request Body**:
   ```json
   {
-    "user_id": "auth0|123456789",
-    "role_id": "role123"
+    "parameters": {
+      "time_window": 24,
+      "refinement": true
+    }
   }
   ```
 
 **Example Request**:
-
 ```
-POST /assign-role HTTP/1.1
+POST /interpolate?customer_id=67890&serial_number=SN789&location=Chicago&filename=missing_data.csv&type=solar&date_start=2024-07-01&date_end=2024-07-31&interpolation_mode=lightgbm_lstm&api_key=xyz123 HTTP/1.1
 Host: ona.asoba.co
-Authorization: Bearer <token>
 Content-Type: application/json
 
 {
-  "user_id": "auth0|123456789",
-  "role_id": "role123"
+  "parameters": {
+    "time_window": 24,
+    "refinement": true
+  }
 }
 ```
 
 **Response**:
 
-- **200 OK**: Role successfully assigned.
-
+- **200 OK**: Data interpolated successfully.
   ```json
   {
     "status": "success",
-    "message": "Role assigned successfully."
+    "message": "Data interpolated successfully.",
+    "output_file": "interpolated_data.csv"
   }
   ```
 
-- **400 Bad Request**: Invalid or missing body parameters.
-
+- **400 Bad Request**: Missing or invalid parameters.
   ```json
   {
-    "error": "Invalid user_id or role_id."
+    "error": "Invalid query or body parameters."
   }
   ```
 
-- **403 Forbidden**: Unauthorized request.
-
+- **500 Internal Server Error**: An unexpected error occurred.
   ```json
   {
-    "error": "Unauthorized."
+    "error": "Internal server error."
   }
   ```
-
-#### POST `/create-role`
-
-**Description**: Creates a new role.
-
-**Request**:
-
-- **Headers**:
-
-  - `Authorization` (string, required): A valid Auth0 token.
-  - `Content-Type`: `application/json`
-
-- **Body**:
-
-  ```json
-  {
-    "role_name": "admin",
-    "permissions": ["read:data", "write:data"]
-  }
-  ```
-
-**Example Request**:
-
-```
-POST /create-role HTTP/1.1
-Host: ona.asoba.co
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "role_name": "admin",
-  "permissions": ["read:data", "write:data"]
-}
-```
-
-**Response**:
-
-- **201 Created**: Role successfully created.
-
-  ```json
-  {
-    "status": "success",
-    "role_id": "role123",
-    "message": "Role created successfully."
-  }
-  ```
-
-- **400 Bad Request**: Missing or invalid body parameters.
-
-  ```json
-  {
-    "error": "Invalid role_name or permissions."
-  }
-  ```
-
-- **403 Forbidden**: Unauthorized request.
-
-  ```json
-  {
-    "error": "Unauthorized."
-  }
-  ```
-
-#### POST `/create-user`
-
-**Description**: Creates a new user in the system.
-
-**Request**:
-
-- **Headers**:
-
-  - `Authorization` (string, required): A valid Auth0 token.
-  - `Content-Type`: `application/json`
-
-- **Body**:
-
-  ```json
-  {
-    "email": "user@example.com",
-    "name": "John Doe",
-    "roles": ["role123"]
-  }
-  ```
-
-**Example Request**:
-
-```
-POST /create-user HTTP/1.1
-Host: ona.asoba.co
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "name": "John Doe",
-  "roles": ["role123"]
-}
-```
-
-**Response**:
-
-- **201 Created**: User successfully created.
-
-  ```json
-  {
-    "status": "success",
-    "user_id": "auth0|987654321",
-    "message": "User created successfully."
-  }
-  ```
-
-- **400 Bad Request**: Missing or invalid body parameters.
-
-  ```json
-  {
-    "error": "Invalid email or roles."
-  }
-  ```
-
-- **403 Forbidden**: Unauthorized request.
-
-  ```json
-  {
-    "error": "Unauthorized."
-  }
-  ```
-
-#### GET `/roles`
-
-**Description**: Retrieves a list of all roles.
-
-**Request**:
-
-- **Headers**:
-  - `Authorization` (string, required): A valid Auth0 token.
-
-**Example Request**:
-
-```
-GET /roles HTTP/1.1
-Host: ona.asoba.co
-Authorization: Bearer <token>
-```
-
-**Response**:
-
-- **200 OK**: Successfully retrieved the roles.
-
-  ```json
-  {
-    "roles": [
-      {"role_id": "role123", "name": "admin"},
-      {"role_id": "role124", "name": "user"}
-    ]
-  }
-  ```
-
-- **403 Forbidden**: Unauthorized request.
-
-  ```json
-  {
-    "error": "Unauthorized."
-  }
-  ```
-
-#### POST `/update-user`
-
-**Description**: Updates a user's information.
-
-**Request**:
-
-- **Headers**:
-
-  - `Authorization` (string, required): A valid Auth0 token.
-  - `Content-Type`: `application/json`
-
-- **Body**:
-
-  ```json
-  {
-    "user_id": "auth0|123456789",
-    "new_name": "Jane Doe"
-  }
-  ```
-
-**Example Request**:
-
-```
-POST /update-user HTTP/1.1
-Host: ona.asoba.co
-Authorization: Bearer <token>
-Content-Type: application/json
-
-{
-  "user_id": "auth0|123456789",
-  "new_name": "Jane Doe"
-}
-```
-
-**Response**:
-
-- **200 OK**: User information successfully updated.
-
-  ```json
-  {
-    "status": "success",
-    "message": "User updated successfully."
-  }
-  ```
-
-- **400 Bad Request**: Missing or invalid body parameters.
-
-  ```json
-  {
-    "error": "Invalid user_id or new_name."
-  }
-  ```
-
-- **403 Forbidden**: Unauthorized request.
-
-  ```json
-  {
-    "error": "Unauthorized."
-  }
-  ```
-
-#### GET `/users`
-
-**Description**: Retrieves a list of all users.
-
-**Request**:
-
-- **Headers**:
-  - `Authorization` (string, required): A valid Auth0 token.
-
-**Example Request**:
-
-```
-GET /users HTTP/1.1
-Host: ona.asoba.co
-Authorization: Bearer <token>
-```
-
-**Response**:
-
-- **200 OK**: Successfully retrieved the users.
-
-  ```json
-  {
-    "users": [
-      {"user_id": "auth0|123456789", "name": "John Doe", "email": "user@example.com"},
-      {"user_id": "auth0|987654321", "name": "Jane Doe", "email": "jane@example.com"}
-    ]
-  }
-  ```
-
-- **403 Forbidden**: Unauthorized request.
-
-  ```json
-  {
-    "error": "Unauthorized."
-  }
-  ```
-
-
 
 ---
-
-Please ensure you have the correct base URL and necessary authorization tokens for all requests. Replace placeholders (e.g., `<token>`) with actual values.
