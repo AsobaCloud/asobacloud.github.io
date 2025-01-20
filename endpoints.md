@@ -4,7 +4,7 @@ layout: default
 nav_order: 2
 ---
 
-# API Endpoints Documentation
+## API Endpoints Documentation
 
 This guide details the APIs available in the Ona ecosystem, including their base URLs, endpoints, request parameters, and response structures. The API system dynamically routes requests to the appropriate regional endpoint based on a `region` query parameter, processed via CloudFront and Lambda\@Edge.
 
