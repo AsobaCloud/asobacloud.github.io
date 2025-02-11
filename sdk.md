@@ -1,15 +1,15 @@
 # Ona SDK
 
-## 🚀 Introduction
+##  Introduction
 
 The **Ona SDK** enables seamless integration with the **Ona API Platform**, allowing users to:
-- 🔄 **Upload large historical datasets** for interpolation, model training, and forecasting.
-- 🚀 **Retrieve pre-signed URLs** for secure file uploads to AWS S3.
-- 📡 **Interact programmatically** with Ona’s APIs for energy forecasting, dispatching, and analysis.
+-  **Upload large historical datasets** for interpolation, model training, and forecasting.
+-  **Retrieve pre-signed URLs** for secure file uploads to AWS S3.
+-  **Interact programmatically** with Ona’s APIs for energy forecasting, dispatching, and analysis.
 
 This SDK provides support for **JavaScript (Node.js & Browser)** and **Python**, making it easy for developers to **integrate Ona into third-party applications**.
 
-### 🔑 Key Features
+### Key Features
 ✔ **Pre-Signed URL Generation** – Secure and efficient file uploads to AWS S3.  
 ✔ **Historical Data Upload** – Enable seamless ingestion of large energy datasets.  
 ✔ **Dual SDK Support** – Use in both **JavaScript** and **Python** applications.  
@@ -18,16 +18,16 @@ This SDK provides support for **JavaScript (Node.js & Browser)** and **Python**,
 
 ---
 
-## 📦 Installation
+## Installation
 
-### 🔧 Prerequisites
+### Prerequisites
 Before installing, ensure you have:
 - **Node.js 14+** (for JavaScript SDK)
 - **Python 3.7+** (for Python SDK)
 - **AWS Credentials** configured in `.env`
 - **API Key** for secure authentication
 
-### 📥 JavaScript Installation
+###  JavaScript Installation
 ```sh
 npm install Ona-sdk
 or manually:
@@ -39,7 +39,7 @@ mkdir Ona-sdk && cd Ona-sdk
 npm init -y
 npm install axios dotenv
 ```
-📥 Python Installation
+### Python Installation
 ```sh
 pip install requests python-dotenv
 or manually:
@@ -51,15 +51,16 @@ mkdir Ona_sdk && cd Ona_sdk
 python -m venv venv && source venv/bin/activate
 pip install requests python-dotenv
 ```
-🛠 Environment Setup  
+### Environment Setup  
 Create a .env file with:
 
 ```ini
 Ona_API_URL=https://yn058ezh38.execute-api.af-south-1.amazonaws.com/test
 Ona_API_KEY=your-api-key-here
 ```
-🚀 Usage Examples  
-📌 JavaScript SDK
+## Usage Examples  
+
+### JavaScript SDK
 ```javascript
 require("dotenv").config();
 const axios = require("axios");
@@ -95,20 +96,20 @@ class OnaUploader {
         try {
             const fileData = fs.readFileSync(filePath);
             await axios.put(presignedUrl, fileData, { headers: { "Content-Type": "text/csv" } });
-            console.log("✅ File uploaded successfully!");
+            console.log("File uploaded successfully!");
         } catch (error) {
-            console.error("❌ Error uploading file:", error);
+            console.error("Error uploading file:", error);
             throw error;
         }
     }
 
     async uploadToS3(filePath, customer_id, region, location, manufacturer) {
         const filename = filePath.split("/").pop();
-        console.log("🔄 Fetching Pre-Signed URL...");
+        console.log("Fetching Pre-Signed URL...");
         const { presigned_url } = await this.getPresignedUrl(customer_id, region, location, manufacturer, filename);
-        console.log("🔄 Uploading to S3...");
+        console.log("Uploading to S3...");
         await this.uploadFile(filePath, presigned_url);
-        console.log(`✅ Upload completed: ${presigned_url}`);
+        console.log(`Upload completed: ${presigned_url}`);
     }
 }
 
@@ -118,7 +119,7 @@ class OnaUploader {
     await uploader.uploadToS3("sample.csv", "280001", "af-south-1", "CapeTown", "lux");
 })();
 ```
-📌 Python SDK
+### Python SDK
 ```python
 import os
 import requests
@@ -156,19 +157,19 @@ class OnaUploader:
 
     def upload_to_s3(self, file_path, customer_id, region, location, manufacturer):
         filename = os.path.basename(file_path)
-        print("🔄 Fetching Pre-Signed URL...")
+        print("Fetching Pre-Signed URL...")
         presigned_data = self.get_presigned_url(customer_id, region, location, manufacturer, filename)
         presigned_url = presigned_data["presigned_url"]
-        print("🔄 Uploading to S3...");
+        print("Uploading to S3...");
         self.upload_file(file_path, presigned_url)
-        print(f"✅ Upload completed: {presigned_url}")
+        print(f"Upload completed: {presigned_url}")
 
 # Example Usage
 if __name__ == "__main__":
     uploader = OnaUploader();
     uploader.upload_to_s3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")
 ```
-📜 API Reference  
+## API Reference  
 🔹 **getPresignedUrl(customer_id, region, location, manufacturer, filename)**  
 Returns: A pre-signed S3 URL to upload historical energy data.  
 Usage:
@@ -190,15 +191,16 @@ Usage:
 - **JavaScript:** `uploader.uploadToS3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")`  
 - **Python:** `uploader.upload_to_s3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")`
 
-🛠 **Troubleshooting**  
-403 Forbidden? Ensure your API key is valid.  
-SignatureDoesNotMatch? Verify your .env settings and AWS credentials.  
-Connection Timeout? Check your internet connection and retry.
+## **Troubleshooting**  
+**403 Forbidden?** Ensure your API key is valid.  
+`SignatureDoesNotMatch`? Verify your .env settings and AWS credentials.  
+`Connection Timeout`? Check your internet connection and retry.
+`5XX` Error? Ensure that your upload is proper `.csv` format, and that you are providing all required parameters in correct order.
 
-📢 **Future Enhancements**  
-📊 Model Training & Forecasting API Integration  
-🔄 Data Synchronization for Real-Time Dispatch  
-🛠 Webhooks for Asynchronous Processing
+## **Future Enhancements**  
+Model Training & Forecasting API Integration  
+Data Synchronization for Real-Time Dispatch  
+Webhooks for Asynchronous Processing
 
 📧 **Support**  
 For support, reach out to support@Ona.energy.
