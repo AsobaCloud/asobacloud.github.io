@@ -2,7 +2,7 @@
 
 ## 🚀 Introduction
 
-The **Ona SDK** enables seamless integration with the **Ona Energy AI Platform**, allowing users to:
+The **Ona SDK** enables seamless integration with the **Ona API Platform**, allowing users to:
 - 🔄 **Upload large historical datasets** for interpolation, model training, and forecasting.
 - 🚀 **Retrieve pre-signed URLs** for secure file uploads to AWS S3.
 - 📡 **Interact programmatically** with Ona’s APIs for energy forecasting, dispatching, and analysis.
