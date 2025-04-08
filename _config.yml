@@ -6,16 +6,16 @@ remote_theme: "just-the-docs/just-the-docs"
 #   - "assets/*"      # Exclude all files in the folder
 
 # Enable the top navigation bar
-aux_links:
-  "Home": 
-    - "https://asoba.co"
-  "Insights":
-    - "https://asoba.co/insights"
-  "Contact Us":
-    - "https://asoba.co/contact-us"
+# aux_links:
+#   "Home": 
+#     - "https://asoba.co"
+#   "Insights":
+#     - "https://asoba.co/insights"
+#   "Contact Us":
+#     - "https://asoba.co/contact-us"
 
 # Make Aux links open in a new tab
-aux_links_new_tab: true
+# aux_links_new_tab: true
 
 # Sidebar configuration
 search_enabled: true
@@ -35,3 +35,6 @@ toc:
   enabled: true
   h_min: 2
   h_max: 3
+
+baseurl: ""  # Add this if your site is at the root of your domain
+url: "https://docs.asoba.co"  # Replace with your actual domain
