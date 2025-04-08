@@ -14,7 +14,7 @@ To use the Ona On-Demand app, you must first [log in here](https://app.asoba.co)
 
 Ona's policy analyst is an AI-driven chatbot designed to provide real-time, accurate, and actionable insights on climate policies, energy laws, and market-related questions. Whether you need compliance guidance, regulatory insights, or help understanding legal routes for maximizing value of renewable assets, our chatbot is here to assist—ensuring you make informed decisions quickly.
 
-![Ona Policy Analyst Preview]({{ site.baseurl }}/assets/images/bg_preview.gif)
+![Ona Policy Analyst Preview]({{ site.baseurl }}/assets/images/bg_preview.gif){:width="50%"}
 
 ### Features & Benefits:
 
@@ -75,7 +75,7 @@ To get the most relevant and accurate responses, follow these simple guidelines 
 ### Overview
 The Ona On-Demand app also contains grid operations and load forecasting features, designed to provide comprehensive insights for municipal grid operators, metering companies, and IPPs into network structures, load profiles, and energy resource management.
 
-![Minigrid Network Operations]({{ site.baseurl }}/assets/images/network-ops.gif)
+![Minigrid Network Operations]({{ site.baseurl }}/assets/images/network-ops.gif){:width="50%"}
 
 ### Grid Operations Capabilities
 
@@ -144,7 +144,7 @@ Powerful management features:
 ### Overview
 This feature allows researchers, individuals, and smaller scale IPPs to upload CSV interval data and train models or generate one-off forecasts on the fly.
 
-![Ona On-Demand Model Training]({{ site.baseurl }}/assets/images/on-demand-api.gif)
+![Ona On-Demand Model Training]({{ site.baseurl }}/assets/images/on-demand-api.gif){:width="50%"}
 
 ### Getting Started
 1. **Subscribe and Obtain API Key**: Once you subscribe, head to Settings to get your API key. You'll need this to run queries.

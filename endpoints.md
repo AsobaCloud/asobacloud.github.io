@@ -70,13 +70,13 @@ with open('data.csv', 'rb') as file_data:
 
   ```json
   {
-    "message": "File uploaded successfully. You will receive a notification when model training is complete.",
-    "upload_details": {
-      "filename": "data.csv",
-      "customer_id": "12345",
-      "region": "af-south-1",
-      "location": "CapeTown",
-      "manufacturer": "exampleCorp"
+    "statusCode": 200,
+    "body": "Data uploaded successfully for client_id-customer_id.",
+    "response": {
+      "ResponseMetadata": {
+        "RequestId": "XXXXXXXX",
+        "HTTPStatusCode": 200
+      }
     }
   }
   ```
@@ -97,9 +97,8 @@ with open('data.csv', 'rb') as file_data:
 
   ```json
   {
-    "error": "Internal server error.",
-    "trace_id": "abc123xyz",
-    "timestamp": "2023-10-01T12:00:00Z"
+    "statusCode": 500,
+    "body": "Internal server error: error message details"
   }
   ```
 
@@ -177,14 +176,8 @@ print(response.status_code, response.json())
 
   ```json
   {
-    "status": "success",
-    "message": "Nowcast data uploaded successfully.",
-    "upload_details": {
-      "filename": "nowcast.csv",
-      "customer_id": "67890",
-      "region": "af-south-1",
-      "customer_type": "residential"
-    }
+    "statusCode": 200,
+    "body": "Nowcast data uploaded successfully."
   }
   ```
 
@@ -268,15 +261,10 @@ print(response.status_code, response.json())
 
   ```json
   {
-    "message": "Training job created successfully.",
-    "TrainingJobArn": "arn:aws:sagemaker:region:account-id:training-job/job-name",
-    "job_details": {
-      "customer_id": "12345",
-      "location": "CapeTown",
-      "region": "af-south-1",
-      "manufacturer": "exampleCorp",
-      "serial_number": "SN123456",
-      "testing": true
+    "statusCode": 200,
+    "body": {
+      "message": "Training job job_name created successfully.",
+      "TrainingJobArn": "arn:aws:sagemaker:region:account-id:training-job/job-name"
     }
   }
   ```
@@ -356,45 +344,17 @@ print(response.status_code, response.json())
 
   ```json
   {
-    "status": "success",
-    "results": {
-      "forecast_data": [
-        {
-          "timestamp": "2023-10-01T00:00:00Z",
-          "value": 123.45
-        },
-        {
-          "timestamp": "2023-10-01T01:00:00Z",
-          "value": 130.67
-        }
-      ],
-      "metadata": {
-        "customer_id": "67890",
-        "serial_number": "SN123456"
-      }
-    }
+    "statusCode": 200,
+    "body": "Email with forecasting results sent successfully"
   }
   ```
 
-- **400 Bad Request**:
+- **401 Unauthorized**:
 
   ```json
   {
-    "error": "Invalid query parameters.",
-    "details": {
-      "missing_parameters": ["client_id"],
-      "invalid_parameters": ["region"]
-    }
-  }
-  ```
-
-- **500 Internal Server Error**:
-
-  ```json
-  {
-    "error": "Internal server error.",
-    "trace_id": "jkl012uvw",
-    "timestamp": "2023-10-01T12:15:00Z"
+    "statusCode": 401,
+    "body": {"message": "No email address for client client_id"}
   }
   ```
 
@@ -464,13 +424,8 @@ print(response.status_code, response.json())
 
   ```json
   {
-    "status": "success",
-    "message": "Data interpolated successfully.",
-    "interpolation_details": {
-      "filename": "data.csv",
-      "mode": "fill_missing_blocks",
-      "customer_id": "12345"
-    }
+    "statusCode": 200,
+    "body": "Generated data processed successfully"
   }
   ```
 
@@ -510,101 +465,4 @@ print(response.status_code, response.json())
 - **Rate**: 1 request per second.
 - **Burst**: 10 requests.
 - **Quota**: 100 requests per day.
-- Users exceeding these limits will receive a `429 Too Many Requests` error.
-
-### **Environment-Specific Notes**
-
-- **Production**: `prod` Endpoints for live usage by clients.
-- **Test**: `test` Internal staging environment used for validation and pre-release testing.
-
-### **Versioning**
-
-- APIs follow semantic versioning:
-  - Bug fixes increment the last digit: `X.X.5`.
-  - Minor updates increment the middle digit: `X.1.X`.
-  - Major updates increment the first digit: `1.X.X`.
-- Currently, only the latest version is exposed to users.
-
-### **CloudFront Logs**
-
-- Logs for all API requests are stored in the `ona-cloudfront-logs` S3 bucket.
-- Available upon request from the Asoba team.
-
----
-
-## **Error Handling**
-
-### **Common Error Codes and Resolutions**
-
-| **HTTP Code** | **Error**                | **Cause**                      | **Resolution**                                              |
-| ------------- | ------------------------ | ------------------------------ | ----------------------------------------------------------- |
-| 400           | Invalid query parameters | Missing or invalid parameters  | Verify that all required parameters are included and valid. |
-| 401           | Unauthorized             | API key missing or invalid     | Ensure the correct `x-api-key` is included.                 |
-| 429           | Too Many Requests        | Rate limit exceeded            | Reduce request rate and retry after some time.              |
-| 500           | Internal Server Error    | System error during processing | Retry the request or contact support.                       |
-
-### **Request Validation**
-
-- Ensure that:
-  - `region` is valid (`africa`, `northamerica`).
-  - `filename` ends with `.csv`.
-  - All required query parameters are provided.
-
----
-
-## **FAQ**
-
-1. **What happens if the `region` parameter is omitted?**
-
-   - The request will fail with a `400 Bad Request` error.
-
-2. **How do I handle expired API keys?**
-
-   - Contact the Asoba team for a new API key.
-
-3. **Is there a size limit for uploads?**
-
-   - Yes, the maximum file size is currently 10 MB.
-
-4. **Can I upload multiple files at once?**
-
-   - No, only one file can be uploaded per request.
-
----
-
-## **Workflow Examples**
-
-### Example Workflow: Forecast Generation Using Patchy Historical Data
-
-1. **Interpolate Missing Data**:
-
-   - Use the `/interpolate` endpoint to process the uploaded historical data file and fill in missing blocks. This generates a pre-processed training dataset.
-   - Output: `s3://api-client-output/<customer_id>/data/<date>_historical_preprocessed.csv`
-
-2. **Kick Off Model Training**:
-
-   - Use the `/upload_historical` endpoint with the interpolated dataset to initiate model training. Model training takes approximately 30 minutes to 1 hour.
-   - Output: `s3://api-client-output/<customer_id>/training_output/<date timestamp>/<training files>`
-
-3. **Generate Forecasts**:
-
-   - Use the `/upload_nowcast` endpoint with interval data from the last 7 days to run inference on the trained model and generate forecasts.  Forecasts generation takes approximately 60 to 90 seconds, but often less than that.
-   - Output: `s3://api-client-output/<customer_id>/<forecast_output>/<date timestamp>/<forecast files>`
-
-4. **Retrieve Outputs**:
-
-   - Download pre-processed training data, model training outputs, and forecasts from the respective S3 buckets.
-
-### **Additional Notes**
-
-Contact the Asoba team if additional data integration workflows are required, such as:
-
-- Automated pushes aligned with trading or service workflows.
-- Advanced data engineering or governance solutions.
-- Direct integration of outputs within existing user-facing product or service
-
----
-
-## **Contact Information for Support**
-
-For additional support, please contact the Asoba team at `support@asoba.co` or through the API management portal. 
+- Users exceeding these limits will receive a `429 Too Many Requests`
