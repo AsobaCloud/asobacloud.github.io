@@ -4,7 +4,7 @@ layout: default
 nav_order: 3
 ---
 
-## Getting Started with the Ona SDK
+## Getting Started with the Ona SDK {#getting-started}
 
 This reference documents every object and method available in Ona's SDK for seamless integration with the Ona API Platform. Use our SDK to upload large historical datasets, retrieve pre-signed URLs for secure file uploads, and interact programmatically with Ona's APIs for energy forecasting, dispatching, and analysis.
 
@@ -19,7 +19,7 @@ The Ona SDK supports both JavaScript (Node.js & Browser) and Python, making it e
 
 ---
 
-## Installation
+## Installation {#installation}
 
 ### Prerequisites
 Before installing, ensure you have:
@@ -57,7 +57,7 @@ Create a .env file with:
 Ona_API_URL=https://yn058ezh38.execute-api.af-south-1.amazonaws.com/test
 Ona_API_KEY=your-api-key-here
 ```
-## Usage Examples  
+## Usage Examples {#usage-examples}  
 
 ### JavaScript SDK
 ```javascript
@@ -168,7 +168,7 @@ if __name__ == "__main__":
     uploader = OnaUploader();
     uploader.upload_to_s3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")
 ```
-## API Reference  
+## API Reference {#api-reference}  
 🔹 **getPresignedUrl(customer_id, region, location, manufacturer, filename)**  
 Returns: A pre-signed S3 URL to upload historical energy data.  
 Usage:
@@ -190,7 +190,7 @@ Usage:
 - **JavaScript:** `uploader.uploadToS3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")`  
 - **Python:** `uploader.upload_to_s3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")`
 
-## **Troubleshooting**  
+## **Troubleshooting** {#troubleshooting}  
 ### Common Issues
 
 - **403 Forbidden**: Ensure your API key is valid and has the necessary permissions.

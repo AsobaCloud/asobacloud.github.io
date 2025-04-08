@@ -10,7 +10,7 @@ This guide details the APIs available in the Ona ecosystem, including their base
 
 ---
 
-## **1. ingestHistoricalLoadData API**
+## **1. ingestHistoricalLoadData API** {#ingestHistoricalLoadData}
 
 ### **Base URL**
 
@@ -105,7 +105,7 @@ with open('data.csv', 'rb') as file_data:
 
 ---
 
-## **2. ingestNowcastLoadData API**
+## **2. ingestNowcastLoadData API** {#ingestNowcastLoadData}
 
 ### **Base URL**
 
@@ -212,7 +212,7 @@ print(response.status_code, response.json())
 
 ---
 
-## **3. trainForecaster API**
+## **3. trainForecaster API** {#trainForecaster}
 
 ### **Base URL**
 
@@ -305,7 +305,7 @@ print(response.status_code, response.json())
 
 ---
 
-## **4. returnForecastingResults API**
+## **4. returnForecastingResults API** {#returnForecastingResults}
 
 ### **Base URL**
 
@@ -400,7 +400,7 @@ print(response.status_code, response.json())
 
 ---
 
-## **5. interpolateData API**
+## **5. interpolateData API** {#interpolateData}
 
 ### **Base URL**
 

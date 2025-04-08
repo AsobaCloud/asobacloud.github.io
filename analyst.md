@@ -4,13 +4,13 @@ layout: default
 nav_order: 4
 ---
 
-## Getting Started with Ona On-Demand
+## Getting Started with Ona On-Demand {#getting-started-with-ona-on-demand}
 
 Welcome to Ona On-Demand—your comprehensive web app for navigating complex energy policies and managing grid operations with ease. This guide will help you get started quickly, understand best practices for interacting with the app, and explore key features.
 
 To use the Ona On-Demand app, you must first [log in here](https://app.asoba.co), and then provide billing for the subscription and features that fit your use case.
 
-## Ona Policy Analyst
+## Ona Policy Analyst {#ona-policy-analyst}
 
 Ona's policy analyst is an AI-driven chatbot designed to provide real-time, accurate, and actionable insights on climate policies, energy laws, and market-related questions. Whether you need compliance guidance, regulatory insights, or help understanding legal routes for maximizing value of renewable assets, our chatbot is here to assist—ensuring you make informed decisions quickly.
 
@@ -70,7 +70,7 @@ To get the most relevant and accurate responses, follow these simple guidelines 
    Try rephrasing your question with more context or detail. Additionally, view our prompt guide for details on structuring your queries effectively.
 
 
-## Grid Operations
+## Grid Operations {#grid-operations}
 
 ### Overview
 The Ona On-Demand app also contains grid operations and load forecasting features, designed to provide comprehensive insights for municipal grid operators, metering companies, and IPPs into network structures, load profiles, and energy resource management.
@@ -139,7 +139,7 @@ Powerful management features:
 - Flexible and intuitive user interface
 - Comprehensive energy resource tracking
 
-## On-Demand Model Training
+## On-Demand Model Training {#on-demand-model-training}
 
 ### Overview
 This feature allows researchers, individuals, and smaller scale IPPs to upload CSV interval data and train models or generate one-off forecasts on the fly.

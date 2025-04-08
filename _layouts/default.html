@@ -13,21 +13,53 @@ layout: default
 <body>
   {% include header.html %}
 
-  <div class="container">
-    <div class="sidebar">
+  <div class="container" style="display: flex; max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <div class="sidebar" style="width: 250px; padding-right: 20px;">
+      <div class="search-container" style="margin-bottom: 20px;">
+        <input type="text" id="search-input" placeholder="Search..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+      </div>
       <nav class="side-nav">
-        <ul>
-          <li><a href="{{ site.baseurl }}/getting-started" {% if page.url contains 'getting-started' %}class="active"{% endif %}>Getting Started</a></li>
-          <li><a href="{{ site.baseurl }}/sdk" {% if page.url contains 'sdk' %}class="active"{% endif %}>Ona SDK</a></li>
-          <li><a href="{{ site.baseurl }}/on-demand" {% if page.url contains 'on-demand' %}class="active"{% endif %}>Ona On-Demand</a></li>
-          <li><a href="https://asoba.co" target="_blank">Asoba Website {% include external-link-icon.html %}</a></li>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li><a href="{{ site.baseurl }}/">Introduction</a>
+            <ul style="list-style-type: none; padding-left: 15px;">
+              <li><a href="{{ site.baseurl }}/#getting-started">Getting Started</a></li>
+              <li><a href="{{ site.baseurl }}/#onboarding-web-app">Onboarding: Web App</a></li>
+              <li><a href="{{ site.baseurl }}/#onboarding-api-integration">API Integration</a></li>
+              <li><a href="{{ site.baseurl }}/#data-preparation">Data Preparation</a></li>
+              <li><a href="{{ site.baseurl }}/#api-configuration">API Configuration</a></li>
+              <li><a href="{{ site.baseurl }}/#testing-validation">Testing & Validation</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ site.baseurl }}/endpoints/">API Endpoints</a>
+            <ul style="list-style-type: none; padding-left: 15px;">
+              <li><a href="{{ site.baseurl }}/endpoints/#ingestHistoricalLoadData">Historical Load Data</a></li>
+              <li><a href="{{ site.baseurl }}/endpoints/#ingestNowcastLoadData">Nowcast Load Data</a></li>
+              <li><a href="{{ site.baseurl }}/endpoints/#trainForecaster">Train Forecaster</a></li>
+              <li><a href="{{ site.baseurl }}/endpoints/#returnForecastingResults">Forecasting Results</a></li>
+              <li><a href="{{ site.baseurl }}/endpoints/#interpolateData">Interpolate Data</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ site.baseurl }}/sdk/">Ona SDK</a>
+            <ul style="list-style-type: none; padding-left: 15px;">
+              <li><a href="{{ site.baseurl }}/sdk/#getting-started">Getting Started</a></li>
+              <li><a href="{{ site.baseurl }}/sdk/#installation">Installation</a></li>
+              <li><a href="{{ site.baseurl }}/sdk/#usage-examples">Usage Examples</a></li>
+              <li><a href="{{ site.baseurl }}/sdk/#api-reference">API Reference</a></li>
+              <li><a href="{{ site.baseurl }}/sdk/#troubleshooting">Troubleshooting</a></li>
+            </ul>
+          </li>
+          <li><a href="{{ site.baseurl }}/analyst/">Ona On-Demand</a>
+            <ul style="list-style-type: none; padding-left: 15px;">
+              <li><a href="{{ site.baseurl }}/analyst/#getting-started-with-ona-on-demand">Getting Started</a></li>
+              <li><a href="{{ site.baseurl }}/analyst/#ona-policy-analyst">Policy Analyst</a></li>
+              <li><a href="{{ site.baseurl }}/analyst/#grid-operations">Grid Operations</a></li>
+              <li><a href="{{ site.baseurl }}/analyst/#on-demand-model-training">Model Training</a></li>
+            </ul>
+          </li>
         </ul>
       </nav>
-      <div class="sidebar-footer">
-        This site uses <a href="https://just-the-docs.github.io/just-the-docs/">Just the Docs</a>, a documentation theme for Jekyll.
-      </div>
     </div>
-    <div class="content">
+    <div class="content" style="flex: 1; max-width: 800px; padding: 0 20px; background-color: white; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
       {{ content }}
     </div>
   </div>
