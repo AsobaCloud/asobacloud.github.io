@@ -316,3 +316,24 @@ pre code {
   color: #555;
   font-size: 14px;
 }
+
+/* Fix for bullet points not displaying properly */
+.content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+.content ul li {
+  margin-bottom: 5px;
+  display: list-item;
+}
+
+.content ul ul {
+  list-style-type: circle;
+  margin-left: 20px;
+}
+
+.content ul ul li {
+  margin-bottom: 3px;
+}
