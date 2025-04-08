@@ -36,7 +36,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding: 0 80px 0 40px;
 }
 
 .branding {
@@ -45,8 +45,8 @@ ul {
 }
 
 .branding img {
-  width: 148px;
-  height: 53px;
+  width: 140px;
+  height: 50px;
 }
 
 .search-container-top {
@@ -66,13 +66,13 @@ ul {
 
 .top-links {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .top-links a {
-  color: #333;
+  color: #4D4D4D;
   text-decoration: none;
-  font: normal 15px / 19px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
+  font: normal 14px / 18px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
   padding: 0 10px;
 }
 
