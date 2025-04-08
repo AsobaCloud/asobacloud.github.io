@@ -345,18 +345,24 @@ pre code {
   margin: 20px 0;
   font-size: 14px;
   border: 1px solid #e1e4e8;
+  table-layout: fixed;
+}
+
+.content table, 
+.content th, 
+.content td {
+  border: 1px solid #e1e4e8;
 }
 
 .content th {
   background-color: #f6f8fa;
-  border: 1px solid #e1e4e8;
   padding: 12px 15px;
   text-align: left;
   font-weight: 600;
+  color: #24292e;
 }
 
 .content td {
-  border: 1px solid #e1e4e8;
   padding: 10px 15px;
   vertical-align: top;
 }
@@ -367,4 +373,47 @@ pre code {
 
 .content tr:hover {
   background-color: #f1f1f1;
+}
+
+/* Ensure table styles are applied to generated HTML */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 14px;
+  border: 1px solid #e1e4e8;
+}
+
+table, th, td {
+  border: 1px solid #e1e4e8;
+}
+
+th {
+  background-color: #f6f8fa;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: #24292e;
+}
+
+td {
+  padding: 10px 15px;
+  vertical-align: top;
+}
+
+tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Responsive tables */
+@media screen and (max-width: 768px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
