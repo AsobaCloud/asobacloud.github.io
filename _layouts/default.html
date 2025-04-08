@@ -4,8 +4,25 @@ layout: default
 
 {% include header.html %}
 
-<!-- Add existing content from the remote theme here -->
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
 
-<div class="main-content">
-  {{ content }}
-</div> 
+<div class="container">
+  <div class="sidebar">
+    <nav class="side-nav">
+      <ul>
+        <li><a href="{{ site.baseurl }}/">Introduction</a></li>
+        <li><a href="{{ site.baseurl }}/api-endpoints">API Endpoints</a></li>
+        <li><a href="{{ site.baseurl }}/getting-started">Getting Started</a></li>
+        <li><a href="{{ site.baseurl }}/ona-sdk">Ona SDK</a></li>
+        <li><a href="{{ site.baseurl }}/ona-on-demand">Ona On-Demand</a></li>
+        <li><a href="https://asoba.co" target="_blank">Asoba Website {% include external-link-icon.html %}</a></li>
+      </ul>
+    </nav>
+    <div class="sidebar-footer">
+      This site uses <a href="https://just-the-docs.github.io/just-the-docs/">Just the Docs</a>, a documentation theme for Jekyll.
+    </div>
+  </div>
+  <div class="content">
+    {{ content }}
+  </div>
+</div>
