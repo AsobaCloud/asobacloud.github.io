@@ -51,7 +51,7 @@ Welcome to the Ona API Platform! Here's how you can get started with onboarding 
 
 > This product is currently in beta, so endpoint parameters and syntax are subject to change.  An API Key is also required to make successful requests via these API endpoints.  Try out the ecosystem via the On-Demand web app, or [connect with our sales team](mailto:sales@asoba.co) to get started with API access 
 
-![Architecture diagram of API's](https://staging-internal.asoba.co/api-architecture.png)
+![Architecture diagram of API's](https://staging-internal.asoba.co/api-architecture.png){:width="50%"}
 
 
 ### Key Use Cases
