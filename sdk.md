@@ -4,9 +4,7 @@ layout: default
 nav_order: 3
 ---
 
-# Ona SDK
-
-## Introduction
+## Getting Started with the Ona SDK
 
 This reference documents every object and method available in Ona's SDK for seamless integration with the Ona API Platform. Use our SDK to upload large historical datasets, retrieve pre-signed URLs for secure file uploads, and interact programmatically with Ona's APIs for energy forecasting, dispatching, and analysis.
 

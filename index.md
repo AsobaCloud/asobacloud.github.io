@@ -10,7 +10,7 @@ Welcome to the Ona API Platform! Here's how you can get started with onboarding 
 
 ### Onboarding: On-Demand Web App
 
-- **Register For Account**: https://app.asoba.co
+- **Register For Account**: [https://app.asoba.co](https://app.asoba.co)
 
 ### Onboarding: API Integration
 

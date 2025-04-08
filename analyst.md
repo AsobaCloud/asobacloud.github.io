@@ -4,7 +4,7 @@ layout: default
 nav_order: 4
 ---
 
-# Getting Started: Ona On-Demand
+## Getting Started with Ona On-Demand
 
 Welcome to Ona On-Demand—your comprehensive web app for navigating complex energy policies and managing grid operations with ease. This guide will help you get started quickly, understand best practices for interacting with the app, and explore key features.
 
