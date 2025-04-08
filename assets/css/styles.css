@@ -119,11 +119,21 @@ ul {
 /* Main Content */
 .content {
   margin-left: 250px; /* Same as sidebar width */
-  margin-top: 0;
+  margin-top: 70px; /* Same as header height */
   padding: 40px;
   width: calc(100% - 250px); /* 100% minus sidebar width */
   background-color: white;
   box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Page headers */
+.content h1 {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 32px;
+  line-height: 1.2;
 }
 
 /* Search Container */
@@ -238,13 +248,15 @@ pre code {
     height: auto;
     position: relative;
     top: 70px;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    padding: 15px 0;
   }
   
   .content {
     margin-left: 0;
+    margin-top: 0;
     width: 100%;
-    margin-top: 320px; /* Account for sidebar height */
+    padding: 30px 20px;
   }
 
   .header-bar {
@@ -253,6 +265,11 @@ pre code {
 
   .search-container-top {
     display: none; /* Hide search on small screens */
+  }
+  
+  /* Adjust main container for mobile */
+  .main-container {
+    flex-direction: column;
   }
 }
 
