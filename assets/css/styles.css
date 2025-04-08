@@ -252,3 +252,53 @@ pre code {
 }
 
 /* Remove masthead styles, top-bar, nav menu styles, assistive text */
+
+/* Collapsible navigation menu */
+.nav-list {
+  padding-left: 0;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 15px 5px 5px;
+}
+
+.nav-header a {
+  flex-grow: 1;
+  font-weight: bold;
+  color: #333;
+}
+
+.toggle-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  cursor: pointer;
+  color: #777;
+  font-weight: bold;
+  user-select: none;
+}
+
+.sub-menu {
+  display: none;
+  padding-left: 15px;
+  margin-top: 5px;
+}
+
+.sub-menu li {
+  margin-bottom: 5px;
+}
+
+.sub-menu a {
+  color: #555;
+  font-size: 14px;
+}

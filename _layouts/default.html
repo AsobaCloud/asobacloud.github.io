@@ -30,9 +30,13 @@ layout: default
 
   <div class="sidebar">
     <nav class="side-nav">
-      <ul style="list-style-type: none; padding-left: 0;">
-        <li><a href="{{ site.baseurl }}/index.html">Introduction</a>
-          <ul style="list-style-type: none; padding-left: 15px;">
+      <ul class="nav-list">
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/index.html">Introduction</a>
+            <span class="toggle-icon">+</span>
+          </div>
+          <ul class="sub-menu">
             <li><a href="{{ site.baseurl }}/index.html#getting-started">Getting Started</a></li>
             <li><a href="{{ site.baseurl }}/index.html#onboarding-web-app">Onboarding: Web App</a></li>
             <li><a href="{{ site.baseurl }}/index.html#onboarding-api-integration">API Integration</a></li>
@@ -41,8 +45,12 @@ layout: default
             <li><a href="{{ site.baseurl }}/index.html#testing-validation">Testing & Validation</a></li>
           </ul>
         </li>
-        <li><a href="{{ site.baseurl }}/endpoints.html">API Endpoints</a>
-          <ul style="list-style-type: none; padding-left: 15px;">
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/endpoints.html">API Endpoints</a>
+            <span class="toggle-icon">+</span>
+          </div>
+          <ul class="sub-menu">
             <li><a href="{{ site.baseurl }}/endpoints.html#ingestHistoricalLoadData">Historical Load Data</a></li>
             <li><a href="{{ site.baseurl }}/endpoints.html#ingestNowcastLoadData">Nowcast Load Data</a></li>
             <li><a href="{{ site.baseurl }}/endpoints.html#trainForecaster">Train Forecaster</a></li>
@@ -50,8 +58,12 @@ layout: default
             <li><a href="{{ site.baseurl }}/endpoints.html#interpolateData">Interpolate Data</a></li>
           </ul>
         </li>
-        <li><a href="{{ site.baseurl }}/sdk.html">Ona SDK</a>
-          <ul style="list-style-type: none; padding-left: 15px;">
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/sdk.html">Ona SDK</a>
+            <span class="toggle-icon">+</span>
+          </div>
+          <ul class="sub-menu">
             <li><a href="{{ site.baseurl }}/sdk.html#getting-started">Getting Started</a></li>
             <li><a href="{{ site.baseurl }}/sdk.html#installation">Installation</a></li>
             <li><a href="{{ site.baseurl }}/sdk.html#usage-examples">Usage Examples</a></li>
@@ -59,8 +71,12 @@ layout: default
             <li><a href="{{ site.baseurl }}/sdk.html#troubleshooting">Troubleshooting</a></li>
           </ul>
         </li>
-        <li><a href="{{ site.baseurl }}/analyst.html">Ona On-Demand</a>
-          <ul style="list-style-type: none; padding-left: 15px;">
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/analyst.html">Ona On-Demand</a>
+            <span class="toggle-icon">+</span>
+          </div>
+          <ul class="sub-menu">
             <li><a href="{{ site.baseurl }}/analyst.html#getting-started-with-ona-on-demand">Getting Started</a></li>
             <li><a href="{{ site.baseurl }}/analyst.html#ona-policy-analyst">Policy Analyst</a></li>
             <li><a href="{{ site.baseurl }}/analyst.html#grid-operations">Grid Operations</a></li>
@@ -74,5 +90,39 @@ layout: default
   <div class="content">
     {{ content }}
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleIcons = document.querySelectorAll('.toggle-icon');
+      
+      toggleIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+          const subMenu = this.parentElement.nextElementSibling;
+          
+          // Toggle submenu visibility
+          if(subMenu.style.display === 'none' || subMenu.style.display === '') {
+            subMenu.style.display = 'block';
+            this.textContent = '-';
+          } else {
+            subMenu.style.display = 'none';
+            this.textContent = '+';
+          }
+        });
+      });
+
+      // Get current page path
+      const currentPath = window.location.pathname;
+      
+      // Expand the current section
+      document.querySelectorAll('.nav-header a').forEach(link => {
+        if(currentPath.includes(link.getAttribute('href').split('#')[0])) {
+          const subMenu = link.parentElement.nextElementSibling;
+          const toggleIcon = link.nextElementSibling;
+          subMenu.style.display = 'block';
+          toggleIcon.textContent = '-';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
