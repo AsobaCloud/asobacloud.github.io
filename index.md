@@ -78,7 +78,15 @@ For more details, refer to the [README](README.md).
 
 ## YouTube Channel
 
-Stay updated with our latest videos and tutorials by subscribing to our [YouTube channel](https://www.youtube.com/@asobacleanenergy).
+Stay updated with our latest videos and tutorials on our YouTube channel:
+
+<div class="youtube-embed">
+  <iframe src="https://www.youtube.com/embed/videoseries?list=UUzOu94iuUNh0GUldPC3WrMA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="subscribe-button">
+  <a href="https://www.youtube.com/@asobacleanenergy?sub_confirmation=1" target="_blank">Subscribe to our Channel</a>
+</div>
 
 ---
 
