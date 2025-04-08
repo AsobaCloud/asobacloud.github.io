@@ -7,61 +7,73 @@ layout: default
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ site.title }}</title>
+  <title>{{ page.title }} - {{ site.title }}</title>
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
+  <script src="{{ site.baseurl }}/assets/js/search.js"></script>
 </head>
 <body>
-  {% include header.html %}
+  <header class="header-bar">
+    <div class="branding">
+      <a href="{{ site.baseurl }}/">
+        <img src="{{ site.baseurl }}/assets/images/logo.png" alt="Asoba Logo" style="height: 53px;">
+      </a>
+    </div>
+    <div class="search-container-top">
+      <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+      <div id="search-results" class="search-results"></div>
+    </div>
+    <div class="top-links">
+      <a href="https://asoba.co">Home</a>
+      <a href="https://asoba.co/insights">Insights</a>
+      <a href="https://asoba.co/contact-us">Contact Us</a>
+    </div>
+  </header>
 
-  <div class="container" style="display: flex; max-width: 1200px; margin: 0 auto; padding: 20px;">
-    <div class="sidebar" style="width: 250px; padding-right: 20px;">
-      <div class="search-container" style="margin-bottom: 20px;">
-        <input type="text" id="search-input" placeholder="Search..." style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
-      </div>
-      <nav class="side-nav">
-        <ul style="list-style-type: none; padding-left: 0;">
-          <li><a href="{{ site.baseurl }}/">Introduction</a>
-            <ul style="list-style-type: none; padding-left: 15px;">
-              <li><a href="{{ site.baseurl }}/#getting-started">Getting Started</a></li>
-              <li><a href="{{ site.baseurl }}/#onboarding-web-app">Onboarding: Web App</a></li>
-              <li><a href="{{ site.baseurl }}/#onboarding-api-integration">API Integration</a></li>
-              <li><a href="{{ site.baseurl }}/#data-preparation">Data Preparation</a></li>
-              <li><a href="{{ site.baseurl }}/#api-configuration">API Configuration</a></li>
-              <li><a href="{{ site.baseurl }}/#testing-validation">Testing & Validation</a></li>
-            </ul>
-          </li>
-          <li><a href="{{ site.baseurl }}/endpoints/">API Endpoints</a>
-            <ul style="list-style-type: none; padding-left: 15px;">
-              <li><a href="{{ site.baseurl }}/endpoints/#ingestHistoricalLoadData">Historical Load Data</a></li>
-              <li><a href="{{ site.baseurl }}/endpoints/#ingestNowcastLoadData">Nowcast Load Data</a></li>
-              <li><a href="{{ site.baseurl }}/endpoints/#trainForecaster">Train Forecaster</a></li>
-              <li><a href="{{ site.baseurl }}/endpoints/#returnForecastingResults">Forecasting Results</a></li>
-              <li><a href="{{ site.baseurl }}/endpoints/#interpolateData">Interpolate Data</a></li>
-            </ul>
-          </li>
-          <li><a href="{{ site.baseurl }}/sdk/">Ona SDK</a>
-            <ul style="list-style-type: none; padding-left: 15px;">
-              <li><a href="{{ site.baseurl }}/sdk/#getting-started">Getting Started</a></li>
-              <li><a href="{{ site.baseurl }}/sdk/#installation">Installation</a></li>
-              <li><a href="{{ site.baseurl }}/sdk/#usage-examples">Usage Examples</a></li>
-              <li><a href="{{ site.baseurl }}/sdk/#api-reference">API Reference</a></li>
-              <li><a href="{{ site.baseurl }}/sdk/#troubleshooting">Troubleshooting</a></li>
-            </ul>
-          </li>
-          <li><a href="{{ site.baseurl }}/analyst/">Ona On-Demand</a>
-            <ul style="list-style-type: none; padding-left: 15px;">
-              <li><a href="{{ site.baseurl }}/analyst/#getting-started-with-ona-on-demand">Getting Started</a></li>
-              <li><a href="{{ site.baseurl }}/analyst/#ona-policy-analyst">Policy Analyst</a></li>
-              <li><a href="{{ site.baseurl }}/analyst/#grid-operations">Grid Operations</a></li>
-              <li><a href="{{ site.baseurl }}/analyst/#on-demand-model-training">Model Training</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
-    <div class="content" style="flex: 1; max-width: 800px; padding: 0 20px; background-color: white; box-shadow: 0 0 5px rgba(0,0,0,0.1);">
-      {{ content }}
-    </div>
+  <div class="sidebar">
+    <nav class="side-nav">
+      <ul style="list-style-type: none; padding-left: 0;">
+        <li><a href="{{ site.baseurl }}/">Introduction</a>
+          <ul style="list-style-type: none; padding-left: 15px;">
+            <li><a href="{{ site.baseurl }}/#getting-started">Getting Started</a></li>
+            <li><a href="{{ site.baseurl }}/#onboarding-web-app">Onboarding: Web App</a></li>
+            <li><a href="{{ site.baseurl }}/#onboarding-api-integration">API Integration</a></li>
+            <li><a href="{{ site.baseurl }}/#data-preparation">Data Preparation</a></li>
+            <li><a href="{{ site.baseurl }}/#api-configuration">API Configuration</a></li>
+            <li><a href="{{ site.baseurl }}/#testing-validation">Testing & Validation</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ site.baseurl }}/endpoints/">API Endpoints</a>
+          <ul style="list-style-type: none; padding-left: 15px;">
+            <li><a href="{{ site.baseurl }}/endpoints/#ingestHistoricalLoadData">Historical Load Data</a></li>
+            <li><a href="{{ site.baseurl }}/endpoints/#ingestNowcastLoadData">Nowcast Load Data</a></li>
+            <li><a href="{{ site.baseurl }}/endpoints/#trainForecaster">Train Forecaster</a></li>
+            <li><a href="{{ site.baseurl }}/endpoints/#returnForecastingResults">Forecasting Results</a></li>
+            <li><a href="{{ site.baseurl }}/endpoints/#interpolateData">Interpolate Data</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ site.baseurl }}/sdk/">Ona SDK</a>
+          <ul style="list-style-type: none; padding-left: 15px;">
+            <li><a href="{{ site.baseurl }}/sdk/#getting-started">Getting Started</a></li>
+            <li><a href="{{ site.baseurl }}/sdk/#installation">Installation</a></li>
+            <li><a href="{{ site.baseurl }}/sdk/#usage-examples">Usage Examples</a></li>
+            <li><a href="{{ site.baseurl }}/sdk/#api-reference">API Reference</a></li>
+            <li><a href="{{ site.baseurl }}/sdk/#troubleshooting">Troubleshooting</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ site.baseurl }}/analyst/">Ona On-Demand</a>
+          <ul style="list-style-type: none; padding-left: 15px;">
+            <li><a href="{{ site.baseurl }}/analyst/#getting-started-with-ona-on-demand">Getting Started</a></li>
+            <li><a href="{{ site.baseurl }}/analyst/#ona-policy-analyst">Policy Analyst</a></li>
+            <li><a href="{{ site.baseurl }}/analyst/#grid-operations">Grid Operations</a></li>
+            <li><a href="{{ site.baseurl }}/analyst/#on-demand-model-training">Model Training</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content">
+    {{ content }}
   </div>
 </body>
 </html>
