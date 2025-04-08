@@ -20,8 +20,6 @@ toc:
   h_min: 2
   h_max: 3
 
-
-
-# For production, uncomment and use:
- baseurl: ""
- url: "https://docs.asoba.co"
+# Production settings
+baseurl: ""
+url: "https://docs.asoba.co"
