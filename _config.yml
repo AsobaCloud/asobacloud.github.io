@@ -23,5 +23,5 @@ toc:
 
 
 # For production, uncomment and use:
-# baseurl: ""
-# url: "https://docs.asoba.co"
+ baseurl: ""
+ url: "https://docs.asoba.co"
