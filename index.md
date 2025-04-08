@@ -81,7 +81,7 @@ For more details, refer to the [README](README.md).
 Stay updated with our latest videos and tutorials on our YouTube channel:
 
 <div class="youtube-embed">
-  <iframe src="https://www.youtube.com/embed/videoseries?list=UUzOu94iuUNh0GUldPC3WrMA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  ![Youtube]({{ site.baseurl }}/assets/images/youtube_banner.png){:width="50%"}(https://www.youtube.com/@asobacleanenergy)
 </div>
 
 <div class="subscribe-button">
