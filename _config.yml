@@ -1,19 +1,7 @@
 title: "Ona API Platform"
 remote_theme: "just-the-docs/just-the-docs"
 
-# Enable the top navigation bar
-aux_links:
-  "Home": 
-    - "https://asoba.co"
-  "Insights":
-    - "https://asoba.co/insights"
-  "Contact Us":
-    - "https://asoba.co/contact-us"
-
-# Make Aux links open in a new tab
-aux_links_new_tab: true
-
-# Sidebar configuration
+# Search configuration
 search_enabled: true
 heading_anchors: true
 
@@ -32,18 +20,8 @@ toc:
   h_min: 2
   h_max: 3
 
-baseurl: ""  # Add this if your site is at the root of your domain
-url: "https://docs.asoba.co"  # Replace with your actual domain
 
-# Main navigation structure
-nav:
-  - title: Introduction
-    url: /
-  - title: API Endpoints
-    url: /api-endpoints
-  - title: Getting Started
-    url: /getting-started
-  - title: Ona SDK
-    url: /ona-sdk
-  - title: Ona On-Demand
-    url: /ona-on-demand
+
+# For production, uncomment and use:
+# baseurl: ""
+# url: "https://docs.asoba.co"
