@@ -1,20 +1,23 @@
+---
+title: "Ona SDK"
+layout: default
+nav_order: 3
+---
+
 # Ona SDK
 
-##  Introduction
+## Introduction
 
-The **Ona SDK** enables seamless integration with the **Ona API Platform**, allowing users to:
--  **Upload large historical datasets** for interpolation, model training, and forecasting.
--  **Retrieve pre-signed URLs** for secure file uploads to AWS S3.
--  **Interact programmatically** with Ona’s APIs for energy forecasting, dispatching, and analysis.
+This reference documents every object and method available in Ona's SDK for seamless integration with the Ona API Platform. Use our SDK to upload large historical datasets, retrieve pre-signed URLs for secure file uploads, and interact programmatically with Ona's APIs for energy forecasting, dispatching, and analysis.
 
-This SDK provides support for **JavaScript (Node.js & Browser)** and **Python**, making it easy for developers to **integrate Ona into third-party applications**.
+The Ona SDK supports both JavaScript (Node.js & Browser) and Python, making it easy for developers to integrate Ona into third-party applications.
 
 ### Key Features
-✔ **Pre-Signed URL Generation** – Secure and efficient file uploads to AWS S3.  
-✔ **Historical Data Upload** – Enable seamless ingestion of large energy datasets.  
-✔ **Dual SDK Support** – Use in both **JavaScript** and **Python** applications.  
-✔ **Error Handling** – Detailed API responses and logging for debugging.  
-✔ **Future Compatibility** – Support for **forecasting & dispatch APIs** *(coming soon!)*  
+- **Pre-Signed URL Generation** – Secure and efficient file uploads to AWS S3.  
+- **Historical Data Upload** – Enable seamless ingestion of large energy datasets.  
+- **Dual SDK Support** – Use in both **JavaScript** and **Python** applications.  
+- **Error Handling** – Detailed API responses and logging for debugging.  
+- **Future Compatibility** – Support for **forecasting & dispatch APIs** *(coming soon!)*  
 
 ---
 
@@ -30,11 +33,10 @@ Before installing, ensure you have:
 ###  JavaScript Installation
 ```sh
 npm install Ona-sdk
+```
 or manually:
 
-sh
-Copy
-Edit
+```sh
 mkdir Ona-sdk && cd Ona-sdk
 npm init -y
 npm install axios dotenv
@@ -42,11 +44,10 @@ npm install axios dotenv
 ### Python Installation
 ```sh
 pip install requests python-dotenv
+```
 or manually:
 
-sh
-Copy
-Edit
+```sh
 mkdir Ona_sdk && cd Ona_sdk
 python -m venv venv && source venv/bin/activate
 pip install requests python-dotenv
@@ -192,10 +193,23 @@ Usage:
 - **Python:** `uploader.upload_to_s3("sample.csv", "280001", "af-south-1", "CapeTown", "lux")`
 
 ## **Troubleshooting**  
-**403 Forbidden?** Ensure your API key is valid.  
-`SignatureDoesNotMatch`? Verify your .env settings and AWS credentials.  
-`Connection Timeout`? Check your internet connection and retry.
-`5XX` Error? Ensure that your upload is proper `.csv` format, and that you are providing all required parameters in correct order.
+### Common Issues
+
+- **403 Forbidden**: Ensure your API key is valid and has the necessary permissions.
+- **SignatureDoesNotMatch**: Verify your `.env` settings and AWS credentials. Double-check the region and endpoint configurations.
+- **Connection Timeout**: Check your internet connection and retry. Ensure that the API endpoint is accessible from your network.
+- **5XX Server Errors**: Ensure that your upload is in the proper `.csv` format and that you are providing all required parameters in the correct order. Retry the request after some time.
+- **Invalid Input Format**: Confirm that the data types and formats match the API requirements.
+
+### Debugging Tips
+
+- **Enable Logging**: Use detailed logging to capture request and response details for further analysis.
+- **Check API Status**: Visit our [API status page](https://status.asoba.co) for real-time updates on service availability.
+- **Review Documentation**: Ensure that you are following the latest API documentation and guidelines.
+
+### Contact Support
+
+For further assistance, please reach out to our support team at [support@asoba.co](mailto:support@asoba.co). We are here to help you with any technical or operational queries.
 
 ## **Future Enhancements**  
 Model Training & Forecasting API Integration  
@@ -203,11 +217,4 @@ Data Synchronization for Real-Time Dispatch
 Webhooks for Asynchronous Processing
 
 📧 **Support**  
-For support, reach out to support@Ona.energy.
-
-<!--
-Changelog:
-- Wrapped the entire markdown content in a single code block using quadruple backticks (````) with "markdown" as the language specifier.
-- This approach ensures that inner triple backticks (used for code fences within the document) do not interfere with the outer code block.
-- The original content and formatting were preserved exactly as provided.
--->
+For support, reach out to [support@asoba.co](mailto:support@asoba.co). 

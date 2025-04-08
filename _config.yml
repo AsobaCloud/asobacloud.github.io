@@ -5,8 +5,33 @@ remote_theme: "just-the-docs/just-the-docs"
 exclude:
   - "assets/*"      # Exclude all files in the folder
 
-# Sidebar configuration for custom navigation
-just_the_docs:
-  show_toc: true
-  toc_level: 4
+# Enable the top navigation bar
+aux_links:
+  "Home": 
+    - "https://asoba.co"
+  "Insights":
+    - "https://asoba.co/insights"
+  "Contact Us":
+    - "https://asoba.co/contact-us"
 
+# Make Aux links open in a new tab
+aux_links_new_tab: true
+
+# Sidebar configuration
+search_enabled: true
+heading_anchors: true
+
+# Sidebar navigation
+nav_external_links:
+  - title: Asoba Website
+    url: https://asoba.co
+    hide_icon: false # optional, defaults to false
+
+# Sidebar styling
+color_scheme: light
+
+# Table of contents settings
+toc:
+  enabled: true
+  h_min: 2
+  h_max: 3

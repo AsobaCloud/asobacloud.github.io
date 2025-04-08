@@ -4,11 +4,52 @@ layout: default
 nav_order: 1
 ---
 
-## Introduction
+## Getting Started
 
-Ona - "to see" in Shona - is our Energy-as-a-Service API platform that provides robust forecasting, interpolation and dispatching API's tailored for energy traders, Independent Power Producers (IPPs), and bulk electricity buyers and more. The platform empowers users by integrating advanced AI models for energy demand and generation forecasting, Internet-of-Things data globbing, and electricity dispatch optimization for improved profitability and efficiency.
+Welcome to the Ona API Platform! Here's how you can get started with onboarding and integrating our powerful API into your systems.  You have the option of accessing Ona's capabilities via our On-Demand web app, or by embedding the API directly within your own technology stack.
 
-> This product is currently in beta, so endpoint parameters and syntax are subject to change.  An API Key is also required to make successful requests via these API endpoints.  We provide access to the API and to our most up-to-date docs for clients in our API beta program.  You can [register here](https://asoba.co/on-demand/)
+### Onboarding: On-Demand Web App
+
+- **Register For Account**: https://app.asoba.co
+
+### Onboarding: API Integration
+
+- **Initial Consultation**: We'll meet with you to identify your specific use cases, whether it's load forecasting, data interpolation, or dispatch optimization.
+- **Technical Assessment**: Our team will evaluate your current data infrastructure, input formats, and data availability.
+- **Documentation Sharing**: We'll provide you with an overview of our API capabilities, endpoints, and sample workflows.
+
+### Data Preparation
+
+- **Data Requirements Checklist**: We'll share a detailed checklist of data types, formats, and necessary columns.
+- **Schema Alignment**: We'll confirm data schemas for your inverters, meters, or other devices to ensure compatibility with Asoba's preprocessing layer.
+- **Pilot Data Submission**: You'll submit a sample data set for preliminary testing.
+
+### API Configuration and Integration
+
+- **API Credentials**: We'll provide you with API keys and client-specific authentication tokens.
+- **Integration Options**: You can choose from flexible integration methods, including push/pull requests, JSON streams, or direct CSV uploads.
+- **Customized Endpoints**: We'll configure endpoints based on your workflow needs, such as forecasting intervals and granularity.
+
+### Testing and Validation
+
+- **Pilot Testing**: We'll conduct a controlled pilot to validate data ingestion, preprocessing, and model accuracy.
+- **Error Handling**: We'll address any issues such as schema mismatches, missing data, or integration bugs.
+
+### Training and Support
+
+- **Onboarding Sessions**: We'll conduct walkthroughs of API usage, including generating requests, understanding outputs, and troubleshooting common issues.
+- **Documentation Access**: You'll have access to comprehensive API guides, sample scripts, and FAQs.
+- **Dedicated Support**: A point of contact will be assigned for your technical and operational queries during the onboarding phase.
+
+### Deployment and Monitoring
+
+- **Go-Live Readiness**: We'll validate your readiness to transition from pilot to full commercial model.
+- **Real-Time Monitoring**: We'll set up systems for performance tracking and alerts for anomalies or API failures.
+- **Usage Analytics**: We'll share insights on API usage to help you optimize your workflows.
+
+---
+
+> This product is currently in beta, so endpoint parameters and syntax are subject to change.  An API Key is also required to make successful requests via these API endpoints.  Try out the ecosystem via the On-Demand web app, or [connect with our sales team](mailto:sales@asoba.co) to get started with API access 
 
 ![Architecture diagram of API's](https://staging-internal.asoba.co/api-architecture.png)
 
@@ -23,45 +64,45 @@ Ona - "to see" in Shona - is our Energy-as-a-Service API platform that provides 
 
 ---
 
-## Pricing
+Key features include:
+- Region-specific deployments for data sovereignty and latency optimization.
+- Standardized workflows for data interpolation, ingestion, and forecasting.
+- Custom integrations for tailored client workflows.
+- Developer best practices for consistent delivery.
+- RAG knowledge base for enhanced AI capabilities.
+- Client SDKs for seamless API integration.
 
-We offer monthly tiered, volume-based pricing.  For clients primarily working with low voltage off-taker, pricing tiers are based on number of individually metered off-takers we would be supporting.  For clients in the C&I production space or who are managing utility-scale off-takers, pricing tiers are based on kWh produced.
-
-**Note**: we offer a 10% discount for contracts paid annually, up-front
-
-### Low Voltage
-
-| Meters        | Fee per Meter | Base Fee | Min p.m. | Max p.m. |
-|---------------|---------------|----------|----------|----------|
-| 1 - 25,000    | $0.06         | $250     | $250     | $1,500   | 
-| 25,001 - 50,000 | $0.04       | $1,500   | $1,500   | $2,000   | 
-| 50,001+       | $0.02         | $2,000   | $2,000   |          | 
-
-#### Interactive Example
-- **Number of Meters**: 45,000  
-- **Fee Composition**:
-  - Base Fee: $1,500  
-  - Fee per Meter: $0.04  
-  - **Total Fee**: $1,800  
-
-### Commercial & Industrial
-
-| KWh Managed  | Fee per KWh   | Base Fee | Min p.m. | Max p.m. | 
-|---------------|---------------|----------|----------|----------|
-| 1 - 12,500,000  | $0.0008     | $250     | $250     | $1,000   |
-| 12,500,001 - 25,000,000 | $0.0006 | $1,000   | $1,000   | $1,500   | 
-| 25,000,001+   | $0.0004      | $1,500   | $1,500   |          |
-
-#### Interactive Example
-- **Monthly Usage**: 18,000,000 kWh  
-- **Fee Composition**:
-  - Base Fee: $1,250  
-  - Fee per kWh: $1,330  
-  - **Total Fee**: $2,580  
+For more details, refer to the [README](README.md).
 
 ---
 
-## Conclusion 
+## YouTube Channel
+
+Stay updated with our latest videos and tutorials by subscribing to our [YouTube channel](https://www.youtube.com/@asobacleanenergy).
+
+---
+
+## Subscribe 
 
 
-The APIs provided by the Energy-as-a-Service platform allow developers and energy professionals to integrate powerful forecasting and dispatching functionalities into their applications. Whether you are managing DER asset portfolios, optimizing dispatch strategies, or trading in real-time markets, these APIs offer flexible and powerful tools to maximize efficiency and profitability.
+<div id="mc_embed_shell">
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+  <style type="text/css">
+        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
+        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+           We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="https://asoba.us10.list-manage.com/subscribe/post?u=459ea321d7831d7b9f5fac70f&amp;id=e03a70f492&amp;f_id=000a9ae3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <div id="mc_embed_signup_scroll"><h2></h2>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group"><label for="mce-FNAME">First Name </label><input type="text" name="FNAME" class=" text" id="mce-FNAME" value=""></div><div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" value="" required=""></div>
+        <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display: none;"></div>
+            <div class="response" id="mce-success-response" style="display: none;"></div>
+        </div><div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_459ea321d7831d7b9f5fac70f_e03a70f492" tabindex="-1" value=""></div><div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe"></div>
+    </div>
+</form>
+</div>
+<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='url';fnames[8]='MMERGE8';ftypes[8]='text';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='url';fnames[12]='MMERGE12';ftypes[12]='text';fnames[13]='MMERGE13';ftypes[13]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+ 

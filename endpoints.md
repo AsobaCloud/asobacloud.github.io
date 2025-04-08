@@ -10,59 +10,15 @@ This guide details the APIs available in the Ona ecosystem, including their base
 
 ---
 
-## **Introduction to API Routing**
-
-### **Base URL for Users**
-
-```
-https://ona.asoba.co
-```
-
-Users interact with a single global base URL, `https://ona.asoba.co`. Requests include a `region` query parameter, which dynamically routes traffic to the correct regional API Gateway endpoint. The `region` parameter is based on the continent in which the device resides. For example, uploading data from a smart meter or inverter located in Lagos, Nigeria would use the "africa" region, while a device based in New York City, New York would use the "northamerica" region.
-
-This ensures:
-
-- **Low Latency**: Requests are processed in the nearest region.
-- **Data Sovereignty**: Compliance with regional regulations by routing traffic to region-specific infrastructures.
-
-### **How Routing Works**
-
-1. **Request**: Users send API calls to `https://ona.asoba.co` with the `region` query parameter (e.g., `?region=africa`).
-2. **Lambda\@Edge**: Processes the `region` parameter to determine the appropriate regional endpoint.
-3. **Region-Specific API Gateway**: Forwards the request to the correct API Gateway and backend service in the specified region.
-
-### **Supported Regions**
-
-- `africa` (mapped to `af-south-1`):
-  - Example Gateway: `https://xkg3s0npv0.execute-api.af-south-1.amazonaws.com/prod`
-- `northamerica` (mapped to `us-east-1`):
-  - Example Gateway: `https://odq9ixv2y0.execute-api.us-east-1.amazonaws.com/prod`
-
-### **Example Request**
-
-Original:
-
-```
-https://ona.asoba.co/upload_nowcast?region=africa&customer_id=1001&filename=test_file.csv&customer_type=prosumer
-```
-
-Rewritten by Lambda\@Edge:
-
-```
-https://xkg3s0npv0.execute-api.af-south-1.amazonaws.com/prod/upload_nowcast?customer_id=1001&filename=test_file.csv&customer_type=prosumer
-```
-
----
-
 ## **1. ingestHistoricalLoadData API**
 
 ### **Base URL**
 
 ```
-https://ona.asoba.co/ingestHistoricalLoadData
+https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod
 ```
 
-### \*\*Endpoint: POST \*\***`/upload_historical`**
+### **Endpoint: POST** **`/upload_historical`**
 
 **Description**: Uploads historical load or production data to S3 for preprocessing and model training.
 
@@ -86,38 +42,64 @@ https://ona.asoba.co/ingestHistoricalLoadData
 
 **Example Request**:
 
-```http
-POST /upload_historical?region=africa&filename=data.csv&customer_id=12345&manufacturer=SolarCorp&location=Boston HTTP/1.1
-Host: ona.asoba.co
-x-api-key: your-api-key
-Content-Type: application/octet-stream
+#### Python
+```python
+import requests
 
-(binary file data)
+url = "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/upload_historical"
+params = {
+    "customer_id": "12345",
+    "filename": "data.csv",
+    "manufacturer": "exampleCorp",
+    "location": "CapeTown",
+    "region": "af-south-1"
+}
+headers = {
+    "x-api-key": "your-api-key",
+    "Content-Type": "application/octet-stream"
+}
+
+with open('data.csv', 'rb') as file_data:
+    response = requests.post(url, params=params, headers=headers, data=file_data)
+    print(response.status_code, response.json())
 ```
 
-**Response**:
+**Response Example**:
 
-- **200 OK**: File uploaded successfully.
+- **200 OK**:
 
   ```json
   {
-    "message": "File uploaded successfully. You will receive a notification when model training is complete."
+    "message": "File uploaded successfully. You will receive a notification when model training is complete.",
+    "upload_details": {
+      "filename": "data.csv",
+      "customer_id": "12345",
+      "region": "af-south-1",
+      "location": "CapeTown",
+      "manufacturer": "exampleCorp"
+    }
   }
   ```
 
-- **400 Bad Request**: Missing or invalid parameters.
+- **400 Bad Request**:
 
   ```json
   {
-    "error": "Invalid query or body parameters."
+    "error": "Invalid query or body parameters.",
+    "details": {
+      "missing_parameters": ["customer_id", "filename"],
+      "invalid_parameters": ["region"]
+    }
   }
   ```
 
-- **500 Internal Server Error**: An unexpected error occurred.
+- **500 Internal Server Error**:
 
   ```json
   {
-    "error": "Internal server error."
+    "error": "Internal server error.",
+    "trace_id": "abc123xyz",
+    "timestamp": "2023-10-01T12:00:00Z"
   }
   ```
 
@@ -128,10 +110,10 @@ Content-Type: application/octet-stream
 ### **Base URL**
 
 ```
-https://ona.asoba.co/ingestNowcastLoadData
+https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod
 ```
 
-### \*\*Endpoint: POST \*\***`/upload_nowcast`**
+### **Endpoint: POST** **`/upload_nowcast`**
 
 **Description**: Uploads nowcast data for real-time forecasting workflows.
 
@@ -162,130 +144,355 @@ https://ona.asoba.co/ingestNowcastLoadData
 
 **Example Request**:
 
-```http
-POST /upload_nowcast?region=northamerica&customer_id=67890&customer_type=residential&filename=file.csv HTTP/1.1
-Host: ona.asoba.co
-x-api-key: your-api-key
-Content-Type: application/json
+#### Python
+```python
+import requests
 
-{
-  "parameters": {
-    "forecast_window": 24,
-    "additional_info": "optional data"
-  }
+url = "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/upload_nowcast"
+params = {
+    "customer_id": "67890",
+    "filename": "nowcast.csv",
+    "manufacturer": "exampleCorp",
+    "region": "af-south-1",
+    "customer_type": "residential"
 }
+headers = {
+    "x-api-key": "your-api-key",
+    "Content-Type": "application/json"
+}
+data = {
+    "parameters": {
+      "forecast_window": 24,
+      "additional_info": "optional data"
+    }
+}
+
+response = requests.post(url, params=params, json=data, headers=headers)
+print(response.status_code, response.json())
 ```
 
-**Response**:
+**Response Example**:
 
-- **200 OK**: Data uploaded successfully.
+- **200 OK**:
 
   ```json
   {
     "status": "success",
-    "message": "Nowcast data uploaded successfully."
+    "message": "Nowcast data uploaded successfully.",
+    "upload_details": {
+      "filename": "nowcast.csv",
+      "customer_id": "67890",
+      "region": "af-south-1",
+      "customer_type": "residential"
+    }
   }
   ```
 
-- **400 Bad Request**: Missing or invalid parameters.
+- **400 Bad Request**:
 
   ```json
   {
-    "error": "Invalid query or body parameters."
+    "error": "Invalid query or body parameters.",
+    "details": {
+      "missing_parameters": ["customer_type"],
+      "invalid_parameters": ["filename"]
+    }
   }
   ```
 
-- **500 Internal Server Error**: An unexpected error occurred.
+- **500 Internal Server Error**:
 
   ```json
   {
-    "error": "Internal server error."
+    "error": "Internal server error.",
+    "trace_id": "def456uvw",
+    "timestamp": "2023-10-01T12:05:00Z"
   }
   ```
 
 ---
 
-## **3. interpolateData API**
+## **3. trainForecaster API**
 
 ### **Base URL**
 
 ```
-https://ona.asoba.co/dataInterpolation
+https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod
 ```
 
-### \*\*Endpoint: POST \*\***`/interpolate`**
+### **Endpoint: POST** **`/train`**
 
-**Description**: Fills missing data using advanced machine learning models like LightGBM and LSTM.
+**Description**: Triggers a training job for forecasting models using historical data.
 
 **Request**:
 
 - **Query Parameters**:
 
   - `region` (string, required): Target region for routing (e.g., `africa`, `northamerica`).
-  - `customer_id` (string, required): Unique ID of the customer.
-  - `serial_number` (string, required): Serial number of the data source.
+  - `customer_id` (string, required): The unique ID of the customer.
   - `location` (string, required): Geographical location of the data source.
-  - `filename` (string, required): Name of the input data file. Must be in CSV format.
-  - `type` (string, required): Data type (e.g., solar).
-  - `date_start` (string, required): Start date for interpolation.
-  - `date_end` (string, required): End date for interpolation.
-  - `interpolation_mode` (string, required): Mode of interpolation (e.g., `lightgbm`, `lstm`).
+  - `manufacturer` (string, required): Manufacturer of the data source.
+  - `serial_number` (string, required): Serial number of the device.
+  - `testing` (boolean, required): Indicates if the job is a test run.
 
 - **Headers**:
 
+  - `x-api-key`: API key for authentication.
+
+**Example Request**:
+
+#### Python
+```python
+import requests
+
+url = "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/train"
+params = {
+    "customer_id": "12345",
+    "location": "CapeTown",
+    "region": "af-south-1",
+    "manufacturer": "exampleCorp",
+    "serial_number": "SN123456",
+    "testing": "True"
+}
+headers = {
+    "x-api-key": "your-api-key"
+}
+
+response = requests.post(url, params=params, headers=headers)
+print(response.status_code, response.json())
+```
+
+**Response Example**:
+
+- **200 OK**:
+
+  ```json
+  {
+    "message": "Training job created successfully.",
+    "TrainingJobArn": "arn:aws:sagemaker:region:account-id:training-job/job-name",
+    "job_details": {
+      "customer_id": "12345",
+      "location": "CapeTown",
+      "region": "af-south-1",
+      "manufacturer": "exampleCorp",
+      "serial_number": "SN123456",
+      "testing": true
+    }
+  }
+  ```
+
+- **400 Bad Request**:
+
+  ```json
+  {
+    "error": "Invalid query parameters.",
+    "details": {
+      "missing_parameters": ["serial_number"],
+      "invalid_parameters": ["testing"]
+    }
+  }
+  ```
+
+- **500 Internal Server Error**:
+
+  ```json
+  {
+    "error": "Internal server error.",
+    "trace_id": "ghi789rst",
+    "timestamp": "2023-10-01T12:10:00Z"
+  }
+  ```
+
+---
+
+## **4. returnForecastingResults API**
+
+### **Base URL**
+
+```
+https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod
+```
+
+### **Endpoint: GET** **`/results`**
+
+**Description**: Retrieves forecasting results for a specific customer and device.
+
+**Request**:
+
+- **Query Parameters**:
+
+  - `region` (string, required): Target region for routing (e.g., `africa`, `northamerica`).
+  - `client_id` (string, required): The unique ID of the client.
+  - `customer_id` (string, required): The unique ID of the customer.
+  - `serial_number` (string, required): Serial number of the device.
+
+- **Headers**:
+
+  - `x-api-key`: API key for authentication.
+
+**Example Request**:
+
+#### Python
+```python
+import requests
+
+url = "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/returnForecastingResults"
+params = {
+    "client_id": "12345",
+    "customer_id": "67890",
+    "serial_number": "SN123456"
+}
+headers = {
+    "x-api-key": "your-api-key"
+}
+
+response = requests.get(url, params=params, headers=headers)
+print(response.status_code, response.json())
+```
+
+**Response Example**:
+
+- **200 OK**:
+
+  ```json
+  {
+    "status": "success",
+    "results": {
+      "forecast_data": [
+        {
+          "timestamp": "2023-10-01T00:00:00Z",
+          "value": 123.45
+        },
+        {
+          "timestamp": "2023-10-01T01:00:00Z",
+          "value": 130.67
+        }
+      ],
+      "metadata": {
+        "customer_id": "67890",
+        "serial_number": "SN123456"
+      }
+    }
+  }
+  ```
+
+- **400 Bad Request**:
+
+  ```json
+  {
+    "error": "Invalid query parameters.",
+    "details": {
+      "missing_parameters": ["client_id"],
+      "invalid_parameters": ["region"]
+    }
+  }
+  ```
+
+- **500 Internal Server Error**:
+
+  ```json
+  {
+    "error": "Internal server error.",
+    "trace_id": "jkl012uvw",
+    "timestamp": "2023-10-01T12:15:00Z"
+  }
+  ```
+
+---
+
+## **5. interpolateData API**
+
+### **Base URL**
+
+```
+https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod
+```
+
+### **Endpoint: POST** **`/interpolate`**
+
+**Description**: Interpolates missing data points in time-series datasets.
+
+**Request**:
+
+- **Query Parameters**:
+
+  - `region` (string, required): Target region for routing (e.g., `africa`, `northamerica`).
+  - `customer_id` (string, required): The unique ID of the customer.
+  - `filename` (string, required): The name of the file being processed.
+  - `mode` (string, required): Mode of interpolation (e.g., `fill_missing_blocks`).
+
+- **Headers**:
+
+  - `x-api-key`: API key for authentication.
   - `Content-Type`: `application/json`.
 
 - **Request Body**:
 
   ```json
   {
-    "parameters": {
-      "time_window": 24,
-      "refinement": true
-    }
+    "additional_data": "optional data if required"
   }
   ```
 
 **Example Request**:
 
-```http
-POST /interpolate?region=africa&customer_id=45678&serial_number=SN567&location=Denver&filename=data.csv&type=solar&date_start=2024-01-01&date_end=2024-01-31&interpolation_mode=lightgbm HTTP/1.1
-Host: ona.asoba.co
-Content-Type: application/json
+#### Python
+```python
+import requests
 
-{
-  "parameters": {
-    "time_window": 24,
-    "refinement": true
-  }
+url = "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/interpolateData"
+params = {
+    "customer_id": "12345",
+    "filename": "data.csv",
+    "mode": "fill_missing_blocks"
 }
+headers = {
+    "x-api-key": "your-api-key",
+    "Content-Type": "application/json"
+}
+data = {
+    "additional_data": "optional data if required"
+}
+
+response = requests.post(url, params=params, json=data, headers=headers)
+print(response.status_code, response.json())
 ```
 
-**Response**:
+**Response Example**:
 
-- **200 OK**: Data interpolated successfully.
+- **200 OK**:
 
   ```json
   {
     "status": "success",
     "message": "Data interpolated successfully.",
-    "output_file": "interpolated_data.csv"
+    "interpolation_details": {
+      "filename": "data.csv",
+      "mode": "fill_missing_blocks",
+      "customer_id": "12345"
+    }
   }
   ```
 
-- **400 Bad Request**: Missing or invalid parameters.
+- **400 Bad Request**:
 
   ```json
   {
-    "error": "Invalid query or body parameters."
+    "error": "Invalid query or body parameters.",
+    "details": {
+      "missing_parameters": ["mode"],
+      "invalid_parameters": ["filename"]
+    }
   }
   ```
 
-- **500 Internal Server Error**: An unexpected error occurred.
+- **500 Internal Server Error**:
 
   ```json
   {
-    "error": "Internal server error."
+    "error": "Internal server error.",
+    "trace_id": "mno345xyz",
+    "timestamp": "2023-10-01T12:20:00Z"
   }
   ```
 
@@ -347,7 +554,7 @@ Content-Type: application/json
 
 ## **FAQ**
 
-1. **What happens if the ************************`region`************************ parameter is omitted?**
+1. **What happens if the `region` parameter is omitted?**
 
    - The request will fail with a `400 Bad Request` error.
 
@@ -381,7 +588,7 @@ Content-Type: application/json
 
 3. **Generate Forecasts**:
 
-   - Use the `/upload_nowcast` endpoint with interval data from the last 7 days to run inference on the trained model and generate forecasts.  Forecasts generation takes approximately 60 to 90 seconds, but often less than that.
+   - Use the `/upload_nowcast` endpoint with interval data from the last 7 days to run inference on the trained model and generate forecasts.  Forecasts generation takes approximately 60 to 90 seconds, but often less than that.
    - Output: `s3://api-client-output/<customer_id>/<forecast_output>/<date timestamp>/<forecast files>`
 
 4. **Retrieve Outputs**:
@@ -400,5 +607,4 @@ Contact the Asoba team if additional data integration workflows are required, su
 
 ## **Contact Information for Support**
 
-For additional support, please contact the Asoba team at `support@asoba.co` or through the API management portal.
-
+For additional support, please contact the Asoba team at `support@asoba.co` or through the API management portal. 
