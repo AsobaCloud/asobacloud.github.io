@@ -80,7 +80,7 @@ For more details, refer to the [README](README.md).
 
 Stay updated with our latest videos and tutorials on our YouTube channel:
 
-<div class="youtube-embed">
+<div>
   <a href="https://www.youtube.com/@asobacleanenergy" target="_blank">
     <img src="{{ site.baseurl }}/assets/images/youtube_banner.png" alt="Asoba YouTube Channel" style="width: 100%; max-width: 700px; display: block; margin: 0 auto;">
   </a>
