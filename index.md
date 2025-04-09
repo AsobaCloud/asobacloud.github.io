@@ -86,8 +86,8 @@ Stay updated with our latest videos and tutorials on our YouTube channel:
   </a>
 </div>
 
-<div class="subscribe-button">
-  <a href="https://www.youtube.com/@asobacleanenergy?sub_confirmation=1" target="_blank">Subscribe to our Channel</a>
+<div style="text-align: left; margin: 15px 0 25px 0;">
+  <a href="https://www.youtube.com/@asobacleanenergy?sub_confirmation=1" target="_blank" style="display: inline-block; background-color: #FF0000; color: white; font-weight: 600; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Subscribe to our Channel</a>
 </div>
 
 ---
