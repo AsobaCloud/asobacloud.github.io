@@ -18,6 +18,8 @@ Welcome to the Ona API Platform! Here's how you can get started with onboarding 
 
 ### Onboarding: API Integration {#onboarding-api-integration}
 
+![Onboarding Process]({{ site.baseurl }}/assets/images/onboarding.svg){:width="100%"}
+
 - **Initial Consultation**: We'll meet with you to identify your specific use cases, whether it's load forecasting, data interpolation, or dispatch optimization.
 - **Technical Assessment**: Our team will evaluate your current data infrastructure, input formats, and data availability.
 - **Documentation Sharing**: We'll provide you with an overview of our API capabilities, endpoints, and sample workflows.
