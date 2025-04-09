@@ -94,7 +94,7 @@ ul {
   width: 250px;
   position: fixed;
   z-index: 1;
-  top: 84px; /* Adjusted to account for both the header height and padding */
+  top: 70px; /* Match the header height */
   left: 0;
   background-color: #fff;
   overflow-x: hidden;
@@ -250,7 +250,7 @@ pre code {
     width: 100%;
     height: auto;
     position: relative;
-    top: 84px; /* Updated to match the new sidebar positioning */
+    top: 70px; /* Match desktop sidebar */
     margin-bottom: 0;
     padding: 15px 0;
   }
