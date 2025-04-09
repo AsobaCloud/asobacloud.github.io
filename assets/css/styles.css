@@ -465,7 +465,7 @@ tr:hover {
 /* YouTube subscribe button */
 .subscribe-button {
   text-align: left;
-  margin: 15px auto 25px;
+  margin: 15px 0 25px;
 }
 
 .subscribe-button a {
