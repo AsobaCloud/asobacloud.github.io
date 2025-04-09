@@ -80,6 +80,14 @@ strong {
   height: 38px;
 }
 
+.site-title {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 15px;
+  white-space: nowrap;
+}
+
 .search-container-top {
   position: absolute;
   left: 50%;
