@@ -525,3 +525,90 @@ tr:hover {
   color: white;
   text-decoration: none;
 }
+
+/* Horizontal rule styling for better spacing */
+hr {
+  margin: 30px 0;
+  border: 0;
+  height: 1px;
+  background-color: #e1e4e8;
+  margin-bottom: 25px !important;
+}
+
+/* Content spacing after horizontal rules */
+hr + h1, hr + h2, hr + h3, hr + h4, hr + h5, hr + h6, hr + p, hr + div, hr + ul, hr + ol, hr + blockquote {
+  margin-top: 25px;
+}
+
+/* Content spacing before horizontal rules */
+h1 + hr, h2 + hr, h3 + hr, h4 + hr, h5 + hr, h6 + hr, p + hr, div + hr, ul + hr, ol + hr, blockquote + hr {
+  margin-top: 25px;
+}
+
+/* Additional specific spacing for content patterns we've encountered */
+hr + h3,
+hr + h2,
+hr + h4,
+hr + blockquote,
+hr + .youtube-embed,
+hr + div {
+  margin-top: 30px;
+  padding-top: 5px;
+}
+
+/* Fix for specific content arrangements */
+hr + blockquote,
+hr + p + blockquote {
+  margin-top: 25px;
+}
+
+/* Ensure space before horizontal rules */
+p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 25px;
+}
+
+/* Two-column end section */
+.page-end-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 40px 0 20px;
+  gap: 30px;
+}
+
+.end-column {
+  flex: 1;
+  min-width: 300px;
+}
+
+.end-column .support-cta {
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.end-column #mc_embed_signup {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* Make sure the Mailchimp form fits in its container */
+.end-column #mc_embed_shell {
+  width: 100%;
+}
+
+/* Responsive adjustment for mobile */
+@media screen and (max-width: 768px) {
+  .page-end-section {
+    flex-direction: column;
+  }
+  
+  .end-column {
+    width: 100%;
+  }
+}
+
+/* Fix Mailchimp form width */
+#mc_embed_signup {
+  width: 100% !important;
+  max-width: 100% !important;
+}
