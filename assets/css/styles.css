@@ -1,3 +1,17 @@
+/* Import DM Sans font */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Color theme matching the Ona front-end */
+:root {
+  --dark-blue: #040e2e;
+  --primary-blue: #455bf1;
+  --accent-blue: #3748c8;
+  --text-dark: #333;
+  --text-light: #4D4D4D;
+  --background-light: #f5f5f5;
+  --white: #fff;
+}
+
 /* Reset and base styles */
 * {
   margin: 0;
@@ -6,9 +20,9 @@
 }
 
 body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  color: #111;
-  background-color: #f5f5f5;
+  font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+  color: var(--text-dark);
+  background-color: var(--background-light);
   margin: 0;
   padding: 0;
   line-height: 1.6;
@@ -16,16 +30,31 @@ body {
 
 a {
   text-decoration: none;
-  color: #7253ed;
+  color: var(--primary-blue);
 }
 
 ul {
   list-style: none;
 }
 
+/* Typography styles for headings and body text */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700; /* Bold for headings */
+}
+
+p, span, a, button, input, select, textarea {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400; /* Normal weight for body text */
+}
+
+strong {
+  font-weight: 500; /* Medium weight for emphasized text */
+}
+
 /* Header/Navigation Bar */
 .header-bar {
-  background-color: #fff;
+  background-color: var(--dark-blue);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
@@ -77,15 +106,15 @@ ul {
 }
 
 .top-links a {
-  color: #4D4D4D;
+  color: var(--white);
   text-decoration: none;
-  font: normal 12px / 16px "Open Sans", Helvetica, Arial, Verdana, sans-serif;
+  font: normal 12px / 16px 'DM Sans', Helvetica, Arial, sans-serif;
   padding: 5px;
 }
 
 /* Nav menu styles */
 .top-links a:hover {
-  color: #4551bf;
+  color: var(--primary-blue);
 }
 
 /* Sidebar Navigation */
@@ -96,14 +125,14 @@ ul {
   z-index: 1;
   top: 70px; /* Match the header height */
   left: 0;
-  background-color: #fff;
+  background-color: var(--white);
   overflow-x: hidden;
   padding: 30px 0 20px 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .side-nav a {
-  color: #333;
+  color: var(--text-dark);
   text-decoration: none;
   display: block;
   padding: 5px 0;
@@ -111,7 +140,7 @@ ul {
 }
 
 .side-nav a:hover {
-  color: #4551bf;
+  color: var(--primary-blue);
   text-decoration: underline;
 }
 
@@ -125,8 +154,8 @@ ul {
   margin-top: 40px; /* Reduced from 70px to 40px */
   padding: 40px;
   width: calc(100% - 250px); /* 100% minus sidebar width */
-  background-color: white;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  background-color: var(--white);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Page headers */
@@ -134,7 +163,7 @@ ul {
   margin-top: 0;
   padding-top: 0;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text-dark);
   font-size: 32px;
   line-height: 1.2;
 }
@@ -193,7 +222,7 @@ ul {
 }
 
 .search-results a {
-  color: #4551bf;
+  color: var(--primary-blue);
   font-weight: 500;
   text-decoration: none;
 }
@@ -210,12 +239,12 @@ ul {
   margin-bottom: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
-  color: #333;
+  color: var(--text-dark);
 }
 
 .content h3 {
   margin-top: 25px;
-  color: #444;
+  color: var(--text-dark);
 }
 
 code {
@@ -280,7 +309,7 @@ pre code {
   display: flex;
   min-height: calc(100vh - 70px);
   margin-top: 40px; /* Reduced from 70px to 40px */
-  background-color: white;
+  background-color: var(--white);
   position: relative;
 }
 
@@ -307,7 +336,7 @@ pre code {
 .nav-header a {
   flex-grow: 1;
   font-weight: bold;
-  color: #333;
+  color: var(--text-dark);
 }
 
 .toggle-icon {
@@ -500,7 +529,7 @@ tr:hover {
 
 .support-cta h3 {
   margin-top: 0;
-  color: #4551bf;
+  color: var(--primary-blue);
   font-size: 22px;
 }
 
@@ -513,8 +542,8 @@ tr:hover {
 
 .support-button {
   display: inline-block;
-  background-color: #4551bf;
-  color: white;
+  background-color: var(--primary-blue);
+  color: var(--white);
   font-weight: 600;
   padding: 10px 25px;
   border-radius: 4px;
@@ -524,8 +553,8 @@ tr:hover {
 }
 
 .support-button:hover {
-  background-color: #3a45a5;
-  color: white;
+  background-color: var(--accent-blue);
+  color: var(--white);
   text-decoration: none;
 }
 
