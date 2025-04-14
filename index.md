@@ -22,7 +22,7 @@ Welcome to the Ona API Platform! Here's how you can get started with onboarding 
 
 - **Initial Consultation**: We'll meet with you to identify your specific use cases, whether it's load forecasting, data interpolation, or dispatch optimization.
 - **Technical Assessment**: Our team will evaluate your current data infrastructure, input formats, and data availability.
-- **Data Requirements Checklist**: We'll share a detailed checklist of data types, formats, and necessary columns.
+- **Data Requirement Checklist**: We'll share a detailed checklist of data types, formats, and necessary columns.
 
 ### API Pre-Onboarding {#API-Pre-Onboarding}
 
