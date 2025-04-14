@@ -22,30 +22,29 @@ Welcome to the Ona API Platform! Here's how you can get started with onboarding 
 
 - **Initial Consultation**: We'll meet with you to identify your specific use cases, whether it's load forecasting, data interpolation, or dispatch optimization.
 - **Technical Assessment**: Our team will evaluate your current data infrastructure, input formats, and data availability.
-- **Documentation Sharing**: We'll provide you with an overview of our API capabilities, endpoints, and sample workflows.
-
-### Data Preparation {#data-preparation}
-
 - **Data Requirements Checklist**: We'll share a detailed checklist of data types, formats, and necessary columns.
+
+### API Pre-Onboarding {#API-Pre-Onboarding}
+
 - **Schema Alignment**: We'll confirm data schemas for your inverters, meters, or other devices to ensure compatibility with Asoba's preprocessing layer.
-- **Pilot Data Submission**: You'll submit a sample data set for preliminary testing.
+- **Data Preparation**: We'll build the integration points and confirm workflow to embed our API within your existing system.
 
 ### API Configuration and Integration {#api-configuration}
 
-- **API Credentials**: We'll provide you with API keys and client-specific authentication tokens.
+- **Data Globbing**: We'll tune the training model to fit your data based on your workflow needs.
 - **Integration Options**: You can choose from flexible integration methods, including push/pull requests, JSON streams, or direct CSV uploads.
-- **Customized Endpoints**: We'll configure endpoints based on your workflow needs, such as forecasting intervals and granularity.
+- **API Credentials**: We'll provide you with API keys and client-specific authentication tokens.
 
 ### Testing and Validation {#testing-validation}
 
-- **Pilot Testing**: We'll conduct a controlled pilot to validate data ingestion, preprocessing, and model accuracy.
-- **Error Handling**: We'll address any issues such as schema mismatches, missing data, or integration bugs.
+- **Pilot Testing**: We'll run the unit and test the system to validate data ingestion, preprocessing, and model accuracy.
+- **Error Handling**: We'll address and resolve any issues detected such as schema mismatches, missing data, or integration bugs.
 
 ### Training and Support {#training-support}
 
-- **Onboarding Sessions**: We'll conduct walkthroughs of API usage, including generating requests, understanding outputs, and troubleshooting common issues.
+- **Training Sessions**: We'll conduct walkthroughs of API usage, including generating requests, understanding outputs, and troubleshooting common issues.
 - **Documentation Access**: You'll have access to comprehensive API guides, sample scripts, and FAQs.
-- **Dedicated Support**: A point of contact will be assigned for your technical and operational queries during the onboarding phase.
+- **Dedicated Support**: A point of contact will be assigned for your technical and operational queries during the integration phase.
 
 ### Deployment and Monitoring {#deployment-monitoring}
 
