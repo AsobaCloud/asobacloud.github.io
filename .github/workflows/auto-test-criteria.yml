@@ -1,0 +1,42 @@
+name: Auto-Add Test Criteria to New Issues
+on:
+  issues:
+    types: [opened, reopened]
+  
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to add test criteria to'
+        required: false
+        type: string
+
+jobs:
+  add-test-criteria:
+    runs-on: ubuntu-latest
+    if: github.event.action == 'opened' || github.event.action == 'reopened' || github.event_name == 'workflow_dispatch'
+    
+    steps:
+    - name: Add Ona Test Criteria
+      uses: AsobaCloud/ona-front-end/.github/actions/add-test-criteria@prod
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-number: ${{ github.event.issue.number || github.event.inputs.issue_number }}
+        repository: ${{ github.repository }}
+        issue-title: ${{ github.event.issue.title || 'Manual trigger' }}
+        project-id: "PVT_kwDOAABn3M4AgjQF"
+
+    - name: Comment on success
+      if: github.event.action == 'opened'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run:  < /dev/null | 
+        gh issue comment ${{ github.event.issue.number }} --body "🧪 **Automated Test Criteria Added**
+        
+        This issue has been automatically enhanced with comprehensive test criteria based on CLAUDE.md compliance principles.
+        
+        **✅ Requirements for completion:**
+        - All test checkboxes must be completed before marking as Done
+        - Cross-region deployment verification required (us-east-1, af-south-1)
+        - No fallbacks allowed - honest reporting of test results
+        
+        This ensures objective proof of completion for every issue in the Ona Power Tools Platform."
