@@ -1,31 +1,59 @@
 ---
-title: "API Endpoints"
+title: "API Reference"
 layout: default
-nav_order: 2
+nav_order: 4
 ---
 
-## Ona API Platform - Complete Endpoints Documentation
+# API Reference
 
-This comprehensive guide documents ALL available APIs in the Ona energy platform ecosystem, covering the complete range of power tools modules from basic data processing to advanced AI-driven optimization and policy intelligence. The platform supports both cloud-based high-scale deployments and edge computing for data sovereignty.
+Complete reference for all Ona API endpoints. Our REST API provides programmatic access to energy forecasting, data upload, model training, and results retrieval.
+
+## Base URLs
+
+Ona operates regional endpoints for optimal performance and data sovereignty:
+
+| Region | Base URL | Coverage |
+|--------|----------|----------|
+| Africa | `https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod` | Sub-Saharan Africa |
+| North America | `https://yn058ezh38.execute-api.us-east-1.amazonaws.com/prod` | USA, Canada |
+| Europe | `https://yn058ezh38.execute-api.eu-west-1.amazonaws.com/prod` | European Union |
+
+## Authentication
+
+All requests require an API key in the headers:
+
+```bash
+x-api-key: your-api-key-here
+```
+
+## Rate Limits
+
+- **Rate**: 1 request per second
+- **Burst**: 10 requests  
+- **Quota**: 100 requests per day
+- **Response**: `429 Too Many Requests` when exceeded
+
+## Error Handling
+
+Standard HTTP status codes are used:
+
+| Code | Meaning | Description |
+|------|---------|-------------|
+| 200 | Success | Request completed successfully |
+| 400 | Bad Request | Invalid parameters or request format |
+| 401 | Unauthorized | Missing or invalid API key |
+| 429 | Too Many Requests | Rate limit exceeded |
+| 500 | Internal Error | Server-side processing error |
 
 ---
 
-## **Platform Architecture Overview**
+# Endpoints
 
-### **Multi-Deployment Model**
-- **Cloud APIs**: High-availability AWS infrastructure with global routing
-- **Edge Deployment**: Local processing nodes for data sovereignty and low latency
-- **Hybrid Integration**: Intelligent cloud-edge orchestration
+## Data Ingestion
 
-### **Tiered Access Control**
-- **Free Tier**: 3 policy queries, 5 forecasts, 10 data operations per month
-- **Professional Tier**: 100 operations across all endpoints, up to 10,000 rows
-- **Enterprise Tier**: Unlimited access with dedicated support and custom deployments
+### Upload Historical Data
 
-### **Core Infrastructure**
-- **Base URL (Cloud)**: `https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod`
-- **Base URL (Freemium)**: `https://api.asoba.co/api`
-- **Edge URL**: `http://localhost:5000` (configurable)
+**POST** `/upload_historical`
 
 ---
 

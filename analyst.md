@@ -1,7 +1,7 @@
 ---
 title: "Ona On-Demand"
 layout: default
-nav_order: 4
+nav_order: 6
 ---
 
 ## Getting Started with Ona On-Demand {#getting-started-with-ona-on-demand}

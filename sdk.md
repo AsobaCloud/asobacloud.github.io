@@ -1,7 +1,7 @@
 ---
-title: "Ona SDK - Enhanced Integration Guide"
+title: "SDK & Tools"
 layout: default
-nav_order: 3
+nav_order: 5
 ---
 
 ## Ona SDK - Enhanced Integration Guide {#getting-started}

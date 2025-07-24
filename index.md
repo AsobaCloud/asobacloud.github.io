@@ -1,102 +1,182 @@
 ---
-title: "Introduction"
+title: "Quickstart"
 layout: default
 nav_order: 1
 ---
 
-## Getting Started {#getting-started}
+# Start Forecasting in 5 Minutes
 
-Welcome to the Ona API Platform! Here's how you can get started with onboarding and integrating our powerful API into your systems.  You have the option of accessing Ona's capabilities via our On-Demand web app, or by embedding the API directly within your own technology stack.
-
----
-
-### Onboarding: On-Demand Web App {#onboarding-web-app}
-
-- **Register For Account**: [https://app.asoba.co](https://app.asoba.co)
+Get up and running with Ona's energy forecasting API in minutes. Choose your preferred integration method and make your first forecast.
 
 ---
 
-### Onboarding: API Integration {#onboarding-api-integration}
+## Choose Your Path
 
-![Onboarding Process]({{ site.baseurl }}/assets/images/onboarding.svg){:width="70%"}
-
-- **Initial Consultation**: We'll meet with you to identify your specific use cases, whether it's load forecasting, data interpolation, or dispatch optimization.
-- **Technical Assessment**: Our team will evaluate your current data infrastructure, input formats, and data availability.
-- **Data Requirement Checklist**: We'll share a detailed checklist of data types, formats, and necessary columns.
-
-### API Pre-Onboarding {#API-Pre-Onboarding}
-
-- **Schema Alignment**: We'll confirm data schemas for your inverters, meters, or other devices to ensure compatibility with Asoba's preprocessing layer.
-- **Data Preparation**: We'll build the integration points and confirm workflow to embed our API within your existing system.
-
-### API Configuration and Integration {#api-configuration}
-
-- **Data Globbing**: We'll tune the training model to fit your data based on your workflow needs.
-- **Integration Options**: You can choose from flexible integration methods, including push/pull requests, JSON streams, or direct CSV uploads.
-- **API Credentials**: We'll provide you with API keys and client-specific authentication tokens.
-
-### Testing and Validation {#testing-validation}
-
-- **Pilot Testing**: We'll run the unit and test the system to validate data ingestion, preprocessing, and model accuracy.
-- **Error Handling**: We'll address and resolve any issues detected such as schema mismatches, missing data, or integration bugs.
-
-### Training and Support {#training-support}
-
-- **Training Sessions**: We'll conduct walkthroughs of API usage, including generating requests, understanding outputs, and troubleshooting common issues.
-- **Documentation Access**: You'll have access to comprehensive API guides, sample scripts, and FAQs.
-- **Dedicated Support**: A point of contact will be assigned for your technical and operational queries during the integration phase.
-
-### Deployment and Monitoring {#deployment-monitoring}
-
-- **Go-Live Readiness**: We'll validate your readiness to transition from pilot to full commercial model.
-- **Real-Time Monitoring**: We'll set up systems for performance tracking and alerts for anomalies or API failures.
-- **Usage Analytics**: We'll share insights on API usage to help you optimize your workflows.
-
----
-
-> This product is currently in beta, so endpoint parameters and syntax are subject to change.  An API Key is also required to make successful requests via these API endpoints.  Try out the ecosystem via the On-Demand web app, or [connect with our sales team](mailto:sales@asoba.co) to get started with API access 
-
-![Architecture diagram of API's](https://staging-internal.asoba.co/api-architecture.png){:width="75%"}
-
----
-
-### Key Use Cases
-
-- **Energy Traders**: Leverage accurate demand forecasts to optimize trades in electricity markets, maximize returns, and reduce cost of over/under supplying contracts.
-- **IPPs**: Enhance generation scheduling and support demand response efforts by using our forecasting models to predict production output and off-taker demand.
-- **Bulk Buyers/Resellers**: Predict market trends and align purchasing strategies with anticipated demand surges, avoiding high market prices and reducing costs.
-- **Solar Asset Insurers**: Utilize forecasting data to enhance preventive maintenance reporting for asset owners, improving reliability and reducing unexpected downtime.
-- **Carbon Accounting Firms**: Integrate forecasting data into carbon emissions calculations for regulatory compliance and reporting, ensuring accurate and timely submissions.
-
----
-
-Key features include:
-- Region-specific deployments for data sovereignty and latency optimization.
-- Standardized workflows for data interpolation, ingestion, and forecasting.
-- Custom integrations for tailored client workflows.
-- Developer best practices for consistent delivery.
-- RAG knowledge base for enhanced AI capabilities.
-- Client SDKs for seamless API integration.
-
-For more details, refer to the [README](README.md).
-
----
-
-## YouTube Channel
-
-Stay updated with our latest videos and tutorials on our YouTube channel:
-
-<div>
-  <a href="https://www.youtube.com/@asobacleanenergy" target="_blank">
-    <img src="{{ site.baseurl }}/assets/images/youtube_banner.png" alt="Asoba YouTube Channel" style="width: 50%; max-width: 700px; display: block; margin: 0 0;">
-  </a>
-</div>
-
-<div style="text-align: left; margin: 15px 0 25px 0;">
-  <a href="https://www.youtube.com/@asobacleanenergy?sub_confirmation=1" target="_blank" style="display: inline-block; background-color: #FF0000; color: white; font-weight: 600; padding: 8px 20px; border-radius: 4px; text-decoration: none; font-size: 14px;">Subscribe to our Channel</a>
+<div class="quickstart-paths">
+  <div class="path-card">
+    <h3>🐍 Python Script</h3>
+    <p>Upload data and get forecasts with a simple Python script</p>
+    <a href="#python-quickstart" class="path-button">Start with Python</a>
+  </div>
+  
+  <div class="path-card">
+    <h3>📦 SDK</h3>
+    <p>Use our official SDK for seamless integration</p>
+    <a href="#sdk-quickstart" class="path-button">Use the SDK</a>
+  </div>
+  
+  <div class="path-card">
+    <h3>🌐 REST API</h3>
+    <p>Direct API calls for maximum flexibility</p>
+    <a href="#api-quickstart" class="path-button">Use REST API</a>
+  </div>
 </div>
 
 ---
+
+## Python Quickstart {#python-quickstart}
+
+### 1. Install Dependencies
+
+```bash
+pip install requests python-dotenv
+```
+
+### 2. Set Up Your Environment
+
+Create a `.env` file with your API credentials:
+
+```ini
+ONA_API_URL=https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod
+ONA_API_KEY=your-api-key-here
+```
+
+### 3. Upload Historical Data & Train Model
+
+```python
+import os
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
+def upload_and_train():
+    # Upload historical data
+    url = f"{os.getenv('ONA_API_URL')}/upload_historical"
+    headers = {"x-api-key": os.getenv('ONA_API_KEY')}
+    
+    params = {
+        "customer_id": "your-customer-id",
+        "filename": "historical_data.csv",
+        "manufacturer": "SolarEdge", 
+        "location": "CapeTown",
+        "region": "af-south-1"
+    }
+    
+    with open('historical_data.csv', 'rb') as file:
+        response = requests.post(url, params=params, headers=headers, data=file)
+        print(f"Upload: {response.status_code}")
+    
+    # Train forecasting model
+    train_url = f"{os.getenv('ONA_API_URL')}/train"
+    train_params = {
+        "customer_id": "your-customer-id",
+        "location": "CapeTown",
+        "manufacturer": "SolarEdge",
+        "serial_number": "SE123456",
+        "region": "af-south-1",
+        "testing": "True"
+    }
+    
+    train_response = requests.post(train_url, params=train_params, headers=headers)
+    print(f"Training: {train_response.status_code}")
+    return train_response.json()
+
+# Run it
+result = upload_and_train()
+print("✅ Model training started! Check your email for results.")
+```
+
+---
+
+## SDK Quickstart {#sdk-quickstart}
+
+### 1. Install the SDK
+
+```bash
+pip install ona-sdk  # Python
+# or
+npm install ona-sdk  # JavaScript
+```
+
+### 2. Quick Example
+
+```python
+from ona_sdk import OnaClient
+
+# Initialize client
+client = OnaClient(api_key="your-api-key")
+
+# Upload and train in one step
+result = client.upload_and_train(
+    file_path="energy_data.csv",
+    customer_id="your-id",
+    location="CapeTown",
+    manufacturer="SolarEdge"
+)
+
+print("✅ Training started! Results will be emailed to you.")
+```
+
+---
+
+## REST API Quickstart {#api-quickstart}
+
+### 1. Upload Historical Data
+
+```bash
+curl -X POST "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/upload_historical" \
+  -H "x-api-key: YOUR_API_KEY" \
+  -H "Content-Type: application/octet-stream" \
+  -F "customer_id=your-customer-id" \
+  -F "filename=data.csv" \
+  -F "manufacturer=SolarEdge" \
+  -F "location=CapeTown" \
+  -F "region=af-south-1" \
+  --data-binary @your-data.csv
+```
+
+### 2. Start Model Training
+
+```bash
+curl -X POST "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/train" \
+  -H "x-api-key: YOUR_API_KEY" \
+  -G \
+  -d "customer_id=your-customer-id" \
+  -d "location=CapeTown" \
+  -d "manufacturer=SolarEdge" \
+  -d "serial_number=SE123456" \
+  -d "region=af-south-1" \
+  -d "testing=True"
+```
+
+---
+
+## What's Next?
+
+🎯 **New to Ona?** → [Read Getting Started](getting-started.html) for detailed onboarding  
+📚 **Need to understand the concepts?** → [Core Concepts](core-concepts.html)  
+🔧 **Ready to integrate?** → [API Reference](api-reference.html)  
+💡 **Want to see examples?** → [Use Cases](use-cases.html)  
+🖥️ **Prefer a web interface?** → [Try Ona On-Demand](https://app.asoba.co)
+
+---
+
+## Need Help?
+
+- 📧 **Technical Support**: [support@asoba.co](mailto:support@asoba.co)
+- 💬 **Sales Questions**: [sales@asoba.co](mailto:sales@asoba.co)  
+- 📖 **Full Documentation**: Browse the sidebar for detailed guides
 
 ## Get Help & Stay Updated
 
