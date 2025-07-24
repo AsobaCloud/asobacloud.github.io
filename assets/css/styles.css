@@ -10,6 +10,26 @@
   --text-light: #4D4D4D;
   --background-light: #f5f5f5;
   --white: #fff;
+  
+  /* Ubuntu Terminal Color Scheme */
+  --ubuntu-bg: #2E3436;
+  --ubuntu-fg: #B5BBAE;
+  --ubuntu-black: #2E3436;
+  --ubuntu-red: #AE5E5E;
+  --ubuntu-green: #4E9A06;
+  --ubuntu-yellow: #8A7000;
+  --ubuntu-blue: #3465A4;
+  --ubuntu-purple: #75507B;
+  --ubuntu-cyan: #06989A;
+  --ubuntu-white: #B5BBAE;
+  --ubuntu-bright-black: #555753;
+  --ubuntu-bright-red: #EF2929;
+  --ubuntu-bright-green: #8AE234;
+  --ubuntu-bright-yellow: #FCE94F;
+  --ubuntu-bright-blue: #729FCF;
+  --ubuntu-bright-purple: #AD7FA8;
+  --ubuntu-bright-cyan: #34E2E2;
+  --ubuntu-bright-white: #EEEEEC;
 }
 
 /* Reset and base styles */
@@ -102,6 +122,225 @@ strong {
 .path-button:hover {
   background: var(--accent-blue);
   color: var(--white) !important;
+}
+
+/* Inline code styling */
+code {
+  background-color: var(--ubuntu-bg);
+  color: var(--ubuntu-fg);
+  padding: 0.2em 0.6em;
+  border: 1px solid var(--ubuntu-bright-black);
+  border-radius: 2px;
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Code block styling with Ubuntu terminal appearance */
+pre {
+  background-color: var(--ubuntu-bg);
+  color: var(--ubuntu-fg);
+  padding: 20px;
+  border: 2px solid var(--ubuntu-bright-black);
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 20px 0;
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 2px rgba(255, 255, 255, 0.05);
+  position: relative;
+}
+
+/* Terminal-like header bar for code blocks */
+pre::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--ubuntu-red) 0%,
+    var(--ubuntu-yellow) 33%,
+    var(--ubuntu-green) 66%,
+    var(--ubuntu-blue) 100%
+  );
+  border-radius: 4px 4px 0 0;
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  display: block;
+  overflow-x: auto;
+  line-height: 1.5;
+  color: inherit;
+  font-size: inherit;
+  box-shadow: none;
+}
+
+/* Rouge syntax highlighting for Jekyll */
+/* Comments */
+.highlight .c,    /* Comment */
+.highlight .cm,   /* Comment.Multiline */
+.highlight .cp,   /* Comment.Preproc */  
+.highlight .c1,   /* Comment.Single */
+.highlight .cs {  /* Comment.Special */
+  color: var(--ubuntu-bright-black);
+  font-style: italic;
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Strings */
+.highlight .s,    /* Literal.String */
+.highlight .sb,   /* Literal.String.Backtick */
+.highlight .sc,   /* Literal.String.Char */
+.highlight .s2,   /* Literal.String.Double */
+.highlight .se,   /* Literal.String.Escape */
+.highlight .sh,   /* Literal.String.Heredoc */
+.highlight .si,   /* Literal.String.Interpol */
+.highlight .sx,   /* Literal.String.Other */
+.highlight .sr,   /* Literal.String.Regex */
+.highlight .s1,   /* Literal.String.Single */
+.highlight .ss {  /* Literal.String.Symbol */
+  color: var(--ubuntu-bright-green);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Numbers */
+.highlight .m,    /* Literal.Number */
+.highlight .mb,   /* Literal.Number.Bin */
+.highlight .mf,   /* Literal.Number.Float */
+.highlight .mh,   /* Literal.Number.Hex */
+.highlight .mi,   /* Literal.Number.Integer */
+.highlight .il,   /* Literal.Number.Integer.Long */
+.highlight .mo {  /* Literal.Number.Oct */
+  color: var(--ubuntu-bright-cyan);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Keywords */
+.highlight .k,    /* Keyword */
+.highlight .kc,   /* Keyword.Constant */
+.highlight .kd,   /* Keyword.Declaration */
+.highlight .kn,   /* Keyword.Namespace */
+.highlight .kp,   /* Keyword.Pseudo */
+.highlight .kr,   /* Keyword.Reserved */
+.highlight .kt {  /* Keyword.Type */
+  color: var(--ubuntu-bright-blue);
+  font-weight: bold;
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Operators */
+.highlight .o,    /* Operator */
+.highlight .ow {  /* Operator.Word */
+  color: var(--ubuntu-bright-yellow);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Functions and Names */
+.highlight .n,    /* Name */
+.highlight .na,   /* Name.Attribute */
+.highlight .nb,   /* Name.Builtin */
+.highlight .bp,   /* Name.Builtin.Pseudo */
+.highlight .nc,   /* Name.Class */
+.highlight .no,   /* Name.Constant */
+.highlight .nd,   /* Name.Decorator */
+.highlight .ni,   /* Name.Entity */
+.highlight .ne,   /* Name.Exception */
+.highlight .nf,   /* Name.Function */
+.highlight .nl,   /* Name.Label */
+.highlight .nn,   /* Name.Namespace */
+.highlight .nx,   /* Name.Other */
+.highlight .py,   /* Name.Property */
+.highlight .nt,   /* Name.Tag */
+.highlight .nv,   /* Name.Variable */
+.highlight .vc,   /* Name.Variable.Class */
+.highlight .vg,   /* Name.Variable.Global */
+.highlight .vi {  /* Name.Variable.Instance */
+  color: var(--ubuntu-fg);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Special highlighting for function names */
+.highlight .nf {  /* Name.Function */
+  color: var(--ubuntu-bright-purple);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Variables */
+.highlight .nv,   /* Name.Variable */
+.highlight .vc,   /* Name.Variable.Class */
+.highlight .vg,   /* Name.Variable.Global */
+.highlight .vi {  /* Name.Variable.Instance */
+  color: var(--ubuntu-bright-cyan);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Generic tokens */
+.highlight .gd {  /* Generic.Deleted */
+  color: var(--ubuntu-bright-red);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.highlight .gi {  /* Generic.Inserted */
+  color: var(--ubuntu-bright-green);
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Ensure all syntax highlighting elements use the same font */
+.highlight * {
+  font-family: 'Ubuntu Mono', 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* Special styling for bash/shell commands */
+pre code:has(.bash), 
+pre[class*="bash"],
+pre[class*="shell"] {
+  position: relative;
+}
+
+pre code:has(.bash)::before,
+pre[class*="bash"]::before,
+pre[class*="shell"]::before {
+  content: "$ ";
+  color: var(--ubuntu-bright-green);
+  font-weight: bold;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+/* Adjust padding for bash/shell blocks to account for prompt */
+pre[class*="bash"] code,
+pre[class*="shell"] code {
+  padding-left: 30px;
+}
+
+/* Terminal window styling for larger code blocks */
+pre.terminal {
+  background-color: var(--ubuntu-bg);
+  border: 2px solid var(--ubuntu-bright-black);
+  border-radius: 8px;
+  position: relative;
+  padding-top: 35px;
+}
+
+pre.terminal::before {
+  content: "●●●";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  color: var(--ubuntu-red);
+  font-size: 12px;
+  letter-spacing: 3px;
 }
 
 /* Header/Navigation Bar */
