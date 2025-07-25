@@ -176,6 +176,7 @@ curl -X POST "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/train
 
 - 📧 **Technical Support**: [support@asoba.co](mailto:support@asoba.co)
 - 💬 **Sales Questions**: [sales@asoba.co](mailto:sales@asoba.co)  
+- 💬 **Discord Community**: [Join our Discord](https://discord.gg/nNV5evcr)
 - 📖 **Full Documentation**: Browse the sidebar for detailed guides
 
 ## Get Help & Stay Updated
