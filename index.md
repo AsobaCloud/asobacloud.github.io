@@ -223,4 +223,5 @@ curl -X POST "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/train
     </div>
   </div>
 </div>
- 
+
+© 2025 Asoba Corporation. All rights reserved.

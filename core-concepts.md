@@ -470,3 +470,5 @@ Now that you understand how Ona works:
     </div>
   </div>
 </div>
+
+© 2025 Asoba Corporation. All rights reserved.
