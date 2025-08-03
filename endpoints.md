@@ -1144,8 +1144,4 @@ All cloud APIs are available in edge deployment with identical interfaces:
   </div>
 </div>
 
----
-
-**© 2025 Asoba Corporation. All rights reserved.**
-
-*Ona Platform: The most comprehensive energy intelligence API platform, powering the future of intelligent energy infrastructure through advanced AI, seamless integration, and complete business intelligence for the energy sector.*
+© 2025 Asoba Corporation. All rights reserved.

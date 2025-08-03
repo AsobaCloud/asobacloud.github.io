@@ -1013,8 +1013,4 @@ For production issues requiring immediate attention:
   </div>
 </div>
 
----
-
-**© 2025 Asoba Corporation. All rights reserved.**
-
-*Ona SDK: Empowering developers to build the next generation of intelligent energy applications through cutting-edge AI, comprehensive data processing, and seamless integration capabilities.*
+© 2025 Asoba Corporation. All rights reserved.
