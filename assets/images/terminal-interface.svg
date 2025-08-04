@@ -15,12 +15,13 @@
   <!-- Header with robot icon and title -->
   <text x="30" y="50" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold">Ona Terminal</text>
  
-  
   <!-- Instructions -->
-  <text x="30" y="100" fill="#cccccc" font-family="monospace" font-size="11">Type your questions or commands naturally:</text>
-  <text x="35" y="115" fill="#888888" font-family="monospace" font-size="10">• 'summarize the pdf located in C:\users\admin\Documents\Tech'</text>
-  <text x="35" y="130" fill="#888888" font-family="monospace" font-size="10">• 'show status' or 'list servers'</text>
-  <text x="35" y="145" fill="#888888" font-family="monospace" font-size="10">• 'help' for assistance</text>
+  <text x="30" y="70" fill="#cccccc" font-family="monospace" font-size="11">Type your questions or commands naturally:</text>
+  <text x="35" y="85" fill="#888888" font-family="monospace" font-size="10">• 'summarize the pdf located in C:\users\admin\Documents\Tech'</text>
+  <text x="35" y="100" fill="#888888" font-family="monospace" font-size="10">• 'show status' or 'list servers'</text>
+  <text x="35" y="115" fill="#888888" font-family="monospace" font-size="10">• 'help' for assistance</text>
+  
+  <text x="30" y="145" fill="#cccccc" font-family="monospace" font-size="11">Current working directory: /home/ubuntu </text>
   
   <!-- Exit instruction -->
   <text x="30" y="170" fill="#d4af37" font-family="monospace" font-size="11">Use 'exit' or Ctrl+C to quit</text>
