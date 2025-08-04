@@ -1,0 +1,23 @@
+<svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terminal window background -->
+  <rect width="400" height="250" fill="#1a1a1a" rx="8"/>
+  
+  <!-- Terminal header -->
+  <rect width="400" height="30" fill="#2d2d2d" rx="8"/>
+  <rect y="30" width="400" height="220" fill="#1a1a1a"/>
+  
+  <!-- Window controls -->
+  <circle cx="15" cy="15" r="6" fill="#ff5f57"/>
+  <circle cx="35" cy="15" r="6" fill="#ffbd2e"/>
+  <circle cx="55" cy="15" r="6" fill="#28ca42"/>
+  
+  <!-- Terminal text -->
+  <text x="20" y="55" fill="#00ff00" font-family="monospace" font-size="12">$ ona forecast --location CapeTown</text>
+  <text x="20" y="75" fill="#ffffff" font-family="monospace" font-size="12">Starting AI-powered energy forecast...</text>
+  <text x="20" y="95" fill="#00ff00" font-family="monospace" font-size="12">✓ Data loaded: 2,847 datapoints</text>
+  <text x="20" y="115" fill="#00ff00" font-family="monospace" font-size="12">✓ Model trained: 94.2% accuracy</text>
+  <text x="20" y="135" fill="#ffffff" font-family="monospace" font-size="12">Forecast generated for next 24h</text>
+  <text x="20" y="155" fill="#666666" font-family="monospace" font-size="12">Peak: 15.4 kW at 14:30</text>
+  <text x="20" y="175" fill="#666666" font-family="monospace" font-size="12">Valley: 2.1 kW at 03:00</text>
+  <text x="20" y="215" fill="#00ff00" font-family="monospace" font-size="12">$ _</text>
+</svg>

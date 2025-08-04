@@ -34,23 +34,21 @@ Get up and running with Ona's energy forecasting API in minutes. Choose your pre
 
 ## Learn More
 
-<div class="learn-more-grid">
-  <div class="learn-more-column">
-    <div class="product-preview">
-      <img src="https://via.placeholder.com/400x250/1a1a1a/ffffff?text=Terminal+Interface" alt="Ona Terminal Interface" />
-    </div>
+Explore Ona's two interfaces designed for different workflows and user preferences. Choose the one that best fits your technical requirements and team structure.
+
+<div class="quickstart-paths">
+  <div class="path-card">
+    <img src="/assets/images/terminal-interface.svg" alt="Ona Terminal Interface" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;" />
     <h3>Ona Terminal</h3>
     <p>AI-powered infrastructure automation tool for terminal users with OODA workflow capabilities and energy asset management. Perfect for developers who prefer command-line interfaces and automated workflows.</p>
-    <a href="https://code.asoba.co" target="_blank" class="learn-more-link">Explore Ona Terminal →</a>
+    <a href="https://code.asoba.co" target="_blank" class="path-button">Explore Ona Terminal</a>
   </div>
   
-  <div class="learn-more-column">
-    <div class="product-preview">
-      <img src="https://via.placeholder.com/400x250/4285f4/ffffff?text=Web+App+Interface" alt="Ona On Demand Interface" />
-    </div>
+  <div class="path-card">
+    <img src="/assets/images/webapp-interface.svg" alt="Ona On Demand Interface" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;" />
     <h3>Ona On Demand</h3>
     <p>Web-based demand forecasting and dispatch scheduling application with intuitive interface for business users. Designed for easy access through your browser with visual tools and dashboards.</p>
-    <a href="https://app.asoba.co" target="_blank" class="learn-more-link">Launch Web App →</a>
+    <a href="https://app.asoba.co" target="_blank" class="path-button">Launch Web App</a>
   </div>
 </div>
 
