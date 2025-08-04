@@ -162,6 +162,34 @@ curl -X POST "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/train
 
 ---
 
+## Choose Your Interface
+
+<div class="interface-options">
+  <div class="interface-card">
+    <div class="interface-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2 3h20c.55 0 1 .45 1 1v16c0 .55-.45 1-1 1H2c-.55 0-1-.45-1-1V4c0-.55.45-1 1-1zm0 2v14h20V5H2zm2 2h2v2H4V7zm4 0h2v2H8V7zm4 0h6v2h-6V7zM4 11h2v2H4v-2zm4 0h2v2H8v-2zm4 0h6v2h-6v-2zM4 15h2v2H4v-2zm4 0h2v2H8v-2zm4 0h6v2h-6v-2z"/>
+      </svg>
+    </div>
+    <h3>Ona Terminal</h3>
+    <p>AI-powered infrastructure automation tool for terminal users with OODA workflow capabilities and energy asset management</p>
+    <a href="https://code.asoba.co" target="_blank" class="interface-button">Launch Terminal</a>
+  </div>
+  
+  <div class="interface-card">
+    <div class="interface-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+      </svg>
+    </div>
+    <h3>Ona On Demand</h3>
+    <p>Web-based demand forecasting and dispatch scheduling application with intuitive interface for business users</p>
+    <a href="https://app.asoba.co" target="_blank" class="interface-button">Launch Web App</a>
+  </div>
+</div>
+
+---
+
 ## What's Next?
 
 🎯 **New to Ona?** → [Read Getting Started](getting-started.html) for detailed onboarding  
