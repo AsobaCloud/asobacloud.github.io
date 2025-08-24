@@ -20,7 +20,7 @@
   <!-- Component info -->
   <text x="60" y="210" font-family="system-ui, sans-serif" font-size="14" fill="#1e293b">Component: Inverter #1</text>
   <text x="60" y="230" font-family="system-ui, sans-serif" font-size="14" fill="#1e293b">Serial: INV-2024-001</text>
-  <text x="60" y="250" font-family="system-ui, sans-serif" font-size="14" fill="#1e293b">Issue: Fault detected - 80% failure probability</text>
+  <text x="60" y="250" font-family="system-ui, sans-serif" font-size="13" fill="#1e293b">Issue: Fault detected - 80% failure probability</text>
   <text x="60" y="270" font-family="system-ui, sans-serif" font-size="14" fill="#1e293b">Priority: High</text>
   
   <!-- SKU Catalog -->
@@ -29,7 +29,7 @@
   
   <!-- SKU Option 1 - Recommended -->
   <rect x="440" y="200" width="300" height="80" fill="#f0fdf4" rx="6" stroke="#bbf7d0" stroke-width="2"/>
-  <text x="460" y="220" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#059669">SKU-INV-001: Standard Inverter Replacement</text>
+  <text x="460" y="220" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#059669">SKU-INV-001: Standard Inverter Replacement</text>
   <text x="460" y="240" font-family="system-ui, sans-serif" font-size="12" fill="#1e293b">Qty: 1 • Price: $1,500 • Lead Time: 3-5 days</text>
   <text x="460" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#059669">✓ Recommended for this fault type</text>
   <rect x="700" y="210" width="20" height="20" fill="#10b981" rx="10"/>
@@ -37,13 +37,13 @@
   
   <!-- SKU Option 2 -->
   <rect x="440" y="290" width="300" height="60" fill="#ffffff" rx="6" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="460" y="310" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e293b">SKU-INV-002: Premium Inverter Upgrade</text>
+  <text x="460" y="310" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">SKU-INV-002: Premium Inverter Upgrade</text>
   <text x="460" y="330" font-family="system-ui, sans-serif" font-size="12" fill="#1e293b">Qty: 1 • Price: $2,500 • Lead Time: 7-10 days</text>
   <rect x="700" y="310" width="20" height="20" fill="#ffffff" rx="10" stroke="#d1d5db" stroke-width="1"/>
   
   <!-- SKU Option 3 -->
   <rect x="440" y="360" width="300" height="60" fill="#ffffff" rx="6" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="460" y="380" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e293b">SKU-INV-003: Refurbished Inverter</text>
+  <text x="460" y="380" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#1e293b">SKU-INV-003: Refurbished Inverter</text>
   <text x="460" y="400" font-family="system-ui, sans-serif" font-size="12" fill="#1e293b">Qty: 1 • Price: $1,000 • Lead Time: 5-7 days</text>
   <rect x="700" y="380" width="20" height="20" fill="#ffffff" rx="10" stroke="#d1d5db" stroke-width="1"/>
   
