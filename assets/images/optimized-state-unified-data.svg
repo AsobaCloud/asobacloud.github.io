@@ -35,7 +35,7 @@
   <ellipse cx="400" cy="250" rx="80" ry="35" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
   <text x="400" y="255" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">On Site Cloud</text>
   
-  <!-- Arrows to Cloud -->
+  <!-- Arrows to Cloud - Fixed to avoid overlapping boxes -->
   <path d="M 130 180 L 320 250" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   <path d="M 270 180 L 320 250" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   
@@ -68,12 +68,12 @@
   <text x="650" y="405" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">👤</text>
   <text x="650" y="430" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Ops Lead</text>
   
-  <!-- Automated Alerts Arrow -->
+  <!-- Automated Alerts Arrow - Fixed positioning -->
   <path d="M 550 380 L 630 400" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   <text x="570" y="385" font-family="system-ui, sans-serif" font-size="10" fill="#10b981">Send Automated Alerts</text>
   <text x="570" y="395" font-family="system-ui, sans-serif" font-size="10" fill="#10b981">to Approve Schedule</text>
   
-  <!-- Natural Language Query Arrow -->
+  <!-- Natural Language Query Arrow - Fixed positioning to avoid text overlap -->
   <path d="M 630 420 L 550 440" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   <text x="580" y="435" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Can use natural language</text>
   <text x="580" y="445" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">queries to troubleshoot</text>
