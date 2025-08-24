@@ -10,269 +10,125 @@ Find answers to the most common questions about Ona's energy management platform
 
 ---
 
-## General Questions
-
-### What is Ona's energy management platform?
-Ona provides AI-powered energy forecasting and asset management solutions for solar installations, helping optimize performance and maximize returns. Our platform combines advanced analytics, predictive maintenance, and automated workflows to improve energy production and reduce operational costs.
-
-### Who should use Ona?
-Ona is designed for:
-- **Solar Asset Owners**: Monitor and optimize solar installations
-- **O&M Teams**: Streamline maintenance and operations
-- **EPC Companies**: Post-construction monitoring and warranty tracking
-- **Energy Managers**: Portfolio optimization and financial analysis
-- **Developers**: API integration and custom automation
-
-### How much does Ona cost?
-We offer flexible pricing plans:
-- **Starter Plan**: Free tier for small installations and developers
-- **Professional Plan**: Custom pricing for growing businesses
-- **Enterprise Plan**: Custom enterprise pricing for large portfolios
-
-Contact our sales team for detailed pricing information.
-
----
-
 ## Technical Questions
-
-### What data formats does Ona support?
-We support multiple data formats:
-- **CSV**: Standard comma-separated values
-- **JSON**: Structured data format
-- **Real-time streams**: Live data feeds
-- **Batch processing**: Large dataset handling
-
-Most common inverter manufacturers (SolarEdge, Lux Power, Solarman, etc.) are supported out of the box.
-
-### How accurate are Ona's forecasts?
-Our AI models typically achieve:
-- **90-95% accuracy** for energy production forecasts
-- **85-90% accuracy** for demand forecasting
-- **80-85% accuracy** for maintenance predictions
-
-Accuracy depends on data quality, weather conditions, and historical data availability.
-
-### Can I integrate Ona with my existing systems?
-Yes! We provide multiple integration options:
-- **REST APIs**: Direct access to all platform capabilities
-- **Python SDK**: Easy integration for Python applications
-- **JavaScript SDK**: Web and Node.js integration
-- **Webhooks**: Real-time notifications and updates
-- **SCADA Systems**: Connect with existing monitoring systems
 
 ### What are the system requirements?
 **Minimum Requirements:**
-- Python 3.7+ or Node.js 14+
-- 4GB RAM
+- Python 3.10+ (for Ona Terminal)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
 - Stable internet connection
-- Supported web browser (Chrome, Firefox, Safari, Edge)
+- 4GB GPU RAM (for local installations)
+- AWS Credentials with Bedrock Access (for AI features)
 
 **Recommended:**
-- Python 3.9+ or Node.js 16+
-- 8GB RAM
+- Python 3.10+ (for Ona Terminal)
 - High-speed internet connection
+- 8GB GPU RAM (for local installations)
+- Latest browser versions
+
+**Operating Systems:**
+- Windows 11, macOS 18+, or Ubuntu 22.04+
+
+### How scalable is the AI module?
+The system scales effectively for 50MW+ portfolios and operates across multiple regions with proven results.
+
+### Can this system integrate with third-party monitoring platforms?
+Yes, the AI module can operate as a standalone solution or integrate via API with existing monitoring platforms, regardless of whether you're using eSUMS.
+
+### How is data secured and where is it stored?
+Data security is handled through enterprise-grade encryption and secure protocols. Data can be stored regionally or on-premises based on your requirements.
+
+### What is the OODA workflow?
+The OODA (Observe-Orient-Decide-Act) workflow is our proprietary decision-making framework that enables:
+- **Observe**: Real-time data collection and monitoring
+- **Orient**: AI-powered analysis and pattern recognition
+- **Decide**: Automated decision recommendations
+- **Act**: Immediate action execution and optimization
 
 ---
 
 ## Business Questions
 
-### What ROI can I expect from Ona?
-Our customers typically see:
-- **10-20% improvement** in energy production
-- **20-40% reduction** in maintenance costs
-- **15-30% increase** in operational efficiency
-- **25-50% faster** issue resolution
+### What is the pricing structure?
+**Proof of Concept:**
+- 3-Month Proof of Concept: R 13 130 / $700 ex VAT (credited toward annual contract)
+- Success metrics: Detection latency < 10 min, MTTR reduction > 25%, False positive rate < 10%
+- Auto-conversion: When 2/4 success metrics hit during 90 day PoC period → 12-month contract activates
 
-Actual results depend on your specific use case and implementation.
+**Annual Pricing:**
+- SaaS: R 218 945 / $11,700 annual
+- On-Prem: R 126 072 / $6,750 annual, R 43 770 / $2,350 with one time hardware install fee
 
-### How long does implementation take?
-Implementation timelines vary:
-- **Basic Setup**: 1-3 days for simple installations
-- **Standard Integration**: 2-4 weeks for typical deployments
-- **Enterprise Deployment**: 4-8 weeks for complex portfolios
+### What ROI can I expect?
+**10MW Portfolio Example:**
+- 25% MTTR reduction
+- R 82K / $4,400 annual savings per MW
+- 60% ROI
 
-We provide comprehensive support throughout the implementation process.
+**Customer Validation:**
+"The 4-hour detection improvement alone paid for Ona in the first month" - O&M Director, 25MW Portfolio
 
-### Do you provide training and support?
-Yes! We offer:
-- **Free Resources**: Documentation, video tutorials, webinars
-- **Paid Training**: Custom training, certification programs, workshops
-- **Technical Support**: Email, phone, and Discord community support
-- **Implementation Support**: Dedicated assistance during setup
+### What is the implementation timeline?
+- 13-week implementation process
+- Revenue generation begins immediately
+- First revenue generated within 30 days
 
-### What kind of support do you offer?
-**Technical Support:**
-- Email: support@asoba.co
-- Discord Community: 24/7 peer support
-- Phone: Business hours support
-- Emergency: 24/7 critical issue support
+### What happens post-PoC?
+Once clients move to an annual contract, the system includes ongoing support, updates, and improvements as part of the standard service.
 
-**Business Support:**
-- Sales consultations
-- Implementation guidance
-- Custom development services
-- Ongoing account management
+### Who is the Solar O&M AI tool for?
+The tool is designed for solar asset owners, O&M teams, energy asset managers, and business decision makers looking to optimize solar performance and reduce operational costs.
 
----
+### How is our Solar O&M AI tool not subject to erosion by competition?
+Our competitive advantages include:
+- **Proprietary AI Models**: Advanced machine learning algorithms trained on real solar data
+- **OODA Workflow**: Unique decision-making framework for energy optimization
+- **Distributed Compute**: Zero-carbon edge computing powered by renewable energy
+- **Real-Time Processing**: Live data analysis and immediate action capabilities
+- **Proven Results**: Demonstrated ROI improvements across diverse portfolios
+- **Continuous Innovation**: Ongoing R&D and model refinement
 
-## Platform Features
-
-### What is the OODA workflow?
-OODA stands for Observe, Orient, Decide, Act:
-- **Observe**: Real-time data collection from energy assets
-- **Orient**: AI-powered analysis and pattern recognition
-- **Decide**: Automated decision-making based on insights
-- **Act**: Execute actions and optimizations
-
-This creates a continuous feedback loop for optimal performance.
-
-### How does predictive maintenance work?
-Our predictive maintenance system:
-- **Monitors Equipment Health**: Tracks inverter, panel, and system performance
-- **Analyzes Patterns**: Uses machine learning to identify failure patterns
-- **Predicts Issues**: Forecasts potential problems before they occur
-- **Recommends Actions**: Suggests optimal maintenance schedules
-- **Tracks Effectiveness**: Measures the impact of maintenance activities
-
-### What analytics and reporting are available?
-We provide comprehensive analytics:
-- **Performance Metrics**: Production, efficiency, capacity factors
-- **Financial Analysis**: ROI tracking, cost optimization
-- **Predictive Analytics**: Forecasting and trend analysis
-- **Custom Reports**: Tailored reporting for your specific needs
-- **Real-time Dashboards**: Live monitoring and alerts
-
-### Can I customize the platform for my needs?
-Yes! We offer extensive customization:
-- **Custom Dashboards**: Tailored to your specific requirements
-- **API Integration**: Connect with your existing systems
-- **Plugin Development**: Extend functionality with custom code
-- **Workflow Automation**: Create automated processes
-- **Branding**: Customize the interface to match your brand
+### What's the definition of value for the Solar O&M AI tool?
+Value is measured through:
+- **Cost Reduction**: 25% MTTR reduction, R82K+ annual savings per MW
+- **Revenue Generation**: R1.8M+ compute revenue potential per 2.5MW system
+- **Risk Mitigation**: Proactive issue detection and prevention
+- **Operational Efficiency**: Automated monitoring and decision support
+- **Asset Protection**: Enhanced system reliability and longevity
 
 ---
 
-## Data & Security
+## Distributed Compute Questions
 
-### How is my data protected?
-We take data security seriously:
-- **Encryption**: All data encrypted in transit and at rest
-- **Access Controls**: Role-based permissions and authentication
-- **Compliance**: SOC 2, GDPR, and industry-standard compliance
-- **Backup**: Regular automated backups and disaster recovery
-- **Monitoring**: 24/7 security monitoring and threat detection
+### What is the customer demand?
+- R2.3M / $123,000 in signed LOIs globally
+- 60+ companies in pipeline
+- Growing 30% annually
 
-### Where is my data stored?
-We offer regional data storage options:
-- **Africa**: AWS af-south-1 (Cape Town)
-- **North America**: AWS us-east-1 (N. Virginia)
-- **Europe**: AWS eu-west-1 (Ireland)
-
-Data sovereignty and compliance requirements are respected.
-
-### Can I export my data?
-Yes! You can export your data in multiple formats:
-- **CSV/JSON**: Standard data formats
-- **API Access**: Programmatic data retrieval
-- **Scheduled Exports**: Automated data delivery
-- **Real-time Feeds**: Live data streaming
-- **Custom Formats**: Proprietary format support
-
-### How long do you retain my data?
-Data retention policies:
-- **Operational Data**: 7 years (regulatory compliance)
-- **Analytics Data**: 3 years (performance optimization)
-- **Log Data**: 1 year (troubleshooting)
-- **Backup Data**: 30 days (disaster recovery)
-
-You can request data deletion at any time.
+### What deployment options are available?
+We offer multiple deployment options to meet your specific needs:
+- **Cloud Deployment**: Fully managed cloud-based solution with automatic scaling
+- **Distributed Compute**: Zero-carbon edge computing powered by renewable energy ([Learn More](/products/distributed-compute))
+- **Hybrid Deployment**: Combination of cloud and distributed compute for optimal performance
+- **Air-Gapped Deployment**: Fully isolated deployment for high-security environments
+- **Regional Deployment**: Data sovereignty compliance with local data centers
 
 ---
 
-## Getting Started
+## Support Information
 
-### How do I get started with Ona?
-Getting started is easy:
-1. **Contact Sales**: Schedule a consultation
-2. **Assessment**: We evaluate your needs and data
-3. **Setup**: Configure the platform for your assets
-4. **Training**: Learn to use the platform effectively
-5. **Go-Live**: Start monitoring and optimizing
+### How do I get started?
+1. Contact us for a property assessment
+2. We conduct financial analysis of your solar assets
+3. Customer matching and contract terms are established
+4. Integration and testing are completed
+5. First revenue is generated within 30 days
 
-### What data do I need to provide?
-We typically need:
-- **Historical Data**: 12+ months of energy production data
-- **Asset Information**: Inverter models, locations, specifications
-- **Weather Data**: Local weather conditions (we can provide this)
-- **Operational Data**: Maintenance records, performance metrics
-
-### Can I try Ona before purchasing?
-Yes! We offer:
-- **Free Trial**: 30-day trial with sample data
-- **Demo Environment**: Test the platform with your data
-- **Proof of Concept**: Validate the solution for your use case
-- **Pilot Program**: Limited deployment to prove value
-
-### What if I need help during implementation?
-We provide comprehensive implementation support:
-- **Dedicated Support**: Assigned implementation specialist
-- **Documentation**: Step-by-step guides and tutorials
-- **Training Sessions**: Live training for your team
-- **Ongoing Support**: Continued assistance after go-live
+### What support is available?
+- Technical support for implementation and ongoing operations
+- Customer success management
+- Training and documentation
+- Regular updates and improvements
 
 ---
 
-## Troubleshooting
-
-### My data upload failed. What should I do?
-Common upload issues and solutions:
-- **File Format**: Ensure CSV format with correct headers
-- **File Size**: Check if file exceeds size limits
-- **Network**: Verify stable internet connection
-- **Authentication**: Confirm API key is valid
-- **Support**: Contact support if issues persist
-
-### Why are my forecasts inaccurate?
-Forecast accuracy can be affected by:
-- **Data Quality**: Missing or inconsistent data
-- **Weather**: Unusual weather patterns
-- **Equipment**: Equipment changes or maintenance
-- **Model Training**: Insufficient historical data
-- **Configuration**: Incorrect asset parameters
-
-### How do I reset my password?
-To reset your password:
-1. Go to the login page
-2. Click "Forgot Password"
-3. Enter your email address
-4. Check your email for reset instructions
-5. Follow the link to create a new password
-
-### The platform seems slow. What can I do?
-Performance optimization tips:
-- **Browser**: Use the latest version of Chrome or Firefox
-- **Cache**: Clear browser cache and cookies
-- **Network**: Check internet connection speed
-- **Data**: Reduce the date range for large datasets
-- **Support**: Contact support for persistent issues
-
----
-
-## Still Have Questions?
-
-Can't find the answer you're looking for? We're here to help:
-
-- 📧 **Email Support**: [support@asoba.co](mailto:support@asoba.co)
-- 💬 **Discord Community**: [Join our Community](https://discord.gg/nNV5evcr)
-- 📞 **Phone Support**: +1 (555) 123-4567
-- 📚 **Documentation**: [Full Documentation](https://code.asoba.co)
-
----
-
-## Related Resources
-
-- [Getting Started](/getting-started) - Implementation guide
-- [Business Users](/business-users) - Solutions for business stakeholders
-- [Use Cases](/use-cases) - Industry applications
-- [Products](/products) - Platform capabilities
-- [Support](/support) - Technical assistance

@@ -41,6 +41,19 @@ Comprehensive energy management solutions designed for different user types and 
     </div>
     <a href="/products/analyst" class="card-cta">Learn More</a>
   </div>
+
+  <!-- Distributed Compute Card -->
+  <div class="product-card compute">
+    <img src="/assets/images/compute-interface.svg" alt="Distributed Compute">
+    <h3>Distributed Compute</h3>
+    <p>Zero-carbon distributed compute powered by renewable energy</p>
+    <div class="card-tags">
+      <span class="tag">AI/ML</span>
+      <span class="tag">Edge Computing</span>
+      <span class="tag">Zero Carbon</span>
+    </div>
+    <a href="/products/distributed-compute" class="card-cta">Learn More</a>
+  </div>
 </div>
 
 ---
