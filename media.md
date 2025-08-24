@@ -12,7 +12,7 @@ This page provides access to additional resources including webinar recordings a
 
 | Link | Date |
 |------|------|
-| [8 startups join elite climate-tech fellowship](https://www.axios.com/sponsored/8-startups-join-elite-climate-tech-fellowship) | 2025-03 |
+| [8 startups join elite climate-tech fellowship](https://www.axios.com/sponsored/8-startups-join-elite-climate-tech-fellowship) | 2024-12 |
 | [Climate Collective – AI • Climate Accelerator](https://climatecollective.org/ai-climate-accelerator) | 2025-03 |
 
 ---
