@@ -13,11 +13,11 @@
   
   <!-- Solar System 1 -->
   <polygon points="90,160 70,180 110,180" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-  <text x="90" y="200" font-family="system-ui, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Solar System 1</text>
+  <text x="90" y="90" font-family="system-ui, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Solar System 1</text>
   
   <!-- Data Upload Arrow -->
   <path d="M 90 180 L 90 220" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="110" y="205" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Data upload</text>
+  <text x="120" y="200" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Data upload</text>
   
   <!-- Huawei Cloud -->
   <ellipse cx="90" cy="250" rx="60" ry="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
@@ -29,7 +29,7 @@
   
   <!-- Excel Sheet -->
   <rect x="35" y="370" width="110" height="30" fill="#f0fdf4" rx="4" stroke="#10b981" stroke-width="1"/>
-  <text x="90" y="390" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
+  <text x="90" y="385" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
   
   <!-- SolarEdge Stream -->
   <!-- SolarEdge Data Source -->
@@ -38,11 +38,11 @@
   
   <!-- Solar System 2 -->
   <polygon points="290,160 270,180 310,180" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
-  <text x="290" y="200" font-family="system-ui, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Solar System 2</text>
+  <text x="290" y="90" font-family="system-ui, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Solar System 2</text>
   
   <!-- Data Upload Arrow -->
   <path d="M 290 180 L 290 220" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="310" y="205" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Data upload</text>
+  <text x="320" y="200" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Data upload</text>
   
   <!-- SolarEdge Cloud -->
   <ellipse cx="290" cy="250" rx="60" ry="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
@@ -54,24 +54,27 @@
   
   <!-- Excel Sheet -->
   <rect x="235" y="370" width="110" height="30" fill="#f0fdf4" rx="4" stroke="#10b981" stroke-width="1"/>
-  <text x="290" y="390" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
+  <text x="290" y="385" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
   
   <!-- Third Excel Sheet (Unknown Source) -->
   <rect x="435" y="370" width="110" height="30" fill="#fef2f2" rx="4" stroke="#ef4444" stroke-width="1"/>
-  <text x="490" y="390" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
+  <text x="490" y="385" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
   
   <!-- Question Mark -->
-  <circle cx="520" cy="385" r="15" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
-  <text x="520" y="390" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ef4444" text-anchor="middle">?</text>
+  <circle cx="520" cy="355" r="15" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="520" y="360" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ef4444" text-anchor="middle">?</text>
   
   <!-- Master Management Excel Sheet -->
   <rect x="300" y="450" width="200" height="40" fill="#f1f5f9" rx="6" stroke="#64748b" stroke-width="2"/>
-  <text x="400" y="470" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Master Management Excel Sheet</text>
+  <text x="400" y="465" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">
+    <tspan x="400" dy="0">Master Management</tspan>
+    <tspan x="400" dy="16">Excel Sheet</tspan>
+  </text>
   
   <!-- Arrows to Master Sheet -->
-  <path d="M 90 400 L 300 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 290 400 L 300 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <path d="M 490 400 L 400 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 90 400 L 296 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 290 400 L 350 450" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 490 400 L 450 450" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   
   <!-- Ops Lead - Replaced emoji with SVG person icon -->
   <circle cx="650" cy="520" r="20" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
@@ -82,7 +85,11 @@
   
   <!-- Question to Ops Lead -->
   <path d="M 500 470 L 630 520" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
-  <text x="550" y="490" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444">How to troubleshoot issues that impact asset guaranteed performance?</text>
+  <!-- Wrapped question label placed above the arrow for legibility -->
+  <text x="650" y="480" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444" text-anchor="middle">
+    <tspan x="650" dy="0">How to troubleshoot issues that impact</tspan>
+    <tspan x="650" dy="14">asset guaranteed performance?</tspan>
+  </text>
   
   <!-- Arrow Markers -->
   <defs>

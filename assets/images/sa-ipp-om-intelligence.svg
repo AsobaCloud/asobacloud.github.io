@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="100%">
+  <rect width="100%" height="100%" fill="#f8fafc"/>
+  <text x="600" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#0f172a">South Africa IPP — O&amp;M Intelligence</text>
+  <text x="600" y="74" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#334155">Unified data processing • Predictive maintenance • Instant actions</text>
+
+  <!-- Data sources -->
+  <polygon points="180,130 150,170 210,170" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="180" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Solar System 1</text>
+  <rect x="130" y="210" width="100" height="42" rx="6" fill="#e2e8f0"/>
+  <text x="180" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f172a">Huawei</text>
+
+  <polygon points="380,130 350,170 410,170" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="380" y="195" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Solar System 2</text>
+  <rect x="330" y="210" width="100" height="42" rx="6" fill="#e2e8f0"/>
+  <text x="380" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f172a">SolarEdge</text>
+
+  <!-- On Site Cloud -->
+  <ellipse cx="600" cy="280" rx="130" ry="55" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="600" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#0f172a">On Site Cloud</text>
+
+  <!-- Arrows to cloud -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+  </defs>
+  <path d="M 180 252 C 240 252 300 260 470 270" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 380 252 C 440 252 500 260 570 270" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Processing block -->
+  <rect x="450" y="360" width="300" height="140" rx="10" fill="#ffffff" stroke="#e5e7eb"/>
+  <rect x="465" y="375" width="150" height="110" rx="8" fill="#f0fdf4" stroke="#10b981"/>
+  <text x="540" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">Ona Terminal</text>
+  <text x="475" y="412" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Data cleaning</text>
+  <text x="475" y="430" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Forecasting</text>
+  <text x="475" y="448" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Risk calculations</text>
+  <text x="475" y="466" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Schedule actions</text>
+
+  <rect x="625" y="375" width="110" height="110" rx="8" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="680" y="392" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#0f172a">eSUMS</text>
+  <text x="680" y="412" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">Utility Mgmt</text>
+  <text x="680" y="430" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">System</text>
+
+  <!-- Ops lead -->
+  <circle cx="930" cy="430" r="22" fill="#f3f4f6" stroke="#6b7280"/>
+  <circle cx="930" cy="422" r="6" fill="#6b7280"/>
+  <path d="M 918 436 Q 930 448 942 436" stroke="#6b7280" stroke-width="2" fill="none"/>
+  <text x="930" y="470" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#0f172a">Ops Lead</text>
+
+  <!-- Notifications & queries -->
+  <path d="M 750 410 C 820 410 860 415 900 425" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <text x="775" y="395" font-family="system-ui, sans-serif" font-size="11" fill="#10b981">Automated alerts</text>
+  <path d="M 900 440 C 840 460 780 470 720 480" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="760" y="475" font-family="system-ui, sans-serif" font-size="11" fill="#3b82f6">NL queries for troubleshooting</text>
+
+  <!-- Benefits -->
+  <rect x="100" y="560" width="1000" height="140" rx="10" fill="#f0fdf4" stroke="#10b981"/>
+  <text x="600" y="585" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#0f172a">Key Benefits</text>
+  <text x="140" y="610" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Unified processing from Huawei &amp; SolarEdge</text>
+  <text x="140" y="630" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Automated alerts and scheduling</text>
+  <text x="140" y="650" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Natural-language troubleshooting</text>
+  <text x="640" y="610" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Predictive maintenance optimization</text>
+  <text x="640" y="630" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Financial risk calculations</text>
+  <text x="640" y="650" font-family="system-ui, sans-serif" font-size="12" fill="#0f172a">• Proactive issue resolution</text>
+</svg>
+

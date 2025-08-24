@@ -68,7 +68,7 @@ Our AI-driven insurance platform provides:
 
 ### Case Study: South Africa IPP — O&M Intelligence
 
-![South Africa IPP — O&M Intelligence](/assets/images/sa-ipp-p5.svg)
+![South Africa IPP — O&M Intelligence](/assets/images/sa-ipp-om-intelligence.svg)
 
 Source: [Asoba's O&M Intelligence: South Africa IPP Use Case](https://docs.google.com/presentation/d/1UdKrWsZlS6V_hgDn3cLoY24HcVolUmncSBvQ-msFGS0/edit?slide=id.p5#slide=id.p5)
 
