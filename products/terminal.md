@@ -82,44 +82,7 @@ Natural language support through:
 - **Cost Estimates**: Detailed breakdowns of repair costs and timelines
 - **Quick Actions**: Direct integration with work order creation
 
-### 🖥️ **User-Friendly Dashboard Interface**
-For non-technical users, Ona Terminal provides an intuitive web dashboard that makes energy asset management accessible to everyone:
 
-#### **Main Dashboard Overview**
-![Ona Terminal Dashboard Overview](/assets/images/terminal-dashboard-overview.svg)
-
-The main dashboard provides a comprehensive view of all your energy assets with:
-- **Asset Status Cards**: Real-time status of solar farms and components
-- **Performance Metrics**: Key performance indicators and revenue tracking
-- **Maintenance Planning**: Prioritized maintenance tasks and schedules
-- **24/7 Monitoring**: Continuous monitoring with visual alerts
-
-#### **Asset Detail View**
-![Ona Terminal Asset Detail](/assets/images/terminal-asset-detail.svg)
-
-Drill down into individual assets to see:
-- **Component Monitoring**: Detailed status of inverters, panels, and cabling
-- **Performance Analytics**: Real-time charts and efficiency metrics
-- **Maintenance Planning**: Priority-based maintenance recommendations
-- **Quick Actions**: One-click access to common tasks
-
-#### **Work Order Management**
-![Ona Terminal Work Order Management](/assets/images/terminal-work-order.svg)
-
-Streamlined work order creation with:
-- **Component Selection**: Easy identification of faulty components
-- **SKU Catalog**: Automated parts recommendations with pricing
-- **Work Order Options**: Add to existing or create new work orders
-- **Cost Tracking**: Real-time cost estimates and lead times
-
-#### **AI Assistant Chat**
-![Ona Terminal AI Assistant](/assets/images/terminal-assistant.svg)
-
-Natural language interaction for O&M support:
-- **Intelligent Diagnostics**: AI-powered fault analysis and recommendations
-- **Cost Estimation**: Automated cost breakdowns and timelines
-- **Quick Actions**: One-click access to common workflows
-- **24/7 Support**: Always-available AI assistance
 
 ---
 
