@@ -164,20 +164,10 @@ Comprehensive energy management solutions designed for different user types and 
 
 ## Pricing & Plans
 
-### Starter Plan
-- **Perfect for**: Small solar installations, individual developers
-- **Features**: Basic monitoring, API access, community support
-- **Pricing**: Free tier available
-
-### Professional Plan
-- **Perfect for**: Growing businesses, multiple installations
-- **Features**: Advanced analytics, predictive maintenance, priority support
-- **Pricing**: Contact sales for custom pricing
-
-### Enterprise Plan
-- **Perfect for**: Large portfolios, grid operators, utilities
-- **Features**: Custom integrations, dedicated support, SLA guarantees
-- **Pricing**: Custom enterprise pricing
+| Deployment | Annual Price (per portfolio) ex VAT | Onboarding Fee ex VAT | Description |
+|---|---:|---|---|
+| SaaS (Managed Infrastructure) | R 218 945 | R 13 130 | Software-only; API-based data uploads; Ona Terminal requires internet access. |
+| On-Prem (Self-Hosted, Offline) | R 126 072 | R 43 770 (with hardware)<br/>R 13 130 (software only) | Local install with optional mini compute cluster + data logger + SSD storage; all IoT data processed on-site. |
 
 ---
 
