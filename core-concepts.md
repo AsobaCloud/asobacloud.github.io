@@ -419,8 +419,8 @@ def process_real_time_data(site_data):
 
 Now that you understand how Ona works:
 
-1. **Start building**: [API Reference](api-reference.html) for detailed endpoints
-2. **See examples**: [Use Cases](use-cases.html) for real implementations  
+1. **Start building**: [API Reference](endpoints.html) for detailed endpoints
+2. **See examples**: [Use Cases](use-cases.html) for real implementations
 3. **Try the SDK**: [SDK Documentation](sdk.html) for easier integration
 4. **Get support**: [Contact us](mailto:support@asoba.co) for technical questions
 

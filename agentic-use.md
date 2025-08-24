@@ -385,9 +385,9 @@ regions:
 ## Support & Resources
 
 ### Documentation
-- [Agent Development Guide](./agent-development.html)
-- [API Integration Patterns](./integration-patterns.html)
-- [Best Practices Handbook](./best-practices.html)
+- [Agent Development Guide](./getting-started.html)
+- [API Integration Patterns](./endpoints.html)
+- [Best Practices Handbook](./sdk.html)
 
 ### Community
 - [GitHub Repository](https://github.com/AsobaCloud/asoba-code)
@@ -401,7 +401,7 @@ regions:
 
 ---
 
-**Ready to get started?** Begin with our [Quickstart Guide](./index.html#choose-your-path) or dive into [API Reference](./endpoints.html) for detailed endpoint documentation.
+**Ready to get started?** Begin with our [Quickstart Guide](./index.html#quick-start-options) or dive into [API Reference](./endpoints.html) for detailed endpoint documentation.
 
 ## Get Help & Stay Updated
 

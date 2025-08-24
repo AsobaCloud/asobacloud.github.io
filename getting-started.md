@@ -291,8 +291,8 @@ def get_forecast_results():
 
 Now that you understand the basics:
 
-1. **Explore the API**: [API Reference](api-reference.html) for detailed endpoint documentation
-2. **Learn the concepts**: [Core Concepts](core-concepts.html) for deeper understanding  
+1. **Explore the API**: [API Reference](endpoints.html) for detailed endpoint documentation
+2. **Learn the concepts**: [Core Concepts](core-concepts.html) for deeper understanding
 3. **See examples**: [Use Cases](use-cases.html) for real-world implementations
 4. **Try the SDK**: [SDK Documentation](sdk.html) for easier integration
 5. **Contact sales**: [sales@asoba.co](mailto:sales@asoba.co) to get started

@@ -23,8 +23,8 @@ See how Ona's platform transforms solar asset management in just 2 minutes.
   </div>
   
   <div class="hero-cta">
-    <a href="#getting-started" class="btn-primary">Get Started</a>
-    <a href="#use-cases" class="btn-secondary">Explore Use Cases</a>
+    <a href="#quick-start-options" class="btn-primary">Get Started</a>
+    <a href="#industry-use-cases" class="btn-secondary">Explore Use Cases</a>
   </div>
 </div>
 
@@ -104,18 +104,7 @@ See how Ona's platform transforms solar asset management in just 2 minutes.
     <a href="/products/terminal" class="card-cta">Learn More</a>
   </div>
 
-  <!-- Ona VPP Card -->
-  <div class="product-card vpp">
-    <img src="/assets/images/vpp-interface.svg" alt="Ona VPP">
-    <h3>Ona VPP</h3>
-    <p>Virtual Power Plant management platform</p>
-    <div class="card-tags">
-      <span class="tag">VPP</span>
-      <span class="tag">Grid Integration</span>
-      <span class="tag">Dispatch</span>
-    </div>
-    <a href="/products/vpp" class="card-cta">Learn More</a>
-  </div>
+
 
   <!-- PolicyAnalyst Card -->
   <div class="product-card analyst">
@@ -133,7 +122,7 @@ See how Ona's platform transforms solar asset management in just 2 minutes.
 
 ---
 
-## Industry Use Cases
+## Industry Use Cases {#industry-use-cases}
 
 <div class="use-case-cards">
   <!-- O&M Optimization Card -->
@@ -195,7 +184,7 @@ See how Ona's platform transforms solar asset management in just 2 minutes.
 
 ---
 
-## Quick Start Options
+## Quick Start Options {#quick-start-options}
 
 <div class="quickstart-paths">
   <div class="path-card">
