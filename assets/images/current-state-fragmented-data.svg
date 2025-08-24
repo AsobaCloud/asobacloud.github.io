@@ -1,0 +1,91 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="400" y="30" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#1e293b" text-anchor="middle">Current State: Fragmented Data Silos</text>
+  <text x="400" y="50" font-family="system-ui, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Product Language Fit: O&M Scheduler</text>
+  
+  <!-- Huawei Stream -->
+  <!-- Huawei Data Source -->
+  <rect x="50" y="100" width="80" height="40" fill="#e2e8f0" rx="6"/>
+  <text x="90" y="125" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Huawei</text>
+  
+  <!-- Solar System 1 -->
+  <polygon points="90,160 70,180 110,180" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="90" y="200" font-family="system-ui, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Solar System 1</text>
+  
+  <!-- Data Upload Arrow -->
+  <path d="M 90 180 L 90 220" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="110" y="205" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Data upload</text>
+  
+  <!-- Huawei Cloud -->
+  <ellipse cx="90" cy="250" rx="60" ry="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="90" y="255" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Huawei Cloud</text>
+  
+  <!-- Huawei Dashboard -->
+  <rect x="40" y="300" width="100" height="40" fill="#ffffff" rx="6" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="325" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e293b" text-anchor="middle">Huawei Dashboard</text>
+  
+  <!-- Excel Sheet -->
+  <rect x="35" y="370" width="110" height="30" fill="#f0fdf4" rx="4" stroke="#10b981" stroke-width="1"/>
+  <text x="90" y="390" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
+  
+  <!-- SolarEdge Stream -->
+  <!-- SolarEdge Data Source -->
+  <rect x="250" y="100" width="80" height="40" fill="#e2e8f0" rx="6"/>
+  <text x="290" y="125" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">SolarEdge</text>
+  
+  <!-- Solar System 2 -->
+  <polygon points="290,160 270,180 310,180" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+  <text x="290" y="200" font-family="system-ui, sans-serif" font-size="11" fill="#1e293b" text-anchor="middle">Solar System 2</text>
+  
+  <!-- Data Upload Arrow -->
+  <path d="M 290 180 L 290 220" stroke="#3b82f6" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="310" y="205" font-family="system-ui, sans-serif" font-size="10" fill="#3b82f6">Data upload</text>
+  
+  <!-- SolarEdge Cloud -->
+  <ellipse cx="290" cy="250" rx="60" ry="25" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+  <text x="290" y="255" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">SolarEdge Cloud</text>
+  
+  <!-- SolarEdge Dashboard -->
+  <rect x="240" y="300" width="100" height="40" fill="#ffffff" rx="6" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="290" y="325" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1e293b" text-anchor="middle">SolarEdge Dashboard</text>
+  
+  <!-- Excel Sheet -->
+  <rect x="235" y="370" width="110" height="30" fill="#f0fdf4" rx="4" stroke="#10b981" stroke-width="1"/>
+  <text x="290" y="390" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
+  
+  <!-- Third Excel Sheet (Unknown Source) -->
+  <rect x="435" y="370" width="110" height="30" fill="#fef2f2" rx="4" stroke="#ef4444" stroke-width="1"/>
+  <text x="490" y="390" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#1e293b" text-anchor="middle">Excel Sheet</text>
+  
+  <!-- Question Mark -->
+  <circle cx="520" cy="385" r="15" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+  <text x="520" y="390" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#ef4444" text-anchor="middle">?</text>
+  
+  <!-- Master Management Excel Sheet -->
+  <rect x="300" y="450" width="200" height="40" fill="#f1f5f9" rx="6" stroke="#64748b" stroke-width="2"/>
+  <text x="400" y="470" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1e293b" text-anchor="middle">Master Management Excel Sheet</text>
+  
+  <!-- Arrows to Master Sheet -->
+  <path d="M 90 400 L 300 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 290 400 L 300 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 490 400 L 400 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Ops Lead -->
+  <circle cx="650" cy="520" r="20" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+  <text x="650" y="525" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">👤</text>
+  <text x="650" y="550" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Ops Lead</text>
+  
+  <!-- Question to Ops Lead -->
+  <path d="M 500 470 L 630 520" stroke="#ef4444" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="550" y="490" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444">How to troubleshoot issues that impact asset guaranteed performance?</text>
+  
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+</svg>

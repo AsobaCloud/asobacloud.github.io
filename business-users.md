@@ -12,6 +12,14 @@ Solutions designed for solar asset owners, O&M teams, and energy managers who ne
 
 ## Asset Performance Monitoring
 
+### The Problem: Fragmented Data Silos Blocking Performance
+
+![Current State - Fragmented Data Silos](/assets/images/current-state-fragmented-data.svg)
+
+### The Solution: Unified Real-Time Intelligence
+
+![Optimized State - Unified Data Processing](/assets/images/optimized-state-unified-data.svg)
+
 ### Real-Time Dashboard
 Monitor your solar assets in real-time with comprehensive dashboards that provide:
 
