@@ -4,7 +4,7 @@
   
   <!-- Title -->
   <text x="400" y="30" font-family="system-ui, sans-serif" font-size="20" font-weight="600" fill="#1e293b" text-anchor="middle">Current State: Fragmented Data Silos</text>
-  <text x="400" y="50" font-family="system-ui, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Product Language Fit: O&M Scheduler</text>
+  <text x="400" y="50" font-family="system-ui, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Product Language Fit: O&amp;M Scheduler</text>
   
   <!-- Huawei Stream -->
   <!-- Huawei Data Source -->
@@ -73,9 +73,11 @@
   <path d="M 290 400 L 300 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   <path d="M 490 400 L 400 470" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
   
-  <!-- Ops Lead -->
+  <!-- Ops Lead - Replaced emoji with SVG person icon -->
   <circle cx="650" cy="520" r="20" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
-  <text x="650" y="525" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">👤</text>
+  <!-- Person icon using SVG shapes instead of emoji -->
+  <circle cx="650" cy="515" r="6" fill="#6b7280"/>
+  <path d="M 640 525 Q 650 535 660 525" stroke="#6b7280" stroke-width="2" fill="none"/>
   <text x="650" y="550" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1e293b" text-anchor="middle">Ops Lead</text>
   
   <!-- Question to Ops Lead -->
