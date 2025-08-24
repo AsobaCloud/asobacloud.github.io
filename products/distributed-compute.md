@@ -70,7 +70,7 @@ Start earning from day one:
 ## Technical Requirements
 
 ### **Minimum Specifications**
-- **Solar Capacity**: 500kW minimum installation
+- **Solar Capacity**: 25kW minimum installation
 - **Grid Connection**: Stable internet connectivity required
 - **Electrical Infrastructure**: Adequate power distribution capacity
 - **Site Security**: Controlled access to compute equipment
@@ -165,36 +165,7 @@ Seamless implementation process:
 
 ---
 
-## Get Help & Stay Updated
-
-### **Ephemeral Compute**
-**$0.05 per compute hour**
-
-- Best for batch processing
-- Spot instance pricing
-- Auto-scaling available
-- API access included
-- Basic support
-
-### **Dedicated Compute**
-**$0.15 per compute hour**
-
-- Guaranteed resources
-- Reserved instances
-- 99.9% uptime SLA
-- Priority support
-- Custom configurations
-
-### **Enterprise**
-**Custom volume pricing**
-
-- Dedicated infrastructure
-- Custom SLAs
-- 24/7 phone support
-- Compliance certifications
-- Managed services
-
----
+## 
 
 ## Technical Specifications
 
@@ -216,53 +187,7 @@ Seamless implementation process:
 
 ---
 
-## Getting Started
-
-### **Quick Start**
-```bash
-# Install AsobaCode CLI
-curl -fsSL https://install.asoba.co/cli | bash
-
-# Deploy your first workload
-asoba compute deploy --type gpu --nodes 2 --region auto
-
-# Monitor your deployment
-asoba compute status
-
-# Scale your workload
-asoba compute scale --nodes 5
-```
-
-### **Docker Deployment**
-```bash
-# Deploy with Docker
-docker run -d --gpus all \
-  -e ASOBA_API_KEY=your_key \
-  your-ai-workload
-
-# Kubernetes deployment
-kubectl apply -f asoba-compute.yaml
-```
-
-### **API Integration**
-```python
-import asoba_compute
-
-# Initialize client
-client = asoba_compute.Client(api_key="your_key")
-
-# Deploy workload
-deployment = client.deploy(
-    workload="ai-training",
-    nodes=4,
-    region="auto"
-)
-
-# Monitor status
-status = client.get_status(deployment.id)
-```
-
----
+## 
 
 ## Comparison with Traditional Cloud
 
