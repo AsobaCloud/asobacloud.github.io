@@ -196,7 +196,8 @@ layout: default
       candidates.forEach(function (code) {
         const mermaidText = code.textContent;
         const container = document.createElement('div');
-        container.className = 'mermaid';
+        const isTimeline = /^\s*timeline\b/.test(mermaidText || '');
+        container.className = 'mermaid' + (isTimeline ? ' timeline-diagram' : '');
         container.textContent = mermaidText;
         const pre = code.closest('pre');
         if (pre && pre.parentNode) {
@@ -287,6 +288,11 @@ layout: default
         margin-left: 10px;
         padding-left: 5px;
       }
+    }
+
+    /* Mermaid timeline: remove arrowheads so the line does not point past boxes */
+    .timeline-diagram svg [marker-end] {
+      marker-end: none !important;
     }
   </style>
 </body>
