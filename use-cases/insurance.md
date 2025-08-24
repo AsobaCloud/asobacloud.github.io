@@ -35,18 +35,30 @@ Solar operators endure costly downtime and slow claim settlements when equipment
 ### 1. MCP Intake & Document Review
 
 **Automated Document Processing**:
-```python
-# Upload data room contents to Lighthouse portal
-lighthouse.upload_documents(
-    engineering_drawings="site_plans.pdf",
-    warranty_docs="equipment_warranties.pdf", 
-    om_logs="maintenance_records.csv"
-)
 
-# AI-powered document classification and extraction
-intake_agent = MCPAgent("insurance_llm")
-policy_clauses = intake_agent.extract_policy_terms(documents)
-data_checklist = intake_agent.generate_sufficiency_checklist()
+```mermaid
+flowchart TD
+    A[Document Upload] --> B[Lighthouse Portal]
+    B --> C[AI Document Classification]
+    C --> D[Policy Clause Extraction]
+    D --> E[Data Sufficiency Analysis]
+    E --> F[Completeness Validation]
+    F --> G{Missing Data?}
+    G -->|Yes| H[Automated Alerts]
+    G -->|No| I[Context Model Creation]
+    H --> I
+    
+    subgraph "Document Types"
+        J[Engineering Drawings]
+        K[Warranty Documents]
+        L[O&M Logs]
+        M[Policy Documents]
+    end
+    
+    J --> A
+    K --> A
+    L --> A
+    M --> A
 ```
 
 **Key Features**:
@@ -58,125 +70,178 @@ data_checklist = intake_agent.generate_sufficiency_checklist()
 ### 2. Agent-Driven Workflow Orchestration
 
 **Context Model Publishing**:
-```python
-# Publish customer portfolio and policy context
-context_model = MCPContext(
-    portfolio=asset_portfolio,
-    policy_terms=extracted_clauses,
-    risk_parameters=calculated_risks
-)
 
-# Subscribe downstream agents to context updates
-forecasting_agent.subscribe(context_model)
-compliance_agent.subscribe(context_model)
-parametric_agent.subscribe(context_model)
+```mermaid
+flowchart TD
+    A[MCP Context Model] --> B[Portfolio Data]
+    A --> C[Policy Terms]
+    A --> D[Risk Parameters]
+    
+    B --> E[Forecasting Agent]
+    C --> F[Compliance Agent]
+    D --> G[Parametric Agent]
+    
+    E --> H[Performance Models]
+    F --> I[Regulatory Tags]
+    G --> J[Trigger Thresholds]
+    
+    H --> K[Context Updates]
+    I --> K
+    J --> K
+    
+    K --> L[Agent Coordination]
+    
+    subgraph "AI Agent Ecosystem"
+        E
+        F
+        G
+    end
 ```
 
 **Specialized AI Agents**:
 
 #### Forecasting Agents
-```python
-# Asset-specific performance modeling
-forecast_agent = ForecastingAgent()
-p50_p90_curves = forecast_agent.generate_performance_models(assets)
-
-# Integrate with Ona Power Tools
-ona_tools = OnaPowerTools()
-interpolated_data = ona_tools.fill_missing_blocks(raw_data)
-hourly_data = ona_tools.aggregate_to_hourly(interpolated_data)
-normalized_data = ona_tools.weather_normalization(hourly_data)
-forecast_model = ona_tools.trainForecaster(normalized_data)
+```mermaid
+flowchart LR
+    A[Raw Data] --> B[Fill Missing Blocks]
+    B --> C[Aggregate to Hourly]
+    C --> D[Weather Normalization]
+    D --> E[Train Forecaster]
+    E --> F[P50/P90 Curves]
+    
+    subgraph "Ona Power Tools"
+        B
+        C
+        D
+        E
+    end
 ```
 
 #### Compliance Agents
-```python
-# Regulatory requirement tagging and audit scheduling
-compliance_agent = ComplianceAgent()
-regulatory_tags = compliance_agent.tag_requirements(policy_docs)
-audit_schedule = compliance_agent.schedule_audits(compliance_requirements)
+```mermaid
+flowchart TD
+    A[Policy Documents] --> B[Regulatory Tagging]
+    B --> C[Compliance Requirements]
+    C --> D[Audit Scheduling]
+    D --> E[Compliance Monitoring]
+    
+    E --> F[Audit Trail]
+    E --> G[Regulatory Updates]
 ```
 
 #### Parametric Trigger Agents
-```python
-# Telemetry threshold registration from contracts
-parametric_agent = ParametricAgent()
-thresholds = parametric_agent.extract_thresholds(contracts)
-parametric_agent.register_triggers(thresholds)
+```mermaid
+flowchart LR
+    A[Contract Analysis] --> B[Threshold Extraction]
+    B --> C[Trigger Registration]
+    C --> D[Real-time Monitoring]
+    D --> E[Trigger Evaluation]
+    E --> F[Claims Processing]
 ```
 
 ### 3. Continuous OODA Loop
 
-#### 🔍 **Observe Phase**
-```python
-# Ingest live SCADA data and weather feeds
-scada_data = lighthouse.ingest_scada(asset_ids)
-weather_data = lighthouse.ingest_weather(location)
-telemetry_stream = lighthouse.stream_telemetry(assets)
+```mermaid
+flowchart TD
+    A[🔍 Observe] --> B[SCADA Data]
+    A --> C[Weather Feeds]
+    A --> D[Telemetry Stream]
+    
+    B --> E[🎯 Orient]
+    C --> E
+    D --> E
+    
+    E --> F[Forecast Deviations]
+    F --> G[🧠 Decide]
+    
+    G --> H[Risk Recalculation]
+    G --> I[Premium Adjustment]
+    
+    H --> J[⚡ Act]
+    I --> J
+    
+    J --> K[Alert O&M Teams]
+    J --> L[Process Claims]
+    J --> M[Evidence Assembly]
+    
+    M --> N[Instant Payouts]
+    
+    N --> A
+    
+    subgraph "Data Sources"
+        B
+        C
+        D
+    end
+    
+    subgraph "Actions"
+        K
+        L
+        M
+        N
+    end
 ```
+
+#### 🔍 **Observe Phase**
+- **SCADA Integration**: Real-time asset monitoring data
+- **Weather Services**: Environmental condition feeds
+- **Telemetry Streams**: Continuous performance tracking
 
 #### 🎯 **Orient Phase**
-```python
-# Forecast deviations against active context model
-forecast_agent = ForecastingAgent()
-deviations = forecast_agent.calculate_deviations(
-    actual=scada_data,
-    forecast=context_model.forecasts,
-    thresholds=parametric_triggers
-)
-```
+- **Deviation Analysis**: Compare actual vs. forecast performance
+- **Threshold Monitoring**: Track parametric trigger conditions
+- **Context Integration**: Apply portfolio and policy context
 
 #### 🧠 **Decide Phase**
-```python
-# Real-time risk score and premium recalculation
-premium_agent = PremiumEngineAgent()
-risk_scores = premium_agent.recalculate_risk(deviations)
-provisional_premiums = premium_agent.calculate_premiums(risk_scores)
-```
+- **Risk Scoring**: Dynamic risk assessment and modeling
+- **Premium Calculation**: Real-time premium adjustments
+- **Decision Logic**: Automated response determination
 
 #### ⚡ **Act Phase**
-```python
-# Automated response and claims processing
-alert_agent = AlertRepairAgent()
-claims_agent = ClaimsAssistAgent()
-
-# Notify O&M teams of anomalies
-alerts = alert_agent.notify_anomalies(deviations)
-
-# Auto-assemble evidence and process claims
-if parametric_trigger.hit():
-    evidence = claims_agent.assemble_evidence(
-        sensor_logs=scada_data,
-        weather_snapshots=weather_data,
-        warranty_scans=warranty_docs
-    )
-    payout = claims_agent.dispatch_payout(evidence)
-```
+- **Alert Generation**: Automated O&M team notifications
+- **Claims Processing**: Instant parametric payout execution
+- **Evidence Compilation**: Automated documentation assembly
 
 ### 4. Instant Parametric Payouts
 
 **Automated Claims Processing**:
-```python
-# Pre-agreed parametric clause triggers
-parametric_clause = {
-    "condition": "irradiance_drop > 20% for > 4 hours",
-    "payout_amount": "$50,000",
-    "evidence_required": ["sensor_logs", "weather_data", "warranty_scan"]
-}
 
-# Instant payout upon trigger
-if parametric_trigger.evaluate(telemetry_data):
-    evidence_bundle = claims_agent.compile_evidence(
-        sensor_logs=scada_data,
-        weather_snapshots=weather_data,
-        warranty_scans=warranty_docs
-    )
+```mermaid
+flowchart TD
+    A[Parametric Trigger] --> B{Trigger Condition Met?}
+    B -->|Yes| C[Evidence Compilation]
+    B -->|No| D[Continue Monitoring]
     
-    # Secure S3 evidence bundle and payout
-    s3_bundle = lighthouse.upload_evidence(evidence_bundle)
-    payout_instruction = claims_agent.issue_payout(
-        amount=parametric_clause.payout_amount,
-        evidence=s3_bundle
-    )
+    C --> E[Sensor Logs]
+    C --> F[Weather Data]
+    C --> G[Warranty Scans]
+    
+    E --> H[Evidence Bundle]
+    F --> H
+    G --> H
+    
+    H --> I[Secure S3 Storage]
+    I --> J[Payout Processing]
+    J --> K[Instant Transfer]
+    
+    K --> L[Claim Documentation]
+    L --> M[Audit Trail]
+    
+    subgraph "Trigger Conditions"
+        N[Irradiance Drop > 20%]
+        O[Duration > 4 Hours]
+        P[Equipment Failure]
+    end
+    
+    N --> A
+    O --> A
+    P --> A
+    
+    subgraph "Evidence Types"
+        E
+        F
+        G
+    end
 ```
 
 ---
@@ -244,23 +309,25 @@ if parametric_trigger.evaluate(telemetry_data):
 - **Alert & Repair Agent**: Anomaly notification and response
 
 ### Ona Power Tools Integration
-```python
-from ona_power_tools import OnaPowerTools
 
-# Data conditioning and forecasting
-ona_tools = OnaPowerTools()
-
-# Fill missing data blocks
-interpolated_data = ona_tools.fill_missing_blocks(raw_telemetry)
-
-# Aggregate to hourly intervals
-hourly_data = ona_tools.aggregate_to_hourly(interpolated_data)
-
-# Weather normalization
-normalized_data = ona_tools.weather_normalization(hourly_data)
-
-# Train forecasting models
-forecast_model = ona_tools.trainForecaster(normalized_data)
+```mermaid
+flowchart LR
+    A[Raw Telemetry] --> B[Fill Missing Blocks]
+    B --> C[Aggregate to Hourly]
+    C --> D[Weather Normalization]
+    D --> E[Train Forecaster]
+    E --> F[Performance Models]
+    
+    subgraph "Ona Power Tools"
+        B
+        C
+        D
+        E
+    end
+    
+    F --> G[Risk Assessment]
+    F --> H[Premium Calculation]
+    F --> I[Claims Processing]
 ```
 
 ---
@@ -351,11 +418,49 @@ forecast_model = ona_tools.trainForecaster(normalized_data)
 
 ---
 
-## Next Steps
+## Get Help & Stay Updated
 
-Ready to transform your solar insurance operations?
+<div class="page-end-section">
+  <div class="end-column">
+    <div class="support-cta">
+      <h3>Contact Support</h3>
+      <p>For technical assistance, feature requests, or any other questions, please reach out to our dedicated support team.</p>
+      <a href="mailto:support@asoba.co" class="support-button">Email Support</a>
+      <a href="https://discord.gg/nNV5evcr" target="_blank" class="support-button" style="margin-top: 10px; display: inline-block;">
+        <svg width="16" height="16" style="margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+        </svg>
+        Join Discord
+      </a>
+    </div>
+  </div>
+  
+  <div class="end-column">
+    <div id="mc_embed_shell">
+      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+      <style type="text/css">
+        #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 100%;}
+      </style>
+      <div id="mc_embed_signup">
+        <form action="https://asoba.us10.list-manage.com/subscribe/post?u=459ea321d7831d7b9f5fac70f&amp;id=e03a70f492&amp;f_id=000a9ae3f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+          <div id="mc_embed_signup_scroll">
+            <h3>Subscribe to Updates</h3>
+            <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+            <div class="mc-field-group"><label for="mce-FNAME">First Name </label><input type="text" name="FNAME" class=" text" id="mce-FNAME" value=""></div>
+            <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email" id="mce-EMAIL" value="" required=""></div>
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display: none;"></div>
+              <div class="response" id="mce-success-response" style="display: none;"></div>
+            </div>
+            <div aria-hidden="true" style="position: absolute; left: -5000px;"><input type="text" name="b_459ea321d7831d7b9f5fac70f_e03a70f492" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe"></div>
+          </div>
+        </form>
+      </div>
+      <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+      <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[1]='FNAME';ftypes[1]='text';fnames[0]='EMAIL';ftypes[0]='email';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';fnames[7]='MMERGE7';ftypes[7]='url';fnames[8]='MMERGE8';ftypes[8]='text';fnames[9]='MMERGE9';ftypes[9]='text';fnames[10]='MMERGE10';ftypes[10]='text';fnames[11]='MMERGE11';ftypes[11]='url';fnames[12]='MMERGE12';ftypes[12]='text';fnames[13]='MMERGE13';ftypes[13]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+    </div>
+  </div>
+</div>
 
-- 🚀 **Try Lighthouse**: [Request Demo](mailto:sales@asoba.co)
-- 📚 **Read Documentation**: [Lighthouse Guide](https://code.asoba.co/lighthouse)
-- 💬 **Get Help**: [Join our Community](https://discord.gg/nNV5evcr)
-- 📧 **Contact Sales**: [sales@asoba.co](mailto:sales@asoba.co)
+© 2025 Asoba Corporation. All rights reserved.
