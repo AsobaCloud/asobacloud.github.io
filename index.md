@@ -1,16 +1,201 @@
 ---
-title: "Quickstart"
+title: "Ona Platform - Energy Forecasting Made Simple"
 layout: default
 nav_order: 1
 ---
 
-# Start Forecasting in 5 Minutes
+# Energy Forecasting Made Simple
 
-Get up and running with Ona's energy forecasting API in minutes. Choose your preferred integration method and make your first forecast.
+See how Ona's platform transforms solar asset management in just 2 minutes.
+
+---
+
+## Watch the Demo
+
+<div class="hero-video-container">
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube.com/embed/WduFf_30Qv0" 
+      frameborder="0" 
+      allowfullscreen
+      title="Ona Platform Demo">
+    </iframe>
+  </div>
+  
+  <div class="hero-cta">
+    <a href="#getting-started" class="btn-primary">Get Started</a>
+    <a href="#use-cases" class="btn-secondary">Explore Use Cases</a>
+  </div>
+</div>
 
 ---
 
 ## Choose Your Path
+
+<div class="user-journey-cards">
+  <!-- Business Users Card -->
+  <div class="journey-card business-users">
+    <div class="card-icon">🏢</div>
+    <h3>Business Users</h3>
+    <p>Solar asset owners, O&M teams, and energy managers</p>
+    <ul class="card-features">
+      <li>Asset Performance Monitoring</li>
+      <li>Predictive Maintenance</li>
+      <li>Financial Impact Analysis</li>
+    </ul>
+    <a href="/business-users" class="card-cta">Explore Business Solutions</a>
+  </div>
+
+  <!-- Technical Users Card -->
+  <div class="journey-card technical-users">
+    <div class="card-icon">⚙️</div>
+    <h3>Technical Users</h3>
+    <p>Developers, system integrators, and technical teams</p>
+    <ul class="card-features">
+      <li>API Integration</li>
+      <li>SDK Documentation</li>
+      <li>Deployment Guides</li>
+    </ul>
+    <a href="https://code.asoba.co" class="card-cta">Go to Technical Docs</a>
+  </div>
+
+  <!-- Use Cases Card -->
+  <div class="journey-card use-cases">
+    <div class="card-icon">🎯</div>
+    <h3>Use Cases</h3>
+    <p>Industry-specific solutions and applications</p>
+    <ul class="card-features">
+      <li>EPC Post-Construction</li>
+      <li>O&M Optimization</li>
+      <li>Asset Performance</li>
+    </ul>
+    <a href="/use-cases" class="card-cta">View Use Cases</a>
+  </div>
+
+  <!-- FAQ Card -->
+  <div class="journey-card faq">
+    <div class="card-icon">❓</div>
+    <h3>FAQ</h3>
+    <p>Quick answers to common questions</p>
+    <ul class="card-features">
+      <li>General Questions</li>
+      <li>Technical Support</li>
+      <li>Business Inquiries</li>
+    </ul>
+    <a href="/faq" class="card-cta">View FAQ</a>
+  </div>
+</div>
+
+---
+
+## Products & Services
+
+<div class="product-cards">
+  <!-- Ona Terminal Card -->
+  <div class="product-card terminal">
+    <img src="/assets/images/terminal-interface.svg" alt="Ona Terminal">
+    <h3>Ona Terminal</h3>
+    <p>AI-powered CLI for energy asset management</p>
+    <div class="card-tags">
+      <span class="tag">CLI</span>
+      <span class="tag">Automation</span>
+      <span class="tag">OODA</span>
+    </div>
+    <a href="/products/terminal" class="card-cta">Learn More</a>
+  </div>
+
+  <!-- Ona VPP Card -->
+  <div class="product-card vpp">
+    <img src="/assets/images/vpp-interface.svg" alt="Ona VPP">
+    <h3>Ona VPP</h3>
+    <p>Virtual Power Plant management platform</p>
+    <div class="card-tags">
+      <span class="tag">VPP</span>
+      <span class="tag">Grid Integration</span>
+      <span class="tag">Dispatch</span>
+    </div>
+    <a href="/products/vpp" class="card-cta">Learn More</a>
+  </div>
+
+  <!-- PolicyAnalyst Card -->
+  <div class="product-card analyst">
+    <img src="/assets/images/analyst-interface.svg" alt="PolicyAnalyst">
+    <h3>PolicyAnalyst</h3>
+    <p>Regulatory compliance and policy analysis</p>
+    <div class="card-tags">
+      <span class="tag">Compliance</span>
+      <span class="tag">Policy</span>
+      <span class="tag">Regulations</span>
+    </div>
+    <a href="/products/analyst" class="card-cta">Learn More</a>
+  </div>
+</div>
+
+---
+
+## Industry Use Cases
+
+<div class="use-case-cards">
+  <!-- O&M Optimization Card -->
+  <div class="use-case-card oam">
+    <div class="card-header">
+      <h3>O&M Optimization</h3>
+      <span class="industry-tag">Operations</span>
+    </div>
+    <p>AI-powered operations and maintenance optimization using the OODA loop methodology</p>
+    <div class="card-benefits">
+      <div class="benefit">
+        <span class="icon">🔧</span>
+        <span>Predictive Maintenance</span>
+      </div>
+      <div class="benefit">
+        <span class="icon">⚡</span>
+        <span>Performance Optimization</span>
+      </div>
+      <div class="benefit">
+        <span class="icon">💰</span>
+        <span>Cost Reduction</span>
+      </div>
+      <div class="benefit">
+        <span class="icon">📊</span>
+        <span>Asset Analytics</span>
+      </div>
+    </div>
+    <a href="/use-cases/oam" class="card-cta">Explore O&M Solutions</a>
+  </div>
+
+  <!-- Insurance & Risk Management Card -->
+  <div class="use-case-card insurance">
+    <div class="card-header">
+      <h3>Insurance & Risk Management</h3>
+      <span class="industry-tag">Financial</span>
+    </div>
+    <p>AI-driven insurance platform with live monitoring and instant parametric payouts</p>
+    <div class="card-benefits">
+      <div class="benefit">
+        <span class="icon">🛡️</span>
+        <span>Risk Monitoring</span>
+      </div>
+      <div class="benefit">
+        <span class="icon">⚡</span>
+        <span>Instant Payouts</span>
+      </div>
+      <div class="benefit">
+        <span class="icon">📋</span>
+        <span>Compliance Management</span>
+      </div>
+      <div class="benefit">
+        <span class="icon">📊</span>
+        <span>Document Automation</span>
+      </div>
+    </div>
+    <a href="/use-cases/insurance" class="card-cta">Explore Insurance Solutions</a>
+  </div>
+</div>
+
+---
+
+## Quick Start Options
 
 <div class="quickstart-paths">
   <div class="path-card">
@@ -29,26 +214,6 @@ Get up and running with Ona's energy forecasting API in minutes. Choose your pre
     <h3>🌐 REST API</h3>
     <p>Direct API calls for maximum flexibility</p>
     <a href="#api-quickstart" class="path-button">Use REST API</a>
-  </div>
-</div>
-
-## Learn More
-
-Explore Ona's two interfaces designed for different workflows and user preferences. Choose the one that best fits your technical requirements and team structure.
-
-<div class="quickstart-paths">
-  <div class="path-card">
-    <img src="/assets/images/terminal-interface.svg" alt="Ona Terminal Interface" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;" />
-    <h3>Ona Terminal</h3>
-    <p>AI-powered infrastructure automation tool for terminal users with OODA workflow capabilities and energy asset management. Perfect for developers who prefer command-line interfaces and automated workflows.</p>
-    <a href="https://code.asoba.co" target="_blank" class="path-button">Explore Ona Terminal</a>
-  </div>
-  
-  <div class="path-card">
-    <img src="/assets/images/webapp-interface.svg" alt="Ona On Demand Interface" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 16px;" />
-    <h3>Ona On Demand</h3>
-    <p>Web-based demand forecasting and dispatch scheduling application with intuitive interface for business users. Designed for easy access through your browser with visual tools and dashboards.</p>
-    <a href="https://app.asoba.co" target="_blank" class="path-button">Launch Web App</a>
   </div>
 </div>
 
@@ -182,18 +347,9 @@ curl -X POST "https://yn058ezh38.execute-api.af-south-1.amazonaws.com/prod/train
 
 ---
 
-## What's Next?
-
-🎯 **New to Ona?** → [Read Getting Started](getting-started.html) for detailed onboarding  
-📚 **Need to understand the concepts?** → [Core Concepts](core-concepts.html)  
-🔧 **Ready to integrate?** → [API Reference](api-reference.html)  
-💡 **Want to see examples?** → [Use Cases](use-cases.html)  
-🖥️ **Prefer a web interface?** → [Try Ona On-Demand](https://app.asoba.co)
-
----
-
 ## Need Help?
 
+- ❓ **FAQ**: [Check our FAQ](/faq) for quick answers
 - 📧 **Technical Support**: [support@asoba.co](mailto:support@asoba.co)
 - 💬 **Sales Questions**: [sales@asoba.co](mailto:sales@asoba.co)  
 - 💬 **Discord Community**: [Join our Discord](https://discord.gg/nNV5evcr)
