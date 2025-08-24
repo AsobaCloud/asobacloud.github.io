@@ -1,103 +1,171 @@
 ---
-title: "Distributed Compute"
+title: "Ona Edge"
 layout: default
 nav_order: 4
 parent: "Products"
 ---
 
-# Distributed Compute
+# Ona Edge
 
-Zero-carbon distributed compute at scale powered by renewable energy. Deploy AI workloads, process data, and run applications on our distributed solar-powered infrastructure.
+Turn your solar assets into revenue-generating compute infrastructure. Earn additional income while supporting the clean energy transition.
 
 ---
 
 ## Overview
 
-Asoba's Distributed Compute platform provides high-performance edge computing powered by renewable energy. Access distributed GPU clusters across rural and urban locations for AI/ML workloads, real-time analytics, and edge computing applications while supporting the clean energy transition.
+Ona Edge transforms your solar installations into distributed computing nodes, creating a new revenue stream from your existing infrastructure. Our platform enables solar asset owners to monetize their installations by providing high-performance computing services powered by renewable energy.
 
 ---
 
-## Key Features
+## How It Works
 
-### 🌱 **Zero Carbon Footprint**
-- **100% Renewable Powered**: All compute operations powered by on-site solar generation
-- **ESG Compliance**: Meet environmental goals without compromising performance
-- **Carbon Savings**: Save 2.3 tons CO₂/year per node
-- **Sustainable Computing**: Zero emissions infrastructure
+### **1. Asset Assessment**
+We evaluate your solar installation's potential for compute infrastructure:
+- **Site Analysis**: Assess solar capacity and grid connectivity
+- **Infrastructure Planning**: Design optimal compute deployment
+- **Revenue Projections**: Calculate potential earnings based on your assets
 
-### ⚡ **Ultra-Low Latency**
-- **<40ms Latency**: Guaranteed low-latency for real-time applications
-- **Distributed Edge Nodes**: Coverage across rural and urban locations
-- **15x Faster**: Than traditional cloud providers
-- **Real-Time Processing**: Ideal for edge AI workloads
+### **2. Infrastructure Deployment**
+Our team handles the complete setup process:
+- **Hardware Installation**: Deploy high-performance compute nodes
+- **Network Integration**: Connect to our distributed computing network
+- **Monitoring Setup**: Implement 24/7 performance monitoring
 
-### 💰 **Cost-Effective Scaling**
-- **Transparent Pricing**: No hidden fees or surprise charges
-- **60% Cheaper**: Than AWS for comparable workloads
-- **Pay-Per-Use**: Only pay for compute resources you use
-- **Instant Scaling**: Scale up or down instantly
-
-### 🚀 **Instant Deployment**
-- **10-Minute Setup**: Deploy workloads in minutes
-- **AsobaCode CLI**: Simple command-line deployment
-- **Docker & Kubernetes**: Full compatibility with container platforms
-- **ML Framework Support**: All major machine learning frameworks
-
-### 🔒 **Enterprise Security**
-- **SOC2 Compliant**: Enterprise-grade security infrastructure
-- **99.99% Uptime SLA**: Guaranteed reliability
-- **End-to-End Encryption**: All data encrypted in transit and at rest
-- **24/7 Monitoring**: Continuous security and performance monitoring
-
-### 🤖 **AI-Optimized Hardware**
-- **480 TOPS**: AI processing power
-- **58,368 CUDA Cores**: Latest NVIDIA GPU technology
-- **96GB Distributed VRAM**: High-performance memory
-- **10Gbps Network**: Ultra-fast connectivity
+### **3. Revenue Generation**
+Start earning from day one:
+- **Automatic Workload Distribution**: AI/ML workloads routed to your nodes
+- **Performance Optimization**: Maximize compute utilization during solar peaks
+- **Revenue Tracking**: Real-time earnings dashboard and reporting
 
 ---
 
-## Use Cases
+## Benefits for Solar Asset Owners
 
-### **AI/ML Training**
-Train models faster with distributed GPU clusters. Perfect for computer vision, NLP, and deep learning projects.
+### 💰 **Additional Revenue Stream**
+- **$1,800+ Monthly**: Average revenue per 2.5MW installation
+- **Passive Income**: Earn while your solar assets generate power
+- **Scalable Earnings**: Revenue grows with your solar portfolio
+- **Predictable Returns**: Stable, long-term income stream
 
-**Requirements:** GPU-intensive workloads
-**Best For:** Machine learning researchers, data scientists, AI developers
+### 🌱 **Enhanced ESG Profile**
+- **Carbon Credits**: Additional environmental impact from compute services
+- **Sustainability Leadership**: Demonstrate commitment to clean energy
+- **ESG Reporting**: Enhanced sustainability metrics for stakeholders
+- **Green Computing**: Support the transition to renewable-powered infrastructure
 
-### **Edge Inference**
-Deploy AI models close to data sources for real-time inference with minimal latency.
+### ⚡ **Optimized Asset Utilization**
+- **Peak Hour Optimization**: Maximize revenue during solar generation peaks
+- **Grid Integration**: Intelligent load balancing with grid operations
+- **Battery Synergy**: Enhanced returns when combined with energy storage
+- **Infrastructure Efficiency**: Better utilization of existing electrical infrastructure
 
-**Requirements:** Low latency processing
-**Best For:** IoT applications, real-time analytics, edge computing
-
-### **Video Processing**
-Transcode, analyze, and process video streams at scale with hardware-accelerated encoding.
-
-**Requirements:** High bandwidth processing
-**Best For:** Media companies, surveillance systems, content creators
-
-### **IoT Analytics**
-Process sensor data at the edge for industrial IoT, smart cities, and agricultural applications.
-
-**Requirements:** Distributed processing
-**Best For:** Industrial IoT, smart city deployments, precision agriculture
-
-### **Batch Processing**
-Run large-scale batch jobs during solar peak hours at significantly reduced costs.
-
-**Requirements:** Flexible timing
-**Best For:** Data processing, scientific computing, financial modeling
-
-### **Research Computing**
-Academic and scientific computing with access to high-performance distributed resources.
-
-**Requirements:** HPC-ready infrastructure
-**Best For:** Universities, research institutions, scientific organizations
+### 🔒 **Risk Mitigation**
+- **Diversified Income**: Reduce dependence on energy sales alone
+- **Market Resilience**: Stable compute revenue regardless of energy prices
+- **Technology Hedge**: Future-proof your solar investment
+- **Operational Continuity**: Maintain revenue during grid outages
 
 ---
 
-## Pricing
+## Technical Requirements
+
+### **Minimum Specifications**
+- **Solar Capacity**: 500kW minimum installation
+- **Grid Connection**: Stable internet connectivity required
+- **Electrical Infrastructure**: Adequate power distribution capacity
+- **Site Security**: Controlled access to compute equipment
+
+### **Optimal Configuration**
+- **Solar Capacity**: 2.5MW+ for maximum returns
+- **Battery Storage**: Optional but recommended for 24/7 operation
+- **High-Speed Internet**: Fiber or high-bandwidth wireless connection
+- **Climate Control**: Adequate cooling for compute equipment
+
+---
+
+## Revenue Model
+
+### **Performance-Based Earnings**
+- **Compute Utilization**: Revenue based on actual compute hours
+- **Solar Generation**: Higher earnings during peak solar hours
+- **Network Demand**: Earnings scale with overall network usage
+- **Performance Bonuses**: Additional rewards for high availability
+
+### **Revenue Projections**
+| Solar Capacity | Monthly Revenue | Annual Revenue |
+|----------------|-----------------|----------------|
+| 500kW          | $360+           | $4,320+        |
+| 1MW            | $720+           | $8,640+        |
+| 2.5MW          | $1,800+         | $21,600+       |
+| 5MW            | $3,600+         | $43,200+       |
+
+*Projections based on current market rates and typical utilization patterns*
+
+---
+
+## Getting Started
+
+### **1. Initial Consultation**
+Contact our team for a free assessment of your solar assets:
+- **Site Evaluation**: Technical feasibility analysis
+- **Revenue Projections**: Customized earnings estimates
+- **Implementation Timeline**: Project planning and scheduling
+
+### **2. Partnership Agreement**
+Simple, transparent terms:
+- **Revenue Sharing**: Clear percentage-based earnings model
+- **Infrastructure Investment**: We cover all hardware and installation costs
+- **Maintenance Support**: 24/7 monitoring and technical support
+- **Performance Guarantees**: Minimum revenue commitments
+
+### **3. Deployment & Launch**
+Seamless implementation process:
+- **Hardware Installation**: Professional deployment by our team
+- **Network Integration**: Connection to our distributed computing platform
+- **Revenue Activation**: Start earning from day one
+- **Ongoing Support**: Continuous optimization and maintenance
+
+---
+
+## Success Stories
+
+### **Solar Farm Operator - California**
+**Challenge**: 5MW solar farm looking to maximize asset utilization
+**Solution**: Deployed Ona Edge compute infrastructure
+**Results**: 
+- $3,600+ additional monthly revenue
+- 15% increase in overall asset ROI
+- Enhanced ESG reporting metrics
+- Improved grid stability during peak hours
+
+### **Commercial Property Owner - Texas**
+**Challenge**: 2.5MW rooftop installation seeking additional income
+**Solution**: Integrated Ona Edge with existing solar infrastructure
+**Results**:
+- $1,800+ monthly passive income
+- Zero additional operational overhead
+- Improved property value through technology integration
+- Enhanced sustainability credentials
+
+---
+
+## Support & Resources
+
+### **Technical Support**
+- **24/7 Monitoring**: Continuous performance tracking
+- **Proactive Maintenance**: Preventive maintenance and optimization
+- **Emergency Response**: Rapid issue resolution
+- **Performance Optimization**: Ongoing efficiency improvements
+
+### **Business Support**
+- **Revenue Analytics**: Detailed earnings reports and insights
+- **Market Intelligence**: Industry trends and optimization opportunities
+- **Partnership Development**: Network expansion and growth strategies
+- **Stakeholder Communication**: ESG reporting and sustainability metrics
+
+---
+
+## Get Help & Stay Updated
 
 ### **Ephemeral Compute**
 **$0.05 per compute hour**
