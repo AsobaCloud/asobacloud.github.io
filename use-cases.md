@@ -64,13 +64,15 @@ Our AI-driven insurance platform provides:
 
 ---
 
-## Implementation Examples
+## Implementation Roadmap
 
-### Case Study: South Africa IPP — O&M Intelligence
-
-![South Africa IPP — O&M Intelligence](/assets/images/sa-ipp-om-intelligence.svg)
-
-Source: [Asoba's O&M Intelligence: South Africa IPP Use Case](https://docs.google.com/presentation/d/1UdKrWsZlS6V_hgDn3cLoY24HcVolUmncSBvQ-msFGS0/edit?slide=id.p5#slide=id.p5)
+```mermaid
+timeline
+  title Implementation Roadmap
+  Weeks 1–2: Integration : SCADA/inverter connections, Historical data ingestion, Baseline establishment, Custom dashboard design
+  Weeks 3–12: Optimization : Real-time monitoring active, Weekly performance reports, Continuous model improvement
+  Week 13: Decision Point : Executive ROI analysis, Auto-conversion when metrics met, Scale-up roadmap for portfolio
+```
 
 ---
 

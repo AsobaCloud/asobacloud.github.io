@@ -164,10 +164,12 @@ Comprehensive energy management solutions designed for different user types and 
 
 ## Pricing & Plans
 
-| Deployment | Annual Price (per portfolio) ex VAT | Onboarding Fee ex VAT | Description |
-|---|---:|---|---|
-| SaaS (Managed Infrastructure) | R 218 945 | R 13 130 | Software-only; API-based data uploads; Ona Terminal requires internet access. |
-| On-Prem (Self-Hosted, Offline) | R 126 072 | R 43 770 (with hardware)<br/>R 13 130 (software only) | Local install with optional mini compute cluster + data logger + SSD storage; all IoT data processed on-site. |
+| Deployment | Annual Price (ZAR, ex VAT) | Onboarding Fee (ZAR, ex VAT) | Annual Price (USD) | Onboarding Fee (USD) | Description |
+|---|---:|---|---:|---:|---|
+| SaaS (Managed Infrastructure) | R 218 945 | R 13 130 | $11,523 | $691 | Software-only; API-based data uploads; Ona Terminal requires internet access. |
+| On-Prem (Self-Hosted, Offline) | R 126 072 | R 43 770 (with hardware)<br/>R 13 130 (software only) | $6,635 | $2,305 (with hardware)<br/>$691 (software only) | Local install with optional mini compute cluster + data logger + SSD storage; all IoT data processed on-site. |
+
+<small>USD conversions are approximate, using 1 USD = R19.00.</small>
 
 ---
 
