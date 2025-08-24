@@ -66,38 +66,11 @@ Our AI-driven insurance platform provides:
 
 ## Implementation Examples
 
-### Case Study: Solar Farm Operator
-**Challenge**: A 50MW solar farm needed to optimize performance and reduce maintenance costs.
+### Case Study: South Africa IPP — O&M Intelligence
 
-**Solution**: Implemented our predictive maintenance and performance monitoring platform.
+![South Africa IPP — O&M Intelligence](/assets/images/sa-ipp-p5.svg)
 
-**Results**:
-- 15% increase in energy production
-- 30% reduction in maintenance costs
-- 99.5% uptime achieved
-- $2M additional revenue over 3 years
-
-### Case Study: O&M Company
-**Challenge**: An O&M company managing 100+ solar installations needed to streamline operations.
-
-**Solution**: Deployed our O&M optimization platform across their portfolio.
-
-**Results**:
-- 40% reduction in response time
-- 25% improvement in maintenance efficiency
-- 50% reduction in emergency repairs
-- Improved client satisfaction scores
-
-### Case Study: Insurance Platform
-**Challenge**: Solar operators needed faster claim processing and reduced insurance costs.
-
-**Solution**: Implemented our AI-driven insurance platform with parametric payouts.
-
-**Results**:
-- 40-60% reduction in insurance premiums
-- Instant parametric payouts (under 1 hour)
-- 80% faster underwriting process
-- 15-25% improved loss ratios
+Source: [Asoba's O&M Intelligence: South Africa IPP Use Case](https://docs.google.com/presentation/d/1UdKrWsZlS6V_hgDn3cLoY24HcVolUmncSBvQ-msFGS0/edit?slide=id.p5#slide=id.p5)
 
 ---
 

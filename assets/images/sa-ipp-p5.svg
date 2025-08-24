@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .bg { fill: #ffffff; }
+    </style>
+  </defs>
+  <!-- Background to ensure white canvas -->
+  <rect class="bg" x="0" y="0" width="1600" height="900"/>
+
+  <!-- Embedded slide image -->
+  <image href="/assets/images/sa-ipp-p5.png" x="0" y="0" width="1600" height="900" preserveAspectRatio="xMidYMid meet"/>
+
+  <!-- Overlay to hide bottom-left logo area (tuned generously) -->
+  <rect x="0" y="770" width="420" height="130" fill="#ffffff"/>
+</svg>

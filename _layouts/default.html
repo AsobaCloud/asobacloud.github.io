@@ -16,6 +16,8 @@ layout: default
   <meta name="theme-color" content="#4551bf">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/styles.css">
   <script src="{{ site.baseurl }}/assets/js/search.js"></script>
+  <!-- Mermaid for rendering ` ```mermaid ` fenced diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </head>
 <body>
   <header class="header-bar">
@@ -183,6 +185,35 @@ layout: default
           }
         }
       });
+    });
+  </script>
+
+  <!-- Initialize Mermaid and convert fenced code blocks to renderable containers -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Turn fenced code blocks with class language-mermaid into <div class="mermaid"> blocks
+      const candidates = document.querySelectorAll('pre code.language-mermaid, pre code.lang-mermaid, code.mermaid');
+      candidates.forEach(function (code) {
+        const mermaidText = code.textContent;
+        const container = document.createElement('div');
+        container.className = 'mermaid';
+        container.textContent = mermaidText;
+        const pre = code.closest('pre');
+        if (pre && pre.parentNode) {
+          pre.parentNode.replaceChild(container, pre);
+        } else if (code.parentNode) {
+          code.parentNode.replaceChild(container, code);
+        }
+      });
+
+      // If markup is already <div class="mermaid"><code>...</code></div>, unwrap the <code>
+      document.querySelectorAll('div.mermaid > code').forEach(function (inner) {
+        inner.parentElement.textContent = inner.textContent;
+      });
+
+      if (window.mermaid && typeof window.mermaid.initialize === 'function') {
+        window.mermaid.initialize({ startOnLoad: true, theme: 'default', securityLevel: 'loose' });
+      }
     });
   </script>
 
