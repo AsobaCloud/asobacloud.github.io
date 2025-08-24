@@ -8,6 +8,15 @@ nav_order: 5
 
 This page provides access to additional resources including webinar recordings and case studies to help you better understand the Ona API Platform and its capabilities.
 
+## In the News
+
+| Link | Date |
+|------|------|
+| [8 startups join elite climate-tech fellowship](https://www.axios.com/sponsored/8-startups-join-elite-climate-tech-fellowship) | 2025-03 |
+| [Climate Collective – AI • Climate Accelerator](https://climatecollective.org/ai-climate-accelerator) | 2025-03 |
+
+---
+
 ## Webinar Recordings
 
 Our webinar recordings offer in-depth demonstrations and explanations of various aspects of the Ona API system. These sessions are designed to help you understand specific features and use cases.
