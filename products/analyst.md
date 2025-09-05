@@ -1,11 +1,11 @@
 ---
-title: "PolicyAnalyst"
+title: "EnergyAnalyst"
 layout: default
 nav_order: 3
 parent: "Products"
 ---
 
-# PolicyAnalyst
+# EnergyAnalyst
 
 AI-powered regulatory compliance and policy analysis for energy markets.
 
@@ -13,9 +13,35 @@ AI-powered regulatory compliance and policy analysis for energy markets.
 
 ## Overview
 
-PolicyAnalyst is a specialized AI model fine-tuned for energy policy and regulatory compliance analysis. Built on Mistral-7B-v0.3, it provides expert-level analysis of energy regulations, compliance requirements, and policy opportunities.
+EnergyAnalyst is a specialized AI model fine-tuned for energy policy and regulatory compliance analysis. Built on Mistral-7B-v0.3, it provides expert-level analysis of energy regulations, compliance requirements, and policy opportunities.
 
----
+<div class="user-journey-cards">
+  <!-- Hugging Face Model Card -->
+  <div class="journey-card">
+    <div class="card-icon">🤗</div>
+    <h3>View on Hugging Face</h3>
+    <p>Explore the model, documentation, and implementation details</p>
+    <ul class="card-features">
+      <li>Model weights and configs</li>
+      <li>Training methodology</li>
+      <li>Performance benchmarks</li>
+    </ul>
+    <a href="https://huggingface.co/asoba/EnergyAnalyst-v0.1" class="card-cta">View Model</a>
+  </div>
+
+  <!-- Try Demo Card -->
+  <div class="journey-card">
+    <div class="card-icon">💬</div>
+    <h3>Try EnergyAnalyst</h3>
+    <p>Interactive demo to experience the model's capabilities</p>
+    <ul class="card-features">
+      <li>Real-time responses</li>
+      <li>Energy domain expertise</li>
+      <li>Sample prompts included</li>
+    </ul>
+    <a href="/chat" class="card-cta">Launch Demo</a>
+  </div>
+</div>
 
 ## Key Capabilities
 
