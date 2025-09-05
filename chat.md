@@ -4,23 +4,19 @@ layout: default
 nav_order: 8
 ---
 
-# EnergyAnalyst LLM
-
-Experience our AI-powered energy analysis assistant. Ask questions about energy systems, solar performance, maintenance strategies, and more.
-
 <style>
 /* Chat Container Styles */
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 200px);
-  max-height: 700px;
-  min-height: 500px;
+  height: calc(100vh - 140px);
+  max-height: 800px;
+  min-height: 600px;
   background: #f8f9fa;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 /* Chat Messages Area */
@@ -243,50 +239,6 @@ Experience our AI-powered energy analysis assistant. Ask questions about energy 
   cursor: not-allowed;
 }
 
-/* Connection Status */
-.connection-status {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: #f8f9fa;
-  border-radius: 4px;
-  font-size: 12px;
-  margin-bottom: 16px;
-}
-
-.status-indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #ccc;
-}
-
-.status-indicator.connected {
-  background: #4caf50;
-}
-
-.status-indicator.connecting {
-  background: #ff9800;
-  animation: pulse 1s infinite;
-}
-
-.status-indicator.error {
-  background: #f44336;
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 /* Welcome Message */
 .welcome-message {
   text-align: center;
@@ -352,10 +304,6 @@ Experience our AI-powered energy analysis assistant. Ask questions about energy 
 }
 </style>
 
-<div class="connection-status">
-  <span class="status-indicator" id="status-indicator"></span>
-  <span id="status-text">Disconnected</span>
-</div>
 
 <div class="chat-container">
   <div class="chat-messages" id="chat-messages">
@@ -417,7 +365,6 @@ const CONFIG = {
 };
 
 // State management
-let isConnected = false;
 let isTyping = false;
 let messageHistory = [];
 
@@ -426,8 +373,6 @@ const chatMessages = document.getElementById('chat-messages');
 const chatInput = document.getElementById('chat-input');
 const sendButton = document.getElementById('send-button');
 const typingIndicator = document.getElementById('typing-indicator');
-const statusIndicator = document.getElementById('status-indicator');
-const statusText = document.getElementById('status-text');
 const welcomeMessage = document.getElementById('welcome-message');
 
 // Initialize
@@ -443,8 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Check connection on load
-  checkConnection();
 });
 
 // Auto-resize textarea
@@ -453,50 +396,6 @@ function autoResizeTextarea() {
   chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
 }
 
-// Connection management
-async function checkConnection() {
-  updateConnectionStatus('connecting');
-  
-  try {
-    // This is a placeholder - implement actual health check when you have the endpoint
-    // const response = await fetch(`${CONFIG.API_ENDPOINT}/health`);
-    // if (response.ok) {
-    //   updateConnectionStatus('connected');
-    // } else {
-    //   updateConnectionStatus('error');
-    // }
-    
-    // For now, simulate a connection
-    setTimeout(() => {
-      updateConnectionStatus('connected');
-    }, 1000);
-  } catch (error) {
-    console.error('Connection error:', error);
-    updateConnectionStatus('error');
-  }
-}
-
-function updateConnectionStatus(status) {
-  statusIndicator.className = 'status-indicator ' + status;
-  
-  switch(status) {
-    case 'connected':
-      statusText.textContent = 'Connected to EnergyAnalyst';
-      isConnected = true;
-      sendButton.disabled = false;
-      break;
-    case 'connecting':
-      statusText.textContent = 'Connecting...';
-      isConnected = false;
-      sendButton.disabled = true;
-      break;
-    case 'error':
-      statusText.textContent = 'Connection failed - Demo mode active';
-      isConnected = false;
-      sendButton.disabled = false; // Allow demo mode
-      break;
-  }
-}
 
 // Message handling
 function addMessage(content, isUser = false) {
@@ -587,7 +486,7 @@ async function sendMessage() {
 // Get AI response
 async function getAIResponse(prompt) {
   // If connected to real endpoint
-  if (isConnected && CONFIG.API_ENDPOINT !== 'http://your-ec2-instance.com:8080/generate') {
+  if (CONFIG.API_ENDPOINT !== 'http://your-ec2-instance.com:8080/generate') {
     const requestBody = {
       inputs: prompt,
       parameters: {
@@ -740,64 +639,4 @@ function sendSuggestedPrompt(prompt) {
   sendMessage();
 }
 
-// Reconnect functionality
-window.reconnectChat = function() {
-  checkConnection();
-};
 </script>
-
----
-
-## Integration Guide
-
-This chat interface is ready to connect to your Text Generation Inference (TGI) endpoint. To complete the integration:
-
-### 1. Update the Configuration
-
-Edit the `CONFIG` object in the JavaScript:
-
-```javascript
-const CONFIG = {
-  API_ENDPOINT: 'http://your-ec2-ip:8080/generate',  // Your TGI endpoint
-  MAX_TOKENS: 1024,                                   // Adjust as needed
-  TEMPERATURE: 0.7,                                   // Adjust for creativity
-  // ... other settings
-};
-```
-
-### 2. TGI Server Setup
-
-Ensure your TGI server is configured to:
-- Accept CORS requests from your GitHub Pages domain
-- Handle the expected request format
-- Return responses in the expected format
-
-### 3. Request Format
-
-The chat sends requests in this format:
-
-```json
-{
-  "inputs": "User's question here",
-  "parameters": {
-    "max_new_tokens": 1024,
-    "temperature": 0.7,
-    "do_sample": true,
-    "top_p": 0.95,
-    "return_full_text": false
-  }
-}
-```
-
-### 4. Security Considerations
-
-- Consider implementing API keys or authentication
-- Use HTTPS for production deployments
-- Implement rate limiting on your TGI server
-- Add content filtering if needed
-
----
-
-## Demo Mode
-
-While the TGI endpoint is not configured, the chat operates in demo mode with sample responses. This allows you to test the UI and user experience before connecting to your actual LLM.
