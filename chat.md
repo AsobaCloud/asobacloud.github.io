@@ -351,9 +351,11 @@ nav_order: 8
 <script>
 // Configuration
 const CONFIG = {
-  // Update these values when you have your EC2 instance ready
-  API_ENDPOINT: 'http://your-ec2-instance.com:8080/generate', // Replace with your TGI endpoint
-  MAX_TOKENS: 1024,
+  // API endpoint - use HTTPS in production to avoid mixed content issues
+  // For quick test: http://54.86.88.249
+  // For production: https://ddockekibc.execute-api.us-east-1.amazonaws.com (or your HTTPS endpoint)
+  API_BASE: 'https://ddockekibc.execute-api.us-east-1.amazonaws.com', // WARNING: Switch to HTTPS for production!
+  MAX_TOKENS: 256,
   TEMPERATURE: 0.7,
   RETRY_ATTEMPTS: 3,
   RETRY_DELAY: 1000
@@ -480,31 +482,47 @@ async function sendMessage() {
 
 // Get AI response
 async function getAIResponse(prompt) {
-  // If connected to real endpoint
-  if (CONFIG.API_ENDPOINT !== 'http://your-ec2-instance.com:8080/generate') {
+  try {
     const requestBody = {
       inputs: prompt,
       parameters: {
         max_new_tokens: CONFIG.MAX_TOKENS,
-        temperature: CONFIG.TEMPERATURE,
-        do_sample: true,
-        top_p: 0.95,
-        return_full_text: false
+        temperature: CONFIG.TEMPERATURE
       }
     };
     
-    const response = await fetchWithRetry(CONFIG.API_ENDPOINT, {
+    const response = await fetchWithRetry(`${CONFIG.API_BASE}/generate`, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(requestBody)
     });
     
+    if (response.status === 429) {
+      throw new Error('RATE_LIMITED');
+    }
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    
     const data = await response.json();
-    return data.generated_text || data[0]?.generated_text || 'No response generated.';
-  } else {
-    // Demo mode - return sample responses
+    return data.generated_text || 'No response generated.';
+  } catch (error) {
+    console.error('API Error:', error);
+    
+    // Check if we're on HTTPS and trying to call HTTP (mixed content)
+    if (window.location.protocol === 'https:' && CONFIG.API_BASE.startsWith('http://')) {
+      console.warn('Mixed content warning: HTTPS page calling HTTP API. Switch to HTTPS API endpoint.');
+      return 'Error: Cannot connect to HTTP endpoint from HTTPS page. Please use an HTTPS API endpoint.';
+    }
+    
+    if (error.message === 'RATE_LIMITED') {
+      return 'Rate limited - please wait a moment before sending another message.';
+    }
+    
+    // Fall back to demo mode if API fails
     return getDemoResponse(prompt);
   }
 }
