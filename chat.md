@@ -7,21 +7,17 @@ nav_order: 8
 <style>
 /* Chat Container Styles */
 .chat-container {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 140px);
-  max-height: 800px;
-  min-height: 600px;
   background: #f8f9fa;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 /* Chat Messages Area */
 .chat-messages {
-  flex: 1;
+  min-height: 400px;
+  max-height: 500px;
   overflow-y: auto;
   padding: 20px;
   background: white;
@@ -279,7 +275,6 @@ nav_order: 8
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .chat-container {
-    height: calc(100vh - 150px);
     margin: 10px -20px;
     border-radius: 0;
   }
