@@ -7,17 +7,15 @@ nav_order: 8
 <style>
 /* Chat Container Styles */
 .chat-container {
-  background: #f8f9fa;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 140px);
+  position: relative;
 }
 
 /* Chat Messages Area */
 .chat-messages {
-  min-height: 400px;
-  max-height: 500px;
+  flex: 1;
   overflow-y: auto;
   padding: 20px;
   background: white;
@@ -126,7 +124,7 @@ nav_order: 8
   display: none;
   align-items: center;
   gap: 12px;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
 }
 
 .typing-indicator.active {
@@ -170,9 +168,12 @@ nav_order: 8
 
 /* Chat Input Area */
 .chat-input-container {
+  position: sticky;
+  bottom: 0;
   border-top: 1px solid #e9ecef;
   background: white;
   padding: 20px;
+  z-index: 10;
 }
 
 .chat-input-wrapper {
@@ -275,8 +276,7 @@ nav_order: 8
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .chat-container {
-    margin: 10px -20px;
-    border-radius: 0;
+    height: calc(100vh - 120px);
   }
   
   .message-content {
@@ -321,14 +321,14 @@ nav_order: 8
         </div>
       </div>
     </div>
-  </div>
-  
-  <div class="typing-indicator" id="typing-indicator">
-    <div class="message-avatar">EA</div>
-    <div class="typing-dots">
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
+    
+    <div class="typing-indicator" id="typing-indicator">
+      <div class="message-avatar">EA</div>
+      <div class="typing-dots">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+      </div>
     </div>
   </div>
   
