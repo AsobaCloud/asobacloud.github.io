@@ -9,7 +9,7 @@ nav_order: 8
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: 600px; /* Fixed height instead of calc(100vh - 200px) */
+  height: calc(100vh - 160px);
   max-width: 1000px; /* Add max-width for better centering */
   margin: 2rem auto; /* Center it in the page */
   background: white;
@@ -27,7 +27,7 @@ nav_order: 8
   background: white;
   scroll-behavior: smooth;
   min-height: 0; /* Important for Firefox */
-}}
+}
 
 .message {
   margin-bottom: 20px;
