@@ -9,7 +9,7 @@ nav_order: 8
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 100px); /* Reduced from 140px to reduce whitespace */
   position: relative;
 }
 
@@ -172,7 +172,7 @@ nav_order: 8
   bottom: 0;
   border-top: 1px solid #e9ecef;
   background: white;
-  padding: 20px;
+  padding: 12px 20px; /* Reduced from 20px to reduce whitespace */
   z-index: 10;
 }
 
@@ -276,7 +276,7 @@ nav_order: 8
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .chat-container {
-    height: calc(100vh - 120px);
+    height: calc(100vh - 100px); /* Updated to match desktop */
   }
   
   .message-content {
@@ -321,14 +321,15 @@ nav_order: 8
         </div>
       </div>
     </div>
-    
-    <div class="typing-indicator" id="typing-indicator">
-      <div class="message-avatar">EA</div>
-      <div class="typing-dots">
-        <span class="typing-dot"></span>
-        <span class="typing-dot"></span>
-        <span class="typing-dot"></span>
-      </div>
+  </div>
+  
+  <!-- Typing indicator moved outside chat-messages and placed after it -->
+  <div class="typing-indicator" id="typing-indicator">
+    <div class="message-avatar">EA</div>
+    <div class="typing-dots">
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
+      <span class="typing-dot"></span>
     </div>
   </div>
   
@@ -351,10 +352,7 @@ nav_order: 8
 <script>
 // Configuration
 const CONFIG = {
-  // API endpoint - use HTTPS in production to avoid mixed content issues
-  // For quick test: http://54.86.88.249
-  // For production: https://ddockekibc.execute-api.us-east-1.amazonaws.com (or your HTTPS endpoint)
-  API_BASE: 'https://ddockekibc.execute-api.us-east-1.amazonaws.com', // WARNING: Switch to HTTPS for production!
+  API_BASE: 'https://ddockekibc.execute-api.us-east-1.amazonaws.com',
   MAX_TOKENS: 256,
   TEMPERATURE: 0.7,
   RETRY_ATTEMPTS: 3,
@@ -393,7 +391,6 @@ function autoResizeTextarea() {
   chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
 }
 
-
 // Message handling
 function addMessage(content, isUser = false) {
   // Hide welcome message on first message
@@ -415,7 +412,8 @@ function addMessage(content, isUser = false) {
   messageDiv.appendChild(avatar);
   messageDiv.appendChild(contentDiv);
   
-  chatMessages.appendChild(messageDiv);
+  // Insert before typing indicator
+  chatMessages.insertBefore(messageDiv, typingIndicator);
   chatMessages.scrollTop = chatMessages.scrollHeight;
   
   return messageDiv;
@@ -424,12 +422,12 @@ function addMessage(content, isUser = false) {
 function formatMessage(content) {
   // Convert markdown-like formatting to HTML
   return content
-    .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>')
-    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/```([\s\S]*?)```/g, '<pre><code>\$1</code></pre>')
+    .replace(/`([^`]+)`/g, '<code>\$1</code>')
     .replace(/\n\n/g, '</p><p>')
     .replace(/\n/g, '<br>')
     .replace(/^/, '<p>')
-    .replace(/$/, '</p>');
+    .replace(/\$/, '</p>');
 }
 
 function showTypingIndicator() {
@@ -491,7 +489,7 @@ async function getAIResponse(prompt) {
       }
     };
     
-    const response = await fetchWithRetry(`${CONFIG.API_BASE}/generate`, {
+    const response = await fetchWithRetry(`\${CONFIG.API_BASE}/generate`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -504,19 +502,13 @@ async function getAIResponse(prompt) {
     }
     
     if (!response.ok) {
-      throw new Error(`HTTP ${response.status}`);
+      throw new Error(`HTTP \${response.status}`);
     }
     
     const data = await response.json();
     return data.generated_text || 'No response generated.';
   } catch (error) {
     console.error('API Error:', error);
-    
-    // Check if we're on HTTPS and trying to call HTTP (mixed content)
-    if (window.location.protocol === 'https:' && CONFIG.API_BASE.startsWith('http://')) {
-      console.warn('Mixed content warning: HTTPS page calling HTTP API. Switch to HTTPS API endpoint.');
-      return 'Error: Cannot connect to HTTP endpoint from HTTPS page. Please use an HTTPS API endpoint.';
-    }
     
     if (error.message === 'RATE_LIMITED') {
       return 'Rate limited - please wait a moment before sending another message.';
@@ -630,7 +622,7 @@ It's the ratio of AC output power to DC input power, typically ranging from 95-9
 - Regular maintenance
 - Consider string vs. central inverters based on your setup`);
       } else {
-        resolve(`I understand you're asking about "${prompt}". As an AI assistant specialized in energy systems and solar performance, I can help with:
+        resolve(`I understand you're asking about "\${prompt}". As an AI assistant specialized in energy systems and solar performance, I can help with:
 
 - Solar panel efficiency and optimization
 - Maintenance strategies and schedules
