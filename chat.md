@@ -9,7 +9,6 @@ nav_order: 8
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 160px);
   max-width: 1000px; /* Add max-width for better centering */
   margin: 2rem auto; /* Center it in the page */
   background: white;
@@ -668,5 +667,18 @@ function sendSuggestedPrompt(prompt) {
   autoResizeTextarea();
   sendMessage();
 }
+
+
+// Add this function after your existing JavaScript
+function setOptimalChatHeight() {
+  const chatContainer = document.querySelector('.chat-container');
+  const containerRect = chatContainer.getBoundingClientRect();
+  const availableHeight = window.innerHeight - containerRect.top - 32; // 32px bottom margin
+  chatContainer.style.height = Math.max(400, availableHeight) + 'px'; // minimum 400px
+}
+
+// Set height on load and resize
+document.addEventListener('DOMContentLoaded', setOptimalChatHeight);
+window.addEventListener('resize', setOptimalChatHeight);
 
 </script>
