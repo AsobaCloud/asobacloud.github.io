@@ -177,7 +177,7 @@ nav_order: 8
 .chat-input-container {
   border-top: 1px solid #e9ecef;
   background: white;
-  padding: 12px 20px;
+  padding: 12px 16px;
   flex-shrink: 0;
 }
 
