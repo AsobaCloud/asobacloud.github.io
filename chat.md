@@ -9,16 +9,17 @@ nav_order: 8
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 200px); /* Adjust based on your header/nav height */
-  position: fixed;
-  top: 80px; /* Adjust based on your header height */
-  left: 300px; /* Adjust based on your sidebar width */
-  right: 0;
-  bottom: 0;
+  height: 600px; /* Fixed height instead of calc(100vh - 200px) */
+  max-width: 1000px; /* Add max-width for better centering */
+  margin: 2rem auto; /* Center it in the page */
   background: white;
+  border: 1px solid #e9ecef; /* Add border to define boundaries */
+  border-radius: 8px; /* Add rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Add subtle shadow */
+  /* REMOVED: position: fixed, top, left, right, bottom */
 }
 
-/* Chat Messages Area */
+/* Chat Messages Area - Keep everything else the same */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -26,7 +27,7 @@ nav_order: 8
   background: white;
   scroll-behavior: smooth;
   min-height: 0; /* Important for Firefox */
-}
+}}
 
 .message {
   margin-bottom: 20px;
