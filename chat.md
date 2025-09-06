@@ -184,7 +184,7 @@ nav_order: 8
 .chat-input-wrapper {
   display: flex;
   gap: 12px;
-  align-items: center; /* Changed from flex-end to center */
+  align-items: flex-end; 
 }
 
 .chat-input-field {
