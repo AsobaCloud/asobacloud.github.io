@@ -173,6 +173,13 @@ nav_order: 8
   }
 }
 
+.chat-input-container,
+.chat-input-wrapper,
+.chat-input-field,
+#chat-input {
+  margin-bottom: 0 !important;
+}
+
 /* Chat Input Area - Fixed positioning */
 .chat-input-container {
   border-top: 1px solid #e9ecef;
