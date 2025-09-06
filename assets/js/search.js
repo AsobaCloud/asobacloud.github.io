@@ -1,55 +1,137 @@
 document.addEventListener('DOMContentLoaded', function() {
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
-  
-  // Define static search data for basic functionality with h2 and h3 headers
+  // Define comprehensive search data covering all site content
   const searchData = [
     {
-      title: "Introduction",
-      url: "/index.html",
-      content: "Welcome to the Ona API Platform! Here's how you can get started with onboarding and integrating our powerful API into your systems. You have the option of accessing Ona's capabilities via our On-Demand web app, or by embedding the API directly within your own technology stack.",
+      title: "Energy Forecasting Made Simple",
+      url: "/",
+      content: "See how Ona's platform transforms solar asset management in just 2 minutes. Welcome to the Ona API Platform! Here's how you can get started with onboarding and integrating our powerful API into your systems. You have the option of accessing Ona's capabilities via our On-Demand web app, or by embedding the API directly within your own technology stack.",
       sections: [
+        { title: "Watch the Demo", id: "watch-the-demo" },
+        { title: "Choose Your Path", id: "choose-your-path" },
+        { title: "Products & Services", id: "products-services" },
+        { title: "Industry Use Cases", id: "industry-use-cases" },
+        { title: "Quick Start Options", id: "quick-start-options" },
+        { title: "Python Quickstart", id: "python-quickstart" },
+        { title: "SDK Quickstart", id: "sdk-quickstart" },
+        { title: "REST API Quickstart", id: "api-quickstart" }
+      ]
+    },
+    {
+      title: "Business Users",
+      url: "/business-users",
+      content: "Solutions designed for solar asset owners, O&M teams, and energy managers who need to optimize performance and maximize returns. Asset Performance Monitoring, Predictive Maintenance, Financial Impact Analysis.",
+      sections: [
+        { title: "Asset Performance Monitoring", id: "asset-performance-monitoring" },
+        { title: "Predictive Maintenance", id: "predictive-maintenance" },
+        { title: "Financial Impact Analysis", id: "financial-impact-analysis" },
+        { title: "Getting Started for Business Users", id: "getting-started-business-users" },
+        { title: "Success Stories", id: "success-stories" }
+      ]
+    },
+    {
+      title: "FAQ",
+      url: "/faq",
+      content: "Find answers to the most common questions about Ona's energy management platform. Technical Questions, Business Questions, Distributed Compute Questions, Support Information.",
+      sections: [
+        { title: "Technical Questions", id: "technical-questions" },
+        { title: "Business Questions", id: "business-questions" },
+        { title: "Distributed Compute Questions", id: "distributed-compute-questions" },
+        { title: "Support Information", id: "support-information" }
+      ]
+    },
+    {
+      title: "Help & Support",
+      url: "/support",
+      content: "Get the help you need to make the most of Ona's energy management platform. Quick Help, Contact Support, Documentation & Resources, System Status, Training & Education.",
+      sections: [
+        { title: "Quick Help", id: "quick-help" },
+        { title: "Contact Support", id: "contact-support" },
+        { title: "Documentation & Resources", id: "documentation-resources" },
+        { title: "System Status", id: "system-status" },
+        { title: "Training & Education", id: "training-education" },
+        { title: "Feedback & Feature Requests", id: "feedback-feature-requests" }
+      ]
+    },
+    {
+      title: "Use Cases",
+      url: "/use-cases",
+      content: "Industry-specific solutions designed to address the unique challenges of solar energy management. O&M Optimization, Insurance & Risk Management, Implementation Roadmap.",
+      sections: [
+        { title: "O&M Optimization", id: "om-optimization" },
+        { title: "Insurance & Risk Management", id: "insurance-risk-management" },
+        { title: "Implementation Roadmap", id: "implementation-roadmap" },
+        { title: "Getting Started", id: "getting-started" }
+      ]
+    },
+    {
+      title: "O&M Optimization",
+      url: "/use-cases/oam",
+      content: "AI-powered operations and maintenance optimization for solar assets using the OODA loop methodology. The OODA Loop Methodology, Asset Management, AI-Assisted Analysis, Economic Optimization.",
+      sections: [
+        { title: "The OODA Loop Methodology", id: "ooda-loop-methodology" },
+        { title: "Key Use Case Scenarios", id: "key-use-case-scenarios" },
+        { title: "Asset Management", id: "asset-management" },
+        { title: "AI-Assisted Analysis", id: "ai-assisted-analysis" },
+        { title: "Economic Optimization", id: "economic-optimization" },
+        { title: "Integration Capabilities", id: "integration-capabilities" },
+        { title: "Performance Metrics", id: "performance-metrics" }
+      ]
+    },
+    {
+      title: "Insurance & Risk Management",
+      url: "/use-cases/insurance",
+      content: "AI-driven insurance platform for solar assets with live monitoring, automated document review, and instant parametric payouts. Business Problem, How the System Works, Business Impact & ROI.",
+      sections: [
+        { title: "Business Problem", id: "business-problem" },
+        { title: "How the System Works", id: "how-system-works" },
+        { title: "Business Impact & ROI", id: "business-impact-roi" },
+        { title: "Key Features", id: "key-features" },
+        { title: "Integration Capabilities", id: "integration-capabilities" },
+        { title: "Use Case Scenarios", id: "use-case-scenarios" }
+      ]
+    },
+    {
+      title: "Products & Services",
+      url: "/products",
+      content: "Comprehensive energy management solutions designed for different user types and use cases. Our Platform, Platform Capabilities, Choose Your Interface, Integration Options.",
+      sections: [
+        { title: "Our Platform", id: "our-platform" },
+        { title: "Platform Capabilities", id: "platform-capabilities" },
+        { title: "Choose Your Interface", id: "choose-your-interface" },
+        { title: "Integration Options", id: "integration-options" },
         { title: "Getting Started", id: "getting-started" },
-        { title: "Onboarding: On-Demand Web App", id: "onboarding-web-app" },
-        { title: "Onboarding: API Integration", id: "onboarding-api-integration" },
-        { title: "Data Preparation", id: "data-preparation" },
-        { title: "API Configuration and Integration", id: "api-configuration" },
-        { title: "Testing and Validation", id: "testing-validation" }
+        { title: "Pricing & Plans", id: "pricing-plans" }
       ]
     },
     {
-      title: "API Endpoints",
-      url: "/endpoints.html",
-      content: "This guide details the APIs available in the Ona ecosystem, including their base URLs, endpoints, request parameters, and response structures. The API system dynamically routes requests to the appropriate regional endpoint based on a region query parameter, processed via CloudFront and Lambda@Edge.",
+      title: "Ona Terminal",
+      url: "/products/terminal",
+      content: "AI-powered command-line interface for energy asset management with OODA workflow capabilities. Overview, Key Features, Getting Started, Core Commands, Configuration, Use Cases, Advanced Features.",
       sections: [
-        { title: "ingestHistoricalLoadData API", id: "ingestHistoricalLoadData" },
-        { title: "ingestNowcastLoadData API", id: "ingestNowcastLoadData" },
-        { title: "trainForecaster API", id: "trainForecaster" },
-        { title: "returnForecastingResults API", id: "returnForecastingResults" },
-        { title: "interpolateData API", id: "interpolateData" }
+        { title: "Overview", id: "overview" },
+        { title: "Key Features", id: "key-features" },
+        { title: "Getting Started", id: "getting-started" },
+        { title: "Core Commands", id: "core-commands" },
+        { title: "Configuration", id: "configuration" },
+        { title: "Use Cases", id: "use-cases" },
+        { title: "Advanced Features", id: "advanced-features" }
       ]
     },
     {
-      title: "Ona SDK",
-      url: "/sdk.html",
-      content: "This reference documents every object and method available in Ona's SDK for seamless integration with the Ona API Platform. Use our SDK to upload large historical datasets, retrieve pre-signed URLs for secure file uploads, and interact programmatically with Ona's APIs for energy forecasting, dispatching, and analysis.",
+      title: "EnergyAnalyst",
+      url: "/products/analyst",
+      content: "AI-powered regulatory compliance and policy analysis for energy markets. Overview, Key Capabilities, Model Architecture, Performance Metrics, Getting Started, Use Cases, Example Analysis.",
       sections: [
-        { title: "Getting Started with the Ona SDK", id: "getting-started" },
-        { title: "Installation", id: "installation" },
-        { title: "Usage Examples", id: "usage-examples" },
-        { title: "API Reference", id: "api-reference" },
-        { title: "Troubleshooting", id: "troubleshooting" }
-      ]
-    },
-    {
-      title: "Ona On-Demand",
-      url: "/analyst.html",
-      content: "Welcome to Ona On-Demand—your comprehensive web app for navigating complex energy policies and managing grid operations with ease. This guide will help you get started quickly, understand best practices for interacting with the app, and explore key features.",
-      sections: [
-        { title: "Getting Started with Ona On-Demand", id: "getting-started-with-ona-on-demand" },
-        { title: "Ona Policy Analyst", id: "ona-policy-analyst" },
-        { title: "Grid Operations", id: "grid-operations" },
-        { title: "On-Demand Model Training", id: "on-demand-model-training" }
+        { title: "Overview", id: "overview" },
+        { title: "Key Capabilities", id: "key-capabilities" },
+        { title: "Model Architecture", id: "model-architecture" },
+        { title: "Performance Metrics", id: "performance-metrics" },
+        { title: "Getting Started", id: "getting-started" },
+        { title: "Use Cases", id: "use-cases" },
+        { title: "Example Analysis", id: "example-analysis" },
+        { title: "Limitations", id: "limitations" }
       ]
     }
   ];

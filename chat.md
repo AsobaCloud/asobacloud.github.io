@@ -9,8 +9,13 @@ nav_order: 8
 .chat-container {
   display: flex;
   flex-direction: column;
-  height: calc(100vh - 100px); /* Reduced from 140px to reduce whitespace */
-  position: relative;
+  height: calc(100vh - 200px); /* Adjust based on your header/nav height */
+  position: fixed;
+  top: 80px; /* Adjust based on your header height */
+  left: 300px; /* Adjust based on your sidebar width */
+  right: 0;
+  bottom: 0;
+  background: white;
 }
 
 /* Chat Messages Area */
@@ -20,6 +25,7 @@ nav_order: 8
   padding: 20px;
   background: white;
   scroll-behavior: smooth;
+  min-height: 0; /* Important for Firefox */
 }
 
 .message {
@@ -58,7 +64,7 @@ nav_order: 8
 }
 
 .message.user .message-avatar {
-  background: var(--primary-blue);
+  background: #4f46e5; /* Using explicit color instead of var */
   color: white;
 }
 
@@ -75,14 +81,14 @@ nav_order: 8
 }
 
 .message.user .message-content {
-  background: var(--primary-blue);
+  background: #4f46e5;
   color: white;
   border-bottom-right-radius: 4px;
 }
 
 .message.assistant .message-content {
   background: #f0f4ff;
-  color: var(--text-dark);
+  color: #1f2937;
   border-bottom-left-radius: 4px;
 }
 
@@ -102,8 +108,8 @@ nav_order: 8
 }
 
 .message.assistant .message-content code {
-  background: rgba(69, 91, 241, 0.1);
-  color: var(--accent-blue);
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
 }
 
 .message-content pre {
@@ -142,7 +148,7 @@ nav_order: 8
 .typing-dot {
   width: 8px;
   height: 8px;
-  background: var(--primary-blue);
+  background: #4f46e5;
   border-radius: 50%;
   animation: typing 1.4s infinite;
 }
@@ -166,36 +172,23 @@ nav_order: 8
   }
 }
 
-/* Chat Input Area */
+/* Chat Input Area - Fixed positioning */
 .chat-input-container {
-  position: sticky;
-  bottom: 0;
   border-top: 1px solid #e9ecef;
   background: white;
-  padding: 12px 20px; /* Reduced from 20px to reduce whitespace */
-  z-index: 10;
+  padding: 12px 20px;
+  flex-shrink: 0;
 }
 
 .chat-input-wrapper {
   display: flex;
   gap: 12px;
-  align-items: flex-end;
+  align-items: center; /* Changed from flex-end to center */
 }
 
 .chat-input-field {
   flex: 1;
   position: relative;
-}
-
-
-#chat-input:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(69, 91, 241, 0.1);
-}
-
-#chat-input::placeholder {
-  color: #999;
 }
 
 #chat-input {
@@ -206,17 +199,29 @@ nav_order: 8
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   resize: none;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 14px;
   line-height: 1.5;
   overflow-y: auto;
-  margin: 0;  /* Add explicit margin reset */
-  vertical-align: bottom;  /* Ensure vertical alignment */
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+}
+
+#chat-input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+#chat-input::placeholder {
+  color: #999;
 }
 
 .send-button {
-  padding: 12px 20px;
-  background: var(--primary-blue);
+  height: 44px; /* Fixed height matching input */
+  padding: 0 24px;
+  background: #4f46e5;
   color: white;
   border: none;
   border-radius: 8px;
@@ -225,15 +230,15 @@ nav_order: 8
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   white-space: nowrap;
-  margin: 0;  /* Add explicit margin reset */
-  min-height: 44px;  /* Match the textarea min-height */
+  margin: 0;
+  font-size: 14px;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-
 .send-button:hover:not(:disabled) {
-  background: var(--accent-blue);
+  background: #6366f1;
   transform: translateY(-1px);
 }
 
@@ -245,24 +250,27 @@ nav_order: 8
 /* Welcome Message */
 .welcome-message {
   text-align: center;
-  padding: 40px;
+  padding: 40px 20px;
   color: #666;
 }
 
 .welcome-message h3 {
-  color: var(--primary-blue);
+  color: #4f46e5;
   margin-bottom: 16px;
 }
 
 .suggested-prompts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 12px;
   margin-top: 24px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .prompt-suggestion {
-  padding: 12px 16px;
+  padding: 16px;
   background: #f8f9fa;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -270,19 +278,24 @@ nav_order: 8
   transition: all 0.2s ease;
   text-align: left;
   font-size: 14px;
-  color: var(--text-dark);
+  color: #1f2937;
 }
 
 .prompt-suggestion:hover {
   background: #f0f4ff;
-  border-color: var(--primary-blue);
+  border-color: #4f46e5;
   transform: translateY(-1px);
 }
 
-/* Mobile Responsive */
+/* Mobile/Responsive adjustments */
 @media (max-width: 768px) {
   .chat-container {
-    height: calc(100vh - 100px); /* Updated to match desktop */
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
   }
   
   .message-content {
@@ -292,19 +305,17 @@ nav_order: 8
   .suggested-prompts {
     grid-template-columns: 1fr;
   }
-  
-  .chat-input-wrapper {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .send-button {
-    width: 100%;
-    justify-content: center;
-  }
+}
+
+/* Override any conflicting styles from parent theme */
+.chat-container * {
+  box-sizing: border-box;
+}
+
+.chat-container button {
+  font-family: inherit;
 }
 </style>
-
 
 <div class="chat-container">
   <div class="chat-messages" id="chat-messages">
