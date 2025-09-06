@@ -187,6 +187,17 @@ nav_order: 8
   position: relative;
 }
 
+
+#chat-input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(69, 91, 241, 0.1);
+}
+
+#chat-input::placeholder {
+  color: #999;
+}
+
 #chat-input {
   width: 100%;
   min-height: 44px;
@@ -199,16 +210,8 @@ nav_order: 8
   font-size: 14px;
   line-height: 1.5;
   overflow-y: auto;
-}
-
-#chat-input:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(69, 91, 241, 0.1);
-}
-
-#chat-input::placeholder {
-  color: #999;
+  margin: 0;  /* Add explicit margin reset */
+  vertical-align: bottom;  /* Ensure vertical alignment */
 }
 
 .send-button {
@@ -224,7 +227,10 @@ nav_order: 8
   align-items: center;
   gap: 8px;
   white-space: nowrap;
+  margin: 0;  /* Add explicit margin reset */
+  min-height: 44px;  /* Match the textarea min-height */
 }
+
 
 .send-button:hover:not(:disabled) {
   background: var(--accent-blue);
@@ -321,15 +327,14 @@ nav_order: 8
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- Typing indicator moved outside chat-messages and placed after it -->
-  <div class="typing-indicator" id="typing-indicator">
-    <div class="message-avatar">EA</div>
-    <div class="typing-dots">
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
-      <span class="typing-dot"></span>
+    
+    <div class="typing-indicator" id="typing-indicator">
+      <div class="message-avatar">EA</div>
+      <div class="typing-dots">
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+        <span class="typing-dot"></span>
+      </div>
     </div>
   </div>
   
@@ -391,6 +396,7 @@ function autoResizeTextarea() {
   chatInput.style.height = Math.min(chatInput.scrollHeight, 120) + 'px';
 }
 
+
 // Message handling
 function addMessage(content, isUser = false) {
   // Hide welcome message on first message
@@ -412,7 +418,7 @@ function addMessage(content, isUser = false) {
   messageDiv.appendChild(avatar);
   messageDiv.appendChild(contentDiv);
   
-  // Insert before typing indicator
+  // Insert before typing indicator to keep it at the bottom
   chatMessages.insertBefore(messageDiv, typingIndicator);
   chatMessages.scrollTop = chatMessages.scrollHeight;
   
