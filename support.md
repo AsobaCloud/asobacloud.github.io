@@ -1,50 +1,16 @@
 ---
-title: "Help & Support"
+title: "Contact"
 layout: default
-nav_order: 7
+nav_order: 8
 ---
 
-# Help & Support
+# Contact
 
-Get the help you need to make the most of Ona's energy management platform.
-
----
-
-## Quick Help
-
-### Getting Started
-- **New to Ona?** → [Getting Started Guide](/getting-started)
-- **Need API access?** → [API Documentation](https://code.asoba.co)
-- **Want to try the platform?** → [Schedule a Demo](mailto:sales@asoba.co)
-
-### Common Issues
-- **API Authentication** → Check your API key and permissions
-- **Data Upload** → Verify file format and required fields
-- **Performance Issues** → Check system status and network connectivity
-- **Billing Questions** → Contact our billing team
+Get in touch with us for support, sales, or general inquiries.
 
 ---
 
-## Quick Help
-
-### Getting Started
-- **New to Ona?** → [Getting Started Guide](/getting-started)
-- **Need API access?** → [API Documentation](https://code.asoba.co)
-- **Want to try the platform?** → [Schedule a Demo](mailto:sales@asoba.co)
-
-### Common Issues
-- **API Authentication** → Check your API key and permissions
-- **Data Upload** → Verify file format and required fields
-- **Performance Issues** → Check system status and network connectivity
-- **Billing Questions** → Contact our billing team
-
-### FAQ
-- **Have a question?** → [Check our FAQ](/faq) for quick answers
-- **Can't find your answer?** → Contact our support team below
-
----
-
-## Contact Support
+## Contact Information
 
 ### Technical Support
 For technical issues, API questions, and implementation help:
@@ -68,77 +34,13 @@ For critical issues affecting production systems:
 
 ---
 
-## Documentation & Resources
-
-### Technical Documentation
-- [API Reference](https://code.asoba.co) - Complete API documentation
-- [SDK Documentation](https://code.asoba.co/sdk) - Python and JavaScript SDKs
-- [Integration Guides](https://code.asoba.co/integrations) - Third-party integrations
-- [Best Practices](https://code.asoba.co/best-practices) - Implementation guidelines
-
-### Business Resources
-- [Case Studies](/use-cases) - Customer success stories
-- [ROI Calculator](https://asoba.co/roi-calculator) - Calculate potential returns
-- [Industry Reports](https://asoba.co/reports) - Market insights and trends
-- [Webinars](https://asoba.co/webinars) - Educational content
-
-### Community Resources
-- [GitHub](https://github.com/asoba) - Open source projects and examples
-- [Discord Community](https://discord.gg/nNV5evcr) - Connect with other users
-- [Blog](https://asoba.co/blog) - Latest updates and insights
-- [YouTube](https://youtube.com/@asoba) - Video tutorials and demos
-
----
-
-## System Status
-
-### Current Status
-- **API Services**: ✅ Operational
-- **Web Application**: ✅ Operational
-- **Data Processing**: ✅ Operational
-- **Support Services**: ✅ Operational
-
-### Maintenance Schedule
-- **Planned Maintenance**: Every Sunday, 2-4 AM EST
-- **Emergency Maintenance**: As needed with advance notice
-- **Status Updates**: [status.asoba.co](https://status.asoba.co)
-
----
-
-## Training & Education
-
-### Free Resources
-- **Getting Started Guide** - Step-by-step implementation
-- **Video Tutorials** - Visual learning resources
-- **Webinars** - Live educational sessions
-- **Documentation** - Comprehensive guides and references
-
-### Paid Training
-- **Custom Training** - Tailored to your specific needs
-- **Certification Program** - Become an Ona expert
-- **Workshop Sessions** - Hands-on learning experiences
-- **Consulting Services** - Expert guidance and implementation
-
----
-
-## Feedback & Feature Requests
-
-We value your feedback! Help us improve Ona by sharing your ideas:
-
-- 💡 **Feature Requests**: [ideas.asoba.co](https://ideas.asoba.co)
-- 🐛 **Bug Reports**: [support@asoba.co](mailto:support@asoba.co)
-- ⭐ **Product Feedback**: [feedback@asoba.co](mailto:feedback@asoba.co)
-- 📊 **User Surveys**: [surveys.asoba.co](https://surveys.asoba.co)
-
----
-
 ## Get Help & Stay Updated
 
 <div class="page-end-section">
   <div class="end-column">
     <div class="support-cta">
-      <h3>Contact Support</h3>
-      <p>For technical assistance, feature requests, or any other questions, please reach out to our dedicated support team.</p>
+      <h3>Get in Touch</h3>
+      <p>For technical assistance, sales inquiries, or any other questions, please reach out to our team.</p>
       <a href="mailto:support@asoba.co" class="support-button">Email Support</a>
       <a href="https://discord.gg/nNV5evcr" target="_blank" class="support-button" style="margin-top: 10px; display: inline-block;">
         <svg width="16" height="16" style="margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="currentColor">
