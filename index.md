@@ -71,7 +71,7 @@ The grid is changing faster than the tools built to manage it. We turn energy da
       <span class="tag">Automation</span>
       <span class="tag">OODA</span>
     </div>
-    <a href="/products/terminal" class="card-cta">Learn More</a>
+    <a href="https://code.asoba.co" class="card-cta">Learn More</a>
   </div>
 
 
