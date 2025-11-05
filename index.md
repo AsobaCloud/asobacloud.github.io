@@ -31,12 +31,12 @@ The grid is changing faster than the tools built to manage it. We turn energy da
   <div class="journey-card technical-users">
     <div class="card-icon">📋</div>
     <h3>AI + Infrastructure Policy</h3>
-    <p>Navigate regulatory compliance and infrastructure planning</p>
+    <p>Doctrine for local data sovereignty and national security</p>
     <ul class="card-features">
-      <li>Regulatory Compliance</li>
-      <li>Policy Analysis</li>
-      <li>Market Participation</li>
-      <li>Compliance Management</li>
+      <li>Data Sovereignty</li>
+      <li>National Security</li>
+      <li>Local Infrastructure</li>
+      <li>Policy Framework</li>
     </ul>
     <a href="/products/analyst" class="card-cta">Explore Policy Solutions</a>
   </div>
@@ -45,12 +45,12 @@ The grid is changing faster than the tools built to manage it. We turn energy da
   <div class="journey-card use-cases">
     <div class="card-icon">🔬</div>
     <h3>Research</h3>
-    <p>Access data analytics and research capabilities</p>
+    <p>Presentations, papers and open data resources</p>
     <ul class="card-features">
-      <li>Data Analytics</li>
-      <li>Predictive Modeling</li>
-      <li>Academic Research</li>
-      <li>Performance Analysis</li>
+      <li>Presentations</li>
+      <li>Research Papers</li>
+      <li>Open Data</li>
+      <li>Publications</li>
     </ul>
     <a href="/use-cases" class="card-cta">Explore Research Tools</a>
   </div>
