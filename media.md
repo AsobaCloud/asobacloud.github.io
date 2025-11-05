@@ -1,10 +1,10 @@
 ---
-title: "Media & Resources"
+title: "Media Kit"
 layout: default
-nav_order: 5
+nav_order: 7
 ---
 
-## Media & Resources
+## Media Kit
 
 This page provides access to additional resources including webinar recordings and case studies to help you better understand the Ona API Platform and its capabilities.
 

@@ -1,12 +1,13 @@
 ---
-title: "Use Cases"
+title: "DER Use Cases"
 layout: default
 nav_order: 3
+parent: "DER Management"
 ---
 
-# Use Cases
+# DER Use Cases
 
-Industry-specific solutions designed to address the unique challenges of solar energy management.
+Industry-specific solutions designed to address the unique challenges of distributed energy resource management.
 
 ---
 

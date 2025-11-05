@@ -1,12 +1,13 @@
 ---
-title: "Business Users"
+title: "DER Management"
 layout: default
 nav_order: 2
+parent: "DER Management"
 ---
 
-# Business Users
+# DER Management
 
-Solutions designed for solar asset owners, O&M teams, and energy managers who need to optimize performance and maximize returns.
+Solutions designed for managing distributed energy resources and optimizing grid integration.
 
 ---
 
@@ -149,4 +150,4 @@ Understand and optimize the financial performance of your solar assets:
   </div>
 </div>
 
-© 2025 Asoba Corporation. All rights reserved.
+? 2025 Asoba Corporation. All rights reserved.

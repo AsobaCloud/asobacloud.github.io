@@ -10,7 +10,7 @@ The grid is changing faster than the tools built to manage it. We turn energy da
 
 ---
 
-## Choose Your Path
+## Choose Your Path {#choose-your-path}
 
 <div class="user-journey-cards">
   <!-- DER Management Card -->
@@ -58,7 +58,7 @@ The grid is changing faster than the tools built to manage it. We turn energy da
 
 ---
 
-## Products & Services
+## Products & Services {#products-services}
 
 <div class="product-cards">
   <!-- Ona Terminal Card -->
