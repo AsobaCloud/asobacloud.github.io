@@ -63,9 +63,9 @@ The grid is changing faster than the tools built to manage it. We turn energy da
 <div class="product-cards">
   <!-- Ona Terminal Card -->
   <div class="product-card terminal">
-    <img src="/assets/images/terminal-interface.svg" alt="Ona Terminal">
-    <h3>Ona Terminal</h3>
-    <p>AI-powered CLI for energy asset management</p>
+    <img src="/assets/images/terminal-interface.svg" alt="Ona Energy Management Platform">
+    <h3>Ona Energy Management Platform</h3>
+    <p>AI-powered energy asset management</p>
     <div class="card-tags">
       <span class="tag">CLI</span>
       <span class="tag">Automation</span>
@@ -78,8 +78,8 @@ The grid is changing faster than the tools built to manage it. We turn energy da
 
   <!-- PolicyAnalyst Card -->
   <div class="product-card analyst">
-    <img src="/assets/images/analyst-interface.svg" alt="PolicyAnalyst">
-    <h3>PolicyAnalyst</h3>
+    <img src="/assets/images/analyst-interface.svg" alt="EnergyAnalyst">
+    <h3>EnergyAnalyst</h3>
     <p>Regulatory compliance and policy analysis</p>
     <div class="card-tags">
       <span class="tag">Compliance</span>
