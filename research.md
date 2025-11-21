@@ -14,6 +14,7 @@ Presentations, papers and open data resources.
 
 | Paper Title | Authors | Date | Link |
 |-------------|---------|------|------|
+| The Intelligence Layer: A Technical Framework for Predictive and Decision AI in Distributed Energy Asset Management Operations | Samudzi, S., & Asoba Corporation. | 2025 | [View Paper](https://doi.org/10.5281/zenodo.17495951) |
 | Example Paper 1 | Author Name | 2024 | [View Paper](#) |
 | Example Paper 2 | Author Name | 2024 | [View Paper](#) |
 
@@ -32,5 +33,6 @@ Presentations, papers and open data resources.
 
 | Repository Name | Description | Link |
 |-----------------|-------------|------|
+| platform-edge | Programming languages: Python, JavaScript, Shell. Development Status: Active. | [View Repo](https://github.com/AsobaCloud/platform-edge) |
 | Example Repo 1 | Description of repository | [View Repo](#) |
 | Example Repo 2 | Description of repository | [View Repo](#) |
