@@ -11,7 +11,48 @@ parent: "ETL and Data Governance"
 
 The core need for large DER asset owners is an automated pipeline that eliminates manual data processing for analytics usage, ensures model freshness, and provides production-grade APIs—all while maintaining audit compliance and minimizing storage costs.
 
-In today's energy landscape, data is the most valuable asset. However, it's often trapped in disparate systems, requiring manual, error-prone processes to make it usable. This manual effort is not only a drain on resources but also a significant barrier to realizing the full potential of AI. A robust, automated data platform is the foundation upon which true AI-driven insights are built. It allows businesses to move from reactive analysis to proactive, automated decision-making, enabling them to efficiently implement the advice the AI provides and unlock new revenue opportunities.
+In today’s energy landscape, data is the most valuable asset. However, it’s often trapped in disparate systems, requiring manual, error-prone processes to make it usable. This manual effort is not only a drain on resources but also a significant barrier to realizing the full potential of AI. A robust, automated data platform is the foundation upon which true AI-driven insights are built. It allows businesses to move from reactive analysis to proactive, automated decision-making, enabling them to efficiently implement the advice the AI provides and unlock new revenue opportunities.
+
+```mermaid
+graph TD
+    subgraph "Layer 1: Data Sources"
+        A[Battery Systems] --> B(Wind Arrays)
+        B --> C(Solar Arrays)
+    end
+
+    subgraph "Layer 2: Ingestion & ETL Layer"
+        D[Raw Data Extraction] --> E(ETL Pipeline)
+        E --> F(Feature Engineering)
+    end
+
+    subgraph "Layer 3: AI & Modeling"
+        G[ML Models] --> H(AI Agents)
+    end
+
+    subgraph "Layer 4: Storage Layer"
+        I[Model Output Store]
+    end
+
+    subgraph "Layer 5: Access Layer"
+        J[API Gateway]
+    end
+
+    C -- Data Flow --> D
+    F -- Data Flow --> G
+    H -- Data Flow --> I
+    I -- Data Flow --> J
+
+    style A fill:#10b981,stroke:#333,stroke-width:2px
+    style B fill:#3b82f6,stroke:#333,stroke-width:2px
+    style C fill:#f59e0b,stroke:#333,stroke-width:2px
+    style D fill:#8b5cf6,stroke:#333,stroke-width:2px
+    style E fill:#6366f1,stroke:#333,stroke-width:2px
+    style F fill:#7c3aed,stroke:#333,stroke-width:2px
+    style G fill:#dc2626,stroke:#333,stroke-width:2px
+    style H fill:#e11d48,stroke:#333,stroke-width:2px
+    style I fill:#059669,stroke:#333,stroke-width:2px
+    style J fill:#d97706,stroke:#333,stroke-width:2px
+```
 
 ---
 
