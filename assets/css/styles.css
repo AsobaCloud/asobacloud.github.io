@@ -1812,3 +1812,47 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
     margin: 8px 0;
   }
 }
+
+/* Roadmap Specific Styles */
+.roadmap-container {
+  margin: 32px 0;
+}
+
+.roadmap-step {
+  max-width: 320px;
+}
+
+.step-phase {
+  display: inline-block;
+  background: #4551bf;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.step-list li {
+  font-size: 0.85rem;
+  color: #64748b;
+  padding: 4px 0;
+  padding-left: 16px;
+  position: relative;
+}
+
+.step-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4551bf;
+  font-weight: bold;
+}

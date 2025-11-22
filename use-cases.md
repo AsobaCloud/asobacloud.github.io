@@ -29,7 +29,11 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
     <p>Predict the best buy/sell price arbitrage to make high-certainty trades in intraday energy markets.</p>
     <a href="/use-cases/energy-trading" class="path-button">Explore Trading Solutions</a>
   </div>
+</div>
 
+---
+
+<div class="quickstart-paths">
   <div class="path-card">
     <h3>🌬️ Turbine-Specific Wind-Flow Graph Net</h3>
     <p>Modeling the unique wind conditions and performance of each turbine, taking into account its exact location, local terrain, and real-time operational data.</p>
@@ -80,12 +84,55 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
 
 ## Implementation Roadmap
 
-```mermaid
-timeline
-  Weeks 1–2: Integration : SCADA/inverter connections, Historical data ingestion, Baseline establishment, Custom dashboard design
-  Weeks 3–12: Optimization : Real-time monitoring active, Weekly performance reports, Continuous model improvement
-  Week 13: Decision Point : Executive ROI analysis, Auto-conversion when metrics met, Scale-up roadmap for portfolio
-```
+<div class="roadmap-container">
+  <div class="text-center mb-12">
+    <p class="text-gray-600">From integration to optimization in 13 weeks</p>
+  </div>
+
+  <div class="pipeline-container">
+    <div class="pipeline-row">
+      <div class="pipeline-step roadmap-step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <div class="step-phase">Weeks 1–2</div>
+          <h4>Integration</h4>
+          <ul class="step-list">
+            <li>SCADA/inverter connections</li>
+            <li>Historical data ingestion</li>
+            <li>Baseline establishment</li>
+            <li>Custom dashboard design</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step roadmap-step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <div class="step-phase">Weeks 3–12</div>
+          <h4>Optimization</h4>
+          <ul class="step-list">
+            <li>Real-time monitoring active</li>
+            <li>Weekly performance reports</li>
+            <li>Continuous model improvement</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pipeline-arrow">→</div>
+      <div class="pipeline-step roadmap-step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <div class="step-phase">Week 13</div>
+          <h4>Decision Point</h4>
+          <ul class="step-list">
+            <li>Executive ROI analysis</li>
+            <li>Auto-conversion when metrics met</li>
+            <li>Scale-up roadmap for portfolio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 
