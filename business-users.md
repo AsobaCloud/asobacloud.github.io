@@ -1,11 +1,11 @@
 ---
-title: "ETL and Data Governance"
+title: "Data Governance"
 layout: default
 nav_order: 2
-parent: "ETL and Data Governance"
+parent: "Data Governance"
 ---
 
-# ETL and Data Governance
+# Data Governance
 
 ## From Manual Processing to Automated Intelligence
 

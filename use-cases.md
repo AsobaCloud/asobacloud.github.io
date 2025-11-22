@@ -2,7 +2,7 @@
 title: "Use Cases"
 layout: default
 nav_order: 3
-parent: "ETL and Data Governance"
+parent: "Data Governance"
 ---
 
 # Use Cases
