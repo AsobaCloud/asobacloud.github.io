@@ -2,7 +2,7 @@
 title: "ETL and Data Governance"
 layout: default
 nav_order: 2
-parent: "DER Management"
+parent: "ETL and Data Governance"
 ---
 
 # ETL and Data Governance

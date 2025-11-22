@@ -2,7 +2,7 @@
 title: "DER Use Cases"
 layout: default
 nav_order: 3
-parent: "DER Management"
+parent: "ETL and Data Governance"
 ---
 
 # DER Use Cases
@@ -69,6 +69,22 @@ Industry-specific solutions designed to address the unique challenges of distrib
     <p>Auto-fill official SAWEM XML templates from existing O&M database, attaches data-quality attestation, and flags impending non-compliance.</p>
     <p><strong>Outcome:</strong> Monthly compliance drops from 3 days to 30 minutes</p>
     <p><strong>Outcome:</strong> Eliminates disqualification risk from future tenders</p>
+  </div>
+</div>
+
+---
+
+<div class="quickstart-paths">
+  <div class="path-card">
+    <h3>📈 Penalty-Insurance Meta-Forecast</h3>
+    <p>Model analyzes 24-hour forecast versus actuals to generate 5th–95th percentile error bands per half-hour slot. Live dashboard displays "Penalty-at-Risk", enabling traders to hedge or defer maintenance before 18:00 gate closure.</p>
+    <p><strong>Impact:</strong> Up to 70% reduction in unplanned trading penalties</p>
+  </div>
+  
+  <div class="path-card">
+    <h3>☁️ Cloud-Shadow Nowcast for Solar</h3>
+    <p>IP sky-cameras feed conv-LSTM predicting shadow motion 0–30 minutes ahead per string. Outputs probabilistic ramp-rate distributions to pre-position battery SOC setpoints.</p>
+    <p><strong>Impact:</strong> Eliminates unnecessary cycling costs, avoids 30-second ramp violations triggering ancillary-service penalties</p>
   </div>
 </div>
 
