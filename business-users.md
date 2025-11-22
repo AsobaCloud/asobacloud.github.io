@@ -16,7 +16,7 @@ In today’s energy landscape, data is the most valuable asset. However, it’s 
 <div id="architecture-diagram-container"></div>
 
 <script type="text/babel">
-  {% include_relative react/ArchitectureDiagram.js %}
+  {% include react/ArchitectureDiagram.js %}
 
   ReactDOM.render(
     <ArchitectureDiagram />,
