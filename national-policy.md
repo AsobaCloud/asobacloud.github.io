@@ -13,44 +13,23 @@ A nation's ability to control its critical energy infrastructure is a cornerston
 
 This approach directly addresses several key policy challenges:
 
-<div class="policy-cards">
-  <div class="policy-card">
-    <div class="policy-card-icon">👥</div>
-    <h3>Workforce Paradox</h3>
-    <div class="card-section">
-      <h4>The Challenge</h4>
-      <p>High youth unemployment persists despite a digitally native generation.</p>
-    </div>
-    <div class="card-section">
-      <h4>The Solution</h4>
-      <p>A distributed intelligence infrastructure creates a new class of "AI Technologist" jobs. These roles, focused on maintaining and operating edge AI nodes, directly bridge the gap between the skills of the youth and the needs of the nation's most critical industries.</p>
-    </div>
+<div class="quickstart-paths">
+  <div class="path-card">
+    <h3>👥 Workforce Paradox</h3>
+    <p><strong>The Challenge:</strong> High youth unemployment persists despite a digitally native generation.</p>
+    <p><strong>The Solution:</strong> A distributed intelligence infrastructure creates a new class of "AI Technologist" jobs. These roles, focused on maintaining and operating edge AI nodes, directly bridge the gap between the skills of the youth and the needs of the nation's most critical industries.</p>
   </div>
 
-  <div class="policy-card">
-    <div class="policy-card-icon">⚡</div>
-    <h3>Grid Vulnerability</h3>
-    <div class="card-section">
-      <h4>The Challenge</h4>
-      <p>Over-centralized energy grids are a single point of failure, vulnerable to both cyber-attacks and physical disruption.</p>
-    </div>
-    <div class="card-section">
-      <h4>The Solution</h4>
-      <p>A distributed model, where intelligence is embedded in the grid itself, creates a resilient, self-healing network. Each node can operate autonomously, reducing the impact of a single point of failure and enhancing overall grid stability.</p>
-    </div>
+  <div class="path-card">
+    <h3>⚡ Grid Vulnerability</h3>
+    <p><strong>The Challenge:</strong> Over-centralized energy grids are a single point of failure, vulnerable to both cyber-attacks and physical disruption.</p>
+    <p><strong>The Solution:</strong> A distributed model, where intelligence is embedded in the grid itself, creates a resilient, self-healing network. Each node can operate autonomously, reducing the impact of a single point of failure and enhancing overall grid stability.</p>
   </div>
 
-  <div class="policy-card">
-    <div class="policy-card-icon">🔐</div>
-    <h3>Data Extraction</h3>
-    <div class="card-section">
-      <h4>The Challenge</h4>
-      <p>Reliance on foreign cloud monopolies creates a situation of "data colonialism," where a nation's most sensitive data is stored and processed externally, leading to a loss of sovereignty and economic advantage.</p>
-    </div>
-    <div class="card-section">
-      <h4>The Solution</h4>
-      <p>A distributed intelligence model ensures that data remains within national borders, under national control. This fosters data sovereignty and allows for the development of a domestic AI ecosystem.</p>
-    </div>
+  <div class="path-card">
+    <h3>🔐 Data Extraction</h3>
+    <p><strong>The Challenge:</strong> Reliance on foreign cloud monopolies creates a situation of "data colonialism," where a nation's most sensitive data is stored and processed externally, leading to a loss of sovereignty and economic advantage.</p>
+    <p><strong>The Solution:</strong> A distributed intelligence model ensures that data remains within national borders, under national control. This fosters data sovereignty and allows for the development of a domestic AI ecosystem.</p>
   </div>
 </div>
 
