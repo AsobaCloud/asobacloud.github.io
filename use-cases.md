@@ -1,11 +1,11 @@
 ---
-title: "DER Use Cases"
+title: "Use Cases"
 layout: default
 nav_order: 3
 parent: "ETL and Data Governance"
 ---
 
-# DER Use Cases
+# Use Cases
 
 Our platform offers a suite of industry-specific solutions, each powered by a modular AI agent designed to address the unique challenges of distributed energy resource management. These agents can be seamlessly embedded into your existing infrastructure via our SDK or utilized through client applications running in the cloud or on distributed compute nodes, such as Raspberry Pi or Jetson Orin series devices. This flexibility ensures optimal performance and adaptability across diverse operational environments.
 
@@ -29,11 +29,7 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
     <p>Predict the best buy/sell price arbitrage to make high-certainty trades in intraday energy markets.</p>
     <a href="/use-cases/energy-trading" class="path-button">Explore Trading Solutions</a>
   </div>
-</div>
 
----
-
-<div class="quickstart-paths">
   <div class="path-card">
     <h3>🌬️ Turbine-Specific Wind-Flow Graph Net</h3>
     <p>Modeling the unique wind conditions and performance of each turbine, taking into account its exact location, local terrain, and real-time operational data.</p>
@@ -51,11 +47,7 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
     <p>3B-parameter on-device chatbot interviews technicians via mobile app, extracting root-cause analysis, parts used, and labor minutes. Human responses are labelled and tagged and integrated into existing device failure probability models.</p>
     <p><strong>Outcome:</strong> Enhanced predictive maintenance accuracy, reduced repeat failures</p>
   </div>
-</div>
 
----
-
-<div class="quickstart-paths">
   <div class="path-card">
     <h3>🔋 Battery-Buffered Bid-Sizer</h3>
     <p>Model to calculate minimum MWh storage required for 98% firmness target on 2-hour evening-peak bids.</p>
@@ -70,11 +62,7 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
     <p><strong>Outcome:</strong> Monthly compliance drops from 3 days to 30 minutes</p>
     <p><strong>Outcome:</strong> Eliminates disqualification risk from future tenders</p>
   </div>
-</div>
 
----
-
-<div class="quickstart-paths">
   <div class="path-card">
     <h3>📈 Penalty-Insurance Meta-Forecast</h3>
     <p>Model analyzes 24-hour forecast versus actuals to generate 5th–95th percentile error bands per half-hour slot. Live dashboard displays "Penalty-at-Risk", enabling traders to hedge or defer maintenance before 18:00 gate closure.</p>
@@ -102,28 +90,6 @@ timeline
 ---
 
 ## Getting Started
-
-### Quick Start Options
-
-<div class="quickstart-paths">
-  <div class="path-card">
-    <h3>🔧 O&M Optimization</h3>
-    <p>Get started with predictive maintenance and operational optimization</p>
-    <a href="/use-cases/oam" class="path-button">Explore O&M Solutions</a>
-  </div>
-  
-  <div class="path-card">
-    <h3>🛡️ Insurance & Risk</h3>
-    <p>Transform your insurance operations with AI-driven risk management</p>
-    <a href="/use-cases/insurance" class="path-button">Explore Insurance Solutions</a>
-  </div>
-  
-  <div class="path-card">
-    <h3>📚 Documentation</h3>
-    <p>Learn about our platform capabilities and integration options</p>
-    <a href="/products" class="path-button">View Products</a>
-  </div>
-</div>
 
 ### Implementation Support
 - **Technical Consultation**: Get expert guidance on implementation
