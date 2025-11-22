@@ -11,6 +11,8 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
 
 ---
 
+## Modules
+
 <div class="quickstart-paths">
   <div class="path-card">
     <h3>🔧 O&M Optimization</h3>
@@ -32,6 +34,8 @@ Our platform offers a suite of industry-specific solutions, each powered by a mo
 </div>
 
 ---
+
+## AI Agents
 
 <div class="quickstart-paths">
   <div class="path-card">
