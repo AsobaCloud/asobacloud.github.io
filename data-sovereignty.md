@@ -25,8 +25,36 @@ For nations, data sovereignty is a matter of national security and economic stab
 The "Intelligence Layer" provides a practical framework for achieving data sovereignty by moving compute to the edge, rather than moving data to centralized data centers. This is achieved through a distributed AI model embedded within critical infrastructure, such as Distributed Energy Resource Management Systems (DERMS).
 
 **How it Works:**
-1.  **Edge-Based Perception:** Edge-based sensors collect environmental, grid, and asset telemetry in real-time, keeping the data at its source.
-2.  **Sovereign Prediction:** Machine learning models run locally on sovereign datasets, allowing for predictions (e.g., local energy demand, generation, and risk) without exposing the raw data to external entities.
-3.  **Decentralized Operations:** The system enables dynamic dispatch, microgrid reconfiguration, and resilience management at a local level, with each node acting as a cognitive unit.
+
+<div class="pipeline-container">
+  <div class="pipeline-row">
+    <div class="pipeline-step roadmap-step">
+      <div class="step-number">01</div>
+      <div class="step-content">
+        <div class="step-phase">Collect</div>
+        <h4>Edge-Based Perception</h4>
+        <p>Edge-based sensors collect environmental, grid, and asset telemetry in real-time, keeping the data at its source.</p>
+      </div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step roadmap-step">
+      <div class="step-number">02</div>
+      <div class="step-content">
+        <div class="step-phase">Predict</div>
+        <h4>Sovereign Prediction</h4>
+        <p>Machine learning models run locally on sovereign datasets, allowing for predictions (e.g., local energy demand, generation, and risk) without exposing the raw data to external entities.</p>
+      </div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step roadmap-step">
+      <div class="step-number">03</div>
+      <div class="step-content">
+        <div class="step-phase">Operate</div>
+        <h4>Decentralized Operations</h4>
+        <p>The system enables dynamic dispatch, microgrid reconfiguration, and resilience management at a local level, with each node acting as a cognitive unit.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 By embedding intelligence at the edge, the Intelligence Layer creates a resilient and sovereign system. Each node contributes to a live intelligence graph of the energy topology, forming a collective "brain" that can perform decentralized inference while retaining local data sovereignty. This approach allows nations and businesses to participate in the global computational economy on their own terms, without sacrificing control over their most valuable asset: their data.
