@@ -226,15 +226,13 @@ document.addEventListener('DOMContentLoaded', function() {
       if (page.sections && page.sections.length > 0) {
         for (const section of page.sections) {
           const sectionTitle = section.title.toLowerCase();
-          queryWords.forEach(word => {
-            if (sectionTitle.includes(word)) {
-              sectionMatch = true;
-              matchedSection = section;
-              relevanceScore += 5; // Section title match gets bonus
-              break;
-            }
-          });
-          if (sectionMatch) break;
+          const hasMatch = queryWords.some(word => sectionTitle.includes(word));
+          if (hasMatch) {
+            sectionMatch = true;
+            matchedSection = section;
+            relevanceScore += 5; // Section title match gets bonus
+            break;
+          }
         }
       }
       
