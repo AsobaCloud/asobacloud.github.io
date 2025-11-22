@@ -55,6 +55,25 @@ Industry-specific solutions designed to address the unique challenges of distrib
 
 ---
 
+<div class="quickstart-paths">
+  <div class="path-card">
+    <h3>🔋 Battery-Buffered Bid-Sizer</h3>
+    <p>Model to calculate minimum MWh storage required for 98% firmness target on 2-hour evening-peak bids.</p>
+    <p><strong>Outcome:</strong> Trims battery CAPEX by 10–15%</p>
+    <p><strong>Outcome:</strong> Maintains near-zero trading penalties</p>
+    <p><strong>Outcome:</strong> Directly improves project IRR</p>
+  </div>
+  
+  <div class="path-card">
+    <h3>📝 Regulatory Reporting Co-Pilot</h3>
+    <p>Auto-fill official SAWEM XML templates from existing O&M database, attaches data-quality attestation, and flags impending non-compliance.</p>
+    <p><strong>Outcome:</strong> Monthly compliance drops from 3 days to 30 minutes</p>
+    <p><strong>Outcome:</strong> Eliminates disqualification risk from future tenders</p>
+  </div>
+</div>
+
+---
+
 ## Implementation Roadmap
 
 ```mermaid
