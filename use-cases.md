@@ -33,6 +33,28 @@ Industry-specific solutions designed to address the unique challenges of distrib
 
 ---
 
+<div class="quickstart-paths">
+  <div class="path-card">
+    <h3>🌬️ Turbine-Specific Wind-Flow Graph Net</h3>
+    <p>Modeling the unique wind conditions and performance of each turbine, taking into account its exact location, local terrain, and real-time operational data.</p>
+    <p><strong>Result:</strong> Improved accuracy on production forecasting</p>
+  </div>
+  
+  <div class="path-card">
+    <h3>🗓️ Maintenance-Market Window</h3>
+    <p>AI agent balances expected market price, forced-outage probability, and crew calendar to optimize START-MAINTENANCE versus DEFER decisions in hourly increments. Automates "negative-price tomorrow, fix today" logic.</p>
+    <p><strong>Outcome:</strong> Direct EBITDA uplift within existing maintenance budgets</p>
+  </div>
+  
+  <div class="path-card">
+    <h3>🤖 AI Crew-Quality Oracle</h3>
+    <p>3B-parameter on-device chatbot interviews technicians via mobile app, extracting root-cause analysis, parts used, and labor minutes. Human responses are labelled and tagged and integrated into existing device failure probability models.</p>
+    <p><strong>Outcome:</strong> Enhanced predictive maintenance accuracy, reduced repeat failures</p>
+  </div>
+</div>
+
+---
+
 ## Implementation Roadmap
 
 ```mermaid
