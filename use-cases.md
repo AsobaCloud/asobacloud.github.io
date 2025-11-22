@@ -7,7 +7,7 @@ parent: "ETL and Data Governance"
 
 # DER Use Cases
 
-Industry-specific solutions designed to address the unique challenges of distributed energy resource management.
+Our platform offers a suite of industry-specific solutions, each powered by a modular AI agent designed to address the unique challenges of distributed energy resource management. These agents can be seamlessly embedded into your existing infrastructure via our SDK or utilized through client applications running in the cloud or on distributed compute nodes, such as Raspberry Pi or Jetson Orin series devices. This flexibility ensures optimal performance and adaptability across diverse operational environments.
 
 ---
 
