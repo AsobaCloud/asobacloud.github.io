@@ -27,7 +27,7 @@ Industry-specific solutions designed to address the unique challenges of distrib
   <div class="path-card">
     <h3>📈 Energy Trading</h3>
     <p>Predict the best buy/sell price arbitrage to make high-certainty trades in intraday energy markets.</p>
-    <a href="#" class="path-button">Explore Trading Solutions</a>
+    <a href="/use-cases/energy-trading" class="path-button">Explore Trading Solutions</a>
   </div>
 </div>
 
