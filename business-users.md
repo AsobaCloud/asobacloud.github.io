@@ -15,6 +15,7 @@ In today’s energy landscape, data is the most valuable asset. However, it’s 
 
 <div id="architecture-diagram-container"></div>
 
+{% raw %}
 <script type="text/babel">
 // SVG Icon Components (matching Lucide icons)
 const BatteryIcon = () => (
@@ -237,6 +238,7 @@ ReactDOM.render(
   document.getElementById('architecture-diagram-container')
 );
 </script>
+{% endraw %}
 
 ---
 
