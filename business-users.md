@@ -30,15 +30,77 @@ In today’s energy landscape, data is the most valuable asset. However, it’s 
 
 Our platform is built on two core pillars that provide a solid foundation for your data and AI strategy.
 
-### Zero-Duplication Data Pipeline
+<div class="foundation-cards">
+  <div class="foundation-card">
+    <h3>Zero-Duplication Data Pipeline</h3>
+    <div class="card-section">
+      <h4>The Challenge</h4>
+      <p>Traditional data pipelines often create multiple copies of the same data, leading to increased storage costs, data consistency issues, and a complex, difficult-to-manage data landscape.</p>
+    </div>
+    <div class="card-section">
+      <h4>Our Solution</h4>
+      <p>We've engineered a "zero-duplication" data pipeline that is both efficient and cost-effective. A nightly cleaner lambda function pulls only the 24-hour delta from your inverters or company data lake. This new data is then processed using an adaptive, CPU-only interpolation method and appended to a single, versioned Parquet dataset. The raw historian is never copied, and the cleaned data is up to 8 times smaller than the original, significantly reducing storage costs and simplifying data management.</p>
+    </div>
+  </div>
+  <div class="foundation-card">
+    <h3>Model Registry & Feature API</h3>
+    <div class="card-section">
+      <h4>The Challenge</h4>
+      <p>Deploying and managing machine learning models in a production environment is a complex task. Models can become stale, and there's often a disconnect between the data used for training and the data used for inference.</p>
+    </div>
+    <div class="card-section">
+      <h4>Our Solution</h4>
+      <p>Our platform includes a comprehensive model registry and feature API to streamline the entire MLOps lifecycle. When model drift exceeds a predefined threshold, models are automatically retrained, and the new artifacts are pushed to storage. All model training metrics are recorded, and metadata is saved to a records table, providing a complete audit trail. The feature API then serves these feature streams to both AI agents and user-facing front-end applications, ensuring that your models are always fresh and your applications are always powered by the latest insights.</p>
+    </div>
+  </div>
+</div>
 
-**The Challenge:** Traditional data pipelines often create multiple copies of the same data, leading to increased storage costs, data consistency issues, and a complex, difficult-to-manage data landscape.
+---
 
-**Our Solution:** We've engineered a "zero-duplication" data pipeline that is both efficient and cost-effective. A nightly cleaner lambda function pulls only the 24-hour delta from your inverters or company data lake. This new data is then processed using an adaptive, CPU-only interpolation method and appended to a single, versioned Parquet dataset. The raw historian is never copied, and the cleaned data is up to 8 times smaller than the original, significantly reducing storage costs and simplifying data management.
+## Platform Position in Your Data Flow
 
-### Model Registry & Feature API
-
-**The Challenge:** Deploying and managing machine learning models in a production environment is a complex task. Models can become stale, and there's often a disconnect between the data used for training and the data used for inference.
-
-**Our Solution:** Our platform includes a comprehensive model registry and feature API to streamline the entire MLOps lifecycle. When model drift exceeds a predefined threshold, models are automatically retrained, and the new artifacts are pushed to storage. All model training metrics are recorded, and metadata is saved to a records table, providing a complete audit trail. The feature API then serves these feature streams to both AI agents and user-facing front-end applications, ensuring that your models are always fresh and your applications are always powered by the latest insights.
+<div class="pipeline-container">
+  <div class="pipeline-row">
+    <div class="pipeline-step">
+      <div class="step-number">01</div>
+      <div class="step-content">
+        <h4>Raw SCADA → PI-Historian → Extract via SQL or JSON</h4>
+        <p>Existing data collection infrastructure remains unchanged, ingest is agnostic to format</p>
+      </div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step">
+      <div class="step-number">02</div>
+      <div class="step-content">
+        <h4>Clean & Model Service Landing Zone</h4>
+        <p>Delta extraction point where the new platform integrates, missing data backfilled via interpolation models</p>
+      </div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step">
+      <div class="step-number">03</div>
+      <div class="step-content">
+        <h4>Cleaned Parquet → On-Demand Training</h4>
+        <p>Versioned, partitioned dataset feeds automated retraining workflows</p>
+      </div>
+    </div>
+  </div>
+  <div class="pipeline-row">
+    <div class="pipeline-step">
+      <div class="step-number">04</div>
+      <div class="step-content">
+        <h4>Model Artifacts → Flat File Registry</h4>
+        <p>Centralized model versioning and storage with full lineage</p>
+      </div>
+    </div>
+    <div class="pipeline-arrow">→</div>
+    <div class="pipeline-step">
+      <div class="step-number">05</div>
+      <div class="step-content">
+        <h4>Insights Surfaced via API to User Interface</h4>
+        <p>Production functions pull latest models at cold-start for live predictions</p>
+      </div>
+    </div>
+  </div>
+</div>
 
