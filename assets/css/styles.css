@@ -1529,3 +1529,151 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 .inline-block {
   display: inline-block;
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/* Diagram Node Icons */
+.diagram-node-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.diagram-node-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Layer Badges */
+.layer-badge {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Animated Connection Line */
+.connection-line-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 50px;
+  margin: 12px 0;
+}
+
+.connection-line-arrow {
+  width: 2px;
+  height: 36px;
+  position: relative;
+}
+
+.connection-arrow-head {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top-width: 8px;
+  border-top-style: solid;
+}
+
+.connection-line-container.animated .connection-flow-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  top: 0;
+  animation: flowDown 1.5s ease-in-out infinite;
+}
+
+@keyframes flowDown {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  80% {
+    top: 34px;
+    opacity: 1;
+  }
+  100% {
+    top: 42px;
+    opacity: 0;
+  }
+}
+
+/* Data Flow Indicator */
+.data-flow-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #fff;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 24px;
+}
+
+.flow-pulse-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.flow-text {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Responsive adjustments for diagram */
+@media (max-width: 900px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .data-flow-indicator {
+    flex-direction: column;
+    text-align: center;
+    padding: 16px;
+  }
+
+  .flow-text {
+    font-size: 0.85rem;
+  }
+}
