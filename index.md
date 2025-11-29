@@ -86,7 +86,7 @@ The grid is changing faster than the tools built to manage it. We turn energy da
       <span class="tag">Policy</span>
       <span class="tag">Regulations</span>
     </div>
-    <a href="/products/analyst" class="card-cta">Learn More</a>
+    <a href="https://app.asoba.co/energy-analyst.html" class="card-cta">Learn More</a>
   </div>
 </div>
 
