@@ -2,7 +2,7 @@
 title: "Modules and AI Agents"
 layout: default
 nav_order: 3
-parent: "Data Governance"
+parent: "Intelligence Layer"
 ---
 
 # Modules and AI Agents

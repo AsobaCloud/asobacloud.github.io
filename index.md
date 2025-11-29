@@ -1,10 +1,10 @@
 ---
-title: "Ona Platform - Energy Forecasting Made Simple"
+title: "Ona Platform - Intelligent Renewables Asset Management"
 layout: default
 nav_order: 1
 ---
 
-# Energy Forecasting Made Simple
+# Intelligent Renewables Asset Management
 
 The grid is changing faster than the tools built to manage it. We turn energy data chaos into revenue opportunities, giving power producers, utilities, traders, and policymakers the real-time intelligence needed to make distributed power generation profitable and reliable.
 
@@ -13,10 +13,10 @@ The grid is changing faster than the tools built to manage it. We turn energy da
 ## Choose Your Path {#choose-your-path}
 
 <div class="user-journey-cards">
-  <!-- DER Management Card -->
+  <!-- Intelligence Layer Card -->
   <div class="journey-card business-users">
     <div class="card-icon">⚡</div>
-    <h3>DER Management</h3>
+    <h3>Intelligence Layer</h3>
     <p>Manage distributed energy resources and optimize grid integration</p>
     <ul class="card-features">
       <li>Asset Performance Monitoring</li>
@@ -24,7 +24,7 @@ The grid is changing faster than the tools built to manage it. We turn energy da
       <li>Load Forecasting</li>
       <li>Battery Management</li>
     </ul>
-    <a href="/business-users" class="card-cta">Explore DER Solutions</a>
+    <a href="/intelligence-layer" class="card-cta">Explore Intelligence Solutions</a>
   </div>
 
   <!-- AI + Infrastructure Policy Card -->

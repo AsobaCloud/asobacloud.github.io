@@ -2,7 +2,7 @@
 title: "Data Governance"
 layout: default
 nav_order: 2
-parent: "Data Governance"
+parent: "Intelligence Layer"
 ---
 
 # Data Governance
