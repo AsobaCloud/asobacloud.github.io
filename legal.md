@@ -4,7 +4,7 @@ layout: default
 nav_order: 6
 ---
 
-## Legal Documentation
+# Legal Documentation
 
 This page provides access to Asoba's legal documentation, including our Terms of Service, End User License Agreement (EULA), and Privacy Policy.
 
