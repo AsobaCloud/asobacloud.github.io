@@ -1952,3 +1952,34 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 .chart-container canvas {
   max-height: 400px;
 }
+
+/* Responsive Image Styling */
+.image-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 20px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.image-container img,
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    margin: 16px 0;
+  }
+  
+  .image-container img,
+  .responsive-image {
+    border-radius: 4px;
+  }
+}
