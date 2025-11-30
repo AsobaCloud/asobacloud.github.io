@@ -595,22 +595,26 @@ pre.terminal::before {
   text-align: left;
 }
 
-.search-results ul {
+.search-results ul,
+.search-results-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.search-results li {
+.search-results li,
+.search-result-item {
   padding: 0;
   border-bottom: 1px solid #eee;
 }
 
-.search-results li:last-child {
+.search-results li:last-child,
+.search-result-item:last-child {
   border-bottom: none;
 }
 
-.search-results li a {
+.search-results li a,
+.search-result-item a {
   display: block;
   padding: 10px 15px;
   color: var(--primary-blue);
@@ -619,7 +623,8 @@ pre.terminal::before {
   transition: background-color 0.2s;
 }
 
-.search-results li a:hover {
+.search-results li a:hover,
+.search-result-item a:hover {
   background-color: #f5f5f5;
 }
 
