@@ -155,7 +155,7 @@ const ConnectionLine = ({ color = "#64748b", animated = false }) => (
 function ArchitectureDiagram() {
   return (
     <div className="architecture-diagram-container">
-      <div className="text-center mb-12">
+      <div className="text-left mb-12">
         <h2 className="text-gray-900 mb-3">Distributed Energy Management Platform</h2>
         <p className="text-gray-600">End-to-End Architecture: From Asset Ingestion to AI-Powered API</p>
       </div>
