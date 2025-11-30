@@ -211,19 +211,9 @@ This automated workflow operates continuously, 24/7, ensuring your assets are al
 
 ---
 
-## Return on Investment
+## Complete Asset Management
 
-The Asset Management interface delivers measurable financial returns:
-
-**Revenue Protection**: $180K-$320K annually per 10MW portfolio through early fault detection and rapid response
-
-**Operational Savings**: $85K-$140K annually through optimized maintenance scheduling and reduced emergency repairs
-
-**Risk Mitigation**: $45K-$75K annually through warranty optimization and insurance claim support
-
-**Total Annual Value**: $310K-$535K per 10MW portfolio
-
-The platform pays for itself while providing the strategic visibility needed to make informed decisions about portfolio growth and optimization.
+The Asset Management interface provides a unified platform for asset managers to oversee both operational and commercial activities across their entire energy portfolio. From real-time performance monitoring to predictive maintenance planning, every feature is designed to give operations teams the visibility and control they need to maximize uptime while giving commercial teams the financial insights required to optimize revenue and manage costs. Whether you're coordinating maintenance crews across multiple sites, analyzing performance trends for contract negotiations, or tracking warranty compliance for insurance claims, the interface consolidates all asset-related activities into a single, intelligent command center that works continuously to protect your investments and optimize returns.
 
 ---
 
