@@ -38,6 +38,19 @@ document.addEventListener('DOMContentLoaded', function() {
       ]
     },
     {
+      title: "Implementation Guide",
+      url: "/implementation",
+      content: "13-week onboarding implementation guide for distributed solar assets. Step-by-step implementation plan, integration phase, optimization phase, decision point, ROI analysis. Asset manager use case with 2MW solar portfolio across 3 sites. SCADA connections, historical data ingestion, real-time monitoring, predictive maintenance, compliance automation.",
+      sections: [
+        { title: "Week-by-Week Implementation Plan", id: "week-by-week-implementation-plan" },
+        { title: "Weeks 1-2: Integration Phase", id: "weeks-1-2-integration-phase" },
+        { title: "Weeks 3-12: Optimization Phase", id: "weeks-3-12-optimization-phase" },
+        { title: "Week 13: Decision Point", id: "week-13-decision-point" },
+        { title: "Platform Architecture Implementation Summary", id: "platform-architecture-implementation-summary" },
+        { title: "Key Success Metrics", id: "key-success-metrics" }
+      ]
+    },
+    {
       title: "National Policy",
       url: "/national-policy",
       content: "National Policy. Doctrine for local data sovereignty and national security. AI infrastructure policy, regulatory compliance, policy framework.",
