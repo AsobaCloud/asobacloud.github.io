@@ -273,610 +273,323 @@ The 13-week implementation follows the platform architecture, building each laye
 
 ## Week-by-Week Implementation Plan
 
-### **Weeks 1-2: Integration Phase**
-
-*Building: **Data Sources Layer** → **Ingestion & ETL Layer** → **Storage Layer***
-
-#### **Week 1: Foundation & Data Discovery**
-
-**Objective**: Establish technical foundation and understand current data infrastructure
-
-**Architecture Layers**: 
-- 🔵 **Data Sources Layer**: Solar array telemetry discovery
-- 🟣 **Ingestion & ETL Layer**: Pipeline design and configuration
-- 🟢 **Storage Layer**: Model output store initialization
-
-**Activities**:
-
-**Day 1-2: Project Kickoff & Technical Assessment**
-- Initial technical call with Ona implementation team
-- Site inventory documentation:
-  - Site A: 800kW, 320 panels, 8 inverters (SolarEdge SE5000)
-  - Site B: 700kW, 280 panels, 7 inverters (Fronius Symo 10.0)
-  - Site C: 500kW, 200 panels, 5 inverters (SolarEdge SE5000)
-- SCADA system audit:
-  - Identify data sources (PI Historian, Modbus, API endpoints)
-  - Document existing data collection infrastructure
-  - Map network topology and security requirements
-- Historical data availability assessment:
-  - Verify 2+ years of historical telemetry data
-  - Identify data gaps and quality issues
-  - Document data retention policies
-
-**Day 3-4: Platform Architecture Setup**
-- **Data Sources Layer**: Document all solar array telemetry points
-  - Panel-level metrics: voltage, current, power output
-  - Inverter metrics: efficiency, temperature, AC/DC conversion
-  - Environmental data: irradiance sensors, weather stations
-  - Site-level aggregation: total generation, grid connection status
-- **Ingestion & ETL Layer**: Configure extraction pipelines
-  - Set up SQL queries for PI Historian extraction
-  - Configure API connections for SCADA systems
-  - Establish Modbus connections where applicable
-  - Create data validation schemas for each site
-- **Storage Layer**: Initialize model output store
-  - Configure partitioned Parquet storage structure
-  - Set up versioning for cleaned datasets
-  - Establish backup and retention policies
-
-**Day 5: Baseline Establishment**
-- Extract 30-day sample dataset from each site
-- Run initial data quality assessment:
-  - Completeness metrics (target: >95%)
-  - Timestamp alignment across sites
-  - Missing data pattern analysis
-- Establish performance baselines:
-  - Historical capacity factor calculation
-  - Average daily generation profiles
-  - Peak performance benchmarks
-- Document current operational metrics:
-  - Mean Time to Detection (MTTD): baseline measurement
-  - Mean Time to Resolution (MTTR): baseline measurement
-  - False positive rate: baseline measurement
-  - Data completeness: baseline measurement
-
-#### **Week 2: Data Integration & Pipeline Activation**
-
-**Objective**: Connect all data sources and activate real-time data pipelines
-
-**Architecture Layers**: 
-- 🔵 **Data Sources Layer**: Live SCADA/inverter connections
-- 🟣 **Ingestion & ETL Layer**: Real-time ETL pipeline activation
-- 🟢 **Storage Layer**: Historical data backfill and storage
-
-**Activities**:
-
-**Day 1-3: SCADA/Inverter Connections**
-- **Site A (800kW)**: 
-  - Connect 8 SolarEdge inverters via SolarEdge API
-  - Configure 15-minute interval data extraction
-  - Set up panel-level monitoring for 320 panels
-  - Establish weather station data feed
-- **Site B (700kW)**:
-  - Connect 7 Fronius inverters via Modbus TCP
-  - Configure 5-minute interval data extraction
-  - Set up string-level monitoring for 280 panels
-  - Integrate third-party weather API
-- **Site C (500kW)**:
-  - Connect 5 SolarEdge inverters via SolarEdge API
-  - Configure 15-minute interval data extraction
-  - Set up panel-level monitoring for 200 panels
-  - Establish on-site weather station connection
-
-**Day 4-5: Historical Data Ingestion**
-- **Ingestion & ETL Layer**: Execute historical backfill
-  - Extract 2 years of historical data from PI Historian
-  - Process Site A: ~1.4M data points (800kW × 2 years × 96 intervals/day)
-  - Process Site B: ~1.2M data points (700kW × 2 years × 96 intervals/day)
-  - Process Site C: ~876K data points (500kW × 2 years × 96 intervals/day)
-- **ETL Pipeline**: Run data transformation
-  - Clean and validate all historical records
-  - Apply interpolation for missing data points
-  - Generate statistical features (rolling averages, deviations)
-  - Create time-series features for ML models
-- **Feature Engineering**: Generate ML-ready features
-  - Time-based features: hour of day, day of week, seasonality
-  - Weather-derived features: irradiance, temperature, cloud cover
-  - Performance metrics: capacity factor, efficiency ratios
-  - Degradation indicators: year-over-year comparisons
-
-**Day 6-7: Baseline Validation & Dashboard Design**
-- Validate data completeness across all sites (target: >95%)
-- Generate baseline performance reports:
-  - Site A: Average daily generation profile
-  - Site B: Average daily generation profile
-  - Site C: Average daily generation profile
-  - Portfolio-level aggregation
-- **Access Layer**: Design custom dashboard
-  - Portfolio overview: total generation, capacity factor
-  - Site-level dashboards: individual site performance
-  - Asset-level views: inverter and panel performance
-  - Alert configuration: threshold-based notifications
-- Establish key performance indicators (KPIs):
-  - Daily generation targets
-  - Performance ratio benchmarks
-  - Availability targets (>98%)
-
----
-
-### **Weeks 3-12: Optimization Phase**
-
-#### **Week 3: Real-Time Monitoring Activation**
-
-**Objective**: Activate real-time monitoring and establish continuous data flow
-
-**Architecture Layers**: 
-- 🔵 **Data Sources Layer**: Continuous data stream validation
-- 🟣 **Ingestion & ETL Layer**: Nightly delta extraction active
-- 🔴 **AI & Modeling Layer**: Baseline ML models deployment
-- 🟡 **Access Layer**: Custom dashboard activation
-
-**Activities**:
-
-**Day 1-2: Real-Time Pipeline Activation**
-- **Data Sources Layer**: Verify live data streams
-  - Confirm 15-minute data updates from all sites
-  - Validate data latency (<5 minutes from generation to platform)
-  - Test alert mechanisms for data feed interruptions
-- **Ingestion & ETL Layer**: Activate continuous ETL
-  - Nightly delta extraction from inverters
-  - Real-time data validation and cleaning
-  - Automatic feature generation pipeline
-- **AI & Modeling Layer**: Initialize baseline models
-  - Deploy production forecasting models
-  - Activate fault detection algorithms
-  - Enable performance degradation monitoring
-
-**Day 3-4: Dashboard Customization**
-- **Access Layer**: Configure user-facing dashboards
-  - Portfolio overview dashboard with 3-site aggregation
-  - Site-specific dashboards for operations team
-  - Asset detail views for maintenance team
-  - Mobile-responsive views for field technicians
-- Set up automated reporting:
-  - Daily generation summaries
-  - Weekly performance reports
-  - Monthly portfolio analytics
-
-**Day 5-7: Initial Model Training**
-- **AI & Modeling Layer**: Train initial ML models
-  - Generation forecasting models per site
-  - Fault detection models for each inverter type
-  - Performance prediction models
-- Validate model accuracy:
-  - Forecast accuracy: MAPE <10% for 24-hour horizon
-  - Fault detection: <5% false positive rate
-  - Performance prediction: R² >0.85
-
-#### **Week 4: Performance Baseline & Model Calibration**
-
-**Objective**: Establish performance baselines and calibrate initial models
-
-**Architecture Layers**: 
-- 🔴 **AI & Modeling Layer**: Model calibration and validation
-- 🟢 **Storage Layer**: Model outputs and predictions storage
-- 🟡 **Access Layer**: Performance reporting dashboards
-
-**Activities**:
-
-**Day 1-3: Baseline Metrics Collection**
-- Collect Week 3 operational data
-- Calculate baseline KPIs:
-  - Mean Time to Detection (MTTD): measure current state
-  - Mean Time to Resolution (MTTR): measure current state
-  - False Positive Rate: measure current state
-  - Data Completeness: measure current state (target: >95%)
-- Generate Week 3 performance report:
-  - Total generation: compare to forecast
-  - Site-level performance analysis
-  - Asset availability metrics
-  - Data quality assessment
-
-**Day 4-5: Model Calibration**
-- **AI & Modeling Layer**: Refine ML models based on Week 3 data
-  - Adjust forecasting models with site-specific parameters
-  - Calibrate fault detection thresholds
-  - Optimize performance prediction models
-- Validate improvements:
-  - Forecast accuracy improvement tracking
-  - False positive rate reduction
-  - Model confidence intervals
-
-**Day 6-7: First Weekly Performance Report**
-- Generate comprehensive Week 4 report:
-  - Portfolio performance summary
-  - Site-by-site analysis
-  - Model performance metrics
-  - Recommendations for optimization
-- Review with asset manager team
-- Document lessons learned and adjustments
-
-#### **Week 5: Advanced Monitoring & Alert Configuration**
-
-**Objective**: Enhance monitoring capabilities and configure intelligent alerts
-
-**Architecture Layers**: 
-- 🔴 **AI & Modeling Layer**: Advanced monitoring agents (EAR, predictive maintenance)
-- 🟡 **Access Layer**: Intelligent alerting and notification system
-
-**Activities**:
-
-**Day 1-2: Advanced Monitoring Setup**
-- **AI & Modeling Layer**: Deploy advanced monitoring agents
-  - Energy-at-Risk (EAR) calculation agent
-  - Predictive maintenance scheduling agent
-  - Performance degradation detection agent
-- Configure intelligent alerting:
-  - Threshold-based alerts: generation drops >10%
-  - Anomaly detection alerts: statistical deviations
-  - Forecast deviation alerts: actual vs. forecast >15%
-  - Maintenance window optimization alerts
-
-**Day 3-4: OODA Loop Integration**
-- Implement OODA (Observe-Orient-Decide-Act) workflow:
-  - **Observe**: Real-time fault detection across all assets
-  - **Orient**: Automated diagnostics and root cause analysis
-  - **Decide**: Risk assessment and maintenance scheduling
-  - **Act**: Automated work order generation
-- Configure for 3-site portfolio:
-  - Site A: 8 inverters, 320 panels
-  - Site B: 7 inverters, 280 panels
-  - Site C: 5 inverters, 200 panels
-
-**Day 5-7: Weekly Performance Report & Optimization**
-- Generate Week 5 performance report
-- Analyze model improvements:
-  - Forecast accuracy trends
-  - Fault detection effectiveness
-  - Alert accuracy metrics
-- Implement optimizations based on findings
-
-#### **Week 6: Predictive Maintenance Activation**
-
-**Objective**: Activate predictive maintenance capabilities
-
-**Architecture Layers**: 
-- 🔴 **AI & Modeling Layer**: Maintenance optimization agents (Maintenance-Market Window, AI Crew-Quality Oracle)
-- 🟢 **Storage Layer**: Maintenance recommendations and schedules storage
-- 🟡 **Access Layer**: Maintenance dashboard and work order interface
-
-**Activities**:
-
-**Day 1-3: Maintenance Module Setup**
-- **AI & Modeling Layer**: Deploy maintenance optimization agents
-  - Maintenance-Market Window agent: optimize maintenance timing
-  - AI Crew-Quality Oracle: enhance maintenance quality tracking
-  - Parts procurement optimization
-- Configure maintenance workflows:
-  - Preventive maintenance schedules
-  - Predictive maintenance triggers
-  - Emergency maintenance protocols
-- Set up parts catalog integration:
-  - Inverter parts (SolarEdge SE5000, Fronius Symo 10.0)
-  - Panel components
-  - Balance of system components
-
-**Day 4-5: First Predictive Insights**
-- Generate maintenance recommendations:
-  - Inverter health assessments across all 20 inverters
-  - Panel degradation analysis across 800 panels
-  - Balance of system component health
-- Create maintenance schedules:
-  - Optimized timing based on market conditions
-  - Resource allocation across 3 sites
-  - Cost-benefit analysis for each recommendation
-
-**Day 6-7: Weekly Performance Report**
-- Week 6 performance report
-- Maintenance optimization metrics:
-  - Predicted vs. actual maintenance needs
-  - Cost savings from optimized scheduling
-  - Downtime reduction metrics
-
-#### **Week 7: Forecasting & Trading Integration**
-
-**Objective**: Enhance forecasting capabilities and prepare for trading optimization
-
-**Architecture Layers**: 
-- 🔴 **AI & Modeling Layer**: Enhanced forecasting models and Penalty-Insurance Meta-Forecast
-- 🟢 **Storage Layer**: Forecast outputs and trading insights storage
-- 🟡 **Access Layer**: Forecasting dashboards and trading interfaces
-
-**Activities**:
-
-**Day 1-3: Advanced Forecasting Models**
-- **AI & Modeling Layer**: Deploy enhanced forecasting agents
-  - 24-hour generation forecasting per site
-  - Portfolio-level aggregation forecasting
-  - Probabilistic forecasting with confidence intervals
-- Validate forecast accuracy:
-  - Site A: 24-hour forecast MAPE target <8%
-  - Site B: 24-hour forecast MAPE target <8%
-  - Site C: 24-hour forecast MAPE target <8%
-  - Portfolio: 24-hour forecast MAPE target <7%
-
-**Day 4-5: Trading Optimization Preparation**
-- Configure energy trading parameters:
-  - Market price integration (if applicable)
-  - Bid optimization algorithms
-  - Penalty risk assessment
-- Set up Penalty-Insurance Meta-Forecast:
-  - 5th-95th percentile error bands
-  - Half-hourly penalty risk assessment
-  - Pre-18:00 gate closure risk alerts
-
-**Day 6-7: Weekly Performance Report**
-- Week 7 performance report
-- Forecasting accuracy analysis
-- Trading optimization readiness assessment
-
-#### **Week 8: Compliance & Reporting Automation**
-
-**Objective**: Automate regulatory compliance and reporting
-
-**Architecture Layers**: 
-- 🔴 **AI & Modeling Layer**: Regulatory Reporting Co-Pilot agent
-- 🟢 **Storage Layer**: Compliance documentation and audit trails
-- 🟡 **Access Layer**: Automated compliance reporting interface
-
-**Activities**:
-
-**Day 1-3: Compliance Module Setup**
-- **AI & Modeling Layer**: Deploy Regulatory Reporting Co-Pilot
-  - Configure SAWEM XML template auto-fill
-  - Set up data quality attestation
-  - Enable compliance flagging system
-- Document compliance requirements:
-  - Regulatory reporting obligations
-  - Data retention requirements
-  - Audit trail configuration
-
-**Day 4-5: Automated Reporting**
-- Generate automated compliance reports:
-  - Monthly regulatory submissions
-  - Data quality attestations
-  - Performance certifications
-- Validate report accuracy and completeness
-
-**Day 6-7: Weekly Performance Report**
-- Week 8 performance report
-- Compliance automation metrics:
-  - Time savings: target 3 days → 30 minutes
-  - Compliance risk reduction
-  - Audit readiness assessment
-
-#### **Week 9: Portfolio Optimization**
-
-**Objective**: Optimize portfolio-level operations and cross-site coordination
-
-**Activities**:
-
-**Day 1-3: Portfolio-Level Analytics**
-- **AI & Modeling Layer**: Deploy portfolio optimization agents
-  - Cross-site performance comparison
-  - Portfolio-level forecasting
-  - Resource allocation optimization
-- Generate portfolio insights:
-  - Best-performing site analysis
-  - Underperforming asset identification
-  - Optimization opportunities
-
-**Day 4-5: Cross-Site Coordination**
-- Optimize maintenance scheduling across 3 sites:
-  - Coordinate maintenance windows
-  - Optimize crew allocation
-  - Minimize portfolio downtime
-- Implement load balancing strategies:
-  - Grid integration optimization
-  - Peak shaving coordination
-  - Revenue optimization
-
-**Day 6-7: Weekly Performance Report**
-- Week 9 performance report
-- Portfolio optimization metrics:
-  - Overall portfolio performance
-  - Cross-site coordination benefits
-  - Revenue optimization impact
-
-#### **Week 10: Advanced AI Features**
-
-**Objective**: Deploy advanced AI capabilities for enhanced intelligence
-
-**Activities**:
-
-**Day 1-3: Advanced AI Agents Deployment**
-- **AI & Modeling Layer**: Deploy specialized agents
-  - Cloud-Shadow Nowcast for Solar (if sky cameras available)
-  - Enhanced degradation detection
-  - Advanced anomaly detection
-- Configure site-specific AI features:
-  - Site A: Rooftop-specific optimizations
-  - Site B: Ground-mounted specific features
-  - Site C: Industrial rooftop optimizations
-
-**Day 4-5: AI Model Refinement**
-- Retrain models with 10 weeks of operational data
-- Improve model accuracy:
-  - Forecast accuracy: target MAPE <7%
-  - Fault detection: target false positive <3%
-  - Performance prediction: target R² >0.90
-- Validate model improvements
-
-**Day 6-7: Weekly Performance Report**
-- Week 10 performance report
-- AI feature effectiveness analysis
-- Model improvement metrics
-
-#### **Week 11: Integration & API Access**
-
-**Objective**: Enable API access and external integrations
-
-**Architecture Layers**: 
-- 🟡 **Access Layer**: API Gateway configuration (RESTful & GraphQL endpoints)
-- 🔴 **AI & Modeling Layer**: API-accessible model outputs and insights
-
-**Activities**:
-
-**Day 1-3: API Gateway Configuration**
-- **Access Layer**: Configure API Gateway
-  - Set up RESTful endpoints
-  - Configure GraphQL API (if needed)
-  - Implement rate limiting and security
-- Enable API access for:
-  - Real-time generation data
-  - Forecast data
-  - Maintenance recommendations
-  - Performance metrics
-
-**Day 4-5: External Integration Testing**
-- Test API integrations:
-  - Third-party monitoring systems
-  - Energy management systems
-  - Trading platforms (if applicable)
-- Validate data flow and security
-
-**Day 6-7: Weekly Performance Report**
-- Week 11 performance report
-- API usage metrics
-- Integration success assessment
-
-#### **Week 12: Final Optimization & Preparation**
-
-**Objective**: Final model optimization and Week 13 preparation
-
-**Activities**:
-
-**Day 1-3: Comprehensive Model Retraining**
-- **AI & Modeling Layer**: Final model optimization
-  - Retrain all models with 12 weeks of data
-  - Optimize hyperparameters
-  - Validate model performance across all metrics
-- Generate comprehensive performance analysis:
-  - 12-week trend analysis
-  - Model accuracy improvements
-  - Operational efficiency gains
-
-**Day 4-5: Performance Metrics Compilation**
-- Compile all key metrics for Week 13 review:
-  - **Latency**: Data pipeline latency metrics
-  - **MTTR**: Mean Time to Resolution improvements
-  - **False Positives**: Fault detection accuracy
-  - **Data Completeness**: Data quality metrics
-- Generate comparison reports:
-  - Baseline vs. current performance
-  - Week-by-week improvements
-  - ROI calculations
-
-**Day 6-7: Executive Report Preparation**
-- Prepare comprehensive executive report:
-  - 12-week implementation summary
-  - Key performance improvements
-  - Financial impact analysis
-  - Recommendations for scale-up
-- Schedule Week 13 executive review meeting
-
----
-
-### **Week 13: Decision Point**
-
-#### **Week 13: Executive ROI Analysis & Conversion**
-
-**Objective**: Present comprehensive ROI analysis and make conversion decision
-
-**Activities**:
-
-**Day 1-2: Executive ROI Analysis**
-
-**Performance Metrics Review**:
-- **Latency**: 
-  - Baseline: Manual processing, 24-48 hour delays
-  - Current: <5 minutes from generation to insights
-  - Improvement: 99%+ reduction in latency
-- **Mean Time to Resolution (MTTR)**:
-  - Baseline: 72-96 hours for fault resolution
-  - Current: 24-48 hours with predictive maintenance
-  - Improvement: 50-67% reduction in MTTR
-- **False Positive Rate**:
-  - Baseline: 15-20% false alarms
-  - Current: <5% false positive rate
-  - Improvement: 70-75% reduction in false positives
-- **Data Completeness**:
-  - Baseline: 85-90% data availability
-  - Current: >95% data completeness
-  - Improvement: 5-10% increase in data quality
-
-**Financial Impact Analysis**:
-- **Revenue Protection**:
-  - Prevented downtime: Estimated 2-3% improvement in availability
-  - 2MW portfolio: ~40-60kW additional capacity factor
-  - Annual revenue impact: $X,XXX - $XX,XXX (depending on PPA rates)
-- **Maintenance Cost Optimization**:
-  - Predictive maintenance: 20-30% reduction in emergency maintenance
-  - Optimized scheduling: 15-20% reduction in maintenance costs
-  - Parts optimization: 10-15% reduction in parts costs
-- **Operational Efficiency**:
-  - Automated reporting: 3 days → 30 minutes (95% time savings)
-  - Reduced manual data processing: 80% reduction in analyst time
-  - Compliance automation: Eliminated risk of non-compliance penalties
-
-**ROI Calculation**:
-- **Platform Investment**: $XX,XXX - $XX,XXX per year (based on 2MW portfolio)
-- **Annual Savings**: $XX,XXX - $XX,XXX
-- **Payback Period**: X months
-- **3-Year ROI**: XXX%
-
-**Day 3: Automatic Conversion Decision**
-
-**Metrics Validation**:
-- Verify achievement of 2 of 4 key metrics:
-  1. ✅ Latency: <5 minutes (target met)
-  2. ✅ MTTR: 50%+ improvement (target met)
-  3. ✅ False Positives: <5% (target met)
-  4. ✅ Data Completeness: >95% (target met)
-- **Result**: All 4 metrics exceeded → Automatic conversion approved
-
-**Conversion Process**:
-- Execute automatic conversion to full platform subscription
-- Activate all premium features:
-  - Advanced AI agents
-  - Unlimited API access
-  - Priority support
-  - Custom development capabilities
-
-**Day 4-5: Scale-Up Roadmap Planning**
-
-**Portfolio Expansion Planning**:
-- Document lessons learned from 3-site pilot
-- Create scaling playbook for additional sites
-- Identify optimization opportunities for existing sites
-
-**Next Phase Recommendations**:
-- **Immediate (Months 1-3)**:
-  - Expand to additional sites in portfolio
-  - Implement advanced trading optimization (if applicable)
-  - Deploy additional AI agents based on needs
-- **Short-term (Months 4-6)**:
-  - Integrate battery storage systems (if planned)
-  - Expand to wind assets (if in portfolio)
-  - Implement advanced grid integration features
-- **Long-term (Months 7-12)**:
-  - Full portfolio integration
-  - Custom AI agent development
-  - Enterprise-level customizations
-
-**Day 6-7: Knowledge Transfer & Handoff**
-
-**Training & Documentation**:
-- Complete user training for operations team
-- Document all configurations and customizations
-- Create runbooks for common scenarios
-- Establish ongoing support processes
-
-**Success Metrics Tracking**:
-- Set up continuous monitoring dashboard
-- Establish monthly review process
-- Define escalation procedures
-- Create feedback loop for platform improvements
+<div id="implementation-timeline-container"></div>
+
+{% raw %}
+<script type="text/babel">
+// Reuse icon components from architecture diagram
+const SunIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2"/>
+    <path d="M12 20v2"/>
+    <path d="m4.93 4.93 1.41 1.41"/>
+    <path d="m17.66 17.66 1.41 1.41"/>
+    <path d="M2 12h2"/>
+    <path d="M20 12h2"/>
+    <path d="m6.34 17.66-1.41 1.41"/>
+    <path d="m19.07 4.93-1.41 1.41"/>
+  </svg>
+);
+
+const DatabaseIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="12" cy="5" rx="9" ry="3"/>
+    <path d="M3 5v14a9 3 0 0 0 18 0V5"/>
+    <path d="M3 12a9 3 0 0 0 18 0"/>
+  </svg>
+);
+
+const GitBranchIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="6" y1="3" x2="6" y2="15"/>
+    <circle cx="18" cy="6" r="3"/>
+    <circle cx="6" cy="18" r="3"/>
+    <path d="M18 9a9 9 0 0 1-9 9"/>
+  </svg>
+);
+
+const WorkflowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="6" height="6" rx="1"/>
+    <rect x="15" y="3" width="6" height="6" rx="1"/>
+    <rect x="9" y="15" width="6" height="6" rx="1"/>
+    <path d="M6 9v3a1 1 0 0 0 1 1h4"/>
+    <path d="M18 9v3a1 1 0 0 1-1 1h-4"/>
+    <path d="M12 13v2"/>
+  </svg>
+);
+
+const CpuIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="4" y="4" width="16" height="16" rx="2"/>
+    <rect x="9" y="9" width="6" height="6"/>
+    <path d="M9 1v3"/>
+    <path d="M15 1v3"/>
+    <path d="M9 20v3"/>
+    <path d="M15 20v3"/>
+    <path d="M20 9h3"/>
+    <path d="M20 14h3"/>
+    <path d="M1 9h3"/>
+    <path d="M1 14h3"/>
+  </svg>
+);
+
+const BrainCircuitIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"/>
+    <path d="M16 8V5c0-1.1.9-2 2-2"/>
+    <path d="M12 13h4"/>
+    <path d="M12 18h6a2 2 0 0 1 2 2v1"/>
+    <path d="M12 8h8"/>
+    <path d="M20.5 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+    <path d="M16.5 13a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+    <path d="M20.5 21a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+    <path d="M18.5 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z"/>
+  </svg>
+);
+
+const ServerIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+    <line x1="6" y1="6" x2="6.01" y2="6"/>
+    <line x1="6" y1="18" x2="6.01" y2="18"/>
+  </svg>
+);
+
+const NetworkIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="9" y="2" width="6" height="6" rx="1"/>
+    <rect x="16" y="16" width="6" height="6" rx="1"/>
+    <rect x="2" y="16" width="6" height="6" rx="1"/>
+    <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/>
+    <path d="M12 12V8"/>
+  </svg>
+);
+
+const ChartIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="18" y1="20" x2="18" y2="10"/>
+    <line x1="12" y1="20" x2="12" y2="4"/>
+    <line x1="6" y1="20" x2="6" y2="14"/>
+  </svg>
+);
+
+const SettingsIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+);
+
+const DiagramNode = ({ icon: Icon, title, subtitle, color, description }) => {
+  return (
+    <div className="diagram-node" style={{ borderTop: `4px solid ${color}` }}>
+      <div className="diagram-node-header">
+        {Icon && (
+          <div className="diagram-node-icon" style={{ color: color }}>
+            <Icon />
+          </div>
+        )}
+        <h3 className="diagram-node-title">{title}</h3>
+        <p className="diagram-node-subtitle">{subtitle}</p>
+      </div>
+      <p className="diagram-node-description">{description}</p>
+    </div>
+  );
+};
+
+const ConnectionLine = ({ color = "#64748b", animated = false }) => (
+  <div className={`connection-line-container ${animated ? 'animated' : ''}`}>
+    <div className="connection-line-arrow" style={{ backgroundColor: color }}>
+      <div className="connection-arrow-head" style={{ borderTopColor: color }}></div>
+    </div>
+    {animated && <div className="connection-flow-dot"></div>}
+  </div>
+);
+
+function ImplementationTimeline() {
+  return (
+    <div className="architecture-diagram-container">
+      <div className="flex flex-col items-center">
+        {/* Week 1 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-blue-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 1: Foundation & Data Discovery
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-8 mb-2">
+          <DiagramNode icon={SunIcon} title="Site Inventory" subtitle="Technical assessment" color="#f59e0b" description="Document 3 sites (2MW total), 20 inverters, 800 panels. Audit SCADA systems, identify data sources (PI Historian, Modbus, APIs), assess historical data availability." />
+          <DiagramNode icon={DatabaseIcon} title="Pipeline Design" subtitle="ETL configuration" color="#8b5cf6" description="Configure SQL queries for PI Historian, set up API connections, establish Modbus connections. Create data validation schemas for each site." />
+          <DiagramNode icon={ServerIcon} title="Storage Setup" subtitle="Model output store" color="#059669" description="Initialize partitioned Parquet storage structure, set up versioning for cleaned datasets, establish backup and retention policies." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 2 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-purple-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 2: Data Integration & Pipeline Activation
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-8 mb-2">
+          <DiagramNode icon={SunIcon} title="SCADA Connections" subtitle="Live data streams" color="#f59e0b" description="Connect 8 SolarEdge inverters (Site A), 7 Fronius inverters (Site B), 5 SolarEdge inverters (Site C). Configure 15-minute intervals, establish weather station feeds." />
+          <DiagramNode icon={GitBranchIcon} title="Historical Backfill" subtitle="2 years of data" color="#6366f1" description="Extract and process 2+ years of historical data (~3.5M data points). Clean, validate, apply interpolation. Generate ML-ready features (time-series, weather, performance metrics)." />
+          <DiagramNode icon={ChartIcon} title="Baseline Reports" subtitle="Performance metrics" color="#7c3aed" description="Validate data completeness (>95%), generate baseline performance reports per site, establish KPIs (MTTD, MTTR, false positives, data completeness)." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 3 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 3: Real-Time Monitoring Activation
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-8 mb-2">
+          <DiagramNode icon={WorkflowIcon} title="Pipeline Activation" subtitle="Continuous ETL" color="#8b5cf6" description="Activate nightly delta extraction, real-time data validation, automatic feature generation. Verify live data streams with <5 minute latency." />
+          <DiagramNode icon={CpuIcon} title="Baseline Models" subtitle="ML deployment" color="#dc2626" description="Deploy production forecasting models, activate fault detection algorithms, enable performance degradation monitoring. Target MAPE <10% for 24-hour forecasts." />
+          <DiagramNode icon={NetworkIcon} title="Dashboard Launch" subtitle="Custom views" color="#d97706" description="Configure portfolio overview, site-specific dashboards, asset detail views. Set up automated daily generation summaries and alert mechanisms." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 4 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 4: Performance Baseline & Model Calibration
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={CpuIcon} title="Model Calibration" subtitle="Accuracy optimization" color="#dc2626" description="Refine ML models with Week 3 operational data. Adjust forecasting models with site-specific parameters, calibrate fault detection thresholds. Validate improvements." />
+          <DiagramNode icon={ChartIcon} title="First Performance Report" subtitle="Week 4 analysis" color="#7c3aed" description="Generate comprehensive Week 4 report: portfolio performance summary, site-by-site analysis, model performance metrics, recommendations for optimization." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 5 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 5: Advanced Monitoring & Alert Configuration
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={BrainCircuitIcon} title="Advanced Agents" subtitle="EAR & predictive" color="#e11d48" description="Deploy Energy-at-Risk (EAR) calculation agent, predictive maintenance scheduling agent, performance degradation detection agent." />
+          <DiagramNode icon={SettingsIcon} title="Intelligent Alerts" subtitle="Threshold configuration" color="#d97706" description="Configure threshold-based alerts (>10% generation drops), anomaly detection alerts, forecast deviation alerts (>15%), maintenance window optimization alerts." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 6 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 6: Predictive Maintenance Activation
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={BrainCircuitIcon} title="Maintenance Agents" subtitle="Optimization" color="#e11d48" description="Deploy Maintenance-Market Window agent, AI Crew-Quality Oracle, parts procurement optimization. Configure maintenance workflows and parts catalog integration." />
+          <DiagramNode icon={ChartIcon} title="Maintenance Insights" subtitle="Recommendations" color="#7c3aed" description="Generate maintenance recommendations for 20 inverters and 800 panels. Create optimized schedules based on market conditions, resource allocation across 3 sites." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 7 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 7: Forecasting & Trading Integration
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={CpuIcon} title="Enhanced Forecasting" subtitle="24-hour horizon" color="#dc2626" description="Deploy enhanced forecasting agents: 24-hour generation forecasting per site, portfolio-level aggregation, probabilistic forecasting with confidence intervals. Target MAPE <8%." />
+          <DiagramNode icon={BrainCircuitIcon} title="Trading Optimization" subtitle="Penalty risk" color="#e11d48" description="Configure Penalty-Insurance Meta-Forecast: 5th-95th percentile error bands, half-hourly penalty risk assessment, pre-18:00 gate closure risk alerts." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 8 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 8: Compliance & Reporting Automation
+          </div>
+        </div>
+        <div className="mb-2">
+          <DiagramNode icon={BrainCircuitIcon} title="Regulatory Co-Pilot" subtitle="Automated compliance" color="#e11d48" description="Deploy Regulatory Reporting Co-Pilot: configure SAWEM XML template auto-fill, set up data quality attestation, enable compliance flagging. Reduce compliance time from 3 days to 30 minutes." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 9 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 9: Portfolio Optimization
+          </div>
+        </div>
+        <div className="mb-2">
+          <DiagramNode icon={BrainCircuitIcon} title="Portfolio Analytics" subtitle="Cross-site coordination" color="#e11d48" description="Deploy portfolio optimization agents: cross-site performance comparison, portfolio-level forecasting, resource allocation optimization. Coordinate maintenance scheduling across 3 sites." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 10 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 10: Advanced AI Features
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={BrainCircuitIcon} title="Specialized Agents" subtitle="Cloud-shadow & degradation" color="#e11d48" description="Deploy Cloud-Shadow Nowcast (if available), enhanced degradation detection, advanced anomaly detection. Configure site-specific AI features for rooftop vs. ground-mounted." />
+          <DiagramNode icon={CpuIcon} title="Model Refinement" subtitle="10-week retraining" color="#dc2626" description="Retrain models with 10 weeks of operational data. Improve accuracy: forecast MAPE <7%, fault detection <3% false positives, performance prediction R² >0.90." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 11 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-amber-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 11: Integration & API Access
+          </div>
+        </div>
+        <div className="mb-2">
+          <DiagramNode icon={NetworkIcon} title="API Gateway" subtitle="RESTful & GraphQL" color="#d97706" description="Configure API Gateway: set up RESTful endpoints, configure GraphQL API, implement rate limiting and security. Enable API access for real-time data, forecasts, maintenance recommendations, performance metrics." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 12 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 12: Final Optimization & Preparation
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={CpuIcon} title="Final Model Training" subtitle="12-week data" color="#dc2626" description="Comprehensive model retraining with 12 weeks of data. Optimize hyperparameters, validate model performance across all metrics. Generate 12-week trend analysis." />
+          <DiagramNode icon={ChartIcon} title="Metrics Compilation" subtitle="ROI preparation" color="#7c3aed" description="Compile all key metrics for Week 13 review: latency, MTTR, false positives, data completeness. Generate comparison reports: baseline vs. current, week-by-week improvements, ROI calculations." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 13 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-emerald-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 13: Decision Point
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={ChartIcon} title="Executive ROI Analysis" subtitle="Performance review" color="#7c3aed" description="Present comprehensive ROI analysis: latency <5min (99% improvement), MTTR 50-67% reduction, false positives <5% (70-75% reduction), data completeness >95%. Financial impact: 2-3% availability improvement, 20-30% maintenance cost reduction." />
+          <DiagramNode icon={SettingsIcon} title="Auto-Conversion" subtitle="Scale-up planning" color="#059669" description="Verify achievement of all 4 key metrics. Execute automatic conversion to full platform subscription. Create scale-up roadmap for portfolio expansion, document lessons learned, establish ongoing support processes." />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <ImplementationTimeline />,
+  document.getElementById('implementation-timeline-container')
+);
+</script>
+{% endraw %}
 
 ---
 
