@@ -31,9 +31,10 @@ This guide details the 13-week validation process for onboarding distributed sol
 The 13-week implementation follows the platform architecture, building each layer systematically:
 
 - **Weeks 1-2**: **Data Sources Layer** + **Ingestion & ETL Layer** foundation
-- **Weeks 3-4**: **Storage Layer** initialization + **AI & Modeling Layer** baseline models
-- **Weeks 5-8**: **AI & Modeling Layer** optimization + **Access Layer** dashboards
-- **Weeks 9-12**: **Access Layer** API + **AI & Modeling Layer** advanced features
+- **Week 3**: **Storage Layer** initialization + **AI & Modeling Layer** baseline models + **Access Layer** dashboards
+- **Week 4**: **Access Layer** API Gateway setup
+- **Weeks 5-8**: **AI & Modeling Layer** optimization and advanced features
+- **Weeks 9-12**: **AI & Modeling Layer** advanced features and refinement
 - **Week 13**: Full platform validation and conversion decision
 
 ---
@@ -224,13 +225,12 @@ function ImplementationTimeline() {
 
         {/* Week 4 */}
         <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 4: Performance Baseline & Model Calibration
+          <div className="layer-badge bg-amber-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 4: Integration & API Access
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
-          <DiagramNode icon={CpuIcon} title="Model Calibration" subtitle="Accuracy optimization" color="#dc2626" description="Refine ML models with Week 3 operational data. Adjust forecasting models with site-specific parameters, calibrate fault detection thresholds. Validate improvements." />
-          <DiagramNode icon={ChartIcon} title="First Performance Report" subtitle="Week 4 analysis" color="#7c3aed" description="Generate comprehensive Week 4 report: portfolio performance summary, site-by-site analysis, model performance metrics, recommendations for optimization." />
+        <div className="mb-2">
+          <DiagramNode icon={NetworkIcon} title="API Gateway" subtitle="RESTful & GraphQL" color="#d97706" description="Configure API Gateway: set up RESTful endpoints, configure GraphQL API, implement rate limiting and security. Enable API access for model inference, forecasts, maintenance recommendations, performance metrics." />
         </div>
 
         <ConnectionLine color="#64748b" animated={true} />
@@ -238,7 +238,20 @@ function ImplementationTimeline() {
         {/* Week 5 */}
         <div className="mb-4">
           <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 5: Advanced Monitoring & Alert Configuration
+            Week 5: Performance Baseline & Model Calibration
+          </div>
+        </div>
+        <div className="grid grid-cols-2 gap-8 mb-2">
+          <DiagramNode icon={CpuIcon} title="Model Calibration" subtitle="Accuracy optimization" color="#dc2626" description="Refine ML models with Week 3 operational data. Adjust forecasting models with site-specific parameters, calibrate fault detection thresholds. Validate improvements." />
+          <DiagramNode icon={ChartIcon} title="First Performance Report" subtitle="Week 5 analysis" color="#7c3aed" description="Generate comprehensive Week 5 report: portfolio performance summary, site-by-site analysis, model performance metrics, recommendations for optimization." />
+        </div>
+
+        <ConnectionLine color="#64748b" animated={true} />
+
+        {/* Week 6 */}
+        <div className="mb-4">
+          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
+            Week 6: Advanced Monitoring & Alert Configuration
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8 mb-2">
@@ -248,10 +261,10 @@ function ImplementationTimeline() {
 
         <ConnectionLine color="#64748b" animated={true} />
 
-        {/* Week 6 */}
+        {/* Week 7 */}
         <div className="mb-4">
           <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 6: Predictive Maintenance Activation
+            Week 7: Predictive Maintenance Activation
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8 mb-2">
@@ -261,10 +274,10 @@ function ImplementationTimeline() {
 
         <ConnectionLine color="#64748b" animated={true} />
 
-        {/* Week 7 */}
+        {/* Week 8 */}
         <div className="mb-4">
           <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 7: Forecasting & Trading Integration
+            Week 8: Forecasting & Trading Integration
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8 mb-2">
@@ -274,10 +287,10 @@ function ImplementationTimeline() {
 
         <ConnectionLine color="#64748b" animated={true} />
 
-        {/* Week 8 */}
+        {/* Week 9 */}
         <div className="mb-4">
           <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 8: Compliance & Reporting Automation
+            Week 9: Compliance & Reporting Automation
           </div>
         </div>
         <div className="mb-2">
@@ -286,10 +299,10 @@ function ImplementationTimeline() {
 
         <ConnectionLine color="#64748b" animated={true} />
 
-        {/* Week 9 */}
+        {/* Week 10 */}
         <div className="mb-4">
           <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 9: Portfolio Optimization
+            Week 10: Portfolio Optimization
           </div>
         </div>
         <div className="mb-2">
@@ -298,27 +311,15 @@ function ImplementationTimeline() {
 
         <ConnectionLine color="#64748b" animated={true} />
 
-        {/* Week 10 */}
+        {/* Week 11 */}
         <div className="mb-4">
           <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 10: Advanced AI Features
+            Week 11: Advanced AI Features
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={BrainCircuitIcon} title="Specialized Agents" subtitle="Cloud-shadow & degradation" color="#e11d48" description="Deploy Cloud-Shadow Nowcast (if available), enhanced degradation detection, advanced anomaly detection. Configure site-specific AI features for rooftop vs. ground-mounted." />
-          <DiagramNode icon={CpuIcon} title="Model Refinement" subtitle="10-week retraining" color="#dc2626" description="Retrain models with 10 weeks of operational data. Improve accuracy: forecast MAPE <7%, fault detection <3% false positives, performance prediction R² >0.90." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
-
-        {/* Week 11 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-amber-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 11: Integration & API Access
-          </div>
-        </div>
-        <div className="mb-2">
-          <DiagramNode icon={NetworkIcon} title="API Gateway" subtitle="RESTful & GraphQL" color="#d97706" description="Configure API Gateway: set up RESTful endpoints, configure GraphQL API, implement rate limiting and security. Enable API access for real-time data, forecasts, maintenance recommendations, performance metrics." />
+          <DiagramNode icon={CpuIcon} title="Model Refinement" subtitle="11-week retraining" color="#dc2626" description="Retrain models with 11 weeks of operational data. Improve accuracy: forecast MAPE <7%, fault detection <3% false positives, performance prediction R² >0.90." />
         </div>
 
         <ConnectionLine color="#64748b" animated={true} />
@@ -426,9 +427,10 @@ The implementation systematically builds each layer of the Distributed Energy Ma
 
 **Implementation Activities**:
 - Week 3: Baseline model deployment
-- Week 4: Model calibration and validation
-- Weeks 5-8: Advanced agents deployment
-- Weeks 9-12: Model refinement and optimization
+- Week 4: API Gateway setup for model inference
+- Week 5: Model calibration and validation
+- Weeks 6-9: Advanced agents deployment
+- Weeks 10-12: Model refinement and optimization
 
 ---
 
@@ -471,9 +473,9 @@ The implementation systematically builds each layer of the Distributed Energy Ma
 
 **Implementation Activities**:
 - Week 3: Dashboard customization and activation
-- Week 4: Performance reporting setup
-- Weeks 5-8: Advanced dashboard features
-- Week 11: API Gateway configuration and testing
+- Week 4: API Gateway configuration and testing
+- Week 5: Performance reporting setup
+- Weeks 6-9: Advanced dashboard features
 
 ---
 
