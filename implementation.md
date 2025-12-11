@@ -178,175 +178,178 @@ const ConnectionLine = ({ color = "#64748b", animated = false }) => (
 );
 
 function ImplementationTimeline() {
+  const [expandedWeeks, setExpandedWeeks] = React.useState({});
+
+  const toggleWeek = (weekNum) => {
+    setExpandedWeeks(prev => ({
+      ...prev,
+      [weekNum]: !prev[weekNum]
+    }));
+  };
+
+  const ChevronIcon = ({ isExpanded }) => (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+      style={{ 
+        transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)',
+        transition: 'transform 0.3s ease',
+        marginLeft: '8px',
+        cursor: 'pointer'
+      }}
+    >
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  );
+
+  const WeekSection = ({ weekNum, badgeColor, title, children, connectionLine = true }) => {
+    const isExpanded = expandedWeeks[weekNum] || false;
+    
+    return (
+      <>
+        <div className="mb-4">
+          <div 
+            className="layer-badge" 
+            style={{ 
+              backgroundColor: badgeColor, 
+              color: 'white', 
+              padding: '8px 24px', 
+              borderRadius: '9999px', 
+              marginBottom: '24px',
+              display: 'inline-flex',
+              alignItems: 'center',
+              cursor: 'pointer',
+              userSelect: 'none'
+            }}
+            onClick={() => toggleWeek(weekNum)}
+          >
+            {title}
+            <ChevronIcon isExpanded={isExpanded} />
+          </div>
+        </div>
+        {isExpanded && (
+          <>
+            {children}
+            {connectionLine && <ConnectionLine color="#64748b" animated={true} />}
+          </>
+        )}
+      </>
+    );
+  };
+
   return (
     <div className="architecture-diagram-container">
       <div className="flex flex-col items-center">
         {/* Week 1 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-blue-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 1: Foundation & Data Discovery
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-8 mb-2">
+        <WeekSection weekNum={1} badgeColor="#3b82f6" title="Week 1: Foundation & Data Discovery">
+          <div className="grid grid-cols-3 gap-8 mb-2">
           <DiagramNode icon={SunIcon} title="Site Inventory" subtitle="Technical assessment" color="#f59e0b" description="Document 3 sites (2MW total), 20 inverters, 800 panels. Audit SCADA systems, identify data sources (PI Historian, Modbus, APIs), assess historical data availability." />
           <DiagramNode icon={DatabaseIcon} title="Pipeline Design" subtitle="ETL configuration" color="#8b5cf6" description="Configure SQL queries for PI Historian, set up API connections, establish Modbus connections. Create data validation schemas for each site." />
           <DiagramNode icon={ServerIcon} title="Storage Setup" subtitle="Model output store" color="#059669" description="Initialize partitioned Parquet storage structure, set up versioning for cleaned datasets, establish backup and retention policies." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 2 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-purple-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 2: Data Integration & Pipeline Activation
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-8 mb-2">
+        <WeekSection weekNum={2} badgeColor="#8b5cf6" title="Week 2: Data Integration & Pipeline Activation">
+          <div className="grid grid-cols-3 gap-8 mb-2">
           <DiagramNode icon={SunIcon} title="SCADA Connections" subtitle="Live data streams" color="#f59e0b" description="Connect 8 SolarEdge inverters (Site A), 7 Fronius inverters (Site B), 5 SolarEdge inverters (Site C). Configure 15-minute intervals, establish weather station feeds." />
           <DiagramNode icon={GitBranchIcon} title="Historical Backfill" subtitle="2 years of data" color="#6366f1" description="Extract and process 2+ years of historical data (~3.5M data points). Clean, validate, apply interpolation. Generate ML-ready features (time-series, weather, performance metrics)." />
           <DiagramNode icon={ChartIcon} title="Baseline Reports" subtitle="Performance metrics" color="#7c3aed" description="Validate data completeness (>95%), generate baseline performance reports per site, establish KPIs (MTTD, MTTR, false positives, data completeness)." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 3 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 3: Real-Time Monitoring Activation
-          </div>
-        </div>
-        <div className="grid grid-cols-3 gap-8 mb-2">
+        <WeekSection weekNum={3} badgeColor="#dc2626" title="Week 3: Real-Time Monitoring Activation">
+          <div className="grid grid-cols-3 gap-8 mb-2">
           <DiagramNode icon={WorkflowIcon} title="Pipeline Activation" subtitle="Continuous ETL" color="#8b5cf6" description="Activate nightly delta extraction, real-time data validation, automatic feature generation. Verify live data streams with <5 minute latency." />
           <DiagramNode icon={CpuIcon} title="Baseline Models" subtitle="ML deployment" color="#dc2626" description="Deploy production forecasting models, activate fault detection algorithms, enable performance degradation monitoring. Target MAPE <10% for 24-hour forecasts." />
           <DiagramNode icon={NetworkIcon} title="Dashboard Launch" subtitle="Custom views" color="#d97706" description="Configure portfolio overview, site-specific dashboards, asset detail views. Set up automated daily generation summaries and alert mechanisms." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 4 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-amber-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 4: Integration & API Access
-          </div>
-        </div>
-        <div className="mb-2">
+        <WeekSection weekNum={4} badgeColor="#d97706" title="Week 4: Integration & API Access">
+          <div className="mb-2">
           <DiagramNode icon={NetworkIcon} title="API Gateway" subtitle="RESTful & GraphQL" color="#d97706" description="Configure API Gateway: set up RESTful endpoints, configure GraphQL API, implement rate limiting and security. Enable API access for model inference, forecasts, maintenance recommendations, performance metrics." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 5 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 5: Performance Baseline & Model Calibration
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={5} badgeColor="#dc2626" title="Week 5: Performance Baseline & Model Calibration">
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={CpuIcon} title="Model Calibration" subtitle="Accuracy optimization" color="#dc2626" description="Refine ML models with Week 3 operational data. Adjust forecasting models with site-specific parameters, calibrate fault detection thresholds. Validate improvements." />
           <DiagramNode icon={ChartIcon} title="First Performance Report" subtitle="Week 5 analysis" color="#7c3aed" description="Generate comprehensive Week 5 report: portfolio performance summary, site-by-site analysis, model performance metrics, recommendations for optimization." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 6 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 6: Advanced Monitoring & Alert Configuration
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={6} badgeColor="#dc2626" title="Week 6: Advanced Monitoring & Alert Configuration">
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={BrainCircuitIcon} title="Advanced Agents" subtitle="EAR & predictive" color="#e11d48" description="Deploy Energy-at-Risk (EAR) calculation agent, predictive maintenance scheduling agent, performance degradation detection agent." />
           <DiagramNode icon={SettingsIcon} title="Intelligent Alerts" subtitle="Threshold configuration" color="#d97706" description="Configure threshold-based alerts (>10% generation drops), anomaly detection alerts, forecast deviation alerts (>15%), maintenance window optimization alerts." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 7 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 7: Predictive Maintenance Activation
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={7} badgeColor="#dc2626" title="Week 7: Predictive Maintenance Activation">
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={BrainCircuitIcon} title="Maintenance Agents" subtitle="Optimization" color="#e11d48" description="Deploy Maintenance-Market Window agent, AI Crew-Quality Oracle, parts procurement optimization. Configure maintenance workflows and parts catalog integration." />
           <DiagramNode icon={ChartIcon} title="Maintenance Insights" subtitle="Recommendations" color="#7c3aed" description="Generate maintenance recommendations for 20 inverters and 800 panels. Create optimized schedules based on market conditions, resource allocation across 3 sites." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 8 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 8: Forecasting & Trading Integration
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={8} badgeColor="#dc2626" title="Week 8: Forecasting & Trading Integration">
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={CpuIcon} title="Enhanced Forecasting" subtitle="24-hour horizon" color="#dc2626" description="Deploy enhanced forecasting agents: 24-hour generation forecasting per site, portfolio-level aggregation, probabilistic forecasting with confidence intervals. Target MAPE <8%." />
           <DiagramNode icon={BrainCircuitIcon} title="Trading Optimization" subtitle="Penalty risk" color="#e11d48" description="Configure Penalty-Insurance Meta-Forecast: 5th-95th percentile error bands, half-hourly penalty risk assessment, pre-18:00 gate closure risk alerts." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 9 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 9: Compliance & Reporting Automation
-          </div>
-        </div>
-        <div className="mb-2">
+        <WeekSection weekNum={9} badgeColor="#dc2626" title="Week 9: Compliance & Reporting Automation">
+          <div className="mb-2">
           <DiagramNode icon={BrainCircuitIcon} title="Regulatory Co-Pilot" subtitle="Automated compliance" color="#e11d48" description="Deploy Regulatory Reporting Co-Pilot: configure SAWEM XML template auto-fill, set up data quality attestation, enable compliance flagging. Reduce compliance time from 3 days to 30 minutes." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 10 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 10: Portfolio Optimization
-          </div>
-        </div>
-        <div className="mb-2">
+        <WeekSection weekNum={10} badgeColor="#dc2626" title="Week 10: Portfolio Optimization">
+          <div className="mb-2">
           <DiagramNode icon={BrainCircuitIcon} title="Portfolio Analytics" subtitle="Cross-site coordination" color="#e11d48" description="Deploy portfolio optimization agents: cross-site performance comparison, portfolio-level forecasting, resource allocation optimization. Coordinate maintenance scheduling across 3 sites." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 11 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 11: Advanced AI Features
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={11} badgeColor="#dc2626" title="Week 11: Advanced AI Features">
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={BrainCircuitIcon} title="Specialized Agents" subtitle="Cloud-shadow & degradation" color="#e11d48" description="Deploy Cloud-Shadow Nowcast (if available), enhanced degradation detection, advanced anomaly detection. Configure site-specific AI features for rooftop vs. ground-mounted." />
           <DiagramNode icon={CpuIcon} title="Model Refinement" subtitle="11-week retraining" color="#dc2626" description="Retrain models with 11 weeks of operational data. Improve accuracy: forecast MAPE <7%, fault detection <3% false positives, performance prediction R² >0.90." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 12 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-rose-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 12: Final Optimization & Preparation
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={12} badgeColor="#dc2626" title="Week 12: Final Optimization & Preparation">
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={CpuIcon} title="Final Model Training" subtitle="12-week data" color="#dc2626" description="Comprehensive model retraining with 12 weeks of data. Optimize hyperparameters, validate model performance across all metrics. Generate 12-week trend analysis." />
           <DiagramNode icon={ChartIcon} title="Metrics Compilation" subtitle="ROI preparation" color="#7c3aed" description="Compile all key metrics for Week 13 review: latency, MTTR, false positives, data completeness. Generate comparison reports: baseline vs. current, week-by-week improvements, ROI calculations." />
-        </div>
-
-        <ConnectionLine color="#64748b" animated={true} />
+          </div>
+        </WeekSection>
 
         {/* Week 13 */}
-        <div className="mb-4">
-          <div className="layer-badge bg-emerald-600 text-white px-6 py-2 rounded-full mb-6">
-            Week 13: Decision Point
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-8 mb-2">
+        <WeekSection weekNum={13} badgeColor="#059669" title="Week 13: Decision Point" connectionLine={false}>
+          <div className="grid grid-cols-2 gap-8 mb-2">
           <DiagramNode icon={ChartIcon} title="Executive ROI Analysis" subtitle="Performance review" color="#7c3aed" description="Present comprehensive ROI analysis: latency <5min (99% improvement), MTTR 50-67% reduction, false positives <5% (70-75% reduction), data completeness >95%. Financial impact: 2-3% availability improvement, 20-30% maintenance cost reduction." />
           <DiagramNode icon={SettingsIcon} title="Auto-Conversion" subtitle="Scale-up planning" color="#059669" description="Verify achievement of all 4 key metrics. Execute automatic conversion to full platform subscription. Create scale-up roadmap for portfolio expansion, document lessons learned, establish ongoing support processes." />
-        </div>
+          </div>
+        </WeekSection>
       </div>
     </div>
   );
