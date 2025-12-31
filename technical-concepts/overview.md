@@ -25,6 +25,12 @@ To get started with our technical concepts, we recommend beginning with [Data St
     <p>A comprehensive look at our automated process for ingesting, cleaning, and standardizing data from a wide variety of sources. Understand how we handle different data formats, time zones, units, and quality issues to ensure consistent inputs for our machine learning models.</p>
     <a href="./data-standardization" class="card-link">Learn More →</a>
   </div>
+  
+  <div class="overview-card">
+    <h3>Asoba Protocol</h3>
+    <p>A performance-collateralized intelligence and settlement layer that binds operational commitments to consequences at the same timescale at which those commitments are made. Learn how the protocol enables coordination under uncertainty, performance-indexed financing, and verifiable guarantees for distributed energy systems.</p>
+    <a href="./protocol" class="card-link">Learn More →</a>
+  </div>
 </div>
 
 ## Core Concepts
@@ -47,12 +53,17 @@ Customer-specific models are trained using transfer learning techniques, startin
 
 Forecasts are generated using ensemble methods that combine multiple model predictions, incorporating weather data, historical patterns, and site-specific characteristics to produce accurate predictions.
 
+### Asoba Protocol
+
+The Asoba Protocol addresses the coordination constraint in distributed energy systems by introducing a mechanism that binds operational commitments to consequences. It enables performance-collateralized activities, automatic enforcement of commitments, and performance-indexed financing, ensuring that failures are contained and paid for locally rather than propagated through the system.
+
 ## Popular Topics
 
 These technical concepts are frequently referenced:
 
 - **[Forecasting Models](./machine-learning/forecasting-models)**: Deep dive into ML model architecture
 - **[Data Standardization](./data-standardization)**: How we process and clean your data
+- **[Asoba Protocol](./protocol)**: Performance-collateralized intelligence and settlement layer
 - **[Model Training](../api-reference/data-ingestion/upload-train)**: Upload training data for custom models
 - **[Forecast Accuracy](../guides/forecasting/improving-accuracy)**: Factors affecting forecast performance
 
@@ -62,8 +73,9 @@ Now that you understand our technical concepts:
 
 1. **Learn About Models**: Explore [Machine Learning Models](./machine-learning/forecasting-models) to understand our forecasting algorithms
 2. **Understand Data Processing**: Read [Data Standardization](./data-standardization) to see how we handle your data
-3. **Generate Forecasts**: Use the [Forecasting Guide](../guides/forecasting/overview) to apply this knowledge
-4. **API Integration**: Review the [API Reference](../api-reference/overview) for technical implementation details
+3. **Explore the Protocol**: Review the [Asoba Protocol](./protocol) to understand how we enable coordination and performance guarantees
+4. **Generate Forecasts**: Use the [Forecasting Guide](../guides/forecasting/overview) to apply this knowledge
+5. **API Integration**: Review the [API Reference](../api-reference/overview) for technical implementation details
 
 ## See Also
 
