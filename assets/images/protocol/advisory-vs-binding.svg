@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" style="background-color: #ffffff;">
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Advisory Intelligence vs Binding Commitments</text>
+  
+  <!-- Left Panel: Intelligence Only -->
+  <rect x="50" y="80" width="320" height="380" fill="#f0f9ff" stroke="#1e40af" stroke-width="2" rx="5"/>
+  <text x="210" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Intelligence Only</text>
+  
+  <!-- Forecast icon -->
+  <circle cx="210" cy="170" r="40" fill="#3b82f6" opacity="0.7"/>
+  <text x="210" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="24">=Ê</text>
+  <text x="210" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Forecast</text>
+  
+  <!-- Arrow -->
+  <path d="M 210 210 L 210 250" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision box -->
+  <rect x="170" y="250" width="80" height="50" fill="#93c5fd" stroke="#1e40af" stroke-width="2" rx="3"/>
+  <text x="210" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Decision</text>
+  
+  <!-- Dashed line to outcome -->
+  <path d="M 210 300 L 210 340" stroke="#64748b" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Outcome -->
+  <rect x="170" y="340" width="80" height="50" fill="#dbeafe" stroke="#1e40af" stroke-width="2" rx="3"/>
+  <text x="210" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Outcome</text>
+  
+  <!-- Caption -->
+  <text x="210" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-style="italic" fill="#991b1b">"Failure imposes cost elsewhere"</text>
+  
+  <!-- Right Panel: Intelligence + Collateral -->
+  <rect x="430" y="80" width="320" height="380" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="5"/>
+  <text x="590" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Intelligence + Collateral</text>
+  
+  <!-- Forecast icon -->
+  <circle cx="590" cy="170" r="40" fill="#3b82f6" opacity="0.7"/>
+  <text x="590" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="24">=Ê</text>
+  <text x="590" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Forecast</text>
+  
+  <!-- Arrow -->
+  <path d="M 590 210 L 590 250" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision box -->
+  <rect x="550" y="250" width="80" height="50" fill="#93c5fd" stroke="#1e40af" stroke-width="2" rx="3"/>
+  <text x="590" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Decision</text>
+  
+  <!-- Solid line to collateral -->
+  <path d="M 590 300 L 590 340" stroke="#16a34a" stroke-width="3" fill="none" marker-end="url(#arrowhead-green)"/>
+  
+  <!-- Locked collateral -->
+  <rect x="550" y="340" width="80" height="50" fill="#86efac" stroke="#16a34a" stroke-width="2" rx="3"/>
+  <text x="590" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Locked</text>
+  <text x="590" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Collateral</text>
+  
+  <!-- Solid line to outcome -->
+  <path d="M 590 390 L 590 400" stroke="#16a34a" stroke-width="3" fill="none" marker-end="url(#arrowhead-green)"/>
+  
+  <!-- Outcome -->
+  <rect x="550" y="400" width="80" height="50" fill="#d1fae5" stroke="#16a34a" stroke-width="2" rx="3"/>
+  <text x="590" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Outcome</text>
+  
+  <!-- Caption -->
+  <text x="590" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-style="italic" fill="#166534">"Failure absorbed locally"</text>
+  
+  <!-- Arrow marker definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#64748b"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#16a34a"/>
+    </marker>
+  </defs>
+</svg>
