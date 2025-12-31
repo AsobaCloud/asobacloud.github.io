@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="background-color: #ffffff;">
   <!-- Title -->
-  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">What the Token Is &amp;mdash; and Is Not</text>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">What the Token Is — and Is Not</text>
   
   <!-- Central box: ASB-P Token -->
   <rect x="300" y="150" width="200" height="100" fill="#3b82f6" stroke="#1e40af" stroke-width="3" rx="5"/>
