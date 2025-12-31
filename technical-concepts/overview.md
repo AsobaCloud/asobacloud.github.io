@@ -29,7 +29,7 @@ To get started with our technical concepts, we recommend beginning with [Data St
   <div class="overview-card">
     <h3>Asoba Protocol</h3>
     <p>A performance-collateralized intelligence and settlement layer that binds operational commitments to consequences at the same timescale at which those commitments are made. Learn how the protocol enables coordination under uncertainty, performance-indexed financing, and verifiable guarantees for distributed energy systems.</p>
-    <a href="./protocol" class="card-link">Learn More →</a>
+    <a href="./protocol/overview" class="card-link">Learn More →</a>
   </div>
 </div>
 
@@ -63,7 +63,7 @@ These technical concepts are frequently referenced:
 
 - **[Forecasting Models](./machine-learning/forecasting-models)**: Deep dive into ML model architecture
 - **[Data Standardization](./data-standardization)**: How we process and clean your data
-- **[Asoba Protocol](./protocol)**: Performance-collateralized intelligence and settlement layer
+- **[Asoba Protocol](./protocol/overview)**: Performance-collateralized intelligence and settlement layer
 - **[Model Training](../api-reference/data-ingestion/upload-train)**: Upload training data for custom models
 - **[Forecast Accuracy](../guides/forecasting/improving-accuracy)**: Factors affecting forecast performance
 
@@ -73,7 +73,7 @@ Now that you understand our technical concepts:
 
 1. **Learn About Models**: Explore [Machine Learning Models](./machine-learning/forecasting-models) to understand our forecasting algorithms
 2. **Understand Data Processing**: Read [Data Standardization](./data-standardization) to see how we handle your data
-3. **Explore the Protocol**: Review the [Asoba Protocol](./protocol) to understand how we enable coordination and performance guarantees
+3. **Explore the Protocol**: Review the [Asoba Protocol](./protocol/overview) to understand how we enable coordination and performance guarantees
 4. **Generate Forecasts**: Use the [Forecasting Guide](../guides/forecasting/overview) to apply this knowledge
 5. **API Integration**: Review the [API Reference](../api-reference/overview) for technical implementation details
 

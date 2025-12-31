@@ -15,6 +15,8 @@ In practice, improved intelligence alone is insufficient. Once operational decis
 
 All customers continue to contract and pay Asoba in fiat currency. Tokens do not appear in customer workflows. They operate exclusively at the protocol and treasury layer to support enforcement, guarantees, and performance-linked coordination.
 
+![Asoba as the Intelligence + Enforcement Layer](/assets/images/protocol/asoba-intelligence-enforcement-layers.svg)
+
 ## 2. The Coordination Constraint
 
 Distributed energy systems are not primarily constrained by generation capacity or technical capability. They are constrained by the cost of being wrong.
@@ -23,7 +25,7 @@ Operational data is fragmented across OEM dashboards and manual reports. Municip
 
 The result is delay. Decisions are postponed not because intelligence is unavailable, but because enforcement mechanisms are slow, manual, and retrospective.
 
-*(Diagram: a horizontal timeline showing a commitment at T₀, performance deviation at T₁, and enforcement at T₂, with accumulated penalties and grid impact growing between T₁ and T₂. The visual reinforces that failure arises from delayed enforcement, not lack of data.)*
+![Delayed Enforcement Causes Systemic Risk](/assets/images/protocol/delayed-enforcement-timeline.svg)
 
 ## 3. Intelligence Without Enforcement
 
@@ -35,6 +37,8 @@ In environments where commitments affect others, knowledge without stakes does n
 
 No amount of improved forecasting resolves this gap.
 
+![Advisory Intelligence vs Binding Commitments](/assets/images/protocol/advisory-vs-binding.svg)
+
 ## 4. When Commitments Create Shared Risk
 
 Not all operational decisions require protocol involvement. Many optimizations are private, and their consequences are fully internalized by the actor making them.
@@ -43,7 +47,7 @@ The protocol intervenes only when decisions cross a boundary into shared exposur
 
 At this boundary, voluntary trust and delayed enforcement do not scale. What is required is a way to ensure that the cost of failure is absorbed where the commitment is made, rather than propagated outward.
 
-*(Diagram: a single page split vertically into two labeled halves. Left: "Decisions whose failure only affects the operator," with examples listed. Right: "Decisions whose failure imposes costs on municipalities or counterparties," with examples listed. A bold vertical line between them is labeled "Failure externalizes cost.")*
+![Private Optimization vs Shared-Risk Commitments](/assets/images/protocol/shared-risk-boundary.svg)
 
 ## 5. The Protocol Mechanism
 
@@ -55,7 +59,7 @@ The protocol does not attempt to prevent operational failure. Instead, it locali
 
 This mechanism functions as a programmable performance bond. Unlike traditional guarantees, enforcement is automatic and contemporaneous with observed outcomes, rather than delayed and discretionary.
 
-*(Diagram: two side-by-side panels showing identical commitment failures. In the left panel (no collateral), penalties and instability propagate outward. In the right panel (collateralized), loss is absorbed by the committed stake and does not propagate.)*
+![Failure Propagation With vs Without Collateral](/assets/images/protocol/failure-propagation.svg)
 
 ## 6. Token Role and Scope
 
@@ -66,6 +70,8 @@ It is required for participation in activities that externalize risk. It is lock
 Tokens are unnecessary for consumption of Asoba's software or services. They are required only when an actor elects to make commitments whose failure would affect others.
 
 This narrow scope is intentional. Expanding the token's role beyond collateral weakens its function and introduces unnecessary regulatory and operational complexity.
+
+![What the Token Is — and Is Not](/assets/images/protocol/token-scope.svg)
 
 ## 7. Treasury Participation and Risk Capacity
 
@@ -79,7 +85,7 @@ The role of these tokens is to provision risk capacity, not yield. The protocol 
 
 Treasury participation raises this ceiling. By committing additional tokens to protocol contracts, Asoba increases the amount of risk the system can safely intermediate without increasing systemic exposure. This allows protocol usage to scale in proportion to verified demand while preserving the principle that every commitment is backed by scarce, loss-bearing collateral.
 
-*(Diagram: a single chart with time on the horizontal axis and "active protocol commitments" on the vertical axis; a horizontal line marks the maximum commitment capacity set by available collateral, and a second, higher line shows the increased capacity after treasury-acquired tokens are locked.)*
+![Collateral Sets Maximum Commitment Capacity](/assets/images/protocol/risk-capacity-ceiling.svg)
 
 ## 8. External Capital Participation
 
@@ -90,6 +96,8 @@ There is no passive liquidity provision. Tokens acquired by external participant
 Compensation, where applicable, is variable and usage-dependent. There are no fixed yields, revenue shares, or guaranteed returns. Capital is compensated for absorbing risk and enabling coordination, not for mere presence.
 
 This structure aligns participation with underwriting rather than speculation.
+
+![Passive Capital vs Risk-Bearing Participation](/assets/images/protocol/external-capital-participation.svg)
 
 ## 9. Performance-Indexed Financing
 
@@ -117,7 +125,7 @@ This separation ensures that each class of activity is enforced using mechanisms
 
 By aligning enforcement mechanisms with existing financial and operational norms, the protocol automates established institutional practices rather than attempting to replace them. In regulated environments, this conservatism is a feature: it minimizes novelty where it would create friction, while still enabling tighter, more reliable enforcement than traditional manual processes allow.
 
-*(Diagram: a two-panel layout. The left panel is labeled "Continuous Enforcement (Intraday)" and shows a single margin account with a fluctuating net exposure line constrained by a collateral balance. The right panel is labeled "Discrete Enforcement (Commitments)" and shows several distinct commitment blocks, each labeled with scope and duration, each locking a fixed amount of collateral, and each moving through a simple lifecycle from issuance to expiry.)*
+![Continuous vs Discrete Enforcement Modes](/assets/images/protocol/enforcement-modes.svg)
 
 ## 11. Conclusion
 

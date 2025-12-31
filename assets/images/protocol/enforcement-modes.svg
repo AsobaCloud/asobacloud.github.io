@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" style="background-color: #ffffff;">
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Continuous vs Discrete Enforcement Modes</text>
+  
+  <!-- Left Panel: Continuous Enforcement -->
+  <rect x="50" y="80" width="320" height="380" fill="#f0f9ff" stroke="#1e40af" stroke-width="2" rx="5"/>
+  <text x="210" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Continuous Enforcement (Intraday)</text>
+  
+  <!-- Margin account -->
+  <rect x="100" y="150" width="220" height="80" fill="#dbeafe" stroke="#1e40af" stroke-width="2" rx="5"/>
+  <text x="210" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Margin Account</text>
+  <text x="210" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Account-based collateral</text>
+  <text x="210" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">balances</text>
+  
+  <!-- Net exposure line -->
+  <line x1="120" y1="280" x2="300" y2="280" stroke="#3b82f6" stroke-width="3"/>
+  <path d="M 120 280 Q 180 250 240 260 Q 300 270 300 280" stroke="#3b82f6" stroke-width="2" fill="none"/>
+  <text x="210" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1e40af">Fluctuating net exposure</text>
+  
+  <!-- Collateral balance constraint -->
+  <line x1="120" y1="320" x2="300" y2="320" stroke="#16a34a" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="210" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#166534">Collateral balance constraint</text>
+  
+  <!-- Features -->
+  <text x="210" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">" Fast, automatic enforcement</text>
+  <text x="210" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">" Proportional to current exposure</text>
+  <text x="210" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">" No NFT instruments</text>
+  
+  <!-- Right Panel: Discrete Enforcement -->
+  <rect x="430" y="80" width="320" height="380" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="5"/>
+  <text x="590" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Discrete Enforcement (Commitments)</text>
+  
+  <!-- Commitment blocks -->
+  <rect x="460" y="150" width="260" height="50" fill="#fde68a" stroke="#d97706" stroke-width="2" rx="3"/>
+  <text x="590" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Commitment 1: Availability Guarantee</text>
+  <text x="590" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Scope: VPP | Duration: 6 months | Collateral: Locked</text>
+  
+  <rect x="460" y="220" width="260" height="50" fill="#fde68a" stroke="#d97706" stroke-width="2" rx="3"/>
+  <text x="590" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Commitment 2: Performance Financing</text>
+  <text x="590" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Scope: Battery upgrade | Duration: 12 months | Collateral: Locked</text>
+  
+  <rect x="460" y="290" width="260" height="50" fill="#fde68a" stroke="#d97706" stroke-width="2" rx="3"/>
+  <text x="590" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Commitment 3: Municipal SLA</text>
+  <text x="590" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Scope: Grid service | Duration: 3 months | Collateral: Locked</text>
+  
+  <!-- Lifecycle -->
+  <text x="590" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Lifecycle:</text>
+  <text x="590" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Issuance ’ Active ’ Fulfilled/Expired</text>
+  <text x="590" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Clear audit trail over time</text>
+</svg>
