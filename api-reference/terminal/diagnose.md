@@ -1,0 +1,95 @@
+# Terminal API: AI Diagnostics
+
+Execute AI diagnostics on detected faults to identify root causes and recommended actions. This endpoint triggers the Orient stage of the OODA loop.
+
+## Endpoint
+
+```
+POST https://api.asoba.co/terminal/diagnose
+```
+
+## Request Body
+
+```json
+{
+  "action": "run",
+  "asset_id": "INV-001"
+}
+```
+
+Or to list diagnostic results:
+
+```json
+{
+  "action": "list",
+  "asset_id": "INV-001"
+}
+```
+
+## Request Schema
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `action` | string | Yes | Operation: `"run"` to execute diagnostics, `"list"` to retrieve results |
+| `asset_id` | string | Yes (for run) | Asset identifier to run diagnostics on |
+
+## Response Format
+
+### Successful Run Response
+
+```json
+{
+  "success": true,
+  "message": "Diagnostics completed",
+  "diagnostic_id": "diag_20250123_120000",
+  "asset_id": "INV-001",
+  "root_cause": "Inverter overheating detected",
+  "confidence": 0.92,
+  "status": "completed"
+}
+```
+
+### Successful List Response
+
+```json
+{
+  "success": true,
+  "diagnostics": [
+    {
+      "diagnostic_id": "diag_20250123_120000",
+      "asset_id": "INV-001",
+      "diagnosed_at": "2025-01-23T12:00:00Z",
+      "root_cause": "Inverter overheating detected",
+      "confidence": 0.92,
+      "severity": "critical"
+    }
+  ],
+  "count": 1
+}
+```
+
+## cURL Example
+
+```bash
+curl -X POST https://api.asoba.co/terminal/diagnose \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "action": "run",
+    "asset_id": "INV-001"
+  }'
+```
+
+## Error Responses
+
+| Status Code | Error Message | Description |
+|------------|---------------|-------------|
+| `400 Bad Request` | `Invalid action` | Action must be "run" or "list" |
+| `404 Not Found` | `Asset not found` | Asset ID does not exist |
+| `401 Unauthorized` | `Unauthorized` | Missing or invalid API key |
+
+## See Also
+
+- [Terminal API Overview](./overview.md) - Complete API reference
+- [Fault Detection](./detect.md) - Run detection first
+- [OODA Summaries](./ooda.md) - Get ML-enhanced summaries

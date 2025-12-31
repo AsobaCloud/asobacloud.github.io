@@ -4,6 +4,7 @@ This section provides complete documentation for all forecasting-related API end
 
 ## Endpoints
 
+*   **[Generate Forecast](./forecast.md)**: Generate forecasts using trained ML models (uses `ForecastResponse.json` schema)
 *   **[Freemium Forecast](./freemium-forecast.md)**: Generate a 24-hour forecast from a CSV file (free tier)
 *   **[Authentication](../authentication.md)**: Learn how to authenticate API requests
 
