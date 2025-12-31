@@ -42,7 +42,4 @@
   
   <!-- Thick vertical line -->
   <line x1="400" y1="80" x2="400" y2="460" stroke="#000" stroke-width="4"/>
-  
-  <!-- Label on the line -->
-  <text x="400" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" stroke="#000" stroke-width="0.5">Failure externalizes cost</text>
 </svg>

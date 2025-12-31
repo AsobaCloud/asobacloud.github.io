@@ -13,10 +13,11 @@
   <text x="210" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">collateral</text>
   <text x="210" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">balances</text>
   
-  <!-- Net exposure line -->
+  <!-- Net exposure line with polygon background -->
+  <polygon points="120,260 300,260 300,290 120,290" fill="#e0e7ff" opacity="0.5" stroke="none"/>
   <line x1="120" y1="280" x2="300" y2="280" stroke="#3b82f6" stroke-width="3"/>
   <path d="M 120 280 Q 180 250 240 260 Q 300 270 300 280" stroke="#3b82f6" stroke-width="2" fill="none"/>
-  <text x="210" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1e40af">Fluctuating net exposure</text>
+  <text x="210" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1e40af">Fluctuating net exposure</text>
   
   <!-- Collateral balance constraint -->
   <line x1="120" y1="320" x2="300" y2="320" stroke="#16a34a" stroke-width="2" stroke-dasharray="3,3"/>
