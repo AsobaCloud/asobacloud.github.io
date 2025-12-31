@@ -10,10 +10,10 @@ When you upload a CSV file, our platform automatically performs a series of data
 3.  **Timezone Normalization**: All timestamps are converted to UTC to ensure consistency.
 4.  **Data Cleaning**: The platform handles missing values and outliers in your data to improve model stability.
 
-For a more detailed explanation of this process, please see the [Data Standardization](../../technical-concepts/data-standardization.md) page in our Technical Concepts section.
+For a more detailed explanation of this process, please see the [Data Standardization](../../technical-concepts/data-standardization) page in our Technical Concepts section.
 
 ## See Also
 
-- [Preparing Data](./preparing-data.md) - Data format requirements
-- [Uploading Data](./uploading-data.md) - How to upload data
-- [Data Standardization](../../technical-concepts/data-standardization.md) - Technical details on standardization process
+- [Preparing Data](./preparing-data) - Data format requirements
+- [Uploading Data](./uploading-data) - How to upload data
+- [Data Standardization](../../technical-concepts/data-standardization) - Technical details on standardization process

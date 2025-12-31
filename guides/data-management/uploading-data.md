@@ -3,7 +3,7 @@ layout: default
 ---
 # Uploading Your Data
 
-You can upload your data via the API as shown in the [Get Started](../../get-started.md) guide. This guide provides detailed instructions for uploading both training data (for model training) and nowcast data (for real-time forecasting).
+You can upload your data via the API as shown in the [Get Started](../../get-started) guide. This guide provides detailed instructions for uploading both training data (for model training) and nowcast data (for real-time forecasting).
 
 ## Upload Methods
 
@@ -53,7 +53,7 @@ The API expects files as part of a `multipart/form-data` request. Your CSV file 
 - **Power/Energy Column**: Numeric values (kW or kWh)
 - **Optional Metadata**: Site name, location, etc.
 
-See [Preparing Data](./preparing-data.md) for detailed format requirements.
+See [Preparing Data](./preparing-data) for detailed format requirements.
 
 ## Authentication
 
@@ -63,7 +63,7 @@ All data upload endpoints require authentication via API keys. Include your API 
 Authorization: Bearer YOUR_API_KEY
 ```
 
-See [Authentication](../../api-reference/authentication.md) for API key management.
+See [Authentication](../../api-reference/authentication) for API key management.
 
 ## Response Handling
 
@@ -76,26 +76,26 @@ Successful uploads return a JSON response with:
 
 ## Common Issues
 
-**File Format**: Ensure CSV file matches required format (see [Preparing Data](./preparing-data.md))
+**File Format**: Ensure CSV file matches required format (see [Preparing Data](./preparing-data))
 
 **Authentication**: Verify API key is correctly included in headers
 
 **File Size**: Keep files under 10MB for optimal performance
 
-**Data Quality**: Check [Data Quality](./data-quality.md) guide for validation requirements
+**Data Quality**: Check [Data Quality](./data-quality) guide for validation requirements
 
 ## Next Steps
 
 After uploading your data:
 
-1. **Prepare Data**: Review [Preparing Data](./preparing-data.md) for format requirements
-2. **Check Quality**: Understand [Data Quality](./data-quality.md) validation
-3. **Generate Forecasts**: Use [Forecasting Guide](../forecasting/overview.md) to create forecasts
-4. **Review API**: Check [Data Ingestion API](../../api-reference/data-ingestion/overview.md) documentation
+1. **Prepare Data**: Review [Preparing Data](./preparing-data) for format requirements
+2. **Check Quality**: Understand [Data Quality](./data-quality) validation
+3. **Generate Forecasts**: Use [Forecasting Guide](../forecasting/overview) to create forecasts
+4. **Review API**: Check [Data Ingestion API](../../api-reference/data-ingestion/overview) documentation
 
 ## See Also
 
-- [Preparing Data](./preparing-data.md) - Data format requirements
-- [Data Quality](./data-quality.md) - Understanding data standardization
-- [API Reference](../../api-reference/forecasting/freemium-forecast.md) - Complete API documentation
-- [Authentication](../../api-reference/authentication.md) - API key management
+- [Preparing Data](./preparing-data) - Data format requirements
+- [Data Quality](./data-quality) - Understanding data standardization
+- [API Reference](../../api-reference/forecasting/freemium-forecast) - Complete API documentation
+- [Authentication](../../api-reference/authentication) - API key management

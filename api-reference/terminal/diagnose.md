@@ -93,6 +93,6 @@ curl -X POST https://api.asoba.co/terminal/diagnose \
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Fault Detection](./detect.md) - Run detection first
-- [OODA Summaries](./ooda.md) - Get ML-enhanced summaries
+- [Terminal API Overview](./overview) - Complete API reference
+- [Fault Detection](./detect) - Run detection first
+- [OODA Summaries](./ooda) - Get ML-enhanced summaries

@@ -136,7 +136,7 @@ curl -X POST https://api.asoba.co/terminal/forecast \
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Forecasting API](../forecasting/overview.md) - Generate new forecasts
-- [ML Model Registry](./ml-models.md) - View available models
-- [Forecasting Guides](../../guides/forecasting/overview.md) - How-to guides
+- [Terminal API Overview](./overview) - Complete API reference
+- [Forecasting API](../forecasting/overview) - Generate new forecasts
+- [ML Model Registry](./ml-models) - View available models
+- [Forecasting Guides](../../guides/forecasting/overview) - How-to guides

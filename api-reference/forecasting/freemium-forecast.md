@@ -5,7 +5,7 @@ layout: default
 
 This document provides a detailed reference for the Freemium Forecasting API, which allows you to generate a 24-hour forecast from a CSV file of historical data. This is a simplified endpoint designed for quick testing and evaluation.
 
-**Note**: For production use with trained models, see the [Generate Forecast](./forecast.md) endpoint which uses the `ForecastResponse.json` schema.
+**Note**: For production use with trained models, see the [Generate Forecast](./forecast) endpoint which uses the `ForecastResponse.json` schema.
 
 This API is designed for **Developers**.
 

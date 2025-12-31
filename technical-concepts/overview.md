@@ -9,7 +9,7 @@ Understanding these technical concepts will help you make better decisions about
 
 ## Quick Start
 
-To get started with our technical concepts, we recommend beginning with [Data Standardization](./data-standardization.md) to understand how we process your data, then exploring [Machine Learning Models](./machine-learning/forecasting-models.md) to learn about our forecasting algorithms.
+To get started with our technical concepts, we recommend beginning with [Data Standardization](./data-standardization) to understand how we process your data, then exploring [Machine Learning Models](./machine-learning/forecasting-models) to learn about our forecasting algorithms.
 
 ## What You Can Find Here
 
@@ -17,13 +17,13 @@ To get started with our technical concepts, we recommend beginning with [Data St
   <div class="overview-card">
     <h3>Machine Learning Models</h3>
     <p>An overview of the different machine learning models we use for forecasting and anomaly detection. Learn about generic models, customer-specific models, and how model selection impacts forecast accuracy. Understand the algorithms, training processes, and performance characteristics of each model type.</p>
-    <a href="./machine-learning/forecasting-models.md" class="card-link">Learn More →</a>
+    <a href="./machine-learning/forecasting-models" class="card-link">Learn More →</a>
   </div>
   
   <div class="overview-card">
     <h3>Data Standardization</h3>
     <p>A comprehensive look at our automated process for ingesting, cleaning, and standardizing data from a wide variety of sources. Understand how we handle different data formats, time zones, units, and quality issues to ensure consistent inputs for our machine learning models.</p>
-    <a href="./data-standardization.md" class="card-link">Learn More →</a>
+    <a href="./data-standardization" class="card-link">Learn More →</a>
   </div>
 </div>
 
@@ -51,22 +51,22 @@ Forecasts are generated using ensemble methods that combine multiple model predi
 
 These technical concepts are frequently referenced:
 
-- **[Forecasting Models](./machine-learning/forecasting-models.md)**: Deep dive into ML model architecture
-- **[Data Standardization](./data-standardization.md)**: How we process and clean your data
-- **[Model Training](../api-reference/data-ingestion/upload-train.md)**: Upload training data for custom models
-- **[Forecast Accuracy](../guides/forecasting/improving-accuracy.md)**: Factors affecting forecast performance
+- **[Forecasting Models](./machine-learning/forecasting-models)**: Deep dive into ML model architecture
+- **[Data Standardization](./data-standardization)**: How we process and clean your data
+- **[Model Training](../api-reference/data-ingestion/upload-train)**: Upload training data for custom models
+- **[Forecast Accuracy](../guides/forecasting/improving-accuracy)**: Factors affecting forecast performance
 
 ## Next Steps
 
 Now that you understand our technical concepts:
 
-1. **Learn About Models**: Explore [Machine Learning Models](./machine-learning/forecasting-models.md) to understand our forecasting algorithms
-2. **Understand Data Processing**: Read [Data Standardization](./data-standardization.md) to see how we handle your data
-3. **Generate Forecasts**: Use the [Forecasting Guide](../guides/forecasting/overview.md) to apply this knowledge
-4. **API Integration**: Review the [API Reference](../api-reference/overview.md) for technical implementation details
+1. **Learn About Models**: Explore [Machine Learning Models](./machine-learning/forecasting-models) to understand our forecasting algorithms
+2. **Understand Data Processing**: Read [Data Standardization](./data-standardization) to see how we handle your data
+3. **Generate Forecasts**: Use the [Forecasting Guide](../guides/forecasting/overview) to apply this knowledge
+4. **API Integration**: Review the [API Reference](../api-reference/overview) for technical implementation details
 
 ## See Also
 
-- [Forecasting Guides](../guides/forecasting/overview.md) - How to use forecasting features
-- [API Reference](../api-reference/overview.md) - Technical API documentation
-- [Developer Guide](../guides/developer-guide.md) - Integration patterns and best practices
+- [Forecasting Guides](../guides/forecasting/overview) - How to use forecasting features
+- [API Reference](../api-reference/overview) - Technical API documentation
+- [Developer Guide](../guides/developer-guide) - Integration patterns and best practices

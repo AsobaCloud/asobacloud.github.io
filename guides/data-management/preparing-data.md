@@ -34,6 +34,6 @@ For best results, we recommend providing data with at least an hourly granularit
 
 ## See Also
 
-- [Uploading Data](./uploading-data.md) - How to upload your prepared data
-- [Data Quality](./data-quality.md) - Understanding data standardization
-- [Get Started](../../get-started.md) - Quick start tutorial
+- [Uploading Data](./uploading-data) - How to upload your prepared data
+- [Data Quality](./data-quality) - Understanding data standardization
+- [Get Started](../../get-started) - Quick start tutorial

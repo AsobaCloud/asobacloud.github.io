@@ -137,6 +137,6 @@ The service uses ML-powered interpolation methods that adapt to your data patter
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Data Management Guides](../../guides/data-management/overview.md) - How-to guides for data preparation
-- [Technical Concepts](../../technical-concepts/data-standardization.md) - Data standardization details
+- [Terminal API Overview](./overview) - Complete API reference
+- [Data Management Guides](../../guides/data-management/overview) - How-to guides for data preparation
+- [Technical Concepts](../../technical-concepts/data-standardization) - Data standardization details

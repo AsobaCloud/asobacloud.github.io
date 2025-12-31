@@ -143,6 +143,6 @@ curl -X POST https://api.asoba.co/terminal/ml-models \
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Forecast Results](./forecast.md) - Retrieve forecast predictions
-- [Technical Concepts](../../technical-concepts/machine-learning/overview.md) - ML model details
+- [Terminal API Overview](./overview) - Complete API reference
+- [Forecast Results](./forecast) - Retrieve forecast predictions
+- [Technical Concepts](../../technical-concepts/machine-learning/overview) - ML model details

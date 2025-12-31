@@ -7,8 +7,8 @@ The Data Ingestion API provides endpoints for uploading historical and real-time
 
 ## Endpoints
 
-*   **[Upload Training Data](./upload-train.md)**: Upload historical data for model training
-*   **[Upload Nowcast Data](./upload-nowcast.md)**: Upload real-time data for forecasting
+*   **[Upload Training Data](./upload-train)**: Upload historical data for model training
+*   **[Upload Nowcast Data](./upload-nowcast)**: Upload real-time data for forecasting
 
 ## API Design Principles
 
@@ -40,12 +40,12 @@ When you upload data:
 
 To upload your first dataset:
 
-1. [Prepare your data](../../guides/data-management/preparing-data.md) in the correct format
-2. [Upload training data](./upload-train.md) for historical datasets
-3. [Upload nowcast data](./upload-nowcast.md) for real-time updates
+1. [Prepare your data](../../guides/data-management/preparing-data) in the correct format
+2. [Upload training data](./upload-train) for historical datasets
+3. [Upload nowcast data](./upload-nowcast) for real-time updates
 
 ## See Also
 
-- [Get Started](../../get-started.md) - Quick start tutorial
-- [Data Management Guides](../../guides/data-management/overview.md) - How-to guides for data preparation
-- [Technical Concepts](../../technical-concepts/data-standardization.md) - Data standardization details
+- [Get Started](../../get-started) - Quick start tutorial
+- [Data Management Guides](../../guides/data-management/overview) - How-to guides for data preparation
+- [Technical Concepts](../../technical-concepts/data-standardization) - Data standardization details
