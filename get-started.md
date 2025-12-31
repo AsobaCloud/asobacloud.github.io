@@ -100,5 +100,5 @@ You have successfully generated your first forecast using the Ona Intelligence L
 
 Now that you have a basic understanding of how to use the API, you can:
 
-*   **Explore our Guides**: Learn more about [Forecasting](./guides/forecasting.md) and [Data Management](./guides/data-management.md).
-*   **Dive into the API Reference**: Get detailed information about the [Freemium Forecasting API](./api-reference/freemium-forecasting-api.md).
+*   **Explore our Guides**: Learn more about [Forecasting](./guides/forecasting/overview.md) and [Data Management](./guides/data-management/overview.md).
+*   **Dive into the API Reference**: Get detailed information about the [Freemium Forecasting API](./api-reference/forecasting/freemium-forecast.md).

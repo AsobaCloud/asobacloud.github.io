@@ -42,73 +42,159 @@ layout: default
     </div>
   </header>
 
+  <!-- NAV START -->
   <div class="sidebar">
     <nav class="side-nav">
       <ul class="nav-list">
+        <!-- Home -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/index.html">Home</a>
+            <a href="{{ site.baseurl }}/">Home</a>
+          </div>
+        </li>
+        
+        <!-- Getting Started -->
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/get-started">Getting Started</a>
+          </div>
+        </li>
+        
+        <!-- Guides -->
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/guides/overview">Guides</a>
             <span class="toggle-icon">+</span>
           </div>
           <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/index.html#choose-your-path">Choose Your Path</a></li>
-            <li><a href="{{ site.baseurl }}/index.html#products-services">Products & Services</a></li>
-            <li><a href="{{ site.baseurl }}/index.html#industry-use-cases">Industry Use Cases</a></li>
+            <li><a href="{{ site.baseurl }}/guides/overview">Overview</a></li>
+            
+            <!-- Forecasting Subsection -->
+            <li class="nav-subsection">
+              <div class="sub-nav-header">
+                <a href="{{ site.baseurl }}/guides/forecasting/overview">Forecasting</a>
+                <span class="sub-toggle-icon">+</span>
+              </div>
+              <ul class="sub-sub-menu">
+                <li><a href="{{ site.baseurl }}/guides/forecasting/overview">Overview</a></li>
+                <li><a href="{{ site.baseurl }}/guides/forecasting/generating-forecasts">Generating Forecasts</a></li>
+                <li><a href="{{ site.baseurl }}/guides/forecasting/interpreting-results">Interpreting Results</a></li>
+                <li><a href="{{ site.baseurl }}/guides/forecasting/improving-accuracy">Improving Accuracy</a></li>
+              </ul>
+            </li>
+            
+            <!-- Data Management Subsection -->
+            <li class="nav-subsection">
+              <div class="sub-nav-header">
+                <a href="{{ site.baseurl }}/guides/data-management/overview">Data Management</a>
+                <span class="sub-toggle-icon">+</span>
+              </div>
+              <ul class="sub-sub-menu">
+                <li><a href="{{ site.baseurl }}/guides/data-management/overview">Overview</a></li>
+                <li><a href="{{ site.baseurl }}/guides/data-management/preparing-data">Preparing Data</a></li>
+                <li><a href="{{ site.baseurl }}/guides/data-management/uploading-data">Uploading Data</a></li>
+                <li><a href="{{ site.baseurl }}/guides/data-management/data-quality">Data Quality</a></li>
+              </ul>
+            </li>
+            
+            <!-- Portfolio Management Subsection -->
+            <li class="nav-subsection">
+              <div class="sub-nav-header">
+                <a href="{{ site.baseurl }}/guides/portfolio-management/overview">Portfolio Management</a>
+                <span class="sub-toggle-icon">+</span>
+              </div>
+              <ul class="sub-sub-menu">
+                <li><a href="{{ site.baseurl }}/guides/portfolio-management/overview">Overview</a></li>
+              </ul>
+            </li>
+            
+            <!-- Developer Guide -->
+            <li><a href="{{ site.baseurl }}/guides/developer-guide">Developer Guide</a></li>
           </ul>
         </li>
+        
+        <!-- API Reference -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/intelligence-layer.html">Intelligence Layer</a>
+            <a href="{{ site.baseurl }}/api-reference/overview">API Reference</a>
             <span class="toggle-icon">+</span>
           </div>
           <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/intelligence-layer.html">Introduction</a></li>
-            <li><a href="{{ site.baseurl }}/business-users.html">Data Governance</a></li>
-            <li><a href="{{ site.baseurl }}/om_interface.html">Asset Management</a></li>
-            <li><a href="{{ site.baseurl }}/use-cases.html">DER Use Cases</a></li>
-            <li><a href="{{ site.baseurl }}/implementation.html">Implementation Guide</a></li>
-            <li><a href="https://code.asoba.co" target="_blank">Product Documentation</a></li>
+            <li><a href="{{ site.baseurl }}/api-reference/overview">Overview</a></li>
+            <li><a href="{{ site.baseurl }}/api-reference/authentication">Authentication</a></li>
+            
+            <!-- Forecasting API Subsection -->
+            <li class="nav-subsection">
+              <div class="sub-nav-header">
+                <a href="{{ site.baseurl }}/api-reference/forecasting/overview">Forecasting</a>
+                <span class="sub-toggle-icon">+</span>
+              </div>
+              <ul class="sub-sub-menu">
+                <li><a href="{{ site.baseurl }}/api-reference/forecasting/overview">Overview</a></li>
+                <li><a href="{{ site.baseurl }}/api-reference/forecasting/freemium-forecast">Freemium Forecast</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
+        
+        <!-- Technical Concepts -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/national-policy.html">AI + Infrastructure Policy</a>
+            <a href="{{ site.baseurl }}/technical-concepts/overview">Technical Concepts</a>
             <span class="toggle-icon">+</span>
           </div>
           <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/national-policy.html">National Policy</a></li>
-            <li><a href="{{ site.baseurl }}/data-sovereignty.html">Data Sovereignty</a></li>
+            <li><a href="{{ site.baseurl }}/technical-concepts/overview">Overview</a></li>
+            <li><a href="{{ site.baseurl }}/technical-concepts/data-standardization">Data Standardization</a></li>
+            
+            <!-- Machine Learning Subsection -->
+            <li class="nav-subsection">
+              <div class="sub-nav-header">
+                <a href="{{ site.baseurl }}/technical-concepts/machine-learning/overview">Machine Learning</a>
+                <span class="sub-toggle-icon">+</span>
+              </div>
+              <ul class="sub-sub-menu">
+                <li><a href="{{ site.baseurl }}/technical-concepts/machine-learning/overview">Overview</a></li>
+                <li><a href="{{ site.baseurl }}/technical-concepts/machine-learning/forecasting-models">Forecasting Models</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
+        
+        <!-- Use Cases -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/research.html">Research</a>
+            <a href="{{ site.baseurl }}/use-cases/overview">Use Cases</a>
             <span class="toggle-icon">+</span>
           </div>
           <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/research.html#papers">Papers</a></li>
-            <li><a href="{{ site.baseurl }}/research.html#open-data">Open Data</a></li>
-            <li><a href="{{ site.baseurl }}/research.html#github-repos">GitHub Repos</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/overview">Overview</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/sibaya-casino">Sibaya Casino</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/cummins-portfolio">Cummins Portfolio</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/avaron-infrastructure">Avaron Infrastructure</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/energy-trading">Energy Trading</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/oam">O&M Optimization</a></li>
+            <li><a href="{{ site.baseurl }}/use-cases/insurance">Insurance & Risk</a></li>
           </ul>
         </li>
+        
+        <!-- Products -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/media.html">Media Kit</a>
+            <a href="{{ site.baseurl }}/products">Products</a>
+            <span class="toggle-icon">+</span>
           </div>
-        </li>
-        <li class="nav-item">
-          <div class="nav-header">    
-            <a href="{{ site.baseurl }}/legal.html">Legal</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <div class="nav-header">
-            <a href="{{ site.baseurl }}/support.html">Contact</a>
-          </div>
+          <ul class="sub-menu">
+            <li><a href="{{ site.baseurl }}/products">Overview</a></li>
+            <li><a href="{{ site.baseurl }}/products/terminal">Terminal</a></li>
+            <li><a href="{{ site.baseurl }}/products/analyst">Analyst</a></li>
+            <li><a href="{{ site.baseurl }}/products/distributed-compute">Distributed Compute</a></li>
+          </ul>
         </li>
       </ul>
     </nav>
   </div>
+  <!-- NAV END -->
 
   <div class="content">
     {{ content }}
@@ -116,20 +202,23 @@ layout: default
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      
       // Handle main navigation toggles
       const toggleIcons = document.querySelectorAll('.toggle-icon');
       
       toggleIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-          const subMenu = this.parentElement.nextElementSibling;
+        icon.addEventListener('click', function(e) {
+          e.preventDefault();
+          const navItem = this.closest('.nav-item');
+          const subMenu = navItem.querySelector('.sub-menu');
           
-          // Toggle submenu visibility
-          if(subMenu.style.display === 'none' || subMenu.style.display === '') {
-            subMenu.style.display = 'block';
-            this.textContent = '-';
-          } else {
-            subMenu.style.display = 'none';
-            this.textContent = '+';
+          if (subMenu) {
+            const isActive = subMenu.classList.contains('active');
+            subMenu.classList.toggle('active');
+            subMenu.style.display = isActive ? 'none' : 'block';
+            this.classList.toggle('active');
+            this.textContent = isActive ? '+' : '−';
           }
         });
       });
@@ -138,50 +227,48 @@ layout: default
       const subToggleIcons = document.querySelectorAll('.sub-toggle-icon');
       
       subToggleIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-          const subSubMenu = this.parentElement.nextElementSibling;
+        icon.addEventListener('click', function(e) {
+          e.preventDefault();
+          const navSubsection = this.closest('.nav-subsection');
+          const subSubMenu = navSubsection.querySelector('.sub-sub-menu');
           
-          // Toggle sub-submenu visibility
-          if(subSubMenu.style.display === 'none' || subSubMenu.style.display === '') {
-            subSubMenu.style.display = 'block';
-            this.textContent = '-';
-          } else {
-            subSubMenu.style.display = 'none';
-            this.textContent = '+';
+          if (subSubMenu) {
+            const isActive = subSubMenu.classList.contains('active');
+            subSubMenu.classList.toggle('active');
+            subSubMenu.style.display = isActive ? 'none' : 'block';
+            this.classList.toggle('active');
+            this.textContent = isActive ? '+' : '−';
           }
         });
       });
 
-      // Get current page path
-      const currentPath = window.location.pathname;
-      
-      // Expand the current section
-      document.querySelectorAll('.nav-header a').forEach(link => {
-        if(currentPath.includes(link.getAttribute('href').split('#')[0])) {
-          const subMenu = link.parentElement.nextElementSibling;
-          const toggleIcon = link.nextElementSibling;
-          subMenu.style.display = 'block';
-          toggleIcon.textContent = '-';
+      // Auto-expand current section
+      document.querySelectorAll('.nav-header a, .sub-nav-header a').forEach(link => {
+        const href = link.getAttribute('href');
+        const linkPath = href.split('#')[0].replace(/\/$/, '') || '/';
+        const currentPathClean = currentPath.replace(/\/$/, '') || '/';
+        
+        if (currentPathClean === linkPath || currentPathClean.startsWith(linkPath + '/')) {
+          // Mark as active
+          link.classList.add('active');
           
-          // Also expand relevant sub-categories for API Endpoints and SDK
-          if (link.getAttribute('href').includes('endpoints.html')) {
-            // Expand all API endpoint categories by default
-            subMenu.querySelectorAll('.sub-sub-menu').forEach(subSubMenu => {
-              subSubMenu.style.display = 'block';
-            });
-            subMenu.querySelectorAll('.sub-toggle-icon').forEach(subIcon => {
-              subIcon.textContent = '-';
-            });
-          }
-          
-          if (link.getAttribute('href').includes('sdk.html')) {
-            // Expand SDK categories by default
-            subMenu.querySelectorAll('.sub-sub-menu').forEach(subSubMenu => {
-              subSubMenu.style.display = 'block';
-            });
-            subMenu.querySelectorAll('.sub-toggle-icon').forEach(subIcon => {
-              subIcon.textContent = '-';
-            });
+          // Expand parent menus
+          let parent = link.closest('.nav-item, .nav-subsection');
+          while (parent) {
+            const subMenu = parent.querySelector('.sub-menu, .sub-sub-menu');
+            const toggleIcon = parent.querySelector('.toggle-icon, .sub-toggle-icon');
+            
+            if (subMenu) {
+              subMenu.classList.add('active');
+              subMenu.style.display = 'block';
+            }
+            
+            if (toggleIcon) {
+              toggleIcon.classList.add('active');
+              toggleIcon.textContent = '−';
+            }
+            
+            parent = parent.parentElement.closest('.nav-item, .nav-subsection');
           }
         }
       });

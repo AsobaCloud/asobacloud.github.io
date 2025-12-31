@@ -1,310 +1,145 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.getElementById('search-input');
-  const searchResults = document.getElementById('search-results');
+// Search functionality - loads from auto-generated search-index.json
+
+async function loadSearchIndex() {
+  try {
+    const response = await fetch('/search-index.json');
+    if (!response.ok) {
+      throw new Error('Failed to load search index');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error loading search index:', error);
+    return [];
+  }
+}
+
+function highlightMatch(text, query) {
+  const regex = new RegExp(`(${query})`, 'gi');
+  return text.replace(regex, '<mark>$1</mark>');
+}
+
+function performSearch(query, searchData) {
+  const queryLower = query.toLowerCase().trim();
+  const queryWords = queryLower.split(/\s+/).filter(w => w.length > 0);
   
-  // Define comprehensive search data covering all site content
-  const searchData = [
-    {
-      title: "Home",
-      url: "/",
-      content: "The grid is changing faster than the tools built to manage it. We turn energy data chaos into revenue opportunities, giving power producers, utilities, traders, and policymakers the real-time intelligence needed to make distributed power generation profitable and reliable. DER Management, AI + Infrastructure Policy, Research. Ona Energy Management Platform, EnergyAnalyst. Industry Use Cases including O&M Optimization and Insurance & Risk Management.",
-      sections: [
-        { title: "Choose Your Path", id: "choose-your-path" },
-        { title: "Products & Services", id: "products-services" },
-        { title: "Industry Use Cases", id: "industry-use-cases" }
-      ]
-    },
-    {
-      title: "DER Management",
-      url: "/business-users",
-      content: "Solutions designed for managing distributed energy resources and optimizing grid integration. Asset Performance Monitoring, Predictive Maintenance, Financial Impact Analysis. Real-time dashboards, performance metrics, alerts and notifications. AI-powered insights, maintenance scheduling, cost optimization.",
-      sections: [
-        { title: "Asset Performance Monitoring", id: "asset-performance-monitoring" },
-        { title: "Predictive Maintenance", id: "predictive-maintenance" },
-        { title: "Financial Impact Analysis", id: "financial-impact-analysis" },
-        { title: "Getting Started for Business Users", id: "getting-started-for-business-users" },
-        { title: "Success Stories", id: "success-stories" }
-      ]
-    },
-    {
-      title: "DER Use Cases",
-      url: "/use-cases",
-      content: "Industry-specific solutions designed to address the unique challenges of distributed energy resource management. O&M Optimization, Insurance & Risk Management, predictive maintenance, work order management, vendor coordination, live monitoring, automated document review, instant parametric payouts.",
-      sections: [
-        { title: "O&M Optimization", id: "om-optimization" },
-        { title: "Insurance & Risk Management", id: "insurance-risk-management" },
-        { title: "Implementation Roadmap", id: "implementation-roadmap" },
-        { title: "Getting Started", id: "getting-started" }
-      ]
-    },
-    {
-      title: "Implementation Guide",
-      url: "/implementation",
-      content: "13-week onboarding implementation guide for distributed solar assets. Step-by-step implementation plan, integration phase, optimization phase, decision point, ROI analysis. Asset manager use case with 2MW solar portfolio across 3 sites. SCADA connections, historical data ingestion, real-time monitoring, predictive maintenance, compliance automation.",
-      sections: [
-        { title: "Week-by-Week Implementation Plan", id: "week-by-week-implementation-plan" },
-        { title: "Weeks 1-2: Integration Phase", id: "weeks-1-2-integration-phase" },
-        { title: "Weeks 3-12: Optimization Phase", id: "weeks-3-12-optimization-phase" },
-        { title: "Week 13: Decision Point", id: "week-13-decision-point" },
-        { title: "Platform Architecture Implementation Summary", id: "platform-architecture-implementation-summary" },
-        { title: "Key Success Metrics", id: "key-success-metrics" }
-      ]
-    },
-    {
-      title: "National Policy",
-      url: "/national-policy",
-      content: "National Policy. Doctrine for local data sovereignty and national security. AI infrastructure policy, regulatory compliance, policy framework.",
-      sections: [
-        { title: "Overview", id: "overview" }
-      ]
-    },
-    {
-      title: "Data Sovereignty",
-      url: "/data-sovereignty",
-      content: "Data Sovereignty. Local data sovereignty and national security. Data governance, local infrastructure, policy framework.",
-      sections: [
-        { title: "Overview", id: "overview" }
-      ]
-    },
-    {
-      title: "AI & Social Equity",
-      url: "/ai-social-equity",
-      content: "AI & Social Equity. Social equity in AI infrastructure, policy framework, local infrastructure.",
-      sections: [
-        { title: "Overview", id: "overview" }
-      ]
-    },
-    {
-      title: "Research",
-      url: "/research",
-      content: "Presentations, papers and open data resources. Research papers, open data datasets, GitHub repositories, academic publications.",
-      sections: [
-        { title: "Papers", id: "papers" },
-        { title: "Open Data", id: "open-data" },
-        { title: "GitHub Repos", id: "github-repos" }
-      ]
-    },
-    {
-      title: "Media Kit",
-      url: "/media",
-      content: "Media kit and resources. Webinar recordings, case studies, news articles, press releases, media resources.",
-      sections: [
-        { title: "In the News", id: "in-the-news" },
-        { title: "Webinar Recordings", id: "webinar-recordings" },
-        { title: "Case Studies", id: "case-studies" }
-      ]
-    },
-    {
-      title: "Legal",
-      url: "/legal",
-      content: "Legal documentation. Terms of Service, End User License Agreement, Privacy Policy, legal information.",
-      sections: []
-    },
-    {
-      title: "Contact",
-      url: "/support",
-      content: "Get in touch with us for support, sales, or general inquiries. Technical Support, Sales & Business, Emergency Support. Email support, Discord community, phone support.",
-      sections: [
-        { title: "Contact Information", id: "contact-information" }
-      ]
-    },
-    {
-      title: "O&M Optimization",
-      url: "/use-cases/oam",
-      content: "AI-powered operations and maintenance optimization using the OODA loop methodology. Predictive Maintenance, Performance Optimization, Cost Reduction, Asset Analytics. OODA workflow, automated decision-making, real-time monitoring.",
-      sections: [
-        { title: "The OODA Loop Methodology", id: "ooda-loop-methodology" },
-        { title: "Key Use Case Scenarios", id: "key-use-case-scenarios" },
-        { title: "Asset Management", id: "asset-management" },
-        { title: "AI-Assisted Analysis", id: "ai-assisted-analysis" },
-        { title: "Economic Optimization", id: "economic-optimization" },
-        { title: "Integration Capabilities", id: "integration-capabilities" },
-        { title: "Performance Metrics", id: "performance-metrics" }
-      ]
-    },
-    {
-      title: "Insurance & Risk Management",
-      url: "/use-cases/insurance",
-      content: "AI-driven insurance platform with live monitoring and instant parametric payouts. Risk Monitoring, Instant Payouts, Compliance Management, Document Automation. Automated document review, parametric insurance, real-time risk assessment.",
-      sections: [
-        { title: "Business Problem", id: "business-problem" },
-        { title: "How the System Works", id: "how-system-works" },
-        { title: "Business Impact & ROI", id: "business-impact-roi" },
-        { title: "Key Features", id: "key-features" },
-        { title: "Integration Capabilities", id: "integration-capabilities" },
-        { title: "Use Case Scenarios", id: "use-case-scenarios" }
-      ]
-    },
-    {
-      title: "Ona Energy Management Platform",
-      url: "https://code.asoba.co",
-      content: "AI-powered energy asset management. Command-line interface, automation, OODA workflow. Solar inverter control, battery management, grid integration, load forecasting. Real-time monitoring, performance analytics, predictive maintenance.",
-      sections: []
-    },
-    {
-      title: "EnergyAnalyst",
-      url: "/products/analyst",
-      content: "Regulatory compliance and policy analysis. AI-powered regulatory compliance, policy analysis for energy markets. Compliance checklists, implementation plans, documentation support, audit preparation.",
-      sections: [
-        { title: "Overview", id: "overview" },
-        { title: "Key Capabilities", id: "key-capabilities" },
-        { title: "Model Architecture", id: "model-architecture" },
-        { title: "Performance Metrics", id: "performance-metrics" },
-        { title: "Getting Started", id: "getting-started" },
-        { title: "Use Cases", id: "use-cases" },
-        { title: "Example Analysis", id: "example-analysis" },
-        { title: "Limitations", id: "limitations" }
-      ]
-    },
-    {
-      title: "Products & Services",
-      url: "/products",
-      content: "Comprehensive energy management solutions. Ona Energy Management Platform, EnergyAnalyst, Distributed Compute. Platform capabilities, integration options, API integration, SDK documentation.",
-      sections: [
-        { title: "Our Platform", id: "our-platform" },
-        { title: "Platform Capabilities", id: "platform-capabilities" },
-        { title: "Choose Your Interface", id: "choose-your-interface" },
-        { title: "Integration Options", id: "integration-options" }
-      ]
-    },
-    {
-      title: "FAQ",
-      url: "/faq",
-      content: "Frequently asked questions about Ona's energy management platform. Technical questions, business questions, system requirements, pricing, support.",
-      sections: [
-        { title: "Technical Questions", id: "technical-questions" },
-        { title: "Business Questions", id: "business-questions" }
-      ]
-    }
-  ];
-
-  // Handle search input
-  searchInput.addEventListener('input', function() {
-    const query = this.value.toLowerCase().trim();
+  if (queryWords.length === 0) {
+    return [];
+  }
+  
+  const results = [];
+  
+  searchData.forEach(item => {
+    const titleLower = item.title.toLowerCase();
+    const contentLower = item.content.toLowerCase();
+    const hierarchyLower = item.hierarchy ? item.hierarchy.toLowerCase() : '';
     
-    // Clear results if query is empty
-    if (!query) {
-      searchResults.innerHTML = '';
-      searchResults.style.display = 'none';
-      return;
-    }
-
-    // Perform search
-    const results = performSearch(query, searchData);
+    // Calculate relevance score
+    let relevanceScore = 0;
     
-    // Display results
-    if (results.length > 0) {
-      let resultsHtml = '<ul class="search-results-list">';
-      results.forEach(result => {
-        const titleHtml = result.sectionMatch 
-          ? `<strong>${result.title}</strong> <span class="search-section">? ${result.sectionTitle}</span>`
-          : `<strong>${result.title}</strong>`;
-        resultsHtml += `<li class="search-result-item"><a href="${result.url}">${titleHtml}</a><p class="search-preview">${result.preview}</p></li>`;
-      });
-      resultsHtml += '</ul>';
-      searchResults.innerHTML = resultsHtml;
-      searchResults.style.display = 'block';
-    } else {
-      searchResults.innerHTML = '<p class="no-results">No results found</p>';
-      searchResults.style.display = 'block';
-    }
-  });
-
-  // Enhanced search function that includes sections
-  function performSearch(query, data) {
-    const results = [];
-    const queryWords = query.split(/\s+/).filter(w => w.length > 0);
-    
-    // Search through each page and its sections
-    data.forEach(page => {
-      const title = page.title.toLowerCase();
-      const content = page.content.toLowerCase();
-      
-      // Calculate relevance score
-      let relevanceScore = 0;
-      let sectionMatch = false;
-      let matchedSection = null;
-      
-      // Check title match (highest weight)
-      queryWords.forEach(word => {
-        if (title.includes(word)) {
-          relevanceScore += 10;
-        }
-        if (content.includes(word)) {
-          relevanceScore += 1;
-        }
-      });
-      
-      // Check if any section titles match the query
-      if (page.sections && page.sections.length > 0) {
-        for (const section of page.sections) {
-          const sectionTitle = section.title.toLowerCase();
-          const hasMatch = queryWords.some(word => sectionTitle.includes(word));
-          if (hasMatch) {
-            sectionMatch = true;
-            matchedSection = section;
-            relevanceScore += 5; // Section title match gets bonus
-            break;
-          }
-        }
+    queryWords.forEach(word => {
+      // Title match (highest weight)
+      if (titleLower.includes(word)) {
+        relevanceScore += 10;
       }
-      
-      // Only include pages with some relevance
-      if (relevanceScore > 0) {
-        let preview = '';
-        let url = page.url;
-        
-        if (sectionMatch && matchedSection) {
-          // If a section matched, use its title and link to the section
-          preview = `Found in section: ${matchedSection.title}`;
-          url = page.url.startsWith('http') 
-            ? page.url 
-            : `${page.url}#${matchedSection.id}`;
-        } else {
-          // Find the best matching content snippet
-          let bestMatchIndex = -1;
-          let bestMatchLength = 0;
-          
-          queryWords.forEach(word => {
-            const index = content.indexOf(word);
-            if (index !== -1) {
-              const matchLength = word.length;
-              if (matchLength > bestMatchLength) {
-                bestMatchIndex = index;
-                bestMatchLength = matchLength;
-              }
-            }
-          });
-          
-          if (bestMatchIndex !== -1) {
-            // Get a snippet around the query
-            const start = Math.max(0, bestMatchIndex - 50);
-            const end = Math.min(content.length, bestMatchIndex + bestMatchLength + 50);
-            preview = '...' + content.substring(start, end).replace(/\s+/g, ' ') + '...';
-          } else {
-            // Use the beginning of the content
-            preview = content.substring(0, 120).replace(/\s+/g, ' ') + '...';
-          }
-        }
-        
-        results.push({
-          title: page.title,
-          url: url,
-          preview: preview,
-          sectionMatch: sectionMatch,
-          sectionTitle: sectionMatch ? matchedSection.title : null,
-          relevance: relevanceScore
-        });
+      // Hierarchy match (medium weight)
+      if (hierarchyLower.includes(word)) {
+        relevanceScore += 5;
+      }
+      // Content match (lowest weight)
+      if (contentLower.includes(word)) {
+        relevanceScore += 1;
       }
     });
     
-    // Sort by relevance (highest first)
-    results.sort((a, b) => b.relevance - a.relevance);
-    
-    // Limit to top 10 results
-    return results.slice(0, 10);
-  }
+    // Only include if there's a match
+    if (relevanceScore > 0) {
+      // Find best content snippet
+      let preview = item.content.substring(0, 150);
+      const firstMatchIndex = contentLower.indexOf(queryWords[0]);
+      if (firstMatchIndex !== -1) {
+        const start = Math.max(0, firstMatchIndex - 30);
+        const end = Math.min(contentLower.length, firstMatchIndex + queryWords[0].length + 120);
+        preview = '...' + item.content.substring(start, end) + '...';
+      }
+      
+      results.push({
+        title: item.title,
+        url: item.url,
+        hierarchy: item.hierarchy,
+        preview: preview,
+        relevance: relevanceScore
+      });
+    }
+  });
+  
+  // Sort by relevance (highest first)
+  results.sort((a, b) => b.relevance - a.relevance);
+  
+  // Limit to top 10 results
+  return results.slice(0, 10);
+}
 
+function displayResults(results, query) {
+  const searchResults = document.getElementById('search-results');
+  
+  if (!searchResults) {
+    return;
+  }
+  
+  if (results.length === 0) {
+    searchResults.innerHTML = '<div class="no-results">No results found</div>';
+    searchResults.style.display = 'block';
+    return;
+  }
+  
+  const html = results.map(item => {
+    const titleHighlight = highlightMatch(item.title, query);
+    const hierarchy = item.hierarchy ? `<span class="search-hierarchy">${item.hierarchy}</span>` : '';
+    const previewHighlight = highlightMatch(item.preview, query);
+    
+    return `
+      <div class="search-result-item">
+        <a href="${item.url}">
+          <div class="search-result-title">${titleHighlight}</div>
+          ${hierarchy}
+          <div class="search-result-preview">${previewHighlight}</div>
+        </a>
+      </div>
+    `;
+  }).join('');
+  
+  searchResults.innerHTML = html;
+  searchResults.style.display = 'block';
+}
+
+async function initializeSearch() {
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  
+  if (!searchInput || !searchResults) {
+    return;
+  }
+  
+  // Load search index
+  const searchData = await loadSearchIndex();
+  
+  if (searchData.length === 0) {
+    console.warn('Search index is empty or failed to load');
+  }
+  
+  // Handle search input
+  searchInput.addEventListener('input', function(e) {
+    const query = e.target.value.trim();
+    
+    if (query.length < 2) {
+      searchResults.style.display = 'none';
+      return;
+    }
+    
+    const results = performSearch(query, searchData);
+    displayResults(results, query);
+  });
+  
   // Close search results when clicking elsewhere
   document.addEventListener('click', function(event) {
     if (!searchResults.contains(event.target) && event.target !== searchInput) {
@@ -319,4 +154,11 @@ document.addEventListener('DOMContentLoaded', function() {
       searchInput.blur();
     }
   });
-});
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeSearch);
+} else {
+  initializeSearch();
+}
