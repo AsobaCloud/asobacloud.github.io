@@ -144,3 +144,49 @@ The intended end state is a distributed energy system in which coordination scal
 In that end state, failures still occur—but they are contained, understood, and paid for locally. Growth is no longer capped by institutional hesitation or opaque risk, but by the availability of real, scarce collateral willing to stand behind commitments. Trust becomes optional, not foundational.
 
 This is not an attempt to reimagine energy markets. It is an attempt to make them work as they already claim to—reliably, transparently, and at scale.
+
+---
+
+## For Institutional Stakeholders
+
+The Asoba Protocol requires institutional capital to scale. As platform usage grows, the volume of risk-bearing commitments—performance guarantees, dispatch assurances, and performance-indexed financing—approaches a hard ceiling defined by available locked collateral.
+
+**We are seeking institutional partners** who understand energy infrastructure risk and are positioned to provide risk-bearing capital for protocol participation. This is not passive liquidity provision. It is active underwriting of defined risk categories, with variable compensation tied to usage and performance.
+
+### What We're Looking For
+
+- **Institutional capital** with expertise in energy infrastructure or structured finance
+- **Risk-bearing capacity** for underwriting performance guarantees and financing arrangements
+- **Long-term alignment** with the goal of enabling reliable, scalable distributed energy systems
+- **Regulatory sophistication** to navigate the protocol's conservative, compliance-first design
+
+### Participation Structure
+
+- **Active risk assumption**: Capital must be locked into specific protocol roles (guarantees, financing)
+- **Variable compensation**: Returns are usage-dependent, not fixed yields
+- **Explicit risk acceptance**: Participants are exposed to slashing and protocol-level risk
+- **Clear auditability**: All commitments and outcomes are transparently recorded
+
+### Next Steps
+
+If you represent institutional capital interested in participating in the Asoba Protocol as a risk-bearing liquidity provider, we invite you to reach out to discuss:
+
+- Protocol mechanics and risk structures
+- Participation requirements and capital commitments
+- Regulatory positioning and compliance frameworks
+- Performance metrics and compensation models
+
+**Contact**: [protocol@asoba.co](mailto:protocol@asoba.co)
+
+<div style="background-color: #f0f9ff; border: 2px solid #1e40af; border-radius: 8px; padding: 24px; margin: 32px 0;">
+  <h3 style="margin-top: 0; color: #1e40af;">Institutional Capital Partners</h3>
+  <p style="margin-bottom: 16px; color: #1e3a8a;">The protocol's growth is constrained by available risk capacity. Institutional capital providers enable the system to scale while maintaining the principle that every commitment is backed by scarce, loss-bearing collateral.</p>
+  <p style="margin-bottom: 0; font-weight: 600; color: #1e40af;">This is underwriting, not speculation. This is infrastructure, not trading.</p>
+</div>
+
+## See Also
+
+- [Asoba Protocol Overview](./overview) - Introduction to the protocol and key concepts
+- [Technical Concepts Overview](../overview) - Other technical documentation
+- [Machine Learning](../machine-learning/overview) - ML models and forecasting algorithms
+- [Data Standardization](../data-standardization) - Data processing and standardization

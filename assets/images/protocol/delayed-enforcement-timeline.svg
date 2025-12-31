@@ -7,21 +7,21 @@
   
   <!-- Time markers -->
   <line x1="150" y1="295" x2="150" y2="305" stroke="#000" stroke-width="2"/>
-  <text x="150" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">TÄ</text>
+  <text x="150" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">T<tspan font-size="10" baseline-shift="sub">0</tspan></text>
   <text x="150" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Commitment</text>
   <text x="150" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">made</text>
   
   <line x1="400" y1="295" x2="400" y2="305" stroke="#000" stroke-width="2"/>
-  <text x="400" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">TÅ</text>
+  <text x="400" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">T<tspan font-size="10" baseline-shift="sub">1</tspan></text>
   <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Performance</text>
   <text x="400" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">deviation</text>
   
   <line x1="650" y1="295" x2="650" y2="305" stroke="#000" stroke-width="2"/>
-  <text x="650" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">TÇ</text>
+  <text x="650" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">T<tspan font-size="10" baseline-shift="sub">2</tspan></text>
   <text x="650" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Enforcement /</text>
   <text x="650" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">penalty applied</text>
   
-  <!-- Shaded area between TÅ and TÇ -->
+  <!-- Shaded area between T1 and T2 -->
   <rect x="400" y="100" width="250" height="200" fill="#fee2e2" opacity="0.5"/>
   
   <!-- Upward-sloping curve: Cost of being wrong increases with time -->
