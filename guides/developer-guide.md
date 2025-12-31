@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Guide: Developer Guide
 
 This guide provides the core principles and processes for developers contributing to the Ona Intelligence Layer platform. Adherence to these guidelines is mandatory to ensure code quality, continuity, and accountability.

@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: OODA Summaries
 
 Retrieve ML-enhanced OODA (Observe-Orient-Decide-Act) summaries for your assets. These summaries include fault detection results, AI diagnostics, severity assessments, energy-at-risk calculations, and recommended actions.

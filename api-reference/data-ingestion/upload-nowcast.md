@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Data Ingestion API: Upload Nowcast Data
 
 Upload real-time solar production data for forecasting and monitoring. This endpoint accepts CSV files and triggers real-time processing pipelines.

@@ -1,4 +1,7 @@
 ---
+layout: default
+---
+---
 title: "O&M Optimization"
 layout: default
 nav_order: 1

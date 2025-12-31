@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # API Reference Overview
 
 This section provides a detailed, parameter-level reference for all public APIs of the Ona Intelligence Layer. It is designed for **Developers** who are building applications on top of our platform.

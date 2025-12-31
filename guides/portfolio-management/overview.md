@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Guide: Portfolio Management
 
 The Ona Intelligence Layer provides powerful tools for managing and analyzing a portfolio of renewable energy assets. This guide introduces the key concepts of portfolio management on our platform.

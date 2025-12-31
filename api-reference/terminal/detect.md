@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Fault Detection
 
 Run fault detection on your assets to identify anomalies and potential issues. This endpoint triggers the Observe stage of the OODA loop.

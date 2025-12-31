@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Machine Learning Overview
 
 This section provides technical details about the machine learning models and algorithms used in the Ona Intelligence Layer. Understanding these concepts helps you make informed decisions about model selection, data preparation, and forecast optimization.

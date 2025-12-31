@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: ML Model Registry
 
 Retrieve the shared catalog of all available ML models. This endpoint provides metadata about trained models including performance metrics, training parameters, and artifact locations.

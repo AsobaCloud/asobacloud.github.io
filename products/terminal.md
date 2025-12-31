@@ -1,4 +1,7 @@
 ---
+layout: default
+---
+---
 title: "Ona Terminal"
 layout: default
 nav_order: 1

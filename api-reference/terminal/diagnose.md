@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: AI Diagnostics
 
 Execute AI diagnostics on detected faults to identify root causes and recommended actions. This endpoint triggers the Orient stage of the OODA loop.

@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Use Case: Cummins Portfolio
 
 **Maintaining Operations Through Severe Data Loss**

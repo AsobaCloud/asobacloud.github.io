@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Data Ingestion API Overview
 
 The Data Ingestion API provides endpoints for uploading historical and real-time solar production data to the platform. These endpoints trigger automated data processing pipelines that standardize, enrich, and prepare your data for forecasting and analysis.

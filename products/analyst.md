@@ -1,4 +1,7 @@
 ---
+layout: default
+---
+---
 title: "EnergyAnalyst"
 layout: default
 nav_order: 3

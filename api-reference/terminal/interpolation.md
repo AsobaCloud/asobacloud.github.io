@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Interpolation Results
 
 Retrieve stored interpolation (gap-filling) results for your sites. This endpoint provides access to ML-powered data interpolation that fills missing data gaps in your time series.

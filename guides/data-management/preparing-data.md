@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Preparing Your Data
 
 The quality of your input data is the single most important factor in generating accurate forecasts. This guide outlines the best practices for preparing your data for the Ona Intelligence Layer.

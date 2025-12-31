@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Forecasting API Overview
 
 This section provides complete documentation for all forecasting-related API endpoints. Our forecasting APIs enable you to generate accurate energy forecasts for renewable energy assets, supporting use cases from energy trading to maintenance planning.

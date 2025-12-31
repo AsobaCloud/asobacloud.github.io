@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Uploading Your Data
 
 You can upload your data via the API as shown in the [Get Started](../../get-started.md) guide. This guide provides detailed instructions for uploading both training data (for model training) and nowcast data (for real-time forecasting).

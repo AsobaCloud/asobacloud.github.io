@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Forecasting API: Generate Forecast
 
 Generate an energy production forecast for a customer and site. This endpoint uses trained ML models to predict future energy production based on historical patterns and weather forecasts.

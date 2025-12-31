@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Data Management Overview
 
 The quality of your input data is the single most important factor in generating accurate forecasts. This guide outlines the best practices for preparing and uploading your data to the Ona Intelligence Layer, ensuring optimal forecast accuracy and reliable results.

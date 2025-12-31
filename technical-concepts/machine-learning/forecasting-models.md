@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Technical Concepts: Machine Learning Models
 
 The Ona Intelligence Layer uses a sophisticated ensemble of machine learning models to provide highly accurate forecasts and detect anomalies in your energy assets. This document provides a high-level overview of the key models we use.

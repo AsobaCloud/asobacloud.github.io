@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Data Ingestion API: Upload Training Data
 
 Upload historical solar production data for model training. This endpoint accepts CSV files and triggers the automated training pipeline.

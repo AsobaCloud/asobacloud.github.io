@@ -1,4 +1,7 @@
 ---
+layout: default
+---
+---
 title: "Ona Edge"
 layout: default
 nav_order: 4
