@@ -25,12 +25,12 @@ To address this challenge, we use an ensemble of different models, each with its
 ### 1. Long Short-Term Memory (LSTM) Networks
 
 *   **What they are**: LSTMs are a type of recurrent neural network (RNN) that is particularly well-suited for time-series forecasting. They can learn long-term dependencies in the data, making them effective at capturing seasonal patterns.
-*   **How we use them**: LSTMs form the core of our forecasting engine. We use them to model the complex, non-linear relationships between weather, time of day, and energy production. We also use them for our "cross-portfolio transfer learning," as described in the [Sibaya Casino use case](./../use-cases/sibaya-casino.md).
+*   **How we use them**: LSTMs form the core of our forecasting engine. We use them to model the complex, non-linear relationships between weather, time of day, and energy production. We also use them for our "cross-portfolio transfer learning," as described in the [Sibaya Casino use case](./../use-cases/sibaya-casino).
 
 ### 2. Autoregressive Integrated Moving Average (ARIMA)
 
 *   **What it is**: ARIMA is a classical statistical model for time-series forecasting. It is particularly effective at modeling trends and seasonality in the data.
-*   **How we use it**: We use ARIMA for data reconstruction and interpolation, as demonstrated in the [Cummins Portfolio use case](./../use-cases/cummins-portfolio.md). It allows us to intelligently fill in missing data points with a high degree of accuracy.
+*   **How we use it**: We use ARIMA for data reconstruction and interpolation, as demonstrated in the [Cummins Portfolio use case](./../use-cases/cummins-portfolio). It allows us to intelligently fill in missing data points with a high degree of accuracy.
 
 ### 3. Anomaly Detection Models
 

@@ -9,7 +9,7 @@ Proper data management involves understanding format requirements, ensuring data
 
 ## Quick Start
 
-For a quick tutorial on uploading data, see the [Get Started](../../get-started.md) guide. This walkthrough demonstrates uploading a CSV file and generating your first forecast.
+For a quick tutorial on uploading data, see the [Get Started](../../get-started) guide. This walkthrough demonstrates uploading a CSV file and generating your first forecast.
 
 ```bash
 curl -X POST \
@@ -26,19 +26,19 @@ curl -X POST \
   <div class="overview-card">
     <h3>Preparing Data</h3>
     <p>Learn about data format requirements, column naming conventions, timestamp formats, and unit specifications. This guide covers everything you need to know to format your data correctly before upload, ensuring smooth processing and accurate forecasts.</p>
-    <a href="./preparing-data.md" class="card-link">Learn More →</a>
+    <a href="./preparing-data" class="card-link">Learn More →</a>
   </div>
   
   <div class="overview-card">
     <h3>Uploading Data</h3>
     <p>Step-by-step guide to uploading your data via the API, including authentication, request formatting, and handling responses. Learn about both training data uploads (for model training) and nowcast data uploads (for real-time forecasting).</p>
-    <a href="./uploading-data.md" class="card-link">Learn More →</a>
+    <a href="./uploading-data" class="card-link">Learn More →</a>
   </div>
   
   <div class="overview-card">
     <h3>Data Quality</h3>
     <p>Understand how our platform standardizes and processes your data, including automatic detection and correction of common issues. Learn about data validation, error handling, and how to ensure your data meets quality requirements for optimal forecast accuracy.</p>
-    <a href="./data-quality.md" class="card-link">Learn More →</a>
+    <a href="./data-quality" class="card-link">Learn More →</a>
   </div>
 </div>
 
@@ -46,10 +46,10 @@ curl -X POST \
 
 These data management guides are most frequently accessed:
 
-- **[Preparing Data](./preparing-data.md)**: Data format requirements and best practices
-- **[Uploading Data](./uploading-data.md)**: Step-by-step upload instructions
-- **[Data Quality](./data-quality.md)**: Understanding data standardization
-- **[Get Started](../../get-started.md)**: Quick start tutorial
+- **[Preparing Data](./preparing-data)**: Data format requirements and best practices
+- **[Uploading Data](./uploading-data)**: Step-by-step upload instructions
+- **[Data Quality](./data-quality)**: Understanding data standardization
+- **[Get Started](../../get-started)**: Quick start tutorial
 
 ## Core Concepts
 
@@ -75,15 +75,15 @@ Training data is used to train customer-specific models, while nowcast data is u
 
 Now that you understand data management:
 
-1. **Prepare Your Data**: Review [Preparing Data](./preparing-data.md) for format requirements
-2. **Upload Your Data**: Follow [Uploading Data](./uploading-data.md) for step-by-step instructions
-3. **Understand Processing**: Read [Data Quality](./data-quality.md) to learn about standardization
-4. **Generate Forecasts**: Use the [Forecasting Guide](../forecasting/overview.md) to create forecasts
-5. **Review Technical Details**: Explore [Data Standardization](../../technical-concepts/data-standardization.md) for technical information
+1. **Prepare Your Data**: Review [Preparing Data](./preparing-data) for format requirements
+2. **Upload Your Data**: Follow [Uploading Data](./uploading-data) for step-by-step instructions
+3. **Understand Processing**: Read [Data Quality](./data-quality) to learn about standardization
+4. **Generate Forecasts**: Use the [Forecasting Guide](../forecasting/overview) to create forecasts
+5. **Review Technical Details**: Explore [Data Standardization](../../technical-concepts/data-standardization) for technical information
 
 ## See Also
 
-- [Get Started](../../get-started.md) - Quick start tutorial
-- [Forecasting](../forecasting/overview.md) - Generating forecasts guide
-- [Data Standardization](../../technical-concepts/data-standardization.md) - Technical details on standardization process
-- [API Reference](../../api-reference/data-ingestion/overview.md) - Data ingestion API documentation
+- [Get Started](../../get-started) - Quick start tutorial
+- [Forecasting](../forecasting/overview) - Generating forecasts guide
+- [Data Standardization](../../technical-concepts/data-standardization) - Technical details on standardization process
+- [API Reference](../../api-reference/data-ingestion/overview) - Data ingestion API documentation

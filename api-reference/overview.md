@@ -9,38 +9,38 @@ This section provides a detailed, parameter-level reference for all public APIs 
 
 ### Authentication & Setup
 
-*   **[Authentication](./authentication.md)**: Learn how to authenticate your requests to the API.
+*   **[Authentication](./authentication)**: Learn how to authenticate your requests to the API.
 
 ### Forecasting APIs
 
-*   **[Forecasting API](./forecasting/overview.md)**: Generate energy production forecasts
-  *   [Freemium Forecast](./forecasting/freemium-forecast.md): Generate a 24-hour forecast from a CSV file (free tier)
+*   **[Forecasting API](./forecasting/overview)**: Generate energy production forecasts
+  *   [Freemium Forecast](./forecasting/freemium-forecast): Generate a 24-hour forecast from a CSV file (free tier)
 
 ### Terminal API (OODA Workflow)
 
 The Terminal API provides endpoints for the complete OODA (Observe-Orient-Decide-Act) workflow:
 
-*   **[Terminal API Overview](./terminal/overview.md)**: Complete reference for OODA workflow APIs
-  *   **[Asset Management](./terminal/assets.md)**: Create, list, and retrieve solar assets
-  *   **[Fault Detection](./terminal/detect.md)**: Run fault detection on assets (Observe)
-  *   **[AI Diagnostics](./terminal/diagnose.md)**: Execute AI diagnostics on faults (Orient)
-  *   **[Maintenance Scheduling](./terminal/schedule.md)**: Create maintenance schedules (Decide)
-  *   **[Bill of Materials](./terminal/bom.md)**: Generate BOMs for maintenance
-  *   **[Work Orders](./terminal/order.md)**: Create and manage work orders (Act)
-  *   **[Job Tracking](./terminal/track.md)**: Subscribe to job status updates
+*   **[Terminal API Overview](./terminal/overview)**: Complete reference for OODA workflow APIs
+  *   **[Asset Management](./terminal/assets)**: Create, list, and retrieve solar assets
+  *   **[Fault Detection](./terminal/detect)**: Run fault detection on assets (Observe)
+  *   **[AI Diagnostics](./terminal/diagnose)**: Execute AI diagnostics on faults (Orient)
+  *   **[Maintenance Scheduling](./terminal/schedule)**: Create maintenance schedules (Decide)
+  *   **[Bill of Materials](./terminal/bom)**: Generate BOMs for maintenance
+  *   **[Work Orders](./terminal/order)**: Create and manage work orders (Act)
+  *   **[Job Tracking](./terminal/track)**: Subscribe to job status updates
 
 ### ML Integration APIs
 
-*   **[Forecast Results](./terminal/forecast.md)**: Retrieve stored ML forecast results
-*   **[Interpolation Results](./terminal/interpolation.md)**: Retrieve gap-filling interpolation results
-*   **[ML Model Registry](./terminal/ml-models.md)**: Access catalog of available ML models
-*   **[OODA Summaries](./terminal/ooda.md)**: Retrieve ML-enhanced OODA summaries with severity and energy-at-risk
+*   **[Forecast Results](./terminal/forecast)**: Retrieve stored ML forecast results
+*   **[Interpolation Results](./terminal/interpolation)**: Retrieve gap-filling interpolation results
+*   **[ML Model Registry](./terminal/ml-models)**: Access catalog of available ML models
+*   **[OODA Summaries](./terminal/ooda)**: Retrieve ML-enhanced OODA summaries with severity and energy-at-risk
 
 ### Data Ingestion APIs
 
-*   **[Data Ingestion API Overview](./data-ingestion/overview.md)**: Upload historical and real-time data
-  *   **[Upload Training Data](./data-ingestion/upload-train.md)**: Upload historical data for model training
-  *   **[Upload Nowcast Data](./data-ingestion/upload-nowcast.md)**: Upload real-time data for forecasting
+*   **[Data Ingestion API Overview](./data-ingestion/overview)**: Upload historical and real-time data
+  *   **[Upload Training Data](./data-ingestion/upload-train)**: Upload historical data for model training
+  *   **[Upload Nowcast Data](./data-ingestion/upload-nowcast)**: Upload real-time data for forecasting
 
 ## API Design Principles
 

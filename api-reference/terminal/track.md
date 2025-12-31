@@ -109,6 +109,6 @@ curl -X POST https://api.asoba.co/terminal/track \
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Work Orders](./order.md) - Create work orders
-- [Maintenance Scheduling](./schedule.md) - Create schedules
+- [Terminal API Overview](./overview) - Complete API reference
+- [Work Orders](./order) - Create work orders
+- [Maintenance Scheduling](./schedule) - Create schedules

@@ -144,8 +144,8 @@ The `energy_at_risk_kw` field estimates the potential energy production loss if 
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Fault Detection](./detect.md) - Run detection on assets
-- [AI Diagnostics](./diagnose.md) - Execute diagnostics
-- [Maintenance Scheduling](./schedule.md) - Create maintenance schedules
-- [OODA Workflow Guides](../../guides/portfolio-management/overview.md) - How-to guides
+- [Terminal API Overview](./overview) - Complete API reference
+- [Fault Detection](./detect) - Run detection on assets
+- [AI Diagnostics](./diagnose) - Execute diagnostics
+- [Maintenance Scheduling](./schedule) - Create maintenance schedules
+- [OODA Workflow Guides](../../guides/portfolio-management/overview) - How-to guides

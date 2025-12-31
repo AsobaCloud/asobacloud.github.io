@@ -78,7 +78,7 @@ Your CSV file must include:
 - **Power/Energy column**: kWh, kW, or power values
 - **Optional columns**: kVArh, kVA, PF, temperature, irradiance, etc.
 
-See [Preparing Data](../../guides/data-management/preparing-data.md) for detailed format requirements.
+See [Preparing Data](../../guides/data-management/preparing-data) for detailed format requirements.
 
 ## Response Format
 
@@ -122,7 +122,7 @@ After upload, your data goes through:
 
 ## See Also
 
-- [Data Ingestion API Overview](./overview.md) - Complete API reference
-- [Upload Nowcast Data](./upload-nowcast.md) - Upload real-time data
-- [Preparing Data](../../guides/data-management/preparing-data.md) - Data format guide
-- [Data Quality](../../guides/data-management/data-quality.md) - Data quality requirements
+- [Data Ingestion API Overview](./overview) - Complete API reference
+- [Upload Nowcast Data](./upload-nowcast) - Upload real-time data
+- [Preparing Data](../../guides/data-management/preparing-data) - Data format guide
+- [Data Quality](../../guides/data-management/data-quality) - Data quality requirements

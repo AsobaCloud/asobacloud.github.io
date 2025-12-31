@@ -36,6 +36,6 @@ The API returns a rich JSON object with your forecast. Let's break down the key 
 
 ## See Also
 
-- [Generating Forecasts](./generating-forecasts.md) - How to generate forecasts
-- [Improving Accuracy](./improving-accuracy.md) - Tips for better forecast accuracy
-- [API Reference](../../api-reference/forecasting/freemium-forecast.md) - Complete response schema
+- [Generating Forecasts](./generating-forecasts) - How to generate forecasts
+- [Improving Accuracy](./improving-accuracy) - Tips for better forecast accuracy
+- [API Reference](../../api-reference/forecasting/freemium-forecast) - Complete response schema

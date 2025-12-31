@@ -9,7 +9,7 @@ Our platform employs advanced machine learning techniques to deliver accurate en
 
 ## Quick Start
 
-To understand our machine learning approach, start by learning about [Forecasting Models](./forecasting-models.md), which explains the different model types and their characteristics. Then explore how models are trained using the [Data Ingestion API](../../api-reference/data-ingestion/upload-train.md).
+To understand our machine learning approach, start by learning about [Forecasting Models](./forecasting-models), which explains the different model types and their characteristics. Then explore how models are trained using the [Data Ingestion API](../../api-reference/data-ingestion/upload-train).
 
 ## What You Can Find Here
 
@@ -17,7 +17,7 @@ To understand our machine learning approach, start by learning about [Forecastin
   <div class="overview-card">
     <h3>Forecasting Models</h3>
     <p>Detailed explanation of the ML models used for energy forecasting, including architecture, training processes, and performance characteristics. Learn about generic models, customer-specific models, and how model selection impacts forecast accuracy.</p>
-    <a href="./forecasting-models.md" class="card-link">Learn More →</a>
+    <a href="./forecasting-models" class="card-link">Learn More →</a>
   </div>
 </div>
 
@@ -67,24 +67,24 @@ Model performance is measured using multiple metrics:
 
 These machine learning topics are frequently referenced:
 
-- **[Forecasting Models](./forecasting-models.md)**: Detailed model architecture and training
-- **[Model Training](../../api-reference/data-ingestion/upload-train.md)**: Upload training data for custom models
-- **[Forecast Accuracy](../../guides/forecasting/improving-accuracy.md)**: Factors affecting performance
-- **[Data Requirements](../../guides/data-management/overview.md)**: Data needed for model training
+- **[Forecasting Models](./forecasting-models)**: Detailed model architecture and training
+- **[Model Training](../../api-reference/data-ingestion/upload-train)**: Upload training data for custom models
+- **[Forecast Accuracy](../../guides/forecasting/improving-accuracy)**: Factors affecting performance
+- **[Data Requirements](../../guides/data-management/overview)**: Data needed for model training
 
 ## Next Steps
 
 Now that you understand our machine learning approach:
 
-1. **Learn About Models**: Explore [Forecasting Models](./forecasting-models.md) for detailed information
-2. **Train Custom Models**: Use [Data Ingestion API](../../api-reference/data-ingestion/upload-train.md) to upload training data
-3. **Optimize Accuracy**: Review [Forecast Accuracy Guide](../../guides/forecasting/improving-accuracy.md) for best practices
-4. **Prepare Data**: Check [Data Management Guide](../../guides/data-management/overview.md) for data requirements
-5. **Generate Forecasts**: Use [Forecasting Guides](../../guides/forecasting/overview.md) to create forecasts
+1. **Learn About Models**: Explore [Forecasting Models](./forecasting-models) for detailed information
+2. **Train Custom Models**: Use [Data Ingestion API](../../api-reference/data-ingestion/upload-train) to upload training data
+3. **Optimize Accuracy**: Review [Forecast Accuracy Guide](../../guides/forecasting/improving-accuracy) for best practices
+4. **Prepare Data**: Check [Data Management Guide](../../guides/data-management/overview) for data requirements
+5. **Generate Forecasts**: Use [Forecasting Guides](../../guides/forecasting/overview) to create forecasts
 
 ## See Also
 
-- [Forecasting Guides](../../guides/forecasting/overview.md) - How to use forecasting features
-- [API Reference](../../api-reference/forecasting/overview.md) - API documentation
-- [Data Standardization](../../technical-concepts/data-standardization.md) - Data processing details
-- [Data Management](../../guides/data-management/overview.md) - Data preparation guide
+- [Forecasting Guides](../../guides/forecasting/overview) - How to use forecasting features
+- [API Reference](../../api-reference/forecasting/overview) - API documentation
+- [Data Standardization](../../technical-concepts/data-standardization) - Data processing details
+- [Data Management](../../guides/data-management/overview) - Data preparation guide

@@ -16,7 +16,7 @@ The more clean, high-resolution historical data you provide, the better the fore
 - **Accurate Timestamps**: Properly formatted ISO 8601 timestamps
 - **Consistent Units**: Standardized power/energy units throughout
 
-Poor data quality is the most common cause of low forecast accuracy. See our [Data Management](../data-management/overview.md) guide for data preparation best practices.
+Poor data quality is the most common cause of low forecast accuracy. See our [Data Management](../data-management/overview) guide for data preparation best practices.
 
 ### Weather Data
 
@@ -36,7 +36,7 @@ Customer-specific models will always outperform generic models after sufficient 
 - **Training Data**: At least 6 months of historical data recommended
 - **Model Selection**: Choose based on your accuracy requirements
 
-For a deeper dive into the machine learning models we use, see the [Machine Learning Models](../../technical-concepts/machine-learning/forecasting-models.md) page in our Technical Concepts section.
+For a deeper dive into the machine learning models we use, see the [Machine Learning Models](../../technical-concepts/machine-learning/forecasting-models) page in our Technical Concepts section.
 
 ## Best Practices
 
@@ -75,15 +75,15 @@ If you're experiencing low forecast accuracy:
 
 Now that you understand how to improve accuracy:
 
-1. **Prepare Data**: Review [Data Management](../data-management/overview.md) for best practices
-2. **Train Models**: Use [Data Ingestion API](../../api-reference/data-ingestion/upload-train.md) for custom models
-3. **Generate Forecasts**: Follow [Generating Forecasts](./generating-forecasts.md) guide
+1. **Prepare Data**: Review [Data Management](../data-management/overview) for best practices
+2. **Train Models**: Use [Data Ingestion API](../../api-reference/data-ingestion/upload-train) for custom models
+3. **Generate Forecasts**: Follow [Generating Forecasts](./generating-forecasts) guide
 4. **Monitor Performance**: Track accuracy metrics over time
 5. **Optimize Continuously**: Iterate on data quality and model selection
 
 ## See Also
 
-- [Generating Forecasts](./generating-forecasts.md) - How to generate forecasts
-- [Interpreting Results](./interpreting-results.md) - Understanding forecast output
-- [Data Management](../data-management/overview.md) - Data quality best practices
-- [Machine Learning Models](../../technical-concepts/machine-learning/forecasting-models.md) - Technical details on models
+- [Generating Forecasts](./generating-forecasts) - How to generate forecasts
+- [Interpreting Results](./interpreting-results) - Understanding forecast output
+- [Data Management](../data-management/overview) - Data quality best practices
+- [Machine Learning Models](../../technical-concepts/machine-learning/forecasting-models) - Technical details on models

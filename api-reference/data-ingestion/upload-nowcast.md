@@ -78,7 +78,7 @@ Your CSV file must include:
 - **Power/Energy column**: Current kWh, kW, or power values
 - **Optional columns**: kVArh, kVA, PF, temperature, irradiance, etc.
 
-See [Preparing Data](../../guides/data-management/preparing-data.md) for detailed format requirements.
+See [Preparing Data](../../guides/data-management/preparing-data) for detailed format requirements.
 
 ## Response Format
 
@@ -122,7 +122,7 @@ After upload, your data goes through:
 
 ## See Also
 
-- [Data Ingestion API Overview](./overview.md) - Complete API reference
-- [Upload Training Data](./upload-train.md) - Upload historical data
-- [Preparing Data](../../guides/data-management/preparing-data.md) - Data format guide
-- [Forecasting API](../forecasting/overview.md) - Generate forecasts
+- [Data Ingestion API Overview](./overview) - Complete API reference
+- [Upload Training Data](./upload-train) - Upload historical data
+- [Preparing Data](../../guides/data-management/preparing-data) - Data format guide
+- [Forecasting API](../forecasting/overview) - Generate forecasts

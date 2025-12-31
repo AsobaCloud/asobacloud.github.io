@@ -9,7 +9,7 @@ This content is designed for **Developers** and technical users.
 
 ## The Standardization Pipeline
 
-When you upload a CSV file to our platform (for example, via the [Freemium Forecasting API](./../api-reference/forecasting/freemium-forecast.md)), it passes through the following standardization steps:
+When you upload a CSV file to our platform (for example, via the [Freemium Forecasting API](./../api-reference/forecasting/freemium-forecast)), it passes through the following standardization steps:
 
 ### 1. CSV Parsing and Manufacturer Detection
 
@@ -32,7 +32,7 @@ Our standard schema includes fields like:
 
 Real-world data is often messy. Our pipeline includes several data cleaning steps:
 *   **Timestamp Normalization**: All timestamps are converted to UTC to prevent any ambiguity related to timezones.
-*   **Handling of Missing Values**: The platform can intelligently fill in missing data points using statistical methods like ARIMA, as described in the [Cummins Portfolio use case](./../use-cases/cummins-portfolio.md).
+*   **Handling of Missing Values**: The platform can intelligently fill in missing data points using statistical methods like ARIMA, as described in the [Cummins Portfolio use case](./../use-cases/cummins-portfolio).
 *   **Outlier Detection**: The platform identifies and flags anomalous readings that may be the result of sensor error.
 
 ## The Benefit: A Unified View

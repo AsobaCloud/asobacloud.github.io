@@ -128,8 +128,8 @@ Before generating forecasts, ensure:
 
 ## See Also
 
-- [Forecasting API Overview](./overview.md) - Complete API reference
-- [Freemium Forecast](./freemium-forecast.md) - Free tier CSV-based forecast
-- [Terminal API: Forecast Results](../terminal/forecast.md) - Retrieve stored forecast results
-- [Forecasting Guides](../../guides/forecasting/overview.md) - How-to guides
-- [Technical Concepts](../../technical-concepts/machine-learning/forecasting-models.md) - ML model details
+- [Forecasting API Overview](./overview) - Complete API reference
+- [Freemium Forecast](./freemium-forecast) - Free tier CSV-based forecast
+- [Terminal API: Forecast Results](../terminal/forecast) - Retrieve stored forecast results
+- [Forecasting Guides](../../guides/forecasting/overview) - How-to guides
+- [Technical Concepts](../../technical-concepts/machine-learning/forecasting-models) - ML model details

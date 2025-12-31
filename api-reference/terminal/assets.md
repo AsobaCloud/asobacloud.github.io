@@ -167,6 +167,6 @@ curl -X POST https://api.asoba.co/terminal/assets \
 
 ## See Also
 
-- [Terminal API Overview](./overview.md) - Complete API reference
-- [Fault Detection](./detect.md) - Run detection on assets
-- [Authentication](../authentication.md) - API authentication guide
+- [Terminal API Overview](./overview) - Complete API reference
+- [Fault Detection](./detect) - Run detection on assets
+- [Authentication](../authentication) - API authentication guide

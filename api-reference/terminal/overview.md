@@ -18,20 +18,20 @@ The OODA (Observe-Orient-Decide-Act) loop is a decision-making framework that en
 
 ### OODA Workflow Endpoints
 
-*   **[Asset Management](./assets.md)**: Create, list, and retrieve solar asset details
-*   **[Fault Detection](./detect.md)**: Run fault detection on assets
-*   **[AI Diagnostics](./diagnose.md)**: Execute AI diagnostics on detected faults
-*   **[Maintenance Scheduling](./schedule.md)**: Create and manage maintenance schedules
-*   **[Bill of Materials](./bom.md)**: Generate bills of materials for maintenance
-*   **[Work Orders](./order.md)**: Create and manage work orders
-*   **[Job Tracking](./track.md)**: Subscribe to and manage job tracking
+*   **[Asset Management](./assets)**: Create, list, and retrieve solar asset details
+*   **[Fault Detection](./detect)**: Run fault detection on assets
+*   **[AI Diagnostics](./diagnose)**: Execute AI diagnostics on detected faults
+*   **[Maintenance Scheduling](./schedule)**: Create and manage maintenance schedules
+*   **[Bill of Materials](./bom)**: Generate bills of materials for maintenance
+*   **[Work Orders](./order)**: Create and manage work orders
+*   **[Job Tracking](./track)**: Subscribe to and manage job tracking
 
 ### ML Integration Endpoints
 
-*   **[Forecast Results](./forecast.md)**: Retrieve stored ML forecast results
-*   **[Interpolation Results](./interpolation.md)**: Retrieve gap-filling interpolation results
-*   **[ML Model Registry](./ml-models.md)**: Access the catalog of available ML models
-*   **[OODA Summaries](./ooda.md)**: Retrieve ML-enhanced OODA summaries with severity and energy-at-risk
+*   **[Forecast Results](./forecast)**: Retrieve stored ML forecast results
+*   **[Interpolation Results](./interpolation)**: Retrieve gap-filling interpolation results
+*   **[ML Model Registry](./ml-models)**: Access the catalog of available ML models
+*   **[OODA Summaries](./ooda)**: Retrieve ML-enhanced OODA summaries with severity and energy-at-risk
 
 ## API Design Principles
 
@@ -44,7 +44,7 @@ The Terminal API follows standard RESTful conventions:
 
 ## Authentication
 
-All Terminal API endpoints require authentication. See [Authentication](../authentication.md) for details.
+All Terminal API endpoints require authentication. See [Authentication](../authentication) for details.
 
 ## Base URL
 
@@ -56,13 +56,13 @@ https://api.asoba.co
 
 To get started with the Terminal API:
 
-1. [Authenticate your requests](../authentication.md)
-2. [Add an asset](./assets.md) to your inventory
-3. [Run fault detection](./detect.md) on your assets
-4. [Retrieve forecast results](./forecast.md) for your sites
+1. [Authenticate your requests](../authentication)
+2. [Add an asset](./assets) to your inventory
+3. [Run fault detection](./detect) on your assets
+4. [Retrieve forecast results](./forecast) for your sites
 
 ## See Also
 
-- [Get Started](../../get-started.md) - Quick start tutorial
-- [OODA Workflow Guides](../../guides/portfolio-management/overview.md) - How-to guides for O&M workflows
-- [Technical Concepts](../../technical-concepts/machine-learning/overview.md) - ML model details
+- [Get Started](../../get-started) - Quick start tutorial
+- [OODA Workflow Guides](../../guides/portfolio-management/overview) - How-to guides for O&M workflows
+- [Technical Concepts](../../technical-concepts/machine-learning/overview) - ML model details

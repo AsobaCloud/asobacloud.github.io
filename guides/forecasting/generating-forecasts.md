@@ -3,7 +3,7 @@ layout: default
 ---
 # Generating Forecasts
 
-As shown in the [Get Started](../../get-started.md) guide, generating a forecast is as simple as making a `POST` request to the `/api/v1/freemium-forecast` endpoint with your historical data. This guide provides detailed instructions for both the freemium API (for quick testing) and the full forecasting API (for production use).
+As shown in the [Get Started](../../get-started) guide, generating a forecast is as simple as making a `POST` request to the `/api/v1/freemium-forecast` endpoint with your historical data. This guide provides detailed instructions for both the freemium API (for quick testing) and the full forecasting API (for production use).
 
 ## Using the Freemium API
 
@@ -54,7 +54,7 @@ The quality of your forecast depends heavily on the quality of the data you prov
 - **Coverage**: Complete data with minimal gaps
 - **History**: At least 30 days of historical data for best results
 
-See the [Data Management](../data-management/overview.md) guide for detailed data preparation instructions.
+See the [Data Management](../data-management/overview) guide for detailed data preparation instructions.
 
 ## Response Handling
 
@@ -79,14 +79,14 @@ Successful requests return a JSON response with forecast data:
 
 After generating your first forecast:
 
-1. **Interpret Results**: Learn how to read forecast output in [Interpreting Results](./interpreting-results.md)
-2. **Improve Accuracy**: Follow tips in [Improving Accuracy](./improving-accuracy.md)
-3. **Prepare Data**: Review [Data Management](../data-management/overview.md) for best practices
-4. **Explore API**: Check [API Reference](../../api-reference/forecasting/overview.md) for complete documentation
+1. **Interpret Results**: Learn how to read forecast output in [Interpreting Results](./interpreting-results)
+2. **Improve Accuracy**: Follow tips in [Improving Accuracy](./improving-accuracy)
+3. **Prepare Data**: Review [Data Management](../data-management/overview) for best practices
+4. **Explore API**: Check [API Reference](../../api-reference/forecasting/overview) for complete documentation
 
 ## See Also
 
-- [Get Started](../../get-started.md) - Quick start tutorial
-- [Data Management](../data-management/overview.md) - Data preparation guide
-- [API Reference](../../api-reference/forecasting/freemium-forecast.md) - Complete API documentation
-- [Interpreting Results](./interpreting-results.md) - Understanding forecast output
+- [Get Started](../../get-started) - Quick start tutorial
+- [Data Management](../data-management/overview) - Data preparation guide
+- [API Reference](../../api-reference/forecasting/freemium-forecast) - Complete API documentation
+- [Interpreting Results](./interpreting-results) - Understanding forecast output
