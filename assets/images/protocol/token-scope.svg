@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="background-color: #ffffff;">
   <!-- Title -->
-  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">What the Token Is  and Is Not</text>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">What the Token Is — and Is Not</text>
   
   <!-- Central box: ASB-P Token -->
   <rect x="300" y="150" width="200" height="100" fill="#3b82f6" stroke="#1e40af" stroke-width="3" rx="5"/>
@@ -18,25 +18,25 @@
   <!-- Payments -->
   <rect x="100" y="100" width="120" height="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2" rx="5" opacity="0.5"/>
   <line x1="100" y1="100" x2="220" y2="180" stroke="#9ca3af" stroke-width="3"/>
-  <text x="160" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">=³</text>
+  <text x="160" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">$</text>
   <text x="160" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Payments</text>
   
   <!-- Governance -->
   <rect x="580" y="100" width="120" height="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2" rx="5" opacity="0.5"/>
   <line x1="580" y1="100" x2="700" y2="180" stroke="#9ca3af" stroke-width="3"/>
-  <text x="640" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">=ó</text>
+  <text x="640" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">VOTE</text>
   <text x="640" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Governance</text>
   
   <!-- Yield -->
   <rect x="100" y="220" width="120" height="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2" rx="5" opacity="0.5"/>
   <line x1="100" y1="220" x2="220" y2="300" stroke="#9ca3af" stroke-width="3"/>
-  <text x="160" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">=°</text>
+  <text x="160" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">%</text>
   <text x="160" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Yield</text>
   
   <!-- Fees -->
   <rect x="580" y="220" width="120" height="80" fill="#e5e7eb" stroke="#9ca3af" stroke-width="2" rx="5" opacity="0.5"/>
   <line x1="580" y1="220" x2="700" y2="300" stroke="#9ca3af" stroke-width="3"/>
-  <text x="640" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="16">=µ</text>
+  <text x="640" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">FEE</text>
   <text x="640" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6b7280">Fees</text>
   
   <!-- Arrow marker definition -->

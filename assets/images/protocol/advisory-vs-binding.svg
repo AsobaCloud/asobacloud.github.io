@@ -8,7 +8,7 @@
   
   <!-- Forecast icon -->
   <circle cx="210" cy="170" r="40" fill="#3b82f6" opacity="0.7"/>
-  <text x="210" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="24">=Ê</text>
+  <text x="210" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">F</text>
   <text x="210" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Forecast</text>
   
   <!-- Arrow -->
@@ -34,7 +34,7 @@
   
   <!-- Forecast icon -->
   <circle cx="590" cy="170" r="40" fill="#3b82f6" opacity="0.7"/>
-  <text x="590" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="24">=Ê</text>
+  <text x="590" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold">F</text>
   <text x="590" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">Forecast</text>
   
   <!-- Arrow -->
