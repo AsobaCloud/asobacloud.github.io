@@ -12,15 +12,15 @@
   
   <!-- Arrows spreading outward -->
   <path d="M 210 250 L 150 320" stroke="#dc2626" stroke-width="3" fill="none" marker-end="url(#arrowhead-red)"/>
-  <rect x="120" y="320" width="60" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="3"/>
+  <rect x="100" y="320" width="100" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="3"/>
   <text x="150" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Grid</text>
   
   <path d="M 210 250 L 210 320" stroke="#dc2626" stroke-width="3" fill="none" marker-end="url(#arrowhead-red)"/>
-  <rect x="180" y="320" width="60" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="3"/>
+  <rect x="160" y="320" width="100" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="3"/>
   <text x="210" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Municipality</text>
   
   <path d="M 210 250 L 270 320" stroke="#dc2626" stroke-width="3" fill="none" marker-end="url(#arrowhead-red)"/>
-  <rect x="240" y="320" width="60" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="3"/>
+  <rect x="220" y="320" width="100" height="40" fill="#fee2e2" stroke="#dc2626" stroke-width="1" rx="3"/>
   <text x="270" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Counterparties</text>
   
   <text x="210" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#991b1b">Penalties and instability propagate outward</text>

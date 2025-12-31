@@ -31,7 +31,7 @@
   <text x="525" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#991b1b">Uncontained risk</text>
   <text x="525" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#991b1b">&amp; grid impact</text>
   
-  <text x="400" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#991b1b">Cost of being wrong increases with time</text>
+  <text x="250" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic" fill="#991b1b">Cost of being wrong increases with time</text>
   
   <!-- Arrow showing delay -->
   <path d="M 400 280 L 650 280" stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
