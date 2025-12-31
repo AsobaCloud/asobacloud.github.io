@@ -6,7 +6,7 @@ This content is designed for **Developers** and technical users.
 
 ## The Standardization Pipeline
 
-When you upload a CSV file to our platform (for example, via the [Freemium Forecasting API](./../api-reference/freemium-forecasting-api.md)), it passes through the following standardization steps:
+When you upload a CSV file to our platform (for example, via the [Freemium Forecasting API](./../api-reference/forecasting/freemium-forecast.md)), it passes through the following standardization steps:
 
 ### 1. CSV Parsing and Manufacturer Detection
 
