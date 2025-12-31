@@ -22,9 +22,9 @@
   <text x="210" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#166534">Collateral balance constraint</text>
   
   <!-- Features -->
-  <text x="210" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">• Fast, automatic enforcement</text>
-  <text x="210" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">• Proportional to current exposure</text>
-  <text x="210" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">• No NFT instruments</text>
+  <text x="210" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">- Fast, automatic enforcement</text>
+  <text x="210" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">- Proportional to current exposure</text>
+  <text x="210" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">- No NFT instruments</text>
   
   <!-- Right Panel: Discrete Enforcement -->
   <rect x="430" y="80" width="320" height="380" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="5"/>
@@ -45,6 +45,6 @@
   
   <!-- Lifecycle -->
   <text x="590" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Lifecycle:</text>
-  <text x="590" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Issuance ’ Active ’ Fulfilled/Expired</text>
+  <text x="590" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Issuance ? Active ? Fulfilled/Expired</text>
   <text x="590" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">Clear audit trail over time</text>
 </svg>
