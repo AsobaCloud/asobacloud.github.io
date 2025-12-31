@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API Overview
 
 The Terminal API is the central API handler for the entire Operations & Maintenance (O&M) OODA workflow. It provides endpoints for asset management, fault detection, diagnostics, maintenance scheduling, and accessing ML model results.

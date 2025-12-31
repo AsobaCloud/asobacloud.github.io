@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Forecast Results
 
 Retrieve stored ML forecast results for your sites. This endpoint provides access to previously generated forecasts with detailed metrics and confidence intervals.

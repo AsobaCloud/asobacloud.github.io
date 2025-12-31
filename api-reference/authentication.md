@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # API Authentication
 
 All requests to the Ona Intelligence Layer API must be authenticated. This guide explains how to authenticate your requests.

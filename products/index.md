@@ -1,4 +1,7 @@
 ---
+layout: default
+---
+---
 title: "Products & Services"
 layout: default
 nav_order: 4

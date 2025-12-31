@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Maintenance Scheduling
 
 Create and manage maintenance schedules for your assets. This endpoint supports the Decide stage of the OODA loop by enabling proactive maintenance planning.

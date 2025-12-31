@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Forecasting Overview
 
 This guide covers the essentials of generating and interpreting forecasts with the Ona Intelligence Layer. Whether you're generating your first forecast or optimizing accuracy for production use, this guide provides the knowledge and best practices you need to succeed.

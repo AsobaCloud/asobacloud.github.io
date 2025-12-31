@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Data Quality and Standardization
 
 When you upload a CSV file, our platform automatically performs a series of data standardization steps. This process is designed to handle the wide variety of data formats used in the industry.

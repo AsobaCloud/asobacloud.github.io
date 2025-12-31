@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Work Orders
 
 Create and manage work orders for maintenance activities. This endpoint supports the Act stage of the OODA loop by enabling work order creation and tracking.

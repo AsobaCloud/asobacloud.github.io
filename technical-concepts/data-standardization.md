@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Technical Concepts: Data Standardization
 
 A major challenge in the energy industry is the lack of data standardization. Different equipment manufacturers, monitoring platforms, and logging systems all produce data in slightly different formats. The Ona Intelligence Layer is designed to handle this complexity through a robust, automated data standardization pipeline.

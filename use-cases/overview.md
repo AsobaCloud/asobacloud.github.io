@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Use Cases Overview
 
 This section showcases real-world use cases and case studies demonstrating how the Ona Intelligence Layer is used to solve complex problems and deliver measurable business value. These stories are designed for **Decision Makers** and **Beginners** who want to understand the practical applications of our technology and see concrete examples of ROI and operational improvements.

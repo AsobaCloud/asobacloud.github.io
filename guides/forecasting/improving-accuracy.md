@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Improving Forecast Accuracy
 
 Forecast accuracy is influenced by several factors, and understanding these factors helps you optimize your forecasts for production use. This guide covers the key elements that impact accuracy and provides actionable tips for achieving better results.

@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Use Case: Avaron Infrastructure
 
 **Unified Intelligence for Multi-Stakeholder Coordination**

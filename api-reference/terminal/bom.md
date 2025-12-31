@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Bill of Materials
 
 Generate bills of materials (BOM) for maintenance work. This endpoint helps prepare maintenance activities by identifying required parts and components.

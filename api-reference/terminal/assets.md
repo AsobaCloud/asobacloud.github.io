@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Asset Management
 
 Manage your solar asset inventory through the Terminal API. Add assets, list all assets, or retrieve specific asset details.

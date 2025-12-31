@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Generating Forecasts
 
 As shown in the [Get Started](../../get-started.md) guide, generating a forecast is as simple as making a `POST` request to the `/api/v1/freemium-forecast` endpoint with your historical data. This guide provides detailed instructions for both the freemium API (for quick testing) and the full forecasting API (for production use).

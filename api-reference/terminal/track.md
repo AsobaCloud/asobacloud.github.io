@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Terminal API: Job Tracking
 
 Subscribe to and manage job tracking subscriptions. This endpoint enables real-time monitoring of work order status and completion.

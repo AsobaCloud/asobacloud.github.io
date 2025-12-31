@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Use Case: Sibaya Casino
 
 **Achieving Forecasting Accuracy with Limited Historical Data**

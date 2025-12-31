@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # API Reference: Freemium Forecasting API
 
 This document provides a detailed reference for the Freemium Forecasting API, which allows you to generate a 24-hour forecast from a CSV file of historical data. This is a simplified endpoint designed for quick testing and evaluation.

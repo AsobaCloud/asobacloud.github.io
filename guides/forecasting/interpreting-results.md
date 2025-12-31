@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Interpreting Forecast Results
 
 The API returns a rich JSON object with your forecast. Let's break down the key components:
