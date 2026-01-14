@@ -38,6 +38,18 @@ Backend infrastructure and tools for energy intelligence.
     <a href="/products/ona-edge" class="card-cta">Learn More</a>
   </div>
 
+  <!-- EnergyAnalyst Card -->
+  <div class="product-card analyst">
+    <h3>EnergyAnalyst</h3>
+    <p>AI-powered assistant for renewable energy interconnection with municipality-specific answers</p>
+    <div class="card-tags">
+      <span class="tag">RAG</span>
+      <span class="tag">Policy Q&A</span>
+      <span class="tag">Citations</span>
+    </div>
+    <a href="/products/energy-analyst" class="card-cta">Learn More</a>
+  </div>
+
   <!-- Zorora Card -->
   <div class="product-card zorora">
     <h3>Zorora</h3>

@@ -1,174 +1,161 @@
 ---
-title: "Ona Intelligence Layer"
+title: "EnergyAnalyst"
 layout: default
-nav_order: 1
+nav_order: 4
 parent: "Products"
 ---
 
-# Ona Intelligence Layer
+# EnergyAnalyst
 
-Backend infrastructure that absorbs unreliable energy data and exposes stable intelligence your systems can depend on.
+AI-powered assistant improving the renewable energy interconnection process across South African municipalities.
 
-<img src="/assets/images/ona.png" alt="Ona Intelligence Layer" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<img src="/assets/images/analyst.png" alt="EnergyAnalyst" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
 ---
 
 ## Overview
 
-Ona is an intelligence layer for energy systems. It connects to your inverters and energy assets via standard APIs, serving as complete middleware for the data pipelines necessary to run ML/AI models. These models can be called via API or SDK, embedded directly within your existing business logic.
+South African municipalities evaluate thousands of rooftop solar and embedded generation applications every year, each governed by a unique mix of local regulations and national legislation. EnergyAnalyst is a retrieval-augmented generation (RAG) assistant that delivers instant, municipality-specific answers with citations.
 
-This is a platform that supports your technical roadmap, rather than forcing you to adjust your business logic to fit the platform's idiosyncrasies. Integrate once, consume intelligence through the interfaces you already use.
+Currently deployed on [apply.sseg.org.za](https://apply.sseg.org.za), the nationwide portal operated by Sustainable Energy Africa (SEA) that digitizes the application workflow for 50-60 utilities.
 
 ---
 
-## What It Does
+## The Problem
 
-### Absorbs Unreliable Data
+Applicants and municipal officials must interpret lengthy PDF policies manually:
 
-Energy data is messy. Different OEMs, inconsistent formats, gaps, outliers. Ona normalizes all of it into a consistent, analysis-ready format.
+- **167 municipalities**, each with unique requirements
+- **2-3 policy documents per utility** plus national legislation
+- **Complex technical specifications** (inverter types, capacity limits, grid connection)
+- **Frequent policy updates** as regulations evolve
 
-- **Multi-OEM Support**: Huawei, SolarEdge, SMA, Enphase, SCADA systems
-- **Automatic Cleaning**: Handles missing values, outliers, timezone issues
-- **Schema Normalization**: Consistent data structure regardless of source
-- **Quality Scoring**: Flags data issues before they affect models
+The result: delays, confusion, and inconsistent application outcomes.
 
-### Exposes Stable Intelligence
+---
 
-Your systems integrate once and consume intelligence, not models. The API contract remains stable even as underlying models improve.
+## The Solution
 
-- **Forecasting API**: Device-level and site-level production forecasts
-- **Anomaly Detection**: Automatic identification of performance issues
-- **Model Versioning**: Safe iteration without breaking integrations
-- **Reproducible Outputs**: Same inputs produce same outputs over time
+EnergyAnalyst provides instant, accurate answers to policy and requirement questions:
 
-### Manages Models Over Time
+### For Applicants
+- Quick answers about permitted system specifications
+- Guidance on application process steps
+- Clarification on technical requirements
+- Information about legal considerations
 
-Models degrade. Data distributions shift. Ona handles the MLOps so you don't have to.
+### For Municipal Officials
+- Quick reference for their own utility's requirements
+- National regulatory framework reminders
+- Process verification support
+- Technical specification lookups
 
-- **Automatic Retraining**: Models update as new data arrives
-- **Performance Monitoring**: Track model accuracy over time
-- **A/B Testing**: Compare model versions before deployment
-- **Rollback Support**: Revert to previous versions if needed
+---
+
+## Key Benefits
+
+### Instant Answers
+**Sub-3-second response time** for typical queries. No more searching through PDFs.
+
+### Municipality-Specific
+Answers tailored to the selected utility's requirements. National policy knowledge combined with local specificity.
+
+### Cited Sources
+Every answer references specific documents and sections. Verify the information yourself.
+
+### Always Current
+Weekly document updates ensure answers reflect the latest policy changes.
+
+---
+
+## Pilot Results
+
+Deployed across three municipalities with Sustainable Energy Africa:
+
+| Metric | Result |
+|--------|--------|
+| Median Latency | <3 seconds |
+| Positive Feedback | 91% |
+| Pilot Queries | 4,200+ |
+| Utilities Served | 50-60 |
+
+---
+
+## How It Works
+
+### Retrieval-Augmented Generation (RAG)
+
+1. **Query Understanding** - Natural language processing understands what you're asking
+2. **Document Retrieval** - Finds relevant sections from municipality-specific and national documents
+3. **Answer Generation** - Custom-trained LLM generates accurate, cited responses
+4. **Citation Extraction** - References specific documents and sections
+
+### Knowledge Base
+
+- **Municipality-specific requirements** (2-3 documents per utility)
+- **National legislation and technical specifications** (NERSA, NRS 097)
+- **13,000+ regulatory documents** indexed and searchable
 
 ---
 
 ## Integration
 
-### REST API
+EnergyAnalyst integrates as a chat widget on existing platforms:
 
-```
-POST /forecast
-Content-Type: application/json
-
-{
-  "site_id": "site-001",
-  "device_id": "INV001",
-  "forecast_hours": 24
-}
-```
-
-### Python SDK
-
-```python
-from ona_platform import OnaClient
-
-client = OnaClient()
-
-# Get device-level forecast
-forecast = client.forecasting.get_device_forecast(
-    site_id='site-001',
-    device_id='INV001',
-    forecast_hours=24
-)
-
-# Use in your business logic
-for point in forecast['forecasts']:
-    energy = point['kWh_forecast']
-    schedule_dispatch(energy)
-```
-
-### JavaScript SDK
-
-```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
-
-const sdk = new OnaSDK({ region: 'af-south-1' });
-
-const forecast = await sdk.forecasting.getDeviceForecast({
-  site_id: 'site-001',
-  device_id: 'INV001',
-  forecast_hours: 24
-});
-
-forecast.forecasts.forEach(point => {
-  scheduleDispatch(point.kWh_forecast);
-});
-```
-
----
-
-## What It Guarantees
-
-- **Clear separation** between raw data and decisions
-- **Reproducible outputs** over time
-- **Safe iteration** on models without breaking integrations
-- **Stable API contract** even as models improve
-
----
-
-## What It Replaces
-
-Without an intelligence layer, teams build:
-- Per-OEM data cleaning pipelines
-- Feature engineering logic
-- Model deployment processes
-- Glue code between systems
-
-Ona centralizes all of this behind a single integration boundary.
-
----
-
-## What It Is Not
-
-- **Not a dashboard-first product** - It's backend infrastructure
-- **Not a single forecasting model** - It's a platform for managing many models
-- **Not a consulting workflow** - It's software you integrate with
+- **Minimal code** - ~50 lines of JavaScript
+- **Context-aware** - Knows user's selected municipality and role
+- **Always accessible** - Visible during the entire application process
+- **Feedback built-in** - Thumbs up/down with optional comments
 
 ---
 
 ## Deployment Options
 
-### SaaS (Managed Infrastructure)
-
-Cloud-hosted with managed infrastructure.
-
-- API-based data uploads
+### Cloud (Managed)
+- Hosted on AWS with South African data residency
 - Automatic updates and maintenance
-- 99.9% uptime SLA
+- POPIA compliant
 
-### On-Premises (Self-Hosted)
-
-Local installation for data sovereignty requirements.
-
-- Complete data control
-- Offline operation capability
-- Optional hardware bundle (mini compute cluster + data logger)
+### On-Premises
+- Local deployment for sensitive environments
+- Full data control
+- Custom document management
 
 ---
 
-## Getting Started
+## Roadmap
 
-### Week 1-2: Integration
+### Current
+- 50-60 utilities on apply.sseg.org.za
+- Core RAG functionality
+- Citation support
 
-Connect SCADA/inverters, ingest historical data, establish performance baselines.
+### Next
+- Expansion to all 167 South African municipalities
+- Enhanced analytics and feedback visibility
+- News and legislative update integration
 
-### Week 3-12: Optimization
+---
 
-Real-time monitoring goes live. Weekly performance reports as models continuously improve.
+## Research
 
-### Week 13: Decision
+EnergyAnalyst v2 is documented in a forthcoming paper prepared for arXiv/Zenodo submission:
 
-Executive ROI analysis. Automatic conversion upon meeting metrics, followed by scale-up.
+> **EnergyAnalyst v2: Improving the renewable energy interconnection process across South African municipalities with Retrieval Augmented Generation**
+>
+> Shingai Samudzi (Asoba), Sibuso Sigelelana, Zibusiso Ndlovu, Zanie Cilliers (Sustainable Energy Africa)
+
+The paper documents the data governance model, continued pre-training (Stage 2A) and instruction-tuning (Stage 2B) pipeline, and evaluation harness.
+
+---
+
+## Get Started
+
+### For Municipalities
+Contact us to add EnergyAnalyst to your SSEG application workflow.
+
+### For Developers
+Integrate EnergyAnalyst into your energy application platform.
 
 ---
 
@@ -176,13 +163,15 @@ Executive ROI analysis. Automatic conversion upon meeting metrics, followed by s
 
 ### Documentation
 - [API Reference](/api-reference/overview)
-- [Data Ingestion Guide](/api-reference/data-ingestion/overview)
-- [Forecasting Guide](/api-reference/forecasting/overview)
+- [Integration Guide](/guides/developer-guide)
 
 ### Support
 - **Email**: [support@asoba.co](mailto:support@asoba.co)
 - **Discord**: [Join our community](https://discord.gg/nNV5evcr)
-- **Documentation**: [docs.asoba.co](https://docs.asoba.co)
+
+### Partners
+- [Sustainable Energy Africa](https://sustainable.org.za)
+- [apply.sseg.org.za](https://apply.sseg.org.za)
 
 ---
 
