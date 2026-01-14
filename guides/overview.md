@@ -1,6 +1,10 @@
 ---
+title: "Guides"
 layout: default
+nav_order: 3
+has_children: true
 ---
+
 # Overview of Guides
 
 This section provides practical, task-oriented guides to help you solve specific problems and achieve your business goals using the Ona Intelligence Layer. These guides are designed for both **Beginners** and **Developers**, offering step-by-step instructions, code examples, and best practices for common tasks.
