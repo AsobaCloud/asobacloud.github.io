@@ -9,6 +9,8 @@ parent: "Products"
 
 Edge computing intelligence for zero-latency forecasting on ARM64 devices.
 
+![Ona Edge](/assets/images/edge.png)
+
 ---
 
 ## Overview
