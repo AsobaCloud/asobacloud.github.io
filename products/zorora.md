@@ -9,7 +9,7 @@ parent: "Products"
 
 Local-deployment deep research engine with credibility scoring and citation graphs.
 
-![Zorora](/assets/images/zorora.png)
+<img src="/assets/images/zorora.png" alt="Zorora" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
 ---
 

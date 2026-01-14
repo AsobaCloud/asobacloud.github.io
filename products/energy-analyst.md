@@ -9,7 +9,7 @@ parent: "Products"
 
 AI-powered assistant improving the renewable energy interconnection process across South African municipalities.
 
-![EnergyAnalyst](/assets/images/analyst.png)
+<img src="/assets/images/analyst.png" alt="EnergyAnalyst" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
 ---
 
