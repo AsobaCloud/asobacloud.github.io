@@ -7,21 +7,21 @@ has_children: true
 
 # Products
 
-Comprehensive energy management solutions for asset owners, operators, and developers.
+Backend infrastructure and tools for energy intelligence.
 
 ---
 
 ## Our Platform
 
 <div class="product-cards">
-  <!-- Ona Energy Management Platform Card -->
+  <!-- Ona Intelligence Layer Card -->
   <div class="product-card platform">
-    <h3>Ona Energy Management Platform</h3>
-    <p>Portfolio performance, forecasting, and automated maintenance optimization for asset owners and operators</p>
+    <h3>Ona Intelligence Layer</h3>
+    <p>Backend infrastructure that absorbs unreliable energy data and exposes stable intelligence via API and SDK</p>
     <div class="card-tags">
-      <span class="tag">Portfolio Management</span>
+      <span class="tag">API</span>
       <span class="tag">Forecasting</span>
-      <span class="tag">Maintenance</span>
+      <span class="tag">MLOps</span>
     </div>
     <a href="/products/ona-platform" class="card-cta">Learn More</a>
   </div>
@@ -36,18 +36,6 @@ Comprehensive energy management solutions for asset owners, operators, and devel
       <span class="tag">Offline</span>
     </div>
     <a href="/products/ona-edge" class="card-cta">Learn More</a>
-  </div>
-
-  <!-- Data Governance Card -->
-  <div class="product-card governance">
-    <h3>Data Governance</h3>
-    <p>Unified data ingestion and normalization layer for heterogeneous energy data</p>
-    <div class="card-tags">
-      <span class="tag">Data Ingestion</span>
-      <span class="tag">Normalization</span>
-      <span class="tag">Multi-OEM</span>
-    </div>
-    <a href="/products/data-governance" class="card-cta">Learn More</a>
   </div>
 
   <!-- Zorora Card -->
@@ -77,25 +65,25 @@ Comprehensive energy management solutions for asset owners, operators, and devel
 
 ---
 
-## Platform Capabilities
+## What It Does
 
-### Unified Portfolio Visibility
+### Absorbs Unreliable Data
 - **Multi-OEM Support**: Connect Huawei, SolarEdge, SMA, Enphase, and SCADA systems
-- **Single Dashboard**: View all assets across your portfolio in one place
-- **Cross-Portfolio Intelligence**: Accelerate deployment with insights from all sites
-- **Real-Time Monitoring**: Live data from all connected assets
+- **Automatic Cleaning**: Handles missing values, outliers, timezone issues
+- **Schema Normalization**: Consistent data structure regardless of source
+- **Quality Scoring**: Flags data issues before they affect models
 
-### Predictive Maintenance
-- **30+ Day Advance Warnings**: Detect equipment failures before they happen
-- **Automated Work Orders**: Generate maintenance tasks automatically
-- **Cost Optimization**: Reduce downtime and maintenance costs
-- **Performance Tracking**: Monitor equipment health across your portfolio
+### Exposes Stable Intelligence
+- **Forecasting API**: Device-level and site-level production forecasts
+- **Anomaly Detection**: Automatic identification of performance issues
+- **Model Versioning**: Safe iteration without breaking integrations
+- **Reproducible Outputs**: Same inputs produce same outputs over time
 
-### Automated Reporting
-- **Lender Reporting**: Automated covenant compliance tracking
-- **Regulatory Compliance**: Generate required regulatory reports
-- **Performance Analytics**: Comprehensive performance analysis
-- **Custom Reports**: Create reports tailored to stakeholder needs
+### Manages Models Over Time
+- **Automatic Retraining**: Models update as new data arrives
+- **Performance Monitoring**: Track model accuracy over time
+- **A/B Testing**: Compare model versions before deployment
+- **Rollback Support**: Revert to previous versions if needed
 
 ---
 

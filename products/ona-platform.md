@@ -1,115 +1,136 @@
 ---
-title: "Ona Energy Management Platform"
+title: "Ona Intelligence Layer"
 layout: default
 nav_order: 1
 parent: "Products"
 ---
 
-# Ona Energy Management Platform
+# Ona Intelligence Layer
 
-Portfolio performance, forecasting, and automated maintenance optimization for asset owners and operators.
+Backend infrastructure that absorbs unreliable energy data and exposes stable intelligence your systems can depend on.
 
 ---
 
 ## Overview
 
-The Ona Energy Management Platform provides unified visibility across your entire renewable energy portfolio. Built for asset owners and O&M operators, Ona combines predictive maintenance, automated reporting, and cross-portfolio intelligence to maximize asset performance and minimize operational costs.
+Ona is an intelligence layer for energy systems. It connects to your inverters and energy assets via standard APIs, serving as complete middleware for the data pipelines necessary to run ML/AI models. These models can be called via API or SDK, embedded directly within your existing business logic.
+
+This is a platform that supports your technical roadmap, rather than forcing you to adjust your business logic to fit the platform's idiosyncrasies. Integrate once, consume intelligence through the interfaces you already use.
 
 ---
 
-## Key Features
+## What It Does
 
-### Unified Portfolio Visibility
+### Absorbs Unreliable Data
 
-Connect and monitor all your assets from a single dashboard, regardless of equipment manufacturer.
+Energy data is messy. Different OEMs, inconsistent formats, gaps, outliers. Ona normalizes all of it into a consistent, analysis-ready format.
 
-- **Multi-OEM Support**: Native integration with Huawei, SolarEdge, SMA, Enphase, and SCADA systems
-- **Single Source of Truth**: Consolidated view across all sites and equipment types
-- **Real-Time Monitoring**: Live performance data from all connected assets
-- **Cross-Portfolio Analytics**: Compare performance across sites and identify outliers
+- **Multi-OEM Support**: Huawei, SolarEdge, SMA, Enphase, SCADA systems
+- **Automatic Cleaning**: Handles missing values, outliers, timezone issues
+- **Schema Normalization**: Consistent data structure regardless of source
+- **Quality Scoring**: Flags data issues before they affect models
 
-### Predictive Maintenance
+### Exposes Stable Intelligence
 
-AI-powered failure prediction that gives you advance warning before equipment issues impact production.
+Your systems integrate once and consume intelligence, not models. The API contract remains stable even as underlying models improve.
 
-- **30+ Day Advance Warnings**: Detect potential equipment failures before they happen
-- **Automated Work Orders**: Generate maintenance tasks automatically based on predictions
-- **Root Cause Analysis**: Understand why equipment is failing, not just that it will fail
-- **Maintenance Optimization**: Schedule maintenance during low-production periods to minimize revenue impact
+- **Forecasting API**: Device-level and site-level production forecasts
+- **Anomaly Detection**: Automatic identification of performance issues
+- **Model Versioning**: Safe iteration without breaking integrations
+- **Reproducible Outputs**: Same inputs produce same outputs over time
 
-### Automated Lender Reporting
+### Manages Models Over Time
 
-Streamline covenant compliance and stakeholder reporting with automated report generation.
+Models degrade. Data distributions shift. Ona handles the MLOps so you don't have to.
 
-- **Covenant Compliance Tracking**: Automated monitoring of financial covenants
-- **Custom Report Templates**: Generate reports tailored to each lender's requirements
-- **Audit Trail**: Complete documentation of all performance metrics and calculations
-- **Scheduled Delivery**: Automatic report generation and distribution
-
-### Cross-Portfolio Intelligence
-
-Learn from your entire portfolio to accelerate deployment and improve operations.
-
-- **Best Practice Identification**: Identify what works best across your portfolio
-- **Accelerated Deployment**: Apply learnings from existing sites to new installations
-- **Benchmarking**: Compare site performance against portfolio averages
-- **Knowledge Base**: Build institutional knowledge across your organization
+- **Automatic Retraining**: Models update as new data arrives
+- **Performance Monitoring**: Track model accuracy over time
+- **A/B Testing**: Compare model versions before deployment
+- **Rollback Support**: Revert to previous versions if needed
 
 ---
 
-## Platform Capabilities
+## Integration
 
-### Performance Monitoring
+### REST API
 
-| Capability | Description |
-|-----------|-------------|
-| Real-Time Data | Live performance metrics updated every 5 minutes |
-| Historical Analysis | Access to complete historical performance data |
-| Anomaly Detection | Automatic identification of performance deviations |
-| Weather Correlation | Performance analysis adjusted for weather conditions |
+```
+POST /forecast
+Content-Type: application/json
 
-### Forecasting
+{
+  "site_id": "site-001",
+  "device_id": "INV001",
+  "forecast_hours": 24
+}
+```
 
-| Capability | Description |
-|-----------|-------------|
-| Production Forecasting | 7-day ahead production forecasts |
-| Revenue Projections | Financial projections based on production forecasts |
-| Maintenance Impact | Forecast production impact of maintenance activities |
-| Weather Integration | Forecasts adjusted for weather predictions |
+### Python SDK
 
-### Reporting
+```python
+from ona_platform import OnaClient
 
-| Report Type | Frequency |
-|-------------|-----------|
-| Daily Production | Daily |
-| Weekly Performance | Weekly |
-| Monthly Lender Report | Monthly |
-| Quarterly Review | Quarterly |
-| Annual Summary | Annually |
+client = OnaClient()
+
+# Get device-level forecast
+forecast = client.forecasting.get_device_forecast(
+    site_id='site-001',
+    device_id='INV001',
+    forecast_hours=24
+)
+
+# Use in your business logic
+for point in forecast['forecasts']:
+    energy = point['kWh_forecast']
+    schedule_dispatch(energy)
+```
+
+### JavaScript SDK
+
+```javascript
+const { OnaSDK } = require('@asoba/ona-sdk');
+
+const sdk = new OnaSDK({ region: 'af-south-1' });
+
+const forecast = await sdk.forecasting.getDeviceForecast({
+  site_id: 'site-001',
+  device_id: 'INV001',
+  forecast_hours: 24
+});
+
+forecast.forecasts.forEach(point => {
+  scheduleDispatch(point.kWh_forecast);
+});
+```
 
 ---
 
-## Supported Equipment
+## What It Guarantees
 
-### Inverters
-- Huawei (SUN2000 series)
-- SolarEdge (commercial and utility-scale)
-- SMA (Sunny Tripower, Sunny Central)
-- Enphase (IQ series)
-- Sungrow
-- ABB/FIMER
+- **Clear separation** between raw data and decisions
+- **Reproducible outputs** over time
+- **Safe iteration** on models without breaking integrations
+- **Stable API contract** even as models improve
 
-### Monitoring Systems
-- SCADA integration
-- Meteo stations
-- Revenue-grade meters
-- String-level monitoring
+---
 
-### Data Sources
-- OEM monitoring portals
-- Direct API connections
-- MODBUS/TCP
-- IoT sensors
+## What It Replaces
+
+Without an intelligence layer, teams build:
+- Per-OEM data cleaning pipelines
+- Feature engineering logic
+- Model deployment processes
+- Glue code between systems
+
+Ona centralizes all of this behind a single integration boundary.
+
+---
+
+## What It Is Not
+
+- **Not a dashboard-first product** - It's backend infrastructure
+- **Not a single forecasting model** - It's a platform for managing many models
+- **Not a consulting workflow** - It's software you integrate with
 
 ---
 
@@ -117,56 +138,35 @@ Learn from your entire portfolio to accelerate deployment and improve operations
 
 ### SaaS (Managed Infrastructure)
 
-Cloud-hosted solution with managed infrastructure.
+Cloud-hosted with managed infrastructure.
 
-- No hardware installation required
 - API-based data uploads
 - Automatic updates and maintenance
 - 99.9% uptime SLA
 
-**Best for**: Organizations wanting quick deployment with minimal IT overhead.
-
 ### On-Premises (Self-Hosted)
 
-Local installation for organizations with specific data sovereignty requirements.
+Local installation for data sovereignty requirements.
 
 - Complete data control
 - Offline operation capability
-- Optional hardware bundle
-- Full customization options
-
-**Best for**: Organizations with strict data residency requirements or limited internet connectivity.
+- Optional hardware bundle (mini compute cluster + data logger)
 
 ---
 
 ## Getting Started
 
-### 1. Portfolio Assessment
+### Week 1-2: Integration
 
-Contact our team for a free assessment of your portfolio.
+Connect SCADA/inverters, ingest historical data, establish performance baselines.
 
-- Site inventory and equipment mapping
-- Data source identification
-- Integration planning
-- ROI analysis
+### Week 3-12: Optimization
 
-### 2. Onboarding
+Real-time monitoring goes live. Weekly performance reports as models continuously improve.
 
-Our team handles the complete setup process.
+### Week 13: Decision
 
-- OEM portal connections
-- Historical data migration
-- User training
-- Custom report configuration
-
-### 3. Go Live
-
-Start monitoring and optimizing your portfolio.
-
-- Real-time dashboard access
-- Alert configuration
-- Maintenance workflow setup
-- Stakeholder access provisioning
+Executive ROI analysis. Automatic conversion upon meeting metrics, followed by scale-up.
 
 ---
 
@@ -174,8 +174,8 @@ Start monitoring and optimizing your portfolio.
 
 ### Documentation
 - [API Reference](/api-reference/overview)
-- [Data Ingestion Guide](/guides/data-management/uploading-data)
-- [Forecasting Guide](/guides/forecasting/overview)
+- [Data Ingestion Guide](/api-reference/data-ingestion/overview)
+- [Forecasting Guide](/api-reference/forecasting/overview)
 
 ### Support
 - **Email**: [support@asoba.co](mailto:support@asoba.co)
