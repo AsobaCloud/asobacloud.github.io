@@ -9,6 +9,8 @@ parent: "Products"
 
 Backend infrastructure that absorbs unreliable energy data and exposes stable intelligence your systems can depend on.
 
+![Ona Intelligence Layer](/assets/images/ona.png)
+
 ---
 
 ## Overview

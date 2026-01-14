@@ -9,6 +9,8 @@ parent: "Products"
 
 Local-deployment deep research engine with credibility scoring and citation graphs.
 
+![Zorora](/assets/images/zorora.png)
+
 ---
 
 ## Overview
