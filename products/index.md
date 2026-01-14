@@ -53,11 +53,11 @@ Comprehensive energy management solutions for asset owners, operators, and devel
   <!-- Zorora Card -->
   <div class="product-card zorora">
     <h3>Zorora</h3>
-    <p>Open-source framework for reproducible energy research with transparent methodology</p>
+    <p>Local-deployment deep research engine with credibility scoring and citation graphs</p>
     <div class="card-tags">
       <span class="tag">Open Source</span>
       <span class="tag">Research</span>
-      <span class="tag">Reproducible</span>
+      <span class="tag">Local-First</span>
     </div>
     <a href="/products/zorora" class="card-cta">Learn More</a>
   </div>

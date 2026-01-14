@@ -7,310 +7,218 @@ parent: "Products"
 
 # Zorora
 
-Open-source framework for reproducible energy research with transparent methodology.
+Local-deployment deep research engine with credibility scoring and citation graphs.
 
 ---
 
 ## Overview
 
-Zorora is an open-source framework designed to make energy research reproducible, auditable, and transparent. Track every transformation applied to your datasets and models, ensuring that research results can be verified and replicated by others.
+Zorora is a deep research engine that searches across academic databases, web sources, and newsroom articles, then synthesizes findings with credibility scoring and citation graphs. Built for macOS (Apple Silicon) with minimal RAM footprint, it runs directly from your computer with all content stored locally for complete privacy and control.
 
 ---
 
 ## Key Features
 
-### Reproducible Research
+### Deep Research Pipeline
 
-Ensure your research can be replicated exactly.
+A 6-phase research pipeline that goes beyond simple search.
 
-- **Version Control**: Track all changes to data, code, and models
-- **Environment Capture**: Record exact software versions and dependencies
-- **Deterministic Pipelines**: Produce identical results on re-execution
-- **Seed Management**: Control randomness for reproducible ML experiments
+1. **Parallel Source Aggregation** - Searches academic (7 sources), web (Brave + DDG), and newsroom simultaneously
+2. **Citation Following** - Multi-hop exploration of cited papers (configurable depth: 1-3)
+3. **Cross-Referencing** - Groups claims by similarity and counts agreement across sources
+4. **Credibility Scoring** - Rules-based scoring of source authority
+5. **Citation Graph Building** - Visualizes relationships between sources
+6. **Synthesis** - Generates comprehensive answers with confidence levels and citations
 
-### Transparent Methodology
+### Local-First Architecture
 
-Make your research process auditable and understandable.
+All processing and storage happens on your machine.
 
-- **Pipeline Documentation**: Automatic documentation of all transformations
-- **Data Lineage**: Track the origin and transformation history of every data point
-- **Assumption Logging**: Record and justify all analytical assumptions
-- **Decision Trail**: Document why specific approaches were chosen
+- **SQLite Database** - Fast indexed queries (`~/.zorora/zorora.db`)
+- **JSON Storage** - Full research findings (`~/.zorora/research/findings/`)
+- **Zero Cloud Dependencies** - Core functionality works offline
+- **Complete Privacy** - Research data never leaves your machine
 
-### Traceable Transformations
+### Credibility Scoring
 
-Follow data from raw input to final analysis.
+Transparent, rules-based scoring of source authority.
 
-- **Transformation Graph**: Visualize the complete data processing pipeline
-- **Intermediate Snapshots**: Capture data state at each processing step
-- **Rollback Capability**: Revert to any previous state in the pipeline
-- **Diff Comparisons**: Compare outputs between pipeline versions
+- **Domain-Based Scoring** - Nature (0.85), arXiv (0.50), etc.
+- **Citation Modifiers** - Higher scores for well-cited sources
+- **Cross-Reference Agreement** - Boosts for claims confirmed by multiple sources
+- **Predatory Publisher Detection** - Flags questionable sources
 
 ---
 
-## Use Cases
+## Research Depth Levels
 
-### Academic Research
+| Level | Description | Time |
+|-------|-------------|------|
+| **Quick** | Initial sources only (skips citation following) | ~25-35s |
+| **Balanced** | Adds citation following (1 hop) | ~35-50s |
+| **Thorough** | Multi-hop citation exploration (up to 3 levels) | ~50-70s |
 
-Publish reproducible energy research papers.
+---
 
-- Meet journal reproducibility requirements
-- Share complete research pipelines with supplementary materials
-- Enable peer verification of results
-- Facilitate collaboration across institutions
+## Academic Sources
 
-### Model Development
+Zorora searches across 7 academic databases:
 
-Build ML models with full traceability.
+- Google Scholar
+- PubMed
+- CORE
+- arXiv
+- bioRxiv
+- medRxiv
+- PubMed Central (PMC)
 
-- Track training data and preprocessing steps
-- Version model architectures and hyperparameters
-- Document feature engineering decisions
-- Compare model iterations systematically
-
-### Regulatory Compliance
-
-Demonstrate analytical rigor to regulators.
-
-- Provide audit trails for analytical claims
-- Document data sources and quality
-- Show methodology transparency
-- Support regulatory review processes
-
-### Industry Benchmarking
-
-Create verifiable industry benchmarks.
-
-- Establish transparent benchmark methodologies
-- Enable third-party verification
-- Track benchmark evolution over time
-- Compare across different implementations
+Plus web search (Brave + DuckDuckGo) and Asoba newsroom integration.
 
 ---
 
 ## Getting Started
 
+### Prerequisites
+
+- **Python 3.8+**
+- **LM Studio** running on `http://localhost:1234`
+  - Download: [lmstudio.ai](https://lmstudio.ai)
+  - Load a 4B model (e.g., Qwen3-4B)
+- **Brave Search API key** (optional) - For enhanced web search
+
 ### Installation
 
+**From GitHub:**
 ```bash
-# Install Zorora
-pip install zorora
-
-# Or using conda
-conda install -c asoba zorora
+pip install git+https://github.com/AsobaCloud/zorora.git
 ```
 
-### Quick Start
-
-```python
-import zorora as zr
-
-# Initialize a new research project
-project = zr.Project("solar-forecasting-study")
-
-# Load and track raw data
-raw_data = project.load_data(
-    "solar_production.csv",
-    source="huawei_fusionsolar",
-    description="Hourly solar production from Site A"
-)
-
-# Apply tracked transformations
-@project.track_transform
-def clean_missing_values(df):
-    """Fill missing values using linear interpolation"""
-    return df.interpolate(method='linear')
-
-@project.track_transform
-def add_weather_features(df, weather_df):
-    """Merge weather data for feature engineering"""
-    return df.merge(weather_df, on='timestamp')
-
-# Execute pipeline with full tracking
-cleaned = clean_missing_values(raw_data)
-enriched = add_weather_features(cleaned, weather_data)
-
-# Train model with reproducibility
-model = project.train_model(
-    model_class=RandomForestRegressor,
-    data=enriched,
-    params={"n_estimators": 100, "random_state": 42}
-)
-
-# Generate reproducibility report
-project.generate_report("research_report.html")
+**From source:**
+```bash
+git clone https://github.com/AsobaCloud/zorora.git
+cd zorora
+pip install -e .
 ```
 
-### Pipeline Visualization
+### Run
 
-```python
-# View the transformation graph
-project.visualize_pipeline()
+**Terminal Interface:**
+```bash
+zorora
+```
 
-# Export for publication
-project.export_pipeline("pipeline_diagram.svg")
+**Web Interface:**
+```bash
+zorora web
+# Opens at http://localhost:5000
 ```
 
 ---
 
-## Core Concepts
+## Usage
 
-### Projects
+### Deep Research Query
 
-A project encapsulates all artifacts for a research study.
-
-```python
-project = zr.Project(
-    name="forecasting-study",
-    description="Solar production forecasting with weather features",
-    authors=["researcher@university.edu"],
-    tags=["forecasting", "solar", "machine-learning"]
-)
+**Terminal:**
+```
+[1] > What are the latest developments in large language model architectures?
 ```
 
-### Data Tracking
+The system automatically detects research intent and executes the deep research workflow.
 
-All data operations are automatically tracked.
+**Web UI:**
+1. Open `http://localhost:5000`
+2. Enter your research question
+3. Select depth level (Quick/Balanced/Thorough)
+4. Click "Start Research"
+5. View synthesis, sources, and credibility scores
+
+### Programmatic Access
 
 ```python
-# Load data with metadata
-data = project.load_data(
-    path="data/production.csv",
-    source="site_monitoring_system",
-    collection_period="2023-01-01 to 2023-12-31",
-    quality_notes="Some missing values in July due to sensor issues"
-)
+from engine.research_engine import ResearchEngine
 
-# Transformations are logged automatically
-filtered = data[data['power'] > 0]  # Tracked
-normalized = (data - data.mean()) / data.std()  # Tracked
+engine = ResearchEngine()
+state = engine.deep_research("Your research question", depth=1)
+print(state.synthesis)
 ```
 
-### Model Versioning
-
-Track model experiments systematically.
+### Search Past Research
 
 ```python
-# Register model experiment
-experiment = project.new_experiment("baseline_rf")
+# Search past research
+results = engine.search_research(query="LLM architectures", limit=10)
 
-# Train with automatic tracking
-model = experiment.train(
-    model=RandomForestRegressor(),
-    X_train=X_train,
-    y_train=y_train,
-    params={"n_estimators": 100}
-)
-
-# Log metrics
-experiment.log_metrics({
-    "mae": 12.5,
-    "rmse": 18.3,
-    "r2": 0.92
-})
-
-# Compare experiments
-project.compare_experiments(["baseline_rf", "tuned_rf", "gradient_boost"])
+# Load specific research
+research_data = engine.load_research(results[0]['research_id'])
 ```
 
 ---
 
-## Reproducibility Report
+## Slash Commands
 
-Zorora generates comprehensive reports documenting your research pipeline.
+### Research Commands
+- **`/search <query>`** - Force deep research workflow
+- **`/ask <query>`** - Conversational mode (no web search)
 
-### Report Contents
+### Code Commands
+- **`/code <prompt>`** - Code generation or file editing
+- **`/develop <request>`** - Multi-step development workflow
 
-- **Data Sources**: All input data with metadata and quality notes
-- **Transformation Pipeline**: Complete processing steps with code
-- **Model Details**: Architecture, hyperparameters, and training data
-- **Results**: Metrics, visualizations, and statistical analysis
-- **Environment**: Software versions and system configuration
-- **Execution Log**: Timestamps and runtime information
-
-### Export Formats
-
-```python
-# HTML report for web sharing
-project.generate_report("report.html")
-
-# PDF for publication
-project.generate_report("report.pdf")
-
-# Markdown for repositories
-project.generate_report("report.md")
-
-# LaTeX for academic papers
-project.generate_report("report.tex")
-```
+### System Commands
+- **`/models`** - Interactive model selector
+- **`/config`** - Show current configuration
+- **`/history`** - Browse saved sessions
+- **`/help`** - Show available commands
 
 ---
 
-## Integration
+## Performance
 
-### Jupyter Notebooks
+| Metric | Value |
+|--------|-------|
+| Routing decision | 0ms (pattern matching) |
+| Quick research | ~25-35s |
+| Storage queries | <100ms (SQLite indexed) |
+| RAM usage | 4-6 GB (4B model) |
 
-```python
-# Enable Zorora tracking in notebooks
-%load_ext zorora
+---
 
-# Automatic cell tracking
-%%zorora_track
-df = pd.read_csv("data.csv")
-df = df.dropna()
-```
+## Why Local-First?
 
-### MLflow Integration
+**Problem:** Cloud-based research tools require uploading your queries and data to external servers, creating privacy concerns for sensitive research.
 
-```python
-# Export to MLflow
-project.export_to_mlflow(tracking_uri="http://mlflow.example.com")
-```
+**Solution:** Zorora runs entirely on your machine:
+- Pattern matching routes queries (no LLM decision overhead)
+- Hardcoded 6-phase research pipeline
+- Local SQLite + JSON storage
+- Zero cloud dependencies for core functionality
 
-### Git Integration
-
-```python
-# Sync with Git repository
-project.git_sync(
-    repo="https://github.com/org/research-project",
-    branch="main"
-)
-```
+**Result:** Complete privacy, 100% reliability with 4B models, 1/3 the RAM of 8B orchestrators.
 
 ---
 
 ## Open Source
 
-Zorora is fully open source under the Apache 2.0 license.
+Zorora is open source under the MIT license.
 
-### Contributing
-
-We welcome contributions from the community:
-
-- **GitHub**: [github.com/asoba/zorora](https://github.com/asoba/zorora)
+- **GitHub**: [github.com/AsobaCloud/zorora](https://github.com/AsobaCloud/zorora)
 - **Issues**: Report bugs and request features
-- **Pull Requests**: Contribute code improvements
-- **Documentation**: Help improve our docs
-
-### Community
-
-- **Discord**: [Join our community](https://discord.gg/nNV5evcr)
-- **Discussions**: GitHub Discussions for Q&A
-- **Blog**: Research updates and best practices
+- **Pull Requests**: Contributions welcome
 
 ---
 
 ## Support & Resources
 
 ### Documentation
-- [User Guide](https://zorora.readthedocs.io)
-- [API Reference](https://zorora.readthedocs.io/api)
-- [Examples](https://github.com/asoba/zorora/tree/main/examples)
+- [README](https://github.com/AsobaCloud/zorora/blob/main/README.md)
+- [Commands Reference](https://github.com/AsobaCloud/zorora/blob/main/COMMANDS.md)
+- [Architecture Docs](https://github.com/AsobaCloud/zorora/tree/main/docs)
 
 ### Support
 - **Email**: [support@asoba.co](mailto:support@asoba.co)
 - **Discord**: [Join our community](https://discord.gg/nNV5evcr)
-- **GitHub Issues**: [Report bugs](https://github.com/asoba/zorora/issues)
+- **GitHub Issues**: [Report bugs](https://github.com/AsobaCloud/zorora/issues)
 
 ---
 
