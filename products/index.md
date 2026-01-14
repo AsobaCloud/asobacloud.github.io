@@ -1,61 +1,77 @@
 ---
 layout: default
----
----
-title: "Products & Services"
-layout: default
+title: "Products"
 nav_order: 4
 has_children: true
 ---
 
-# Products & Services
+# Products
 
-Comprehensive energy management solutions designed for different user types and use cases.
+Comprehensive energy management solutions for asset owners, operators, and developers.
 
 ---
 
 ## Our Platform
 
 <div class="product-cards">
-  <!-- Ona Terminal Card -->
-  <div class="product-card terminal">
-    <img src="/assets/images/terminal-interface.svg" alt="Ona Terminal">
-    <h3>Ona Terminal</h3>
-    <p>AI-powered CLI for energy asset management with OODA workflow capabilities</p>
+  <!-- Ona Energy Management Platform Card -->
+  <div class="product-card platform">
+    <h3>Ona Energy Management Platform</h3>
+    <p>Portfolio performance, forecasting, and automated maintenance optimization for asset owners and operators</p>
     <div class="card-tags">
-      <span class="tag">CLI</span>
-      <span class="tag">Automation</span>
-      <span class="tag">OODA</span>
+      <span class="tag">Portfolio Management</span>
+      <span class="tag">Forecasting</span>
+      <span class="tag">Maintenance</span>
     </div>
-    <a href="/products/terminal" class="card-cta">Learn More</a>
+    <a href="/products/ona-platform" class="card-cta">Learn More</a>
   </div>
 
-
-
-  <!-- PolicyAnalyst Card -->
-  <div class="product-card analyst">
-    <img src="/assets/images/analyst-interface.svg" alt="PolicyAnalyst">
-    <h3>PolicyAnalyst</h3>
-    <p>Regulatory compliance and policy analysis for energy markets</p>
+  <!-- Ona Edge Card -->
+  <div class="product-card edge">
+    <h3>Ona Edge</h3>
+    <p>Edge computing intelligence for zero-latency forecasting on ARM64 devices</p>
     <div class="card-tags">
-      <span class="tag">Compliance</span>
-      <span class="tag">Policy</span>
-      <span class="tag">Regulations</span>
-    </div>
-    <a href="/products/analyst" class="card-cta">Learn More</a>
-  </div>
-
-  <!-- Distributed Compute Card -->
-  <div class="product-card compute">
-    <img src="/assets/images/compute-interface.svg" alt="Distributed Compute">
-    <h3>Distributed Compute</h3>
-    <p>Zero-carbon distributed compute powered by renewable energy</p>
-    <div class="card-tags">
-      <span class="tag">AI/ML</span>
       <span class="tag">Edge Computing</span>
-      <span class="tag">Zero Carbon</span>
+      <span class="tag">Real-time</span>
+      <span class="tag">Offline</span>
     </div>
-    <a href="/products/distributed-compute" class="card-cta">Learn More</a>
+    <a href="/products/ona-edge" class="card-cta">Learn More</a>
+  </div>
+
+  <!-- Data Governance Card -->
+  <div class="product-card governance">
+    <h3>Data Governance</h3>
+    <p>Unified data ingestion and normalization layer for heterogeneous energy data</p>
+    <div class="card-tags">
+      <span class="tag">Data Ingestion</span>
+      <span class="tag">Normalization</span>
+      <span class="tag">Multi-OEM</span>
+    </div>
+    <a href="/products/data-governance" class="card-cta">Learn More</a>
+  </div>
+
+  <!-- Zorora Card -->
+  <div class="product-card zorora">
+    <h3>Zorora</h3>
+    <p>Open-source framework for reproducible energy research with transparent methodology</p>
+    <div class="card-tags">
+      <span class="tag">Open Source</span>
+      <span class="tag">Research</span>
+      <span class="tag">Reproducible</span>
+    </div>
+    <a href="/products/zorora" class="card-cta">Learn More</a>
+  </div>
+
+  <!-- ASB-P Protocol Card -->
+  <div class="product-card protocol">
+    <h3>ASB-P Protocol</h3>
+    <p>Blockchain-based performance enforcement system with mechanical collateral mechanisms</p>
+    <div class="card-tags">
+      <span class="tag">Blockchain</span>
+      <span class="tag">Compliance</span>
+      <span class="tag">Risk Management</span>
+    </div>
+    <a href="/technical-concepts/protocol/overview" class="card-cta">Learn More</a>
   </div>
 </div>
 
@@ -63,73 +79,50 @@ Comprehensive energy management solutions designed for different user types and 
 
 ## Platform Capabilities
 
-### Energy Asset Management
-- **Solar Inverters**: Monitor and control solar installations
-- **Battery Storage**: Optimize energy storage operations
-- **Grid Integration**: Manage power flow and grid connections
-- **Load Management**: Balance supply and demand
+### Unified Portfolio Visibility
+- **Multi-OEM Support**: Connect Huawei, SolarEdge, SMA, Enphase, and SCADA systems
+- **Single Dashboard**: View all assets across your portfolio in one place
+- **Cross-Portfolio Intelligence**: Accelerate deployment with insights from all sites
+- **Real-Time Monitoring**: Live data from all connected assets
 
-### AI-Powered Analytics
-- **Predictive Maintenance**: Prevent equipment failures
-- **Performance Optimization**: Maximize energy production
-- **Forecasting**: Predict energy demand and production
-- **Anomaly Detection**: Identify issues before they impact operations
+### Predictive Maintenance
+- **30+ Day Advance Warnings**: Detect equipment failures before they happen
+- **Automated Work Orders**: Generate maintenance tasks automatically
+- **Cost Optimization**: Reduce downtime and maintenance costs
+- **Performance Tracking**: Monitor equipment health across your portfolio
 
-### Automation & Workflows
-- **OODA Loop**: Observe, Orient, Decide, Act workflow
-- **Custom Scripts**: Create automated processes
-- **API Integration**: Connect with existing systems
-- **Plugin System**: Extend functionality as needed
-
----
-
-## Choose Your Interface
-
-### For Developers & Technical Teams
-**Ona Terminal** - Command-line interface for automation and integration
-
-- ✅ **CLI Workflow**: Familiar terminal-based operations
-- ✅ **API Integration**: Seamless connection with existing systems
-- ✅ **Automation**: Create custom scripts and workflows
-- ✅ **Plugin System**: Extend functionality with custom code
-
-### For Business Users
-**Ona On Demand** - Web-based interface for easy access
-
-- ✅ **Visual Interface**: Intuitive web-based dashboards
-- ✅ **Real-Time Monitoring**: Live data and alerts
-- ✅ **Reporting Tools**: Generate comprehensive reports
-- ✅ **Mobile Access**: Access from anywhere, anytime
-
-### For Grid Operators
-**Ona VPP** - Virtual Power Plant management
-
-- ✅ **Grid Integration**: Manage distributed energy resources
-- ✅ **Dispatch Optimization**: Optimize power flow and distribution
-- ✅ **Market Participation**: Participate in energy markets
-- ✅ **Compliance Management**: Ensure regulatory compliance
+### Automated Reporting
+- **Lender Reporting**: Automated covenant compliance tracking
+- **Regulatory Compliance**: Generate required regulatory reports
+- **Performance Analytics**: Comprehensive performance analysis
+- **Custom Reports**: Create reports tailored to stakeholder needs
 
 ---
 
-## Integration Options
+## Deployment Options
 
-### APIs & SDKs
-- **REST API**: Direct access to all platform capabilities
-- **Python SDK**: Easy integration for Python applications
-- **JavaScript SDK**: Web and Node.js integration
-- **Webhooks**: Real-time notifications and updates
+### SaaS (Managed Infrastructure)
+- Software-only deployment
+- API-based data uploads
+- Internet access required
+- Fully managed by Asoba
 
-### Data Formats
-- **CSV/JSON**: Standard data formats for easy import/export
-- **Real-Time Streams**: Live data feeds for monitoring
-- **Batch Processing**: Handle large datasets efficiently
-- **Custom Formats**: Support for proprietary data formats
+### On-Premises (Self-Hosted)
+- Local installation
+- Optional hardware bundle (mini compute cluster + data logger + SSD storage)
+- Offline operation capability
+- All IoT data processed on-site
 
-### Third-Party Integrations
-- **SCADA Systems**: Connect with existing monitoring systems
-- **Cloud Platforms**: AWS, Azure, Google Cloud integration
-- **Analytics Tools**: Export to Grafana, Tableau, Power BI
-- **Communication Platforms**: Slack, Teams, email notifications
+---
+
+## Pricing & Plans
+
+| Deployment | Annual Price (ZAR, ex VAT) | Onboarding Fee (ZAR, ex VAT) | Annual Price (USD) | Onboarding Fee (USD) | Description |
+|---|---:|---|---:|---:|---|
+| SaaS (Managed Infrastructure) | R 218 945 | R 13 130 | $11,523 | $691 | Software-only; API-based data uploads; requires internet access. |
+| On-Prem (Self-Hosted, Offline) | R 126 072 | R 43 770 (with hardware)<br/>R 13 130 (software only) | $6,635 | $2,305 (with hardware)<br/>$691 (software only) | Local install with optional mini compute cluster + data logger + SSD storage; all IoT data processed on-site. |
+
+<small>USD conversions are approximate, using 1 USD = R19.00.</small>
 
 ---
 
@@ -139,40 +132,23 @@ Comprehensive energy management solutions designed for different user types and 
 
 <div class="quickstart-paths">
   <div class="path-card">
-    <h3>🚀 Try Ona Terminal</h3>
-    <p>Install and run your first command in minutes</p>
-    <a href="/products/terminal" class="path-button">Get Started</a>
+    <h3>Request a Demo</h3>
+    <p>See the platform in action with a personalized demo</p>
+    <a href="mailto:sales@asoba.co" class="path-button">Contact Sales</a>
   </div>
-  
+
   <div class="path-card">
-    <h3>🌐 Use Web Interface</h3>
-    <p>Access Ona On Demand through your browser</p>
-    <a href="https://app.asoba.co" class="path-button">Launch App</a>
-  </div>
-  
-  <div class="path-card">
-    <h3>📚 Read Documentation</h3>
+    <h3>Read Documentation</h3>
     <p>Learn about APIs, SDKs, and integration options</p>
-    <a href="https://code.asoba.co" class="path-button">View Docs</a>
+    <a href="/api-reference/overview" class="path-button">View Docs</a>
+  </div>
+
+  <div class="path-card">
+    <h3>Explore Use Cases</h3>
+    <p>See how others are using the platform</p>
+    <a href="/use-cases/overview" class="path-button">View Use Cases</a>
   </div>
 </div>
-
-### Implementation Support
-- **Technical Consultation**: Get expert guidance on implementation
-- **Custom Development**: Build custom integrations and features
-- **Training & Support**: Comprehensive training and ongoing support
-- **Managed Services**: Let us handle the technical implementation
-
----
-
-## Pricing & Plans
-
-| Deployment | Annual Price (ZAR, ex VAT) | Onboarding Fee (ZAR, ex VAT) | Annual Price (USD) | Onboarding Fee (USD) | Description |
-|---|---:|---|---:|---:|---|
-| SaaS (Managed Infrastructure) | R 218 945 | R 13 130 | $11,523 | $691 | Software-only; API-based data uploads; Ona Terminal requires internet access. |
-| On-Prem (Self-Hosted, Offline) | R 126 072 | R 43 770 (with hardware)<br/>R 13 130 (software only) | $6,635 | $2,305 (with hardware)<br/>$691 (software only) | Local install with optional mini compute cluster + data logger + SSD storage; all IoT data processed on-site. |
-
-<small>USD conversions are approximate, using 1 USD = R19.00.</small>
 
 ---
 
@@ -192,7 +168,7 @@ Comprehensive energy management solutions designed for different user types and 
       </a>
     </div>
   </div>
-  
+
   <div class="end-column">
     <div id="mc_embed_shell">
       <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
@@ -220,5 +196,3 @@ Comprehensive energy management solutions designed for different user types and 
     </div>
   </div>
 </div>
-
-© 2025 Asoba Corporation. All rights reserved.
