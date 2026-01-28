@@ -38,16 +38,16 @@ Backend infrastructure and tools for energy intelligence.
     <a href="/products/ona-edge" class="card-cta">Learn More</a>
   </div>
 
-  <!-- EnergyAnalyst Card -->
+  <!-- Nehanda Card -->
   <div class="product-card analyst">
-    <h3>EnergyAnalyst</h3>
-    <p>AI-powered assistant for renewable energy interconnection with municipality-specific answers</p>
+    <h3>Nehanda</h3>
+    <p>7B parameter model for intelligence assessment, signal detection, and global systems analysis</p>
     <div class="card-tags">
-      <span class="tag">RAG</span>
-      <span class="tag">Policy Q&A</span>
-      <span class="tag">Citations</span>
+      <span class="tag">LLM</span>
+      <span class="tag">Intelligence</span>
+      <span class="tag">Hugging Face</span>
     </div>
-    <a href="/products/energy-analyst" class="card-cta">Learn More</a>
+    <a href="/products/nehanda" class="card-cta">Learn More</a>
   </div>
 
   <!-- Zorora Card -->
