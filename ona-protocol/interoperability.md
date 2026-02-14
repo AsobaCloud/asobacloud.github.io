@@ -7,7 +7,7 @@ nav_order: 2
 
 # The Fragmented Grid: Why Energy Data Interoperability Is Costing Asset Operators Millions
 
-![Ona Protocol — Energy Data Interoperability](/assets/images/protocol.png)
+<img src="/assets/images/protocol.png" alt="Ona Protocol — Energy Data Interoperability" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 20px 0;">
 
 **Introducing ODS-E — the Open Data Schema for Energy**
 
