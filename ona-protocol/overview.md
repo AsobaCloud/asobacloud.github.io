@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Overview"
+parent: "Ona Protocol (ODS-E)"
+nav_order: 1
+---
+
 # Ona Protocol (ODS-E)
 
 The Open Data Schema for Energy (ODS-E) is a specification for standardizing energy asset data from IoT devices. This documentation covers the schema definitions, transform specifications, and reference implementation.
@@ -5,7 +12,7 @@ The Open Data Schema for Energy (ODS-E) is a specification for standardizing ene
 ## Quick Start
 
 ```bash
-pip install ods-e
+pip install odse
 ```
 
 ```python
@@ -137,7 +144,7 @@ Adding a new OEM? See [Creating Transform Specs](./transforms.md).
 ### Python (Recommended)
 
 ```bash
-pip install ods-e
+pip install odse
 ```
 
 ### From Source

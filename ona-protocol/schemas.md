@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Schema Reference"
+parent: "Ona Protocol (ODS-E)"
+nav_order: 3
+---
+
 # Schema Reference
 
 Complete specifications for ODS-E JSON schemas.

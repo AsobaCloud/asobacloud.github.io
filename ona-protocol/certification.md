@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Certification Program"
+parent: "Ona Protocol (ODS-E)"
+nav_order: 6
+---
+
 # Certification Program
 
 The ODS-E Certification Program establishes quality tiers for implementations and data exports. Certification validates that your platform correctly implements the specification.
@@ -255,7 +262,7 @@ Tier 3 certification requires annual renewal:
 
 ```bash
 # Install certification tools
-pip install ods-e[certify]
+pip install odse[certify]
 
 # Run Tier 2 tests locally
 ods-e certify --tier 2 my_data.json

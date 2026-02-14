@@ -1,61 +1,91 @@
 ---
 layout: default
-title: "Legal"
-nav_order: 7
+title: "Ona Protocol (ODS-E)"
+nav_order: 5
 has_children: true
 ---
 
-# Legal
+# Ona Protocol (ODS-E)
 
-Policies and terms governing the use of Asoba's platform and services.
+The Open Data Schema for Energy (ODS-E) is a specification for standardizing energy asset data from IoT devices. It defines JSON schemas, an error taxonomy, transform specifications, and a certification program for consistent, vendor-neutral energy data.
 
 ---
 
-## Policies & Terms
+## Documentation
 
 <div class="product-cards">
-  <!-- Responsible AI Policy Card -->
+  <!-- Overview Card -->
   <div class="product-card platform">
-    <h3>Responsible AI Policy</h3>
-    <p>Our commitment to developing and deploying AI responsibly in energy systems, including principles of fairness, transparency, accountability, and safety.</p>
+    <h3>Overview</h3>
+    <p>Introduction to ODS-E, core concepts, architecture, supported OEMs, and quick-start installation guide.</p>
     <div class="card-tags">
-      <span class="tag">AI Ethics</span>
-      <span class="tag">Transparency</span>
-      <span class="tag">Accountability</span>
+      <span class="tag">Quick Start</span>
+      <span class="tag">Architecture</span>
+      <span class="tag">OEMs</span>
     </div>
-    <a href="/legal/responsible-ai" class="card-cta">Read More</a>
+    <a href="/ona-protocol/overview" class="card-cta">Read More</a>
   </div>
 
-  <!-- Privacy Policy Card -->
+  <!-- Interoperability Card -->
   <div class="product-card edge">
-    <h3>Privacy Policy</h3>
-    <p>How we collect, use, store, and protect your data across the Ona platform, APIs, and related services.</p>
+    <h3>Interoperability</h3>
+    <p>How ODS-E enables seamless data exchange between platforms, OEMs, and analytics systems through standardized formats.</p>
     <div class="card-tags">
-      <span class="tag">Data Protection</span>
-      <span class="tag">Privacy</span>
-      <span class="tag">User Rights</span>
+      <span class="tag">Integration</span>
+      <span class="tag">Standards</span>
+      <span class="tag">Data Exchange</span>
     </div>
-    <a href="/legal/privacy-policy" class="card-cta">Read More</a>
+    <a href="/ona-protocol/interoperability" class="card-cta">Read More</a>
   </div>
 
-  <!-- Terms of Use Card -->
+  <!-- Schema Reference Card -->
   <div class="product-card analyst">
-    <h3>Terms of Use</h3>
-    <p>The terms and conditions governing access to and use of Asoba's platform, APIs, SDKs, and related services.</p>
+    <h3>Schema Reference</h3>
+    <p>Complete JSON schema definitions for production timeseries, asset metadata, error taxonomy, and carbon extensions.</p>
     <div class="card-tags">
-      <span class="tag">Terms</span>
-      <span class="tag">Licensing</span>
-      <span class="tag">Usage</span>
+      <span class="tag">JSON Schema</span>
+      <span class="tag">Timeseries</span>
+      <span class="tag">Metadata</span>
     </div>
-    <a href="/legal/terms-of-use" class="card-cta">Read More</a>
+    <a href="/ona-protocol/schemas" class="card-cta">Read More</a>
+  </div>
+
+  <!-- Transform Specifications Card -->
+  <div class="product-card platform">
+    <h3>Transform Specifications</h3>
+    <p>Declarative OEM-to-ODS-E mappings for Huawei, Enphase, Solarman, and custom data sources.</p>
+    <div class="card-tags">
+      <span class="tag">Transforms</span>
+      <span class="tag">OEM Mapping</span>
+      <span class="tag">YAML</span>
+    </div>
+    <a href="/ona-protocol/transforms" class="card-cta">Read More</a>
+  </div>
+
+  <!-- Validation Guide Card -->
+  <div class="product-card edge">
+    <h3>Validation Guide</h3>
+    <p>Schema, semantic, temporal, and cross-field validation levels to ensure data quality and compliance.</p>
+    <div class="card-tags">
+      <span class="tag">Validation</span>
+      <span class="tag">Data Quality</span>
+      <span class="tag">CI/CD</span>
+    </div>
+    <a href="/ona-protocol/validation" class="card-cta">Read More</a>
+  </div>
+
+  <!-- Certification Program Card -->
+  <div class="product-card analyst">
+    <h3>Certification Program</h3>
+    <p>Four-tier certification from self-declared compatibility to full Ona Intelligence Ready™ partnership.</p>
+    <div class="card-tags">
+      <span class="tag">Certification</span>
+      <span class="tag">Compliance</span>
+      <span class="tag">Tiers</span>
+    </div>
+    <a href="/ona-protocol/certification" class="card-cta">Read More</a>
   </div>
 </div>
-
----
-
-## Questions?
-
-If you have questions about any of our policies or terms, please contact us at [support@asoba.co](mailto:support@asoba.co).
 
 ---
 

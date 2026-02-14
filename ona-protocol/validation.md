@@ -1,3 +1,10 @@
+---
+layout: default
+title: "Validation Guide"
+parent: "Ona Protocol (ODS-E)"
+nav_order: 5
+---
+
 # Validation Guide
 
 ODS-E validation ensures your data meets schema requirements and semantic constraints before processing.
@@ -403,7 +410,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install ods-e
-        run: pip install ods-e
+        run: pip install odse
 
       - name: Validate data files
         run: |
