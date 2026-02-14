@@ -166,7 +166,7 @@ pipx install ods-e
 - [Schema Reference](./schemas.md) - Complete field specifications
 - [Transform Specifications](./transforms.md) - OEM mapping details
 - [Validation Guide](./validation.md) - Using the validator
-- [Certification Program](./certification.md) - ODS-E Certified™ requirements
+
 
 ### Platform Integration
 

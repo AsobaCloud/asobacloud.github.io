@@ -7,7 +7,7 @@ has_children: true
 
 # Ona Protocol (ODS-E)
 
-The Open Data Schema for Energy (ODS-E) is a specification for standardizing energy asset data from IoT devices. It defines JSON schemas, an error taxonomy, transform specifications, and a certification program for consistent, vendor-neutral energy data.
+The Open Data Schema for Energy (ODS-E) is a specification for standardizing energy asset data from IoT devices. It defines JSON schemas, an error taxonomy, and transform specifications for consistent, vendor-neutral energy data.
 
 ---
 
@@ -74,17 +74,6 @@ The Open Data Schema for Energy (ODS-E) is a specification for standardizing ene
     <a href="/ona-protocol/validation" class="card-cta">Read More</a>
   </div>
 
-  <!-- Certification Program Card -->
-  <div class="product-card analyst">
-    <h3>Certification Program</h3>
-    <p>Four-tier certification from self-declared compatibility to full Ona Intelligence Ready™ partnership.</p>
-    <div class="card-tags">
-      <span class="tag">Certification</span>
-      <span class="tag">Compliance</span>
-      <span class="tag">Tiers</span>
-    </div>
-    <a href="/ona-protocol/certification" class="card-cta">Read More</a>
-  </div>
 </div>
 
 ---
