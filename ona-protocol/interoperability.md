@@ -325,7 +325,7 @@ pip install odse
 
 **Join the community:**
 
-→ [Discord](https://discord.gg/nNV5evcr)
+→ [Discord](https://discord.gg/2MmDG2uTxX)
 → [support@asoba.co](mailto:support@asoba.co)
 
 ---
