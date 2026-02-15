@@ -211,67 +211,6 @@ console.log('Severity:', detection.analysis.severity_label);</code></pre>
   </div>
 </div>
 
-<!-- G. Role-Based Entry Points (Compact) -->
-<div class="wayfinding-section">
-  <h2>Choose Your Path</h2>
-  <p class="section-intro">
-    Get started based on your role and goals
-  </p>
-  
-  <div class="role-cards">
-    <!-- Developer Path -->
-    <div class="role-card developer">
-      <div class="role-icon">👨‍💻</div>
-      <h3>I'm a Developer</h3>
-      <p>Build integrations and automate workflows</p>
-      <ul class="role-features">
-        <li>API Reference</li>
-        <li>SDKs & Libraries</li>
-        <li>Code Examples</li>
-        <li>Webhooks & Events</li>
-      </ul>
-      <div class="role-actions">
-        <a href="/get-started" class="role-button primary">Get Started</a>
-        <a href="/api-reference/overview" class="role-button secondary">API Docs</a>
-      </div>
-    </div>
-    
-    <!-- Business User Path -->
-    <div class="role-card business">
-      <div class="role-icon">📊</div>
-      <h3>I'm a Business User</h3>
-      <p>Manage assets and optimize operations</p>
-      <ul class="role-features">
-        <li>Guides & Tutorials</li>
-        <li>Use Cases</li>
-        <li>Best Practices</li>
-        <li>ROI Examples</li>
-      </ul>
-      <div class="role-actions">
-        <a href="/guides/overview" class="role-button primary">View Guides</a>
-        <a href="/use-cases/overview" class="role-button secondary">See Use Cases</a>
-      </div>
-    </div>
-    
-    <!-- Decision Maker Path -->
-    <div class="role-card decision">
-      <div class="role-icon">💼</div>
-      <h3>I'm a Decision Maker</h3>
-      <p>Understand value and ROI</p>
-      <ul class="role-features">
-        <li>Case Studies</li>
-        <li>ROI Analysis</li>
-        <li>Platform Capabilities</li>
-        <li>Implementation Plans</li>
-      </ul>
-      <div class="role-actions">
-        <a href="/use-cases/overview" class="role-button primary">View Case Studies</a>
-        <a href="/products" class="role-button secondary">See Products</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- H. Version & Updates Section -->
 <div class="version-updates-section">
   <div class="version-info">
