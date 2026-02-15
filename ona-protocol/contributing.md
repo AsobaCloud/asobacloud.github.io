@@ -23,8 +23,8 @@ ODS-E is an open specification and we welcome contributions from the energy data
 
 ```bash
 # Fork and clone the repository
-git clone https://github.com/<your-username>/ona-protocol.git
-cd ona-protocol
+git clone https://github.com/<your-username>/odse.git
+cd odse
 
 # Install in development mode with dev dependencies
 pip install -e ".[dev]"
@@ -33,7 +33,7 @@ pip install -e ".[dev]"
 pre-commit install
 
 # Verify your setup
-ods-e --version
+odse --version
 pytest
 ```
 
@@ -69,7 +69,7 @@ Good issue reports are extremely valuable. When filing an issue:
 
 **Bug reports** should include:
 - OEM and data format (e.g., "Huawei FusionSolar CSV export")
-- Python version and `odse` version (`ods-e --version`)
+- Python version and `odse` version (`odse --version`)
 - Minimal reproduction steps
 - Expected vs actual output
 - Sample data (anonymized — see [Data Privacy](#data-privacy) below)

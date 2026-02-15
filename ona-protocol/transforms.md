@@ -14,7 +14,7 @@ ODS-E transforms convert OEM-specific data formats into the standardized schema.
 ### Python API
 
 ```python
-from ods_e import transform
+from odse import transform
 
 # Transform Huawei FusionSolar export
 ods_data = transform(
@@ -39,13 +39,13 @@ for record in transform_stream("large_export.csv", source="solarman"):
 
 ```bash
 # Basic transform
-ods-e transform --source huawei input.csv -o output.json
+odse transform --source huawei input.csv -o output.json
 
 # With asset ID
-ods-e transform --source huawei --asset-id site-001 input.csv
+odse transform --source huawei --asset-id site-001 input.csv
 
 # Stream to stdout
-ods-e transform --source enphase input.json | jq '.[] | select(.error_type != "normal")'
+odse transform --source enphase input.json | jq '.[] | select(.error_type != "normal")'
 ```
 
 ---
@@ -399,7 +399,7 @@ validation:
 ### Unit Testing
 
 ```python
-from ods_e.transforms import load_transform, test_transform
+from odse.transforms import load_transform, test_transform
 
 # Load your transform
 transform = load_transform("my-oem.yaml")
@@ -424,13 +424,13 @@ assert results[2]["error_type"] == "standby"
 
 ```bash
 # Validate transform syntax
-ods-e transform --validate my-oem.yaml
+odse transform --validate my-oem.yaml
 
 # Test with sample file
-ods-e transform --source my-oem sample.csv --dry-run
+odse transform --source my-oem sample.csv --dry-run
 
 # Compare output
-ods-e transform --source my-oem sample.csv | \
+odse transform --source my-oem sample.csv | \
   diff - expected_output.json
 ```
 
@@ -448,7 +448,7 @@ ods-e transform --source my-oem sample.csv | \
 
 ### Process
 
-1. Fork `github.com/asobacloud/ona-protocol`
+1. Fork `github.com/AsobaCloud/odse`
 2. Add transform to `transforms/` directory
 3. Add tests to `tests/transforms/`
 4. Submit pull request with:

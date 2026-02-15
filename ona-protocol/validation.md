@@ -25,7 +25,7 @@ ODS-E validation ensures your data meets schema requirements and semantic constr
 ### Python
 
 ```python
-from ods_e import validate
+from odse import validate
 
 # Validate a single record
 result = validate({
@@ -50,16 +50,16 @@ for error in result.errors:
 
 ```bash
 # Basic validation
-ods-e validate data.json
+odse validate data.json
 
 # Semantic validation with capacity
-ods-e validate --level semantic --capacity 500 data.json
+odse validate --level semantic --capacity 500 data.json
 
 # Validate CSV (auto-detects format)
-ods-e validate production_export.csv
+odse validate production_export.csv
 
 # Output as JSON for CI/CD
-ods-e validate --format json data.json > validation_report.json
+odse validate --format json data.json > validation_report.json
 ```
 
 ---
@@ -149,7 +149,7 @@ Checks physical plausibility and domain constraints.
 ### Enable Semantic Validation
 
 ```python
-from ods_e import validate
+from odse import validate
 
 result = validate(
     data,
@@ -240,7 +240,7 @@ Checks time series integrity.
 ### Enable Temporal Validation
 
 ```python
-from ods_e import validate_timeseries
+from odse import validate_timeseries
 
 result = validate_timeseries(
     records,
@@ -312,7 +312,7 @@ result = validate_timeseries(records)
 ### Validate Files
 
 ```python
-from ods_e import validate_file
+from odse import validate_file
 
 # JSON file
 result = validate_file("data.json", level="semantic", capacity_kw=500)
@@ -327,7 +327,7 @@ result = validate_file("assets.json", schema="asset-metadata")
 ### Streaming Validation
 
 ```python
-from ods_e import validate_stream
+from odse import validate_stream
 
 # For large files
 errors = []
@@ -342,13 +342,13 @@ for i, result in enumerate(validate_stream("large_file.json")):
 
 ```bash
 # Validate multiple files
-ods-e validate *.json
+odse validate *.json
 
 # Stop on first error
-ods-e validate --fail-fast data/*.json
+odse validate --fail-fast data/*.json
 
 # Summarize results
-ods-e validate --summary data/*.json
+odse validate --summary data/*.json
 # Output:
 # Validated 15 files
 # ✓ 12 valid
@@ -409,12 +409,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install ods-e
+      - name: Install odse
         run: pip install odse
 
       - name: Validate data files
         run: |
-          ods-e validate --format json data/*.json > validation.json
+          odse validate --format json data/*.json > validation.json
 
       - name: Check for errors
         run: |
@@ -432,9 +432,9 @@ jobs:
 repos:
   - repo: local
     hooks:
-      - id: ods-e-validate
+      - id: odse-validate
         name: Validate ODS-E data
-        entry: ods-e validate
+        entry: odse validate
         language: system
         files: \.json$
         types: [json]

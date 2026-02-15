@@ -146,7 +146,7 @@ pip install odse
 ```
 
 ```python
-from ods_e import validate
+from odse import validate
 
 # Validate a production data file
 result = validate("site_a_production.json")
@@ -163,7 +163,7 @@ If the data doesn't conform — missing timestamps, negative kWh values, invalid
 This is the scenario from the cost model above. Three sites, three OEMs, one unified dataset:
 
 ```python
-from ods_e import transform
+from odse import transform
 
 # Transform Huawei CSV export to ODS-E
 site_a = transform("huawei_export.csv", source="huawei")
@@ -189,7 +189,7 @@ Before ODS-E, correlating a Huawei `inverter_state: 768` with an Enphase `reason
 A grid operator requires all IPPs exporting to their network to submit production data in ODS-E format. The operator's forecasting pipeline can now ingest data from any IPP regardless of their OEM platform:
 
 ```python
-from ods_e import validate, transform
+from odse import validate, transform
 import json
 
 def ingest_ipp_submission(filepath: str, ipp_id: str):

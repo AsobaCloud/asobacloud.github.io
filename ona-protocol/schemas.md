@@ -433,7 +433,7 @@ Combine with production timeseries:
 ### Using the Validator
 
 ```python
-from ods_e import validate_production, validate_asset
+from odse import validate_production, validate_asset
 
 # Validate single record
 result = validate_production({
@@ -463,11 +463,11 @@ asset_result = validate_asset({
 
 ```bash
 # Validate JSON file
-ods-e validate production_data.json
+odse validate production_data.json
 
 # Validate with verbose output
-ods-e validate --verbose production_data.json
+odse validate --verbose production_data.json
 
 # Validate asset metadata
-ods-e validate --schema asset asset_metadata.json
+odse validate --schema asset asset_metadata.json
 ```

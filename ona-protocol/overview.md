@@ -16,7 +16,7 @@ pip install odse
 ```
 
 ```python
-from ods_e import validate, transform
+from odse import validate, transform
 
 # Validate ODS-E data
 result = validate("production_data.json")
@@ -129,13 +129,18 @@ Companion schema for site and equipment information:
 
 Pre-built transform specifications:
 
-| OEM | Format | Transform Status |
-|-----|--------|------------------|
-| Huawei FusionSolar | CSV, API | ✅ Included |
-| Enphase Envoy | JSON, API | ✅ Included |
-| Solarman Logger | CSV | ✅ Included |
-| SMA Sunny Portal | CSV | 🚧 Community |
-| Fronius Solar.web | CSV | 🚧 Community |
+| OEM | Source ID | Format | Transform Status |
+|-----|-----------|--------|------------------|
+| Huawei FusionSolar | `huawei` | CSV, API | ✅ Included |
+| Enphase Envoy | `enphase` | JSON, API | ✅ Included |
+| Solarman Logger | `solarman` | CSV | ✅ Included |
+| Switch Energy | `switch` | CSV | ✅ Included |
+| SolaX Cloud | `solaxcloud` / `solax` | API | ✅ Included |
+| FIMER (Aurora Vision) | `fimer` / `auroravision` | API | ✅ Included |
+| SolarEdge Monitoring | `solaredge` | API | ✅ Included |
+| Fronius Solar | `fronius` | API | ✅ Included |
+| SMA Monitoring | `sma` | API | ✅ Included |
+| Solis / SolisCloud | `solis` / `soliscloud` | API | ✅ Included |
 
 Adding a new OEM? See [Creating Transform Specs](./transforms.md).
 
@@ -150,7 +155,7 @@ pip install odse
 ### From Source
 
 ```bash
-git clone https://github.com/asobacloud/ona-protocol.git
+git clone https://github.com/AsobaCloud/odse.git
 cd ona-protocol
 pip install -e .
 ```
@@ -158,7 +163,7 @@ pip install -e .
 ### CLI Only
 
 ```bash
-pipx install ods-e
+pipx install odse
 ```
 
 ## Next Steps
