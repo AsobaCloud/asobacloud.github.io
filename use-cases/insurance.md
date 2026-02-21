@@ -2,7 +2,7 @@
 title: "Insurance & Risk Management"
 layout: default
 nav_order: 2
-parent: "Use Cases"
+parent: "Patterns"
 ---
 
 # Insurance & Risk Management

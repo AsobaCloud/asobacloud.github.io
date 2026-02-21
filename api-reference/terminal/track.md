@@ -1,5 +1,9 @@
 ---
+title: "Track"
 layout: default
+nav_order: 11
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Job Tracking
 

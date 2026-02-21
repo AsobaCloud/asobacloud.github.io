@@ -1,5 +1,9 @@
 ---
+title: "Upload Training Data"
 layout: default
+nav_order: 1
+parent: "Data Ingestion"
+grand_parent: "Reference"
 ---
 # Data Ingestion API: Upload Training Data
 

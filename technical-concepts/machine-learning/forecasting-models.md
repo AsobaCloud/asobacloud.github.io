@@ -1,5 +1,8 @@
 ---
+title: "Forecasting Models"
 layout: default
+nav_order: 3
+parent: "Learn"
 ---
 # Technical Concepts: Machine Learning Models
 

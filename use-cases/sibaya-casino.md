@@ -1,5 +1,8 @@
 ---
+title: "Sibaya Casino"
 layout: default
+nav_order: 4
+parent: "Patterns"
 ---
 # Use Case: Sibaya Casino
 

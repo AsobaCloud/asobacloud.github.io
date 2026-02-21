@@ -1,5 +1,9 @@
 ---
+title: "Forecast"
 layout: default
+nav_order: 1
+parent: "Forecasting API"
+grand_parent: "Reference"
 ---
 # Forecasting API: Generate Forecast
 

@@ -1,5 +1,8 @@
 ---
+title: "Generating Forecasts"
 layout: default
+nav_order: 6
+parent: "Build"
 ---
 # Generating Forecasts
 

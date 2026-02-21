@@ -1,5 +1,9 @@
 ---
+title: "Detect"
 layout: default
+nav_order: 3
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Fault Detection
 

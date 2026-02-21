@@ -1,5 +1,8 @@
 ---
+title: "Preparing Data"
 layout: default
+nav_order: 3
+parent: "Build"
 ---
 # Preparing Your Data
 

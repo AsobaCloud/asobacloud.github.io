@@ -1,5 +1,9 @@
 ---
+title: "ML Models"
 layout: default
+nav_order: 7
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: ML Model Registry
 

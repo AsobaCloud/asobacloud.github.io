@@ -1,5 +1,9 @@
 ---
+title: "BOM"
 layout: default
+nav_order: 2
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Bill of Materials
 

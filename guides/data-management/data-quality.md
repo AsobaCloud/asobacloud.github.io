@@ -1,5 +1,8 @@
 ---
+title: "Data Quality"
 layout: default
+nav_order: 5
+parent: "Build"
 ---
 # Data Quality and Standardization
 

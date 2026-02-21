@@ -260,39 +260,39 @@ console.log('Severity:', detection.analysis.severity_label);</code></pre>
   <h2>Documentation Sections</h2>
   <div class="section-cards">
     <div class="section-card">
-      <h3>Getting Started</h3>
-      <p>Quick tutorials to get you up and running</p>
-      <a href="/get-started" class="section-link">View Getting Started →</a>
-    </div>
-    
-    <div class="section-card">
-      <h3>Guides</h3>
-      <p>Step-by-step guides for common tasks</p>
-      <a href="/guides/overview" class="section-link">Browse Guides →</a>
-    </div>
-    
-    <div class="section-card">
-      <h3>API Reference</h3>
-      <p>Complete API documentation</p>
-      <a href="/api-reference/overview" class="section-link">View API Docs →</a>
-    </div>
-    
-    <div class="section-card">
-      <h3>Technical Concepts</h3>
-      <p>Deep dives into how things work</p>
-      <a href="/technical-concepts/overview" class="section-link">Learn More →</a>
-    </div>
-    
-    <div class="section-card">
-      <h3>Use Cases</h3>
-      <p>Real-world examples and case studies</p>
-      <a href="/use-cases/overview" class="section-link">See Use Cases →</a>
-    </div>
-    
-    <div class="section-card">
       <h3>Products</h3>
       <p>Platform products and capabilities</p>
       <a href="/products" class="section-link">View Products →</a>
+    </div>
+
+    <div class="section-card">
+      <h3>Learn</h3>
+      <p>Data standardization, ML pipelines, and how the platform works</p>
+      <a href="/learn" class="section-link">Start Learning →</a>
+    </div>
+
+    <div class="section-card">
+      <h3>Build</h3>
+      <p>Integrate with SDKs, manage data, and generate forecasts</p>
+      <a href="/build" class="section-link">Start Building →</a>
+    </div>
+
+    <div class="section-card">
+      <h3>Patterns</h3>
+      <p>Real-world implementations and case studies</p>
+      <a href="/patterns" class="section-link">View Patterns →</a>
+    </div>
+
+    <div class="section-card">
+      <h3>Reference</h3>
+      <p>Complete API documentation</p>
+      <a href="/reference" class="section-link">View Reference →</a>
+    </div>
+
+    <div class="section-card">
+      <h3>Ona Protocol</h3>
+      <p>Open Data Schema for Energy (ODS-E)</p>
+      <a href="/ona-protocol" class="section-link">View Protocol →</a>
     </div>
   </div>
 </div>

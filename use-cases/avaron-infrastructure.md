@@ -1,5 +1,8 @@
 ---
+title: "Avaron Infrastructure"
 layout: default
+nav_order: 5
+parent: "Patterns"
 ---
 # Use Case: Avaron Infrastructure
 

@@ -1,7 +1,8 @@
 ---
 title: "Energy Trading"
 layout: default
-parent: "DER Use Cases"
+nav_order: 3
+parent: "Patterns"
 ---
 
 # Energy Trading: Arbitrage in Intraday Markets

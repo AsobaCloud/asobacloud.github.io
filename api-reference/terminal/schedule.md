@@ -1,5 +1,9 @@
 ---
+title: "Schedule"
 layout: default
+nav_order: 10
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Maintenance Scheduling
 

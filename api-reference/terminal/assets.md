@@ -1,5 +1,9 @@
 ---
+title: "Assets"
 layout: default
+nav_order: 1
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Asset Management
 

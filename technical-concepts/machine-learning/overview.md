@@ -1,5 +1,8 @@
 ---
+title: "ML Overview"
 layout: default
+nav_order: 2
+parent: "Learn"
 ---
 # Machine Learning Overview
 

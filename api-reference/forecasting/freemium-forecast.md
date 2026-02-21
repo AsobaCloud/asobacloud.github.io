@@ -1,5 +1,9 @@
 ---
+title: "Freemium Forecast"
 layout: default
+nav_order: 2
+parent: "Forecasting API"
+grand_parent: "Reference"
 ---
 # API Reference: Freemium Forecasting API
 

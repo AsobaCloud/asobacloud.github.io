@@ -1,5 +1,8 @@
 ---
+title: "Data Standardization"
 layout: default
+nav_order: 1
+parent: "Learn"
 ---
 # Technical Concepts: Data Standardization
 

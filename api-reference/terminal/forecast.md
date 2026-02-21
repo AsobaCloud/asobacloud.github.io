@@ -1,5 +1,9 @@
 ---
+title: "Forecast Results"
 layout: default
+nav_order: 5
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Forecast Results
 

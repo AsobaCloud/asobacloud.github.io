@@ -1,5 +1,9 @@
 ---
+title: "Terminal API"
 layout: default
+nav_order: 4
+parent: "Reference"
+has_children: true
 ---
 # Terminal API Overview
 

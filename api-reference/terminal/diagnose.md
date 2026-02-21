@@ -1,5 +1,9 @@
 ---
+title: "Diagnose"
 layout: default
+nav_order: 4
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: AI Diagnostics
 

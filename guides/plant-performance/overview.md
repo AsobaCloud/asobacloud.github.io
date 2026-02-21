@@ -1,9 +1,8 @@
 ---
 title: "Plant Performance"
 layout: default
-nav_order: 4
-parent: "Guides"
-has_children: false
+nav_order: 9
+parent: "Build"
 ---
 
 # Plant Performance

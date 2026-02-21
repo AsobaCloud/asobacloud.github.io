@@ -1,5 +1,9 @@
 ---
+title: "OODA"
 layout: default
+nav_order: 8
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: OODA Summaries
 

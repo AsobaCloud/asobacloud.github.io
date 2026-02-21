@@ -1,5 +1,9 @@
 ---
+title: "Order"
 layout: default
+nav_order: 9
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Work Orders
 

@@ -1,5 +1,9 @@
 ---
+title: "Interpolation"
 layout: default
+nav_order: 6
+parent: "Terminal API"
+grand_parent: "Reference"
 ---
 # Terminal API: Interpolation Results
 

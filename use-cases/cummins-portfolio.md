@@ -1,5 +1,8 @@
 ---
+title: "Cummins Portfolio"
 layout: default
+nav_order: 6
+parent: "Patterns"
 ---
 # Use Case: Cummins Portfolio
 

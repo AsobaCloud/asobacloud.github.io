@@ -1,5 +1,9 @@
 ---
+title: "Data Ingestion"
 layout: default
+nav_order: 2
+parent: "Reference"
+has_children: true
 ---
 # Data Ingestion API Overview
 

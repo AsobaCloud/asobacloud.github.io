@@ -1,3 +1,9 @@
+---
+title: "Get Started"
+layout: default
+nav_exclude: true
+---
+
 # Get Started with the Ona Intelligence Layer
 
 This guide provides a hands-on walkthrough to make your first API call and generate a 24-hour energy forecast. It is designed for **Beginners** and requires no prior knowledge of our APIs.

@@ -1,5 +1,8 @@
 ---
+title: "Improving Accuracy"
 layout: default
+nav_order: 7
+parent: "Build"
 ---
 # Improving Forecast Accuracy
 
