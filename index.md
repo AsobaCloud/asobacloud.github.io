@@ -32,18 +32,18 @@ layout: default
 <div class="sdk-links-section">
   <h2>Get Started with Our SDKs</h2>
   <div class="sdk-links-grid">
-    <a href="/api-reference/overview" class="sdk-link-card">
+    <a href="https://github.com/AsobaCloud/sdk" class="sdk-link-card">
       <div class="sdk-icon">🐍</div>
       <h3>Python SDK</h3>
-      <code class="sdk-install">pip install ona-platform</code>
-      <p>v1.0.0 • Full API coverage</p>
+      <code class="sdk-install">git clone github.com/AsobaCloud/sdk</code>
+      <p>v1.0.0 • Inverter Telemetry + OODA Alerts</p>
     </a>
     
-    <a href="/api-reference/overview" class="sdk-link-card">
+    <a href="https://github.com/AsobaCloud/sdk" class="sdk-link-card">
       <div class="sdk-icon">📦</div>
       <h3>JavaScript SDK</h3>
-      <code class="sdk-install">npm install @asoba/ona-sdk</code>
-      <p>v1.0.0 • TypeScript support</p>
+      <code class="sdk-install">git clone github.com/AsobaCloud/sdk</code>
+      <p>v1.0.0 • Inverter Telemetry + OODA Alerts</p>
     </a>
     
     <a href="/api-reference/overview" class="sdk-link-card">
@@ -146,32 +146,42 @@ print(f"Severity: {detection['analysis']['severity_label']}")</code></pre>
     
     <!-- JavaScript Examples -->
     <div class="code-example-card" data-language="javascript" style="display: none;">
-      <h4>Generate Forecast</h4>
-      <pre><code>const { OnaSDK } = require('@asoba/ona-sdk');
+      <h4>Query Inverter Telemetry</h4>
+      <pre><code>const { OnaSDK } = require('./src/index');
 
-const sdk = new OnaSDK({ region: 'af-south-1' });
-const forecast = await sdk.forecasting.getSiteForecast({
-  site_id: 'Sibaya',
-  forecast_hours: 24
+const sdk = new OnaSDK({
+  endpoints: { inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT },
+  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
 });
-console.log('Forecast:', forecast);</code></pre>
-      <a href="/guides/developer-guide" class="code-example-link">View Full Example →</a>
+const records = await sdk.inverterTelemetry.getInverterTelemetry({
+  asset_id: 'INV-1000000054495190',
+  site_id: 'Sibaya',
+  time_range: { start: '2025-11-01T00:00:00', end: '2025-11-01T12:00:00' },
+  limit: 100,
+});
+console.log(`Retrieved ${records.length} records`);</code></pre>
+      <a href="https://github.com/AsobaCloud/sdk/blob/main/javascript/examples/inverter-telemetry-example.js" class="code-example-link">View Full Example →</a>
     </div>
     
     <div class="code-example-card" data-language="javascript" style="display: none;">
-      <h4>Run Fault Detection</h4>
-      <pre><code>const detection = await sdk.terminal.runDetection({
-  customer_id: 'customer123',
-  asset_id: 'asset456',
-  lookback_hours: 6
+      <h4>Stream OODA Alerts</h4>
+      <pre><code>const sdk = new OnaSDK({
+  endpoints: { oodaTerminal: process.env.OODA_TERMINAL_ENDPOINT },
+  oodaTerminalApiKey: process.env.OODA_TERMINAL_API_KEY,
 });
-console.log('Severity:', detection.analysis.severity_label);</code></pre>
-      <a href="/guides/developer-guide" class="code-example-link">View Full Example →</a>
+for await (const alert of sdk.oodaTerminal.streamTerminal({
+  terminal_device_id: 'TERM-1000000054495190',
+  site_id: 'Sibaya',
+  polling_interval: 30,
+})) {
+  console.log(`${alert.timestamp}: [${alert.alert_severity}] ${alert.message}`);
+}</code></pre>
+      <a href="https://github.com/AsobaCloud/sdk/blob/main/javascript/examples/ooda-terminal-example.js" class="code-example-link">View Full Example →</a>
     </div>
   </div>
   
   <div class="code-examples-footer">
-    <a href="/guides/developer-guide" class="view-all-examples">View All 9 Examples →</a>
+    <a href="https://github.com/AsobaCloud/sdk/tree/main" class="view-all-examples">View All Examples on GitHub →</a>
   </div>
 </div>
 

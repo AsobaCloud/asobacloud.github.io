@@ -54,56 +54,128 @@ Models degrade. Data distributions shift. Ona handles the MLOps so you don't hav
 
 ## Integration
 
-### REST API
+Install the SDK from [GitHub](https://github.com/AsobaCloud/sdk) and set your API key (contact support@asoba.co to get one).
 
+```bash
+# JavaScript
+git clone https://github.com/AsobaCloud/sdk.git && cd sdk/javascript && npm install
+
+# Python
+git clone https://github.com/AsobaCloud/sdk.git && cd sdk/python && pip3 install -e .
 ```
-POST /forecast
-Content-Type: application/json
 
-{
-  "site_id": "site-001",
-  "device_id": "INV001",
-  "forecast_hours": 24
+### Inverter Telemetry API
+
+Query and stream live power output, energy, and state data from solar inverters.
+
+**Python:**
+```python
+from ona_platform import OnaClient
+from ona_platform.models.telemetry import TimeRange
+import os
+
+client = OnaClient(
+    inverter_telemetry_endpoint=os.environ["INVERTER_TELEMETRY_ENDPOINT"],
+    inverter_telemetry_api_key=os.environ["INVERTER_TELEMETRY_API_KEY"],
+)
+
+# Query historical data
+records = client.inverter_telemetry.get_inverter_telemetry(
+    asset_id="INV-1000000054495190",
+    site_id="Sibaya",
+    time_range=TimeRange(start="2025-11-01T00:00:00", end="2025-11-01T12:00:00"),
+    resolution="5min",
+    limit=100,
+)
+
+# Stream live data
+for record in client.inverter_telemetry.stream_inverter(
+    asset_id="INV-1000000054495190",
+    site_id="Sibaya",
+    polling_interval=30,
+):
+    print(f"{record.timestamp}: {record.power} kW")
+```
+
+**JavaScript:**
+```javascript
+const { OnaSDK } = require('./src/index');
+
+const sdk = new OnaSDK({
+  endpoints: { inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT },
+  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
+});
+
+// Query historical data
+const records = await sdk.inverterTelemetry.getInverterTelemetry({
+  asset_id: "INV-1000000054495190",
+  site_id: "Sibaya",
+  time_range: { start: "2025-11-01T00:00:00", end: "2025-11-01T12:00:00" },
+  limit: 100,
+});
+
+// Stream live data
+for await (const record of sdk.inverterTelemetry.streamInverter({
+  asset_id: "INV-1000000054495190",
+  site_id: "Sibaya",
+  polling_interval: 30,
+})) {
+  console.log(`${record.timestamp}: ${record.power} kW`);
 }
 ```
 
-### Python SDK
+### OODA Terminal Alerts API
 
+Query and stream fault detection and diagnostic alerts from terminal devices.
+
+**Python:**
 ```python
-from ona_platform import OnaClient
+from ona_platform.models.ooda import TimeRange
 
-client = OnaClient()
-
-# Get device-level forecast
-forecast = client.forecasting.get_device_forecast(
-    site_id='site-001',
-    device_id='INV001',
-    forecast_hours=24
+client = OnaClient(
+    ooda_terminal_endpoint=os.environ["OODA_TERMINAL_ENDPOINT"],
+    ooda_terminal_api_key=os.environ["OODA_TERMINAL_API_KEY"],
 )
 
-# Use in your business logic
-for point in forecast['forecasts']:
-    energy = point['kWh_forecast']
-    schedule_dispatch(energy)
+# Query historical alerts
+alerts = client.ooda_terminal.get_terminal_alerts(
+    terminal_device_id="TERM-1000000054495190",
+    site_id="Sibaya",
+    time_range=TimeRange(start="2025-11-01T00:00:00", end="2025-11-01T12:00:00"),
+)
+
+# Stream live alerts
+for alert in client.ooda_terminal.stream_terminal(
+    terminal_device_id="TERM-1000000054495190",
+    site_id="Sibaya",
+    polling_interval=30,
+):
+    print(f"{alert.timestamp}: [{alert.alert_severity}] {alert.message}")
 ```
 
-### JavaScript SDK
-
+**JavaScript:**
 ```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
-
-const sdk = new OnaSDK({ region: 'af-south-1' });
-
-const forecast = await sdk.forecasting.getDeviceForecast({
-  site_id: 'site-001',
-  device_id: 'INV001',
-  forecast_hours: 24
+const sdk = new OnaSDK({
+  endpoints: { oodaTerminal: process.env.OODA_TERMINAL_ENDPOINT },
+  oodaTerminalApiKey: process.env.OODA_TERMINAL_API_KEY,
 });
 
-forecast.forecasts.forEach(point => {
-  scheduleDispatch(point.kWh_forecast);
-});
+// Stream live alerts
+for await (const alert of sdk.oodaTerminal.streamTerminal({
+  terminal_device_id: "TERM-1000000054495190",
+  site_id: "Sibaya",
+  polling_interval: 30,
+})) {
+  console.log(`${alert.timestamp}: [${alert.alert_severity}] ${alert.message}`);
+}
 ```
+
+### Live Endpoints
+
+| API | Endpoint |
+|-----|----------|
+| Inverter Telemetry | `https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod` |
+| OODA Terminal Alerts | `https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod` |
 
 ---
 
@@ -175,9 +247,9 @@ Executive ROI analysis. Automatic conversion upon meeting metrics, followed by s
 ## Support & Resources
 
 ### Documentation
+- [SDK Repository](https://github.com/AsobaCloud/sdk)
 - [API Reference](/api-reference/overview)
 - [Data Ingestion Guide](/api-reference/data-ingestion/overview)
-- [Forecasting Guide](/api-reference/forecasting/overview)
 
 ### Support
 - **Email**: [support@asoba.co](mailto:support@asoba.co)
