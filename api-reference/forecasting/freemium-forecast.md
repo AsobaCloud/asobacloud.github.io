@@ -32,6 +32,58 @@ The following parameters must be included in your `multipart/form-data` request:
 | `site_name` | String | A descriptive name for the solar site (e.g., "My First Solar Site").                                     |
 | `location`  | String | The general location of the site (e.g., "Durban"). This is used to incorporate weather data.             |
 
+
+## SDK (Recommended)
+
+Install the SDK from [github.com/AsobaCloud/sdk](https://github.com/AsobaCloud/sdk). No API key needed.
+
+**Python:**
+```python
+from ona_platform import OnaClient
+
+client = OnaClient()
+
+result = client.freemium_forecast.get_forecast(
+    csv_path="data.csv",
+    email="you@example.com",
+    site_name="My Solar Site",
+    location="Durban",
+)
+
+forecast = result["forecast"]
+print(f"Total 24h: {forecast['summary']['total_kwh_24h']} kWh")
+
+for point in forecast["forecasts"]:
+    print(f"{point['timestamp']}: {point['kWh_forecast']} kWh")
+```
+
+**JavaScript:**
+```javascript
+const { OnaSDK } = require('./src/index');
+
+const sdk = new OnaSDK();
+
+const result = await sdk.freemiumForecast.getForecast({
+  csvPath: 'data.csv',
+  email: 'you@example.com',
+  siteName: 'My Solar Site',
+  location: 'Durban',
+});
+
+const { forecast } = result;
+console.log(`Total 24h: ${forecast.summary.total_kwh_24h} kWh`);
+
+forecast.forecasts.forEach(p =>
+  console.log(`${p.timestamp}: ${p.kWh_forecast} kWh`)
+);
+```
+
+Full runnable examples:
+- [Python example](https://github.com/AsobaCloud/sdk/blob/main/python/examples/freemium_forecast_example.py)
+- [JavaScript example](https://github.com/AsobaCloud/sdk/blob/main/javascript/examples/freemium-forecast-example.js)
+
+---
+
 ### cURL Example
 
 ```bash
