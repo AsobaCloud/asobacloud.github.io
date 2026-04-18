@@ -7,19 +7,25 @@ parent: "Products"
 
 # Nehanda
 
-A 7B parameter language model fine-tuned for intelligence assessment, signal detection, and global systems analysis.
+A 32B parameter language model fine-tuned for intelligence assessment, signal detection, and global systems analysis, achieving **perfect multi-turn epistemic consistency**.
 
 <img src="/assets/images/analyst.png" alt="Nehanda" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
-**Model**: [asoba/nehanda-v1-7b](https://huggingface.co/asoba/nehanda-v1-7b) on Hugging Face
+**Model**: [asoba/nehanda-v2-32b](https://huggingface.co/asoba/nehanda-v2-32b) on Hugging Face
 
 ---
 
 ## Overview
 
-Nehanda v1 is a specialized language model that departs from standard chat models to focus on forensic analysis and evidence-based assessment. Built on Mistral-7B-v0.3, it prioritizes **provenance** and **structure** over fluency, explicitly stating when information is unknown rather than fabricating.
+Nehanda v2 is a specialized language model that departs from standard chat models to focus on forensic analysis and evidence-based assessment. Built on Qwen 2.5-32B, it prioritizes **provenance** and **structure** over fluency, explicitly stating when information is unknown rather than fabricating.
 
 Nehanda serves as the default synthesis engine for [Zorora](/products/zorora), powering deep research workflows that require rigorous citation tracing and credibility assessment.
+
+### Key Achievement: Perfect Multi-Turn Consistency
+
+Nehanda v2.2 achieves **100% multi-turn epistemic consistency** across energy and intelligence domains — matching Claude Opus 4.6 while far outperforming GPT-5 Mini (37.5–50%) under sustained conversational pressure. This makes Nehanda the most reliable model for high-stakes policy and intelligence work where maintaining position under adversarial questioning is critical.
+
+Read the full research: [Epistemic Robustness Under Adversarial Narrative Environments](https://asoba.co/pub-nehanda-epistemic.html)
 
 ---
 
@@ -29,7 +35,7 @@ Nehanda serves as the default synthesis engine for [Zorora](/products/zorora), p
 Distinguishes between routine noise and pre-cursor indicators of structural shifts in regulatory, financial, and geopolitical systems.
 
 ### Systems Analysis
-Trained on a 10GB corpus spanning regulatory frameworks, financial investigations, and policy doctrines across multiple jurisdictions.
+Domain knowledge served via RAG at inference time, always current and always citable.
 
 ### Citation Tracing
 Follows logic chains across multiple sources with provenance tracking, enabling verification of claims back to original documents.
@@ -37,19 +43,8 @@ Follows logic chains across multiple sources with provenance tracking, enabling 
 ### Anti-Fabrication
 Enforces strict adherence to provided context. Unlike general-purpose LLMs optimized for fluency, Nehanda will state when information is unknown rather than hallucinate.
 
----
-
-## Training Data
-
-17,852 curated documents (~10GB) across specialized domains:
-
-| Domain | Documents | Purpose |
-|--------|-----------|---------|
-| The Hegemony Layer (USA) | 15,920 | Federal legislation, state policy, administrative ideology |
-| The Infrastructure Layer (SA) | 1,559 | Utility whitepapers, grid codes |
-| The Systems Layer (Finance) | 213 | Corruption investigations, Panama Papers context, commodities data |
-| The Risk Layer (Insurance) | 160 | Risk management textbooks, actuarial logic |
-| The Poly Hegemony Layer (Global) | 109 | Non-Western policy doctrines from Russia, China, Brazil, India |
+### Multi-Turn Consistency
+Maintains correct position under sustained conversational pressure with perfect consistency across adversarial follow-ups.
 
 ---
 
@@ -57,17 +52,69 @@ Enforces strict adherence to provided context. Unlike general-purpose LLMs optim
 
 | Specification | Value |
 |---------------|-------|
-| Base Model | Mistral-7B-v0.3 |
-| Fine-tuning | LoRA |
-| Parameters | 7B |
-| Context Window | 4096 tokens |
+| Base Model | Qwen 2.5-32B |
+| Fine-tuning | Stacked cognitive sequencing (5 stages) |
+| Parameters | 32B |
+| Context Window | 32K tokens |
 | Tensor Type | BF16 |
+| Training Cost | ~$135 total (v1: ~$180, v2: ~$95, v2.1: ~$15, v2.2: ~$25) |
 
 ### Training Pipeline
 
-1. **Stage 1**: Generic instruction following + strict logic/reasoning (math-hardened)
-2. **Stage 2**: Systems knowledge via 10GB contextual ingestion
-3. **Stage 3**: Signal persona training for intelligence assessment Q&A
+1. **Epistemic Foundation** - Generic instruction-following + strict logic/reasoning
+2. **Epistemic Hardening SFT** - Domain-independent reasoning reinforcement
+3. **RAG Synthesis SFT** - Integration with retrieval-augmented knowledge
+4. **Constitutional SFT + Replay Buffer** - Alignment with auto-calibrated eval gate
+5. **Constitutional DPO** - Direct preference optimization on epistemic honesty
+
+### Key Innovation: RAG-Based Domain Knowledge
+
+Unlike v1 which baked domain knowledge into weights, v2 moves factual grounding to a retrieval layer at inference time. This enables:
+- Always-current information without retraining
+- Direct source citations for every claim
+- 33% larger reasoning capacity (32B vs 7B) for deeper analysis
+- Lower training cost despite larger base model
+
+---
+
+## Performance Highlights
+
+### Multi-Turn Epistemic Consistency (Phase 3)
+
+| Model | Energy Consistency | Intel Consistency |
+|-------|-------------------|-------------------|
+| **Nehanda v2.2** | **100%** | **100%** |
+| Claude Opus 4.6 | 100% | 100% |
+| GPT-5 Mini | 37.5% | 50% |
+| Nehanda v2 | 43.8% | 50% |
+
+### Single-Turn Epistemic Resistance (Phase 2)
+
+| Dimension | Nehanda v2.2 Energy | Nehanda v2.2 Intel | GPT-5 Mini |
+|-----------|---------------------|-------------------|------------|
+| **Overall** | 74.8% | 79.2% | 84.5% |
+| Adversarial | 100% | 100% | 100% |
+| Sycophancy | 100% | 100% | 100% |
+
+### Comparison Sequence (Conflicting Sources Under Sycophancy Pressure)
+
+| Model | Energy Score | Intel Score |
+|-------|--------------|-------------|
+| **Nehanda v2.2** | **75%** | **62.5%** |
+| GPT-5 Mini | 0% | 12.5% |
+| Nehanda v2 | 0% | 0% |
+
+---
+
+## Evaluation Framework
+
+Nehanda is evaluated on a custom 3-phase epistemic harness:
+
+**Phase 1 (Table Stakes)** - 24 recall-level tests (10% weight)
+**Phase 2 (Single Hard)** - 48 higher-order reasoning tests (35% weight)
+**Phase 3 (Multi-Turn)** - 16 turns across 4 sequences (45% weight)
+
+The 3-phase design reveals the differentiating signal: single-turn benchmarks systematically overstate model capability. The gap between Nehanda and frontier models only appears under sustained conversational pressure.
 
 ---
 
@@ -86,7 +133,7 @@ Nehanda powers the `/search` and `/research` commands in [Zorora](/products/zoro
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-model_id = "asoba/nehanda-v1-7b"
+model_id = "asoba/nehanda-v2-32b"
 tokenizer = AutoTokenizer.from_pretrained(model_id)
 model = AutoModelForCausalLM.from_pretrained(model_id, load_in_4bit=True)
 
@@ -105,7 +152,7 @@ print(tokenizer.decode(outputs[0]))
 ### GGUF Version
 
 A quantized version is available for efficient local inference:
-[asoba/nehanda-v1-7b-GGUF](https://huggingface.co/asoba/nehanda-v1-7b-GGUF)
+[asoba/nehanda-v2-32b-GGUF](https://huggingface.co/asoba/nehanda-v2-32b-GGUF)
 
 ---
 
@@ -122,6 +169,7 @@ Access requires contact information sharing via Hugging Face.
 ### Documentation
 - [Zorora Product Page](/products/zorora)
 - [API Reference](/api-reference/overview)
+- [Research Paper](https://asoba.co/pub-nehanda-epistemic.html)
 
 ### Support
 - **Email**: [support@asoba.co](mailto:support@asoba.co)
