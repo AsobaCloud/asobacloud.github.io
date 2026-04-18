@@ -6,6 +6,31 @@ nav_exclude: true
 
 This section provides a detailed, parameter-level reference for all public APIs of the Ona Intelligence Layer. It is designed for **Developers** who are building applications on top of our platform.
 
+## SDK (Recommended)
+
+The fastest way to use these APIs is through the Ona SDK, which handles authentication, retries, cursor pagination, and streaming for you.
+
+**Install:**
+```bash
+# Python
+git clone https://github.com/AsobaCloud/sdk.git && cd sdk/python && pip3 install -e .
+
+# JavaScript
+git clone https://github.com/AsobaCloud/sdk.git && cd sdk/javascript && npm install
+```
+
+**Live APIs available now:**
+
+| API | SDK client | Endpoint |
+|-----|-----------|----------|
+| Inverter Telemetry | `client.inverter_telemetry` / `sdk.inverterTelemetry` | `https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod` |
+| OODA Terminal Alerts | `client.ooda_terminal` / `sdk.oodaTerminal` | `https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod` |
+
+See the [SDK repository](https://github.com/AsobaCloud/sdk) for full examples.
+
+---
+
+
 ## What You Can Find Here
 
 ### Authentication & Setup

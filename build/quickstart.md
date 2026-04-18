@@ -7,50 +7,73 @@ parent: "Build"
 
 # Quickstart
 
-Generate your first energy forecast in three steps. No API key required — the freemium endpoint is open.
+Query live inverter telemetry in three steps using the Ona SDK.
 
-## Step 1: Prepare a CSV
+## Step 1: Install
 
-Create a file `sample.csv` with historical solar production data:
-
-```csv
-Timestamp,Power (kW)
-2025-12-01T00:00:00Z,0
-2025-12-01T06:00:00Z,55.2
-2025-12-01T12:00:00Z,1850.2
-2025-12-01T18:00:00Z,120.7
+**Python:**
+```bash
+git clone https://github.com/AsobaCloud/sdk.git
+cd sdk/python && pip3 install -e .
 ```
 
-## Step 2: Call the API
+**JavaScript:**
+```bash
+git clone https://github.com/AsobaCloud/sdk.git
+cd sdk/javascript && npm install
+```
+
+## Step 2: Configure
 
 ```bash
-curl -X POST \
-  -F "file=@sample.csv" \
-  -F "email=you@example.com" \
-  -F "site_name=My Solar Site" \
-  -F "location=Durban" \
-  https://api.asoba.co/v1/freemium-forecast
+export INVERTER_TELEMETRY_ENDPOINT=https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod
+export INVERTER_TELEMETRY_API_KEY=<your_api_key>
 ```
 
-## Step 3: View the response
+Contact **support@asoba.co** to get an API key.
 
-```json
-{
-  "status": "success",
-  "forecast": {
-    "site_name": "My Solar Site",
-    "forecast_hours": 24,
-    "forecasts": [
-      { "timestamp": "2025-12-30T11:00:00Z", "kWh_forecast": 15.5, "confidence": 0.85 },
-      { "timestamp": "2025-12-30T12:00:00Z", "kWh_forecast": 65.2, "confidence": 0.85 }
-    ]
-  }
-}
+## Step 3: Query
+
+**Python:**
+```python
+from ona_platform import OnaClient
+from ona_platform.models.telemetry import TimeRange
+
+client = OnaClient()
+
+records = client.inverter_telemetry.get_inverter_telemetry(
+    asset_id="INV-1000000054495190",
+    site_id="Sibaya",
+    time_range=TimeRange(start="2025-11-01T00:00:00", end="2025-11-01T12:00:00"),
+    limit=10,
+)
+
+for r in records:
+    print(f"{r.timestamp}: {r.power} kW")
+```
+
+**JavaScript:**
+```javascript
+const { OnaSDK } = require('./src/index');
+
+const sdk = new OnaSDK({
+  endpoints: { inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT },
+  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
+});
+
+const records = await sdk.inverterTelemetry.getInverterTelemetry({
+  asset_id: 'INV-1000000054495190',
+  site_id: 'Sibaya',
+  time_range: { start: '2025-11-01T00:00:00', end: '2025-11-01T12:00:00' },
+  limit: 10,
+});
+
+records.forEach(r => console.log(`${r.timestamp}: ${r.power} kW`));
 ```
 
 ## Next steps
 
-- [Developer Guide](/guides/developer-guide) — SDK setup and authenticated API access
-- [Preparing Data](/guides/data-management/preparing-data) — Data format requirements
-- [Uploading Data](/guides/data-management/uploading-data) — Training and nowcast data upload
-- [Freemium Forecast API](/api-reference/forecasting/freemium-forecast) — Full endpoint reference
+- [Get Started](/get-started) — full walkthrough including OODA alerts and streaming
+- [SDK Repository](https://github.com/AsobaCloud/sdk) — source, examples, tests
+- [Authentication](/api-reference/authentication) — API key details
+- [API Reference](/api-reference/overview) — all available endpoints
