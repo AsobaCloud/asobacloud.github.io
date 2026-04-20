@@ -19,6 +19,17 @@ A 32B parameter language model fine-tuned for intelligence assessment, signal de
 
 Nehanda v2 is a specialized language model that departs from standard chat models to focus on forensic analysis and evidence-based assessment. Built on Qwen 2.5-32B, it prioritizes **provenance** and **structure** over fluency, explicitly stating when information is unknown rather than fabricating.
 
+<div class="evaluation-card">
+  <div class="evaluation-card-header">
+    <div class="evaluation-card-icon">🧪</div>
+    <h3>Model Evaluation</h3>
+  </div>
+  <div class="evaluation-card-content">
+    <p>Comprehensive evaluation of Nehanda's epistemic consistency, signal detection capabilities, and multi-turn reasoning performance.</p>
+    <a href="/products/nehanda-evaluation" class="card-cta">View Evaluation Results</a>
+  </div>
+</div>
+
 Nehanda serves as the default synthesis engine for [Zorora](/products/zorora), powering deep research workflows that require rigorous citation tracing and credibility assessment.
 
 ### Key Achievement: Perfect Multi-Turn Consistency
@@ -26,6 +37,28 @@ Nehanda serves as the default synthesis engine for [Zorora](/products/zorora), p
 Nehanda v2.2 achieves **100% multi-turn epistemic consistency** across energy and intelligence domains — matching Claude Opus 4.6 while far outperforming GPT-5 Mini (37.5–50%) under sustained conversational pressure. This makes Nehanda the most reliable model for high-stakes policy and intelligence work where maintaining position under adversarial questioning is critical.
 
 Read the full research: [Epistemic Robustness Under Adversarial Narrative Environments](https://asoba.co/pub-nehanda-epistemic.html)
+
+---
+
+## Evaluation Framework
+
+<div class="evaluation-card">
+  <div class="evaluation-card-header">
+    <div class="evaluation-card-icon">📊</div>
+    <h3>3-Phase Epistemic Stress Test</h3>
+  </div>
+  <div class="evaluation-card-content">
+    <p>Nehanda is evaluated using a rigorous 3-phase framework that measures reliability under sustained adversarial pressure. The framework tests whether the model can maintain correct positions when pressured with false premises or conflicting information.</p>
+    <div class="evaluation-card-features">
+      <ul>
+        <li><strong>Phase 1 (Table Stakes):</strong> 24 recall-level tests — any model should score 95%+</li>
+        <li><strong>Phase 2 (Single Hard):</strong> 48 higher-order tasks with conflicting sources, embedded falsehoods, and extrapolation traps</li>
+        <li><strong>Phase 3 (Multi-Turn):</strong> 16 turns across 4 sequences — the differentiating signal</li>
+      </ul>
+    </div>
+  </div>
+  <a href="/products/nehanda-evaluation" class="card-cta">View Evaluation Details</a>
+</div>
 
 ---
 

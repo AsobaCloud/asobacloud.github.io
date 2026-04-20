@@ -3013,3 +3013,69 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
     width: calc(100% - 250px);
   }
 }
+
+/* Evaluation Card */
+.evaluation-card {
+  background: linear-gradient(135deg, #f5f7ff 0%, #ffffff 100%);
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 32px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.evaluation-card:hover {
+  border-color: var(--primary-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.evaluation-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.evaluation-card-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.evaluation-card-header h3 {
+  margin: 0;
+  color: var(--text-dark);
+  font-size: 1.25rem;
+}
+
+.evaluation-card-content p {
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.evaluation-card-features {
+  margin: 16px 0;
+}
+
+.evaluation-card-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.evaluation-card-features li {
+  padding: 8px 0;
+  color: var(--text-light);
+  position: relative;
+  padding-left: 20px;
+}
+
+.evaluation-card-features li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: 700;
+}
