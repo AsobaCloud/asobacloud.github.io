@@ -71,6 +71,8 @@
   children:
     - title: Overview
       url: /sdk/overview
+    - title: Technical Reference
+      url: /sdk/snapshots
 
 - title: Reference
   url: /reference
