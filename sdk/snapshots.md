@@ -42,71 +42,89 @@ The primary performance enabler for the Partner API is the combination of **ETag
     *   If the snapshot hasn"t changed, the server returns "304 Not Modified" (empty body).
     *   The SDK then returns the data from its local cache immediately.
 
-This reduces typical response times from **~150ms** (network + S3 read) to **<10ms** for cached data, while significantly reducing bandwidth consumption for embedded mobile users.
+This reduces typical response times from **~150ms** (network + S3 read) to **<10ms** for cached data.
 
 ---
 
-## Data Model & Formats
-{: #data-model }
+## Data Dictionary: What is Served?
+{: #data-dictionary }
 
-All snapshots are returned as JSON objects. Below are the standard shapes exposed by the "PartnerApiClient".
+The Partner API currently exposes three specific snapshot types.
 
-### 1. KPI Rollup Snapshot (`getKpiRollup`)
-Provides high-level performance metrics for a specific site, aggregated for the current day and year-to-date.
+### 1. KPI Rollup (`kpi-rollup`)
+**Purpose**: Summarize site productivity and health for management-level dashboards.
 
-**Format Example:**
-```json
-{
-  "site_id": "Sibaya",
-  "timestamp": "2026-05-28T14:00:00Z",
-  "kpis": {
-    "daily_yield_kwh": 450.2,
-    "ytd_yield_mwh": 124.5,
-    "performance_ratio": 0.82,
-    "availability_score": 0.99,
-    "peak_power_kw": 85.0
-  }
-}
-```
+| Field | Type | Description |
+|-------|------|-------------|
+| `daily_yield_kwh` | float | Total energy produced today (local time). |
+| `ytd_yield_mwh` | float | Total energy produced since Jan 1st of the current year. |
+| `performance_ratio` | float | 0.0-1.0 score comparing actual yield vs theoretical maximum based on irradiance. |
+| `availability_score` | float | Percentage of time the site was reporting and producing during daylight hours. |
+| `peak_power_kw` | float | The highest power output recorded today. |
 
-### 2. Maintenance Signals (`getMaintenanceSignals`)
-Exposes pending health alerts and diagnostic findings that require operator attention.
+**Example Usage**: Use these fields to populate "Big Number" tiles on a site overview page.
 
-**Format Example:**
-```json
-{
-  "site_id": "Sibaya",
-  "timestamp": "2026-05-28T14:00:00Z",
-  "signals": [
-    {
-      "id": "SIG-123",
-      "timestamp": "2026-05-28T10:15:00Z",
-      "severity": "high",
-      "message": "String 4 output 30% below expected vs local weather",
-      "metadata": {
-        "asset_id": "INV-001",
-        "diagnostic_code": "UNDERPERFORMING_STRING",
-        "recommended_action": "Check DC connections and soiling"
-      }
-    }
-  ]
-}
-```
+### 2. Maintenance Signals (`maintenance-signals`)
+**Purpose**: Direct field technicians to specific issues without requiring them to analyze raw charts.
 
-### 3. Forecast Snapshot (`getForecastSnapshot`)
-Provides a pre-computed energy generation forecast for the site, typically covering a 24-hour or 7-day horizon.
+| Field | Type | Description |
+|-------|------|-------------|
+| `severity` | string | `low`, `medium`, `high`, or `critical`. |
+| `diagnostic_code` | string | Machine-readable identifier (e.g., `SOILING_LOSS_DETECTED`). |
+| `recommended_action` | string | Actionable instruction for the O&M team. |
+| `energy_at_risk_kwh` | float | Estimated daily energy loss if the issue is not resolved. |
 
-**Format Example:**
-```json
-{
-  "site_id": "Sibaya",
-  "timestamp": "2026-05-28T14:00:00Z",
-  "horizon": "24h",
-  "forecasts": [
-    {"timestamp": "2026-05-28T15:00:00Z", "expected_power_kw": 45.2},
-    {"timestamp": "2026-05-28T16:00:00Z", "expected_power_kw": 38.5}
-  ]
-}
+**Example Usage**: Display as a "High Priority Alerts" feed on a mobile technician app.
+
+### 3. Forecast Snapshot (`forecast-snapshot`)
+**Purpose**: Enable grid-aware scheduling or battery optimization for the next several days.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `horizon` | string | Scope of the forecast (`24h`, `48h`, or `7d`). |
+| `forecasts` | array | List of objects containing `timestamp` and `expected_power_kw`. |
+
+---
+
+## Integration Example: Building a React Dashboard
+{: #usage-example }
+
+The following example shows how to use the SDK within a React component. The ETag caching is handled automatically by the SDK, so you can safely call these methods on every component mount without performance penalties.
+
+```javascript
+import React, { useEffect, useState } from "react";
+import { OnaSDK } from "@asoba/ona-sdk";
+
+const SiteSummary = ({ siteId }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const sdk = new OnaSDK({ /* config */ });
+    
+    // Fetch pre-computed snapshot
+    sdk.partnerApi.getKpiRollup({ site_id: siteId })
+      .then(rollup => {
+        setData(rollup.kpis);
+        setLoading(false);
+      });
+  }, [siteId]);
+
+  if (loading) return <div>Loading Performance Data...</div>;
+
+  return (
+    <div className="dashboard-grid">
+      <div className="tile">
+        <h3>Today"s Yield</h3>
+        <p className="value">{data.daily_yield_kwh} kWh</p>
+      </div>
+      <div className="tile">
+        <h3>Performance Ratio</h3>
+        <p className="value">{(data.performance_ratio * 100).toFixed(1)}%</p>
+      </div>
+    </div>
+  );
+};
 ```
 
 ---
