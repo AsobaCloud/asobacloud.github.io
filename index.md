@@ -36,14 +36,14 @@ layout: default
       <div class="sdk-icon">🐍</div>
       <h3>Python SDK</h3>
       <code class="sdk-install">git clone github.com/AsobaCloud/sdk</code>
-      <p>v1.0.0 • Inverter Telemetry + OODA Alerts</p>
+      <p>v1.1.0 • Inverter Telemetry + OODA Alerts + Partner API</p>
     </a>
     
     <a href="https://github.com/AsobaCloud/sdk" class="sdk-link-card">
       <div class="sdk-icon">📦</div>
       <h3>JavaScript SDK</h3>
       <code class="sdk-install">git clone github.com/AsobaCloud/sdk</code>
-      <p>v1.0.0 • Inverter Telemetry + OODA Alerts</p>
+      <p>v1.1.0 • Inverter Telemetry + OODA Alerts + Partner API</p>
     </a>
     
     <a href="/api-reference/overview" class="sdk-link-card">

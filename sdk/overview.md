@@ -47,7 +47,7 @@ Official JavaScript/TypeScript SDK for Node.js and browser environments.
 **Quick Start:**
 
 ```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
+const { OnaSDK } = require('./src/index');
 
 const sdk = new OnaSDK({
   region: 'af-south-1',
@@ -95,7 +95,9 @@ detection = client.terminal.run_detection(
 ### JavaScript SDK
 
 ```bash
-npm install @asoba/ona-sdk
+git clone https://github.com/AsobaCloud/sdk.git
+cd sdk/javascript
+npm install
 ```
 
 For detailed installation and setup instructions, see the [JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/prod/javascript/README.md).
@@ -103,7 +105,9 @@ For detailed installation and setup instructions, see the [JavaScript SDK Docume
 ### Python SDK
 
 ```bash
-pip install ona-platform
+git clone https://github.com/AsobaCloud/sdk.git
+cd sdk/python
+pip3 install -e .
 ```
 
 Or install from source:
@@ -213,7 +217,7 @@ const {
   ValidationError,
   AuthenticationError,
   TimeoutError
-} = require('@asoba/ona-sdk');
+} = require('./src/index');
 ```
 
 ### Python
