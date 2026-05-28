@@ -25,6 +25,7 @@ git clone https://github.com/AsobaCloud/sdk.git && cd sdk/javascript && npm inst
 |-----|-----------|----------|
 | Inverter Telemetry | `client.inverter_telemetry` / `sdk.inverterTelemetry` | `https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod` |
 | OODA Terminal Alerts | `client.ooda_terminal` / `sdk.oodaTerminal` | `https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod` |
+| Partner API | `client.partner_api` / `sdk.partnerApi` | `https://<endpoint>.execute-api.af-south-1.amazonaws.com/prod` |
 
 See the [SDK repository](https://github.com/AsobaCloud/sdk) for full examples.
 
@@ -36,6 +37,10 @@ See the [SDK repository](https://github.com/AsobaCloud/sdk) for full examples.
 ### Authentication & Setup
 
 *   **[Authentication](./authentication)**: Learn how to authenticate your requests to the API.
+
+### Partner API (Snapshots)
+
+*   **[Partner API Overview](../sdk/overview#partner-api)**: High-performance pre-computed JSON snapshots for embedding
 
 ### Forecasting APIs
 
