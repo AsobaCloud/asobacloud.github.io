@@ -62,47 +62,48 @@ The Ona SDK handles this caching logic automatically.
 ### KPI Rollup Snapshot
 `GET /kpi-rollup`
 
-Returns a summary of key performance indicators for the site, typically used for high-level "pulse" dashboards.
+Returns a summary of key performance indicators for the site.
 
 #### Parameters
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
 | `site_id` | string | Yes | The identifier for the site (e.g., `Sibaya`). |
 
-#### Code Example
-{% tabs partner_kpi %}
-{% tab partner_kpi Python %}
-```python
-from ona_platform import OnaClient
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+    <button class="code-tab" data-tab="curl">cURL</button>
+  </div>
+  
+  <div class="code-example-card" data-language="python">
+    <pre><code>from ona_platform import OnaClient
 
 client = OnaClient(partner_api_key="your_key")
 snapshot = client.partner_api.get_kpi_rollup(site_id="Sibaya")
-print(snapshot['metrics']['performance_ratio'])
-```
-{% endtab %}
-{% tab partner_kpi JavaScript %}
-```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
+print(snapshot['metrics']['performance_ratio'])</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>const { OnaSDK } = require('@asoba/ona-sdk');
 
 const sdk = new OnaSDK({ partnerApiKey: 'your_key' });
 const snapshot = await sdk.partnerApi.getKpiRollup({ site_id: 'Sibaya' });
-console.log(snapshot.metrics.performance_ratio);
-```
-{% endtab %}
-{% tab partner_kpi cURL %}
-```bash
-curl -i -X GET "https://partner.api.asoba.org/kpi-rollup?site_id=Sibaya" \
-  -H "x-api-key: YOUR_PARTNER_API_KEY"
-```
-{% endtab %}
-{% endtabs %}
+console.log(snapshot.metrics.performance_ratio);</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="curl" style="display: none;">
+    <pre><code>curl -i -X GET "https://partner.api.asoba.org/kpi-rollup?site_id=Sibaya" \
+  -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
+  </div>
+</div>
 
 ---
 
 ### Maintenance Signals
 `GET /maintenance-signals`
 
-Returns active alerts, fault detections, and prioritized maintenance tasks for the site.
+Returns active alerts and prioritized maintenance tasks.
 
 #### Parameters
 | Parameter | Type | Required | Description |
@@ -111,31 +112,32 @@ Returns active alerts, fault detections, and prioritized maintenance tasks for t
 | `since` | string | No | Filter signals occurring after this timestamp (ISO 8601). |
 | `severity` | string | No | Filter by severity: `critical`, `major`, `minor`. |
 
-#### Code Example
-{% tabs partner_maint %}
-{% tab partner_maint Python %}
-```python
-signals = client.partner_api.get_maintenance_signals(
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+    <button class="code-tab" data-tab="curl">cURL</button>
+  </div>
+  
+  <div class="code-example-card" data-language="python">
+    <pre><code>signals = client.partner_api.get_maintenance_signals(
     site_id="Sibaya", 
     severity="critical"
-)
-```
-{% endtab %}
-{% tab partner_maint JavaScript %}
-```javascript
-const signals = await sdk.partnerApi.getMaintenanceSignals({ 
+)</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>const signals = await sdk.partnerApi.getMaintenanceSignals({ 
   site_id: 'Sibaya', 
   severity: 'critical' 
-});
-```
-{% endtab %}
-{% tab partner_maint cURL %}
-```bash
-curl -X GET "https://partner.api.asoba.org/maintenance-signals?site_id=Sibaya&severity=critical" \
-  -H "x-api-key: YOUR_PARTNER_API_KEY"
-```
-{% endtab %}
-{% endtabs %}
+});</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="curl" style="display: none;">
+    <pre><code>curl -X GET "https://partner.api.asoba.org/maintenance-signals?site_id=Sibaya&severity=critical" \
+  -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
+  </div>
+</div>
 
 ---
 
@@ -150,22 +152,50 @@ Returns the most recent solar energy forecast rollup for the entire site.
 | `site_id` | string | Yes | The identifier for the site. |
 | `horizon` | string | No | Forecast window (e.g., `24h`, `48h`). Defaults to `24h`. |
 
-#### Code Example
-{% tabs partner_forecast %}
-{% tab partner_forecast Python %}
-```python
-forecast = client.partner_api.get_forecast_snapshot(site_id="Sibaya")
-```
-{% endtab %}
-{% tab partner_forecast JavaScript %}
-```javascript
-const forecast = await sdk.partnerApi.getForecastSnapshot({ site_id: 'Sibaya' });
-```
-{% endtab %}
-{% tab partner_forecast cURL %}
-```bash
-curl -X GET "https://partner.api.asoba.org/forecast-snapshot?site_id=Sibaya" \
-  -H "x-api-key: YOUR_PARTNER_API_KEY"
-```
-{% endtab %}
-{% endtabs %}
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+    <button class="code-tab" data-tab="curl">cURL</button>
+  </div>
+  
+  <div class="code-example-card" data-language="python">
+    <pre><code>forecast = client.partner_api.get_forecast_snapshot(site_id="Sibaya")</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>const forecast = await sdk.partnerApi.getForecastSnapshot({ site_id: 'Sibaya' });</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="curl" style="display: none;">
+    <pre><code>curl -X GET "https://partner.api.asoba.org/forecast-snapshot?site_id=Sibaya" \
+  -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.code-examples-section').forEach(section => {
+    const tabs = section.querySelectorAll('.code-tab');
+    const cards = section.querySelectorAll('.code-example-card');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const targetLang = this.getAttribute('data-tab');
+        
+        // Update active tab in this section
+        tabs.forEach(t => t.classList.toggle('active', t === this));
+        
+        // Show/hide cards in this section
+        cards.forEach(card => {
+          if (card.getAttribute('data-language') === targetLang) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+});
+</script>

@@ -31,7 +31,7 @@ x-api-key: YOUR_API_KEY
 ### Get Data Period
 `GET /telemetry/data-period`
 
-Always call this endpoint first to discover the time range for which data is actually available. Querying an empty time window returns an empty list, so knowing the available range upfront avoids wasted calls.
+Always call this endpoint first to discover the time range for which data is actually available. 
 
 #### Parameters
 | Parameter | Type | Required | Description |
@@ -39,27 +39,28 @@ Always call this endpoint first to discover the time range for which data is act
 | `site_id` | string | Yes | Site identifier. |
 | `asset_id` | string | No | Optional filter for a specific inverter. |
 
-#### Code Example
-{% tabs tel_period %}
-{% tab tel_period Python %}
-```python
-from ona_platform import OnaClient
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+  </div>
+  
+  <div class="code-example-card" data-language="python">
+    <pre><code>from ona_platform import OnaClient
 
 client = OnaClient(inverter_telemetry_api_key="your_key")
 period = client.inverter_telemetry.get_data_period(site_id="Sibaya")
-print(f"Data from {period['first_record']} to {period['last_record']}")
-```
-{% endtab %}
-{% tab tel_period JavaScript %}
-```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
+print(f"Data from {period['first_record']} to {period['last_record']}")</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>const { OnaSDK } = require('@asoba/ona-sdk');
 
 const sdk = new OnaSDK({ inverterTelemetryApiKey: 'your_key' });
 const period = await sdk.inverterTelemetry.getDataPeriod({ site_id: 'Sibaya' });
-console.log(`Data from ${period.first_record} to ${period.last_record}`);
-```
-{% endtab %}
-{% endtabs %}
+console.log(`Data from ${period.first_record} to ${period.last_record}`);</code></pre>
+  </div>
+</div>
 
 ---
 
@@ -77,65 +78,82 @@ Retrieve historical records for a specific inverter.
 | `site_id` | string | Yes | Site identifier. |
 | `start` | string | Yes | ISO 8601 start timestamp. |
 | `end` | string | Yes | ISO 8601 end timestamp. |
-| `resolution` | string | No | Data resolution: `5min` or `daily`. Defaults to `5min`. |
-| `limit` | integer | No | Max records to return (max 1000). |
-| `cursor` | string | No | Token for pagination. |
+| `resolution` | string | No | Data resolution: `5min` or `daily`. |
 
-#### Code Example
-{% tabs tel_inv %}
-{% tab tel_inv Python %}
-```python
-from ona_platform.models.telemetry import TimeRange
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+  </div>
+  
+  <div class="code-example-card" data-language="python">
+    <pre><code>from ona_platform.models.telemetry import TimeRange
 
 records = client.inverter_telemetry.get_inverter_telemetry(
     asset_id="INV-123",
     site_id="Sibaya",
     time_range=TimeRange(start="2025-01-01T00:00:00", end="2025-01-01T12:00:00")
-)
-```
-{% endtab %}
-{% tab tel_inv JavaScript %}
-```javascript
-const records = await sdk.inverterTelemetry.getInverterTelemetry({
+)</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>const records = await sdk.inverterTelemetry.getInverterTelemetry({
   asset_id: 'INV-123',
   site_id: 'Sibaya',
   start: '2025-01-01T00:00:00',
   end: '2025-01-01T12:00:00'
-});
-```
-{% endtab %}
-{% endtabs %}
+});</code></pre>
+  </div>
+</div>
 
 ---
 
 ## Live Streaming
 
-The Ona SDK supports live streaming via polling. It handles cursor management and reconnections automatically.
-
 ### Stream Inverter
 The SDK will poll the API every few seconds and yield new records as they arrive.
 
-#### Code Example
-{% tabs tel_stream %}
-{% tab tel_stream Python %}
-```python
-for record in client.inverter_telemetry.stream_inverter(
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+  </div>
+  
+  <div class="code-example-card" data-language="python">
+    <pre><code>for record in client.inverter_telemetry.stream_inverter(
     asset_id="INV-123",
     site_id="Sibaya",
     polling_interval=30
 ):
-    print(f"{record.timestamp}: {record.power} kW")
-```
-{% endtab %}
-{% tab tel_stream JavaScript %}
-```javascript
-for await (const record of sdk.inverterTelemetry.streamInverter({
+    print(f"{record.timestamp}: {record.power} kW")</code></pre>
+  </div>
+  
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>for await (const record of sdk.inverterTelemetry.streamInverter({
   asset_id: 'INV-123',
   site_id: 'Sibaya',
   polling_interval: 30
 })) {
   console.log(`${record.timestamp}: ${record.power} kW`);
-}
-```
-{% endtab %}
-{% endtabs %}
+}</code></pre>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.code-examples-section').forEach(section => {
+    const tabs = section.querySelectorAll('.code-tab');
+    const cards = section.querySelectorAll('.code-example-card');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const targetLang = this.getAttribute('data-tab');
+        tabs.forEach(t => t.classList.toggle('active', t === this));
+        cards.forEach(card => {
+          card.style.display = card.getAttribute('data-language') === targetLang ? 'block' : 'none';
+        });
+      });
+    });
+  });
+});
+</script>
