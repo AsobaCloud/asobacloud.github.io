@@ -176,7 +176,7 @@ If you represent institutional capital interested in participating in the Asoba 
 - Regulatory positioning and compliance frameworks
 - Performance metrics and compensation models
 
-**Contact**: [protocol@asoba.co](mailto:protocol@asoba.co)
+**Contact**: [protocol@asoba.org](mailto:protocol@asoba.org)
 
 <div style="background-color: #f0f9ff; border: 2px solid #1e40af; border-radius: 8px; padding: 24px; margin: 32px 0;">
   <h3 style="margin-top: 0; color: #1e40af;">Institutional Capital Partners</h3>

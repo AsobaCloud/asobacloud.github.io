@@ -18,7 +18,7 @@ curl -X POST \
   -F "email=user@example.com" \
   -F "site_name=My Solar Site" \
   -F "location=Durban" \
-  https://api.asoba.co/v1/freemium-forecast
+  https://api.asoba.org/v1/freemium-forecast
 ```
 
 ## What You Can Find Here

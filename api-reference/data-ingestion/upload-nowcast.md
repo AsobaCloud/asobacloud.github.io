@@ -12,7 +12,7 @@ Upload real-time solar production data for forecasting and monitoring. This endp
 ## Endpoint
 
 ```
-POST https://api.asoba.co/upload_nowcast
+POST https://api.asoba.org/upload_nowcast
 ```
 
 ## Request Format
@@ -24,7 +24,7 @@ This endpoint accepts `multipart/form-data` requests with a CSV file, or `applic
 Upload a CSV file directly:
 
 ```bash
-curl -X POST https://api.asoba.co/upload_nowcast \
+curl -X POST https://api.asoba.org/upload_nowcast \
   -F "file=@/path/to/realtime_data.csv" \
   -F "customer_id=demo-customer" \
   -F "site_id=Sibaya" \
@@ -37,7 +37,7 @@ curl -X POST https://api.asoba.co/upload_nowcast \
 Send metadata about the upload:
 
 ```bash
-curl -X POST https://api.asoba.co/upload_nowcast \
+curl -X POST https://api.asoba.org/upload_nowcast \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{

@@ -8,7 +8,7 @@ heading_anchors: true
 # Sidebar navigation
 nav_external_links:
   - title: Asoba Website
-    url: https://asoba.co
+    url: https://asoba.org
     hide_icon: false
 
 # Sidebar styling
@@ -22,4 +22,4 @@ toc:
 
 # Production settings
 baseurl: ""
-url: "https://docs.asoba.co"
+url: "https://docs.asoba.org"

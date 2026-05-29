@@ -314,7 +314,7 @@
 ### cURL Request
 
 ```bash
-curl -X POST https://api.asoba.co/v1/freemium-forecast \
+curl -X POST https://api.asoba.org/v1/freemium-forecast \
   -F "file=@sample.csv" \
   -F "email=user@example.com" \
   -F "site_name=My Solar Site"

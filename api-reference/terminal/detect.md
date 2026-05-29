@@ -12,7 +12,7 @@ Run fault detection on your assets to identify anomalies and potential issues. T
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/detect
+POST https://api.asoba.org/terminal/detect
 ```
 
 ## Request Body
@@ -76,7 +76,7 @@ Or to list detection results:
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/detect \
+curl -X POST https://api.asoba.org/terminal/detect \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

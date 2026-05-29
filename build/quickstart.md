@@ -30,7 +30,7 @@ export INVERTER_TELEMETRY_ENDPOINT=https://af5jy5ob3e.execute-api.af-south-1.ama
 export INVERTER_TELEMETRY_API_KEY=<your_api_key>
 ```
 
-Contact **support@asoba.co** to get an API key.
+Contact **support@asoba.org** to get an API key.
 
 ## Step 3: Query
 

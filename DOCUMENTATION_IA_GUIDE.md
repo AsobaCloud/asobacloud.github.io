@@ -1432,7 +1432,7 @@ Two-column layouts break up dense text and create visual interest.
     <div class="support-cta">
       <h3>Need Help?</h3>
       <p>Contact our support team</p>
-      <a href="mailto:support@asoba.co" class="support-button">Email Support</a>
+      <a href="mailto:support@asoba.org" class="support-button">Email Support</a>
     </div>
   </div>
   <div class="end-column">

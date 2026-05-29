@@ -22,7 +22,7 @@ curl -X POST \
   -F "file=@/path/to/training_data.csv" \
   -F "site_id=site_123" \
   -F "data_type=training" \
-  https://api.asoba.co/v1/data-ingestion/upload-train
+  https://api.asoba.org/v1/data-ingestion/upload-train
 ```
 
 **Parameters:**
@@ -40,7 +40,7 @@ curl -X POST \
   -F "file=@/path/to/nowcast_data.csv" \
   -F "site_id=site_123" \
   -F "data_type=nowcast" \
-  https://api.asoba.co/v1/data-ingestion/upload-nowcast
+  https://api.asoba.org/v1/data-ingestion/upload-nowcast
 ```
 
 **Parameters:**

@@ -12,7 +12,7 @@ Upload historical solar production data for model training. This endpoint accept
 ## Endpoint
 
 ```
-POST https://api.asoba.co/upload_train
+POST https://api.asoba.org/upload_train
 ```
 
 ## Request Format
@@ -24,7 +24,7 @@ This endpoint accepts `multipart/form-data` requests with a CSV file, or `applic
 Upload a CSV file directly:
 
 ```bash
-curl -X POST https://api.asoba.co/upload_train \
+curl -X POST https://api.asoba.org/upload_train \
   -F "file=@/path/to/historical_data.csv" \
   -F "customer_id=demo-customer" \
   -F "site_id=Sibaya" \
@@ -37,7 +37,7 @@ curl -X POST https://api.asoba.co/upload_train \
 Send metadata about the upload:
 
 ```bash
-curl -X POST https://api.asoba.co/upload_train \
+curl -X POST https://api.asoba.org/upload_train \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -d '{

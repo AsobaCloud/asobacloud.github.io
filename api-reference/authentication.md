@@ -7,7 +7,7 @@ parent: "Reference"
 
 # Authentication
 
-All Ona SDK requests authenticate via an API key passed in the `x-api-key` header. Contact **support@asoba.co** to get a key.
+All Ona SDK requests authenticate via an API key passed in the `x-api-key` header. Contact **support@asoba.org** to get a key.
 
 Your API key is scoped to specific site IDs. Requests to sites outside your key's scope return `403 Forbidden`.
 
@@ -69,4 +69,4 @@ curl -H "x-api-key: YOUR_API_KEY" \
 
 ## Key scope
 
-Each API key is associated with a list of permitted `site_id` values. If you need access to additional sites, contact **support@asoba.co**.
+Each API key is associated with a list of permitted `site_id` values. If you need access to additional sites, contact **support@asoba.org**.

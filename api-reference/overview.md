@@ -40,7 +40,7 @@ See the [SDK repository](https://github.com/AsobaCloud/sdk) for full examples.
 
 ### Partner API (Snapshots)
 
-*   **[Partner API Overview](../sdk/overview#partner-api)**: High-performance pre-computed JSON snapshots for embedding
+*   **[Partner API Overview](./partner/overview)**: High-performance pre-computed JSON snapshots for embedding
 
 ### Forecasting APIs
 

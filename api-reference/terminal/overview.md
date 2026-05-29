@@ -53,7 +53,7 @@ All Terminal API endpoints require authentication. See [Authentication](../authe
 ## Base URL
 
 ```
-https://api.asoba.co
+https://api.asoba.org
 ```
 
 ## Quick Start

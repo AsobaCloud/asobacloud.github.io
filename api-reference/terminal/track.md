@@ -12,7 +12,7 @@ Subscribe to and manage job tracking subscriptions. This endpoint enables real-t
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/track
+POST https://api.asoba.org/terminal/track
 ```
 
 ## Request Body
@@ -92,7 +92,7 @@ When order status changes, a POST request is sent to your callback URL:
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/track \
+curl -X POST https://api.asoba.org/terminal/track \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

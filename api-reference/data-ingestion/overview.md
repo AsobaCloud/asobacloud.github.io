@@ -26,7 +26,7 @@ The Data Ingestion API follows standard RESTful conventions:
 ## Base URL
 
 ```
-https://api.asoba.co
+https://api.asoba.org
 ```
 
 ## Data Flow

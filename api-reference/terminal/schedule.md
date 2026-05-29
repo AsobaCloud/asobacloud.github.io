@@ -12,7 +12,7 @@ Create and manage maintenance schedules for your assets. This endpoint supports 
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/schedule
+POST https://api.asoba.org/terminal/schedule
 ```
 
 ## Request Body
@@ -86,7 +86,7 @@ Or to list schedules:
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/schedule \
+curl -X POST https://api.asoba.org/terminal/schedule \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

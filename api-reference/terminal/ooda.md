@@ -12,7 +12,7 @@ Retrieve ML-enhanced OODA (Observe-Orient-Decide-Act) summaries for your assets.
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/ooda
+POST https://api.asoba.org/terminal/ooda
 ```
 
 ## Request Body
@@ -104,7 +104,7 @@ The response schema is defined in `TerminalOODAResponse.json`.
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/ooda \
+curl -X POST https://api.asoba.org/terminal/ooda \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

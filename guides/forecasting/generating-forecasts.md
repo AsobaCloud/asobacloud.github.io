@@ -18,7 +18,7 @@ curl -X POST \
   -F "email=user@example.com" \
   -F "site_name=My First Solar Site" \
   -F "location=Durban" \
-  https://api.asoba.co/v1/freemium-forecast
+  https://api.asoba.org/v1/freemium-forecast
 ```
 
 **Parameters:**
@@ -40,7 +40,7 @@ curl -X POST \
     "forecast_hours": 24,
     "model_type": "customer_specific"
   }' \
-  https://api.asoba.co/v1/forecast
+  https://api.asoba.org/v1/forecast
 ```
 
 **Parameters:**

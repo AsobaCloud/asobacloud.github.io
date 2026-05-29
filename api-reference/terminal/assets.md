@@ -12,7 +12,7 @@ Manage your solar asset inventory through the Terminal API. Add assets, list all
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/assets
+POST https://api.asoba.org/terminal/assets
 ```
 
 ## Request Body
@@ -140,7 +140,7 @@ To retrieve details for a specific asset:
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/assets \
+curl -X POST https://api.asoba.org/terminal/assets \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

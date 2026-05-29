@@ -12,7 +12,7 @@ Retrieve stored interpolation (gap-filling) results for your sites. This endpoin
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/interpolation
+POST https://api.asoba.org/terminal/interpolation
 ```
 
 ## Request Body
@@ -107,7 +107,7 @@ The response schema is defined in `TerminalInterpolationResponse.json`.
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/interpolation \
+curl -X POST https://api.asoba.org/terminal/interpolation \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

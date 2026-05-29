@@ -12,7 +12,7 @@ Retrieve the shared catalog of all available ML models. This endpoint provides m
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/ml-models
+POST https://api.asoba.org/terminal/ml-models
 ```
 
 ## Request Body
@@ -113,7 +113,7 @@ The response schema is defined in `TerminalMLModelsResponse.json`.
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/ml-models \
+curl -X POST https://api.asoba.org/terminal/ml-models \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{}'

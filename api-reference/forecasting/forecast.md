@@ -12,7 +12,7 @@ Generate an energy production forecast for a customer and site. This endpoint us
 ## Endpoint
 
 ```
-GET https://api.asoba.co/forecast
+GET https://api.asoba.org/forecast
 ```
 
 ## Request Parameters
@@ -28,7 +28,7 @@ The request uses query parameters. The response schema is defined in `ForecastRe
 ## Request Example
 
 ```bash
-curl -X GET "https://api.asoba.co/forecast?customer_id=demo-customer&site_id=Sibaya&horizon_hours=48" \
+curl -X GET "https://api.asoba.org/forecast?customer_id=demo-customer&site_id=Sibaya&horizon_hours=48" \
   -H "Authorization: Bearer YOUR_API_KEY"
 ```
 

@@ -369,5 +369,5 @@ Single-turn benchmarks overstate model capability. The gap between Nehanda and f
 
 - [Nehanda Product Page](/products/nehanda)
 - [Zorora Product Page](/products/zorora)
-- [Research Paper: Epistemic Robustness Under Adversarial Narrative Environments](https://asoba.co/pub-nehanda-epistemic.html)
+- [Research Paper: Epistemic Robustness Under Adversarial Narrative Environments](https://asoba.org/pub-nehanda-epistemic.html)
 - [Hugging Face Model](https://huggingface.co/asoba/nehanda-v2-32b)

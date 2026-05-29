@@ -315,9 +315,9 @@ pip install odse
 
 **Read the specification and transform guides:**
 
-→ [Full Documentation](https://docs.asoba.co/ona-protocol/overview)
-→ [Schema Reference](https://docs.asoba.co/ona-protocol/schemas)
-→ [Transform Guide](https://docs.asoba.co/ona-protocol/transforms)
+→ [Full Documentation](https://docs.asoba.org/ona-protocol/overview)
+→ [Schema Reference](https://docs.asoba.org/ona-protocol/schemas)
+→ [Transform Guide](https://docs.asoba.org/ona-protocol/transforms)
 
 **Browse the source, file issues, contribute transforms:**
 
@@ -326,8 +326,8 @@ pip install odse
 **Join the community:**
 
 → [Discord](https://discord.gg/2MmDG2uTxX)
-→ [support@asoba.co](mailto:support@asoba.co)
+→ [support@asoba.org](mailto:support@asoba.org)
 
 ---
 
-*ODS-E is an open standard maintained by [Asoba Corporation](https://asoba.co). The specification is licensed under CC-BY-SA 4.0. The reference implementation is licensed under Apache 2.0.*
+*ODS-E is an open standard maintained by [Asoba Corporation](https://asoba.org). The specification is licensed under CC-BY-SA 4.0. The reference implementation is licensed under Apache 2.0.*

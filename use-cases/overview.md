@@ -69,7 +69,7 @@ Now that you've seen our use cases:
 1. **Read Case Studies**: Explore individual use cases to understand specific applications
 2. **Get Started**: Try our [Get Started](../get-started) guide to experience the platform yourself
 3. **Review Guides**: Check out our [Guides](../guides/overview) for step-by-step instructions
-4. **Contact Us**: [Reach out to our team](mailto:support@asoba.co) to discuss your specific use case
+4. **Contact Us**: [Reach out to our team](mailto:support@asoba.org) to discuss your specific use case
 
 ## See Also
 

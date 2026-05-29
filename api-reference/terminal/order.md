@@ -12,7 +12,7 @@ Create and manage work orders for maintenance activities. This endpoint supports
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/order
+POST https://api.asoba.org/terminal/order
 ```
 
 ## Request Body
@@ -88,7 +88,7 @@ Or to list work orders:
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/order \
+curl -X POST https://api.asoba.org/terminal/order \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

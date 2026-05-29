@@ -12,7 +12,7 @@ Generate bills of materials (BOM) for maintenance work. This endpoint helps prep
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/bom
+POST https://api.asoba.org/terminal/bom
 ```
 
 ## Request Body
@@ -97,7 +97,7 @@ Or to list BOMs:
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/bom \
+curl -X POST https://api.asoba.org/terminal/bom \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

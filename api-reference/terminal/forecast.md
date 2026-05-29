@@ -12,7 +12,7 @@ Retrieve stored ML forecast results for your sites. This endpoint provides acces
 ## Endpoint
 
 ```
-POST https://api.asoba.co/terminal/forecast
+POST https://api.asoba.org/terminal/forecast
 ```
 
 ## Request Body
@@ -115,7 +115,7 @@ The response schema is defined in `TerminalForecastResponse.json`.
 ## cURL Example
 
 ```bash
-curl -X POST https://api.asoba.co/terminal/forecast \
+curl -X POST https://api.asoba.org/terminal/forecast \
   -H "Authorization: Bearer YOUR_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{

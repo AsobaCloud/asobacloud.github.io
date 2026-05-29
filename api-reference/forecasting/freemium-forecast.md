@@ -16,7 +16,7 @@ This API is designed for **Developers**.
 ## Endpoint
 
 ```
-POST https://api.asoba.co/v1/freemium-forecast
+POST https://api.asoba.org/v1/freemium-forecast
 ```
 
 This endpoint accepts a `multipart/form-data` request.
@@ -92,7 +92,7 @@ curl -X POST \
   -F "email=user@example.com" \
   -F "site_name=My First Solar Site" \
   -F "location=Durban" \
-  https://api.asoba.co/v1/freemium-forecast
+  https://api.asoba.org/v1/freemium-forecast
 ```
 
 ## Response Format
