@@ -314,10 +314,14 @@
 ### cURL Request
 
 ```bash
-curl -X POST https://api.asoba.org/v1/freemium-forecast \
+curl -X POST https://forecasting.api.asoba.org/api/v1/freemium-forecast \
   -F "file=@sample.csv" \
   -F "email=user@example.com" \
-  -F "site_name=My Solar Site"
+  -F "verification_code=123456" \
+  -F "site_name=My Solar Site" \
+  -F "location=Durban" \
+  -F "capacity_kw=500" \
+  -F "tou_accepted=true"
 ```
 
 ### Expected Response

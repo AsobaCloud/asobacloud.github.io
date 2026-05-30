@@ -15,13 +15,27 @@ Our APIs follow RESTful conventions and return JSON responses. All endpoints req
 
 To generate your first forecast, see the [Get Started](../../get-started) guide. This tutorial walks you through making your first API call using our freemium endpoint.
 
+> **Two domains, two tiers:** the **freemium** API lives on `forecasting.api.asoba.org`
+> (no API key, two-step email verification). The **metered/production** forecasting
+> endpoint (`/forecast`) lives on `api.asoba.org` and requires an API key. Use the right
+> host for the tier you want.
+
 ```bash
+# Step 1 — request a verification code (emailed to you)
+curl -X POST https://forecasting.api.asoba.org/api/v1/freemium-forecast/verify \
+  -H "Content-Type: application/json" \
+  -d '{"email": "user@example.com"}'
+
+# Step 2 — submit the CSV with the code, capacity, ToU acceptance, and site details
 curl -X POST \
   -F "file=@/path/to/your/sample.csv" \
   -F "email=user@example.com" \
+  -F "verification_code=123456" \
   -F "site_name=My First Solar Site" \
   -F "location=Durban" \
-  https://api.asoba.org/v1/freemium-forecast
+  -F "capacity_kw=500" \
+  -F "tou_accepted=true" \
+  https://forecasting.api.asoba.org/api/v1/freemium-forecast
 ```
 
 ## Endpoints
