@@ -135,9 +135,9 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_REGION=af-south-1
 
 # Service Endpoints (optional)
-export ONA_FORECASTING_ENDPOINT=https://forecasting.api.asoba.org
-export ONA_TERMINAL_ENDPOINT=https://terminal.api.asoba.org
-export PARTNER_API_ENDPOINT=https://partner.api.asoba.org
+export ONA_FORECASTING_ENDPOINT=https://api.asoba.org
+export ONA_TERMINAL_ENDPOINT=https://api.asoba.org
+export PARTNER_API_ENDPOINT=https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod
 export PARTNER_API_KEY=your_partner_api_key
 ```
 

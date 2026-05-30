@@ -13,7 +13,7 @@ The Inverter Telemetry API provides high-resolution historical data and live str
 ## Base URL
 
 ```
-https://telemetry.api.asoba.org
+https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod
 ```
 
 ## Authentication

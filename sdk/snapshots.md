@@ -49,40 +49,63 @@ This reduces typical response times from **~150ms** (network + S3 read) to **<10
 ## Data Dictionary: What is Served?
 {: #data-dictionary }
 
-The Partner API currently exposes three specific snapshot types.
+The Partner API currently exposes four snapshot types.
 
 ### 1. KPI Rollup (`kpi-rollup`)
 **Purpose**: Summarize site productivity and health for management-level dashboards.
 
+Top-level keys: `site_id`, `period` (`{start, end}`), `generated_at`, `system`, `energy_balance`, `performance`, `ear`, `financial`.
+
 | Field | Type | Description |
 |-------|------|-------------|
-| `daily_yield_kwh` | float | Total energy produced today (local time). |
-| `ytd_yield_mwh` | float | Total energy produced since Jan 1st of the current year. |
-| `performance_ratio` | float | 0.0-1.0 score comparing actual yield vs theoretical maximum based on irradiance. |
-| `availability_score` | float | Percentage of time the site was reporting and producing during daylight hours. |
-| `peak_power_kw` | float | The highest power output recorded today. |
+| `system.rated_capacity_kw` | float | Total rated DC/AC capacity across reporting devices. |
+| `system.device_count` | int | Number of inverters/devices included in the rollup. |
+| `energy_balance.solar_production_kwh` | float | Energy produced over the rollup period. |
+| `performance.system_pr` | float | 0.0-1.0 performance ratio (actual vs expected for irradiance). |
+| `performance.availability_pct` | float | Percentage availability over the period. |
+| `ear.energy_lost_kwh` | float | Energy-at-risk: estimated energy lost over the period. |
+| `financial.shortfall_cost_zar` | float | Monetised value of the shortfall (currency per `financial.tariff_currency`). |
 
-**Example Usage**: Use these fields to populate "Big Number" tiles on a site overview page.
+**Example Usage**: Use `performance.system_pr` and `ear.energy_lost_kwh` to populate "Big Number" tiles on a site overview page.
 
 ### 2. Maintenance Signals (`maintenance-signals`)
 **Purpose**: Direct field technicians to specific issues without requiring them to analyze raw charts.
 
+Returned as `{site_id, generated_at, cursor, signals: [...]}`. Each item in `signals`:
+
 | Field | Type | Description |
 |-------|------|-------------|
-| `severity` | string | `low`, `medium`, `high`, or `critical`. |
-| `diagnostic_code` | string | Machine-readable identifier (e.g., `SOILING_LOSS_DETECTED`). |
-| `recommended_action` | string | Actionable instruction for the O&M team. |
-| `energy_at_risk_kwh` | float | Estimated daily energy loss if the issue is not resolved. |
+| `severity` | string | One of `Critical`, `High`, `Medium`, `Low`. |
+| `type` | string | Signal category (e.g., `Capacity Underperformance`). |
+| `asset_id` | string | The affected inverter/device. |
+| `description` | string | Human-readable explanation of the signal. |
+| `expected_kw` / `actual_kw` | float | Expected vs measured output at detection time. |
+| `capacity_pct` | float | Actual output as a percentage of expected. |
 
 **Example Usage**: Display as a "High Priority Alerts" feed on a mobile technician app.
 
 ### 3. Forecast Snapshot (`forecast-snapshot`)
 **Purpose**: Enable grid-aware scheduling or battery optimization for the next several days.
 
+Returned as `{site_id, model_id, generated_at, horizon_hours, resolution, intervals: [...], totals}`.
+
 | Field | Type | Description |
 |-------|------|-------------|
-| `horizon` | string | Scope of the forecast (`24h`, `48h`, or `7d`). |
-| `forecasts` | array | List of objects containing `timestamp` and `expected_power_kw`. |
+| `horizon_hours` | int | Length of the forecast window (e.g., `24`). |
+| `intervals` | array | Per-step objects: `ts`, `p50_kw`, `p10_kw`, `p90_kw`, `revenue_zar`. |
+| `totals` | object | `total_kwh` and `total_revenue_zar` across the window. |
+
+### 4. Maintenance Schedule (`maintenance-schedule`)
+**Purpose**: Drive preventive-maintenance planning for the next 90 days.
+
+Returned as `{site_id, generated_at, horizon: {start, end}, tasks: [...], summary}`. Each task:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `asset_id` | string | Inverter/device the task applies to. |
+| `task_type` | string | e.g., `inspection`. |
+| `recommended_date` | string | ISO date the task should be performed by. |
+| `priority` | string | `High`, `Medium`, or `Low`. |
 
 ---
 
@@ -105,7 +128,7 @@ const SiteSummary = ({ siteId }) => {
     // Fetch pre-computed snapshot
     sdk.partnerApi.getKpiRollup({ site_id: siteId })
       .then(rollup => {
-        setData(rollup.kpis);
+        setData(rollup);
         setLoading(false);
       });
   }, [siteId]);
@@ -115,12 +138,12 @@ const SiteSummary = ({ siteId }) => {
   return (
     <div className="dashboard-grid">
       <div className="tile">
-        <h3>Today"s Yield</h3>
-        <p className="value">{data.daily_yield_kwh} kWh</p>
+        <h3>Solar Production</h3>
+        <p className="value">{data.energy_balance.solar_production_kwh.toFixed(1)} kWh</p>
       </div>
       <div className="tile">
         <h3>Performance Ratio</h3>
-        <p className="value">{(data.performance_ratio * 100).toFixed(1)}%</p>
+        <p className="value">{(data.performance.system_pr * 100).toFixed(1)}%</p>
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ The Partner API provides high-performance access to pre-computed JSON snapshots 
 ## Base URL
 
 ```
-https://partner.api.asoba.org
+https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod
 ```
 
 ## Authentication
@@ -39,10 +39,11 @@ The following pre-computed snapshots are currently available:
 
 | Endpoint | Description |
 |----------|-------------|
-| `/kpi-rollup` | Aggregated performance metrics (PR, Availability, Yield). |
-| `/maintenance-signals` | Active alerts and maintenance recommendations. |
-| `/forecast-snapshot` | Latest 24-hour solar production forecast. |
-| `/snapshot` | Generic access to other site-specific data collections. |
+| `/kpi-rollup` | Aggregated performance metrics (system PR, availability, energy-at-risk, financial). |
+| `/maintenance-signals` | Detected anomalies and prioritised maintenance signals. |
+| `/forecast-snapshot` | Latest 24-hour solar production forecast (per-interval p10/p50/p90 + revenue). |
+| `/maintenance-schedule` | Preventive-maintenance task list for the next 90 days (per inverter). |
+| `/snapshot` | Generic access to other site-specific snapshot collections (by `kind`). |
 
 ---
 
@@ -81,7 +82,7 @@ Returns a summary of key performance indicators for the site.
 
 client = OnaClient(partner_api_key="your_key")
 snapshot = client.partner_api.get_kpi_rollup(site_id="Sibaya")
-print(snapshot['metrics']['performance_ratio'])</code></pre>
+print(snapshot['performance']['system_pr'])</code></pre>
   </div>
   
   <div class="code-example-card" data-language="javascript" style="display: none;">
@@ -89,11 +90,11 @@ print(snapshot['metrics']['performance_ratio'])</code></pre>
 
 const sdk = new OnaSDK({ partnerApiKey: 'your_key' });
 const snapshot = await sdk.partnerApi.getKpiRollup({ site_id: 'Sibaya' });
-console.log(snapshot.metrics.performance_ratio);</code></pre>
+console.log(snapshot.performance.system_pr);</code></pre>
   </div>
   
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -i -X GET "https://partner.api.asoba.org/kpi-rollup?site_id=Sibaya" \
+    <pre><code>curl -i -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/kpi-rollup?site_id=Sibaya" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>
@@ -110,7 +111,7 @@ Returns active alerts and prioritized maintenance tasks.
 |-----------|------|----------|-------------|
 | `site_id` | string | Yes | The identifier for the site. |
 | `since` | string | No | Filter signals occurring after this timestamp (ISO 8601). |
-| `severity` | string | No | Filter by severity: `critical`, `major`, `minor`. |
+| `severity` | string | No | Filter by severity: `Critical`, `High`, `Medium`, `Low`. |
 
 <div class="code-examples-section">
   <div class="code-examples-tabs">
@@ -122,19 +123,19 @@ Returns active alerts and prioritized maintenance tasks.
   <div class="code-example-card" data-language="python">
     <pre><code>signals = client.partner_api.get_maintenance_signals(
     site_id="Sibaya", 
-    severity="critical"
+    severity="High"
 )</code></pre>
   </div>
   
   <div class="code-example-card" data-language="javascript" style="display: none;">
     <pre><code>const signals = await sdk.partnerApi.getMaintenanceSignals({ 
   site_id: 'Sibaya', 
-  severity: 'critical' 
+  severity: 'High' 
 });</code></pre>
   </div>
   
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -X GET "https://partner.api.asoba.org/maintenance-signals?site_id=Sibaya&severity=critical" \
+    <pre><code>curl -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/maintenance-signals?site_id=Sibaya&severity=critical" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>
@@ -168,7 +169,65 @@ Returns the most recent solar energy forecast rollup for the entire site.
   </div>
   
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -X GET "https://partner.api.asoba.org/forecast-snapshot?site_id=Sibaya" \
+    <pre><code>curl -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/forecast-snapshot?site_id=Sibaya" \
+  -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
+  </div>
+</div>
+
+---
+
+### Maintenance Schedule
+`GET /maintenance-schedule`
+
+Returns the preventive-maintenance task list for the next 90 days, derived per inverter from
+detected anomaly frequency and manufacturer service intervals.
+
+#### Parameters
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `site_id` | string | Yes | The identifier for the site. |
+
+#### Response shape
+```json
+{
+  "site_id": "Sibaya",
+  "generated_at": "2026-05-30T03:39:39Z",
+  "horizon": { "start": "2026-05-30", "end": "2026-08-28" },
+  "tasks": [
+    {
+      "asset_id": "INV-1000000054495190",
+      "task_type": "inspection",
+      "reason": "35 anomalies detected in the last 2 days",
+      "recommended_date": "2026-06-06",
+      "estimated_duration_hours": 2.0,
+      "priority": "High"
+    }
+  ],
+  "summary": { "total_tasks": 5, "by_priority": { "High": 5 }, "by_task_type": { "inspection": 5 } }
+}
+```
+
+<div class="code-examples-section">
+  <div class="code-examples-tabs">
+    <button class="code-tab active" data-tab="python">Python</button>
+    <button class="code-tab" data-tab="javascript">JavaScript</button>
+    <button class="code-tab" data-tab="curl">cURL</button>
+  </div>
+
+  <div class="code-example-card" data-language="python">
+    <pre><code>schedule = client.partner_api.get_maintenance_schedule(site_id="Sibaya")
+print(schedule['summary']['total_tasks'])
+for task in schedule['tasks']:
+    print(task['recommended_date'], task['asset_id'], task['task_type'], task['priority'])</code></pre>
+  </div>
+
+  <div class="code-example-card" data-language="javascript" style="display: none;">
+    <pre><code>const schedule = await sdk.partnerApi.getMaintenanceSchedule({ site_id: 'Sibaya' });
+console.log(schedule.summary.total_tasks);</code></pre>
+  </div>
+
+  <div class="code-example-card" data-language="curl" style="display: none;">
+    <pre><code>curl -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/maintenance-schedule?site_id=Sibaya" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>
