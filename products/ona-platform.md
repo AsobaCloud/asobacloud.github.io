@@ -19,42 +19,93 @@ Ona is an intelligence layer for energy systems. It connects to your inverters a
 
 This is a platform that supports your technical roadmap, rather than forcing you to adjust your business logic to fit the platform's idiosyncrasies. Integrate once, consume intelligence through the interfaces you already use.
 
+Ona is not a single product — it is three layers that work together:
+
+- **ODSE** — Open Data Schema for Energy. The open specification and reference runtime that defines how raw device telemetry is ingested, normalised, and validated across OEM formats and industrial protocols. [github.com/AsobaCloud/odse](https://github.com/AsobaCloud/odse) (CC-BY-SA 4.0 / Apache 2.0)
+- **SDK** — The public integration surface. Three live APIs that expose stable intelligence endpoints your systems integrate against once. [github.com/AsobaCloud/sdk](https://github.com/AsobaCloud/sdk) (MIT)
+- **Core Platform** — The deployed Ona platform on AWS af-south-1. Fault detection, forecasting, prognostics, OODA diagnostics, model training, and the full analytics stack that the SDK sits in front of.
+
 ---
 
-## What It Does
+## Capability Matrix
 
-### Absorbs Unreliable Data
+Where each capability lives in the stack. ● Full · ◐ Partial · ○ Absent
 
-Energy data is messy. Different OEMs, inconsistent formats, gaps, outliers. Ona normalizes all of it into a consistent, analysis-ready format.
+| Capability | ODSE | SDK | Core Platform |
+|---|:---:|:---:|:---:|
+| **Ingestion & Data** | | | |
+| Inverter telemetry (HTTP poll, 8 vendors) | ● | ● | ● |
+| On-prem agent / push API for closed networks | ● | ◐ | ● |
+| SCADA / IEC 61850 substation connector | ● | ○ | ◐ |
+| MQTT / OPC-UA industrial connector | ● | ○ | ◐ |
+| Smart-meter / AMR ingest (Eskom-compatible) | ● | ◐ | ◐ |
+| Bulk historical CSV import + reject reports | ● | ○ | ● |
+| Standardised data schemas (ODSE-equivalent) | ● | ● | ● |
+| **Detection & Analytics** | | | |
+| Fault register + state-machine + revenue-impact (ZAR) | ○ | ● | ● |
+| Predictive-maintenance signals (snapshot) | ○ | ● | ● |
+| Performance-opportunity engine (11 deterministic detectors) | ○ | ◐ | ● |
+| Plant soiling & cleaning recovery-gain audit | ○ | ● | ● |
+| Asset prognostics (remaining-useful-life / degradation) | ○ | ● | ● |
+| BESS state-of-health + warranty triggers | ○ | ● | ● |
+| Generation + revenue forecasting (P50/P90) | ○ | ● | ● |
+| Drone / thermal imagery diagnostics | ○ | ○ | ○ |
+| **Operations / CMMS** | | | |
+| Work-order / CMMS workflow (open → close + chain audit) | ○ | ○ | ○ |
+| Parts inventory & stock movements | ○ | ○ | ○ |
+| Technician roster, skills & dispatch | ○ | ○ | ○ |
+| Preventive-maintenance scheduler | ○ | ● | ● |
+| Field-mobile / offline PWA for technicians | ○ | ○ | ○ |
+| Site commissioning chain (acceptance → handover) | ○ | ○ | ○ |
+| **Access & UX** | | | |
+| Dashboards, KPI roll-ups, exports | ○ | ● | ● |
+| Multi-tenant auth + roles + RBAC | ○ | ◐ | ◐ |
+| Contractor / asset-owner self-service portal (tokenised) | ○ | ○ | ○ |
+| Public SDK for third-party integrators | ● | ● | ● |
 
-- **Multi-OEM Support**: Huawei, SolarEdge, SMA, Enphase, SCADA systems
-- **Automatic Cleaning**: Handles missing values, outliers, timezone issues
-- **Schema Normalization**: Consistent data structure regardless of source
-- **Quality Scoring**: Flags data issues before they affect models
+**Notes:**
+- Performance-opportunity engine: the SDK exposes maintenance signals and fault snapshots; all 11 deterministic detectors run at the Core Platform layer.
+- Multi-tenant RBAC: admin/super-admin JWT role structure is live; full tenant isolation is in progress.
+- CMMS, technician dispatch, field-mobile, and self-service portal are not on the current roadmap. These are addressed via integration with esums where required.
 
-### Exposes Stable Intelligence
+---
 
-Your systems integrate once and consume intelligence, not models. The API contract remains stable even as underlying models improve.
+## How the Layers Work Together
 
-- **Forecasting API**: Device-level and site-level production forecasts
-- **Anomaly Detection**: Automatic identification of performance issues
-- **Model Versioning**: Safe iteration without breaking integrations
-- **Reproducible Outputs**: Same inputs produce same outputs over time
+Raw telemetry arrives in inconsistent formats across OEMs and protocols. ODSE absorbs that at the ingestion boundary — enforcing schema contracts, normalising across Huawei, Enphase, SCADA, MQTT, OPC-UA, and Eskom AMR formats, flagging data quality issues before they propagate. Nothing reaches the analytics layer without passing through that schema validation.
 
-### Manages Models Over Time
+The Core Platform runs the intelligence stack on top of clean, schema-validated data: fault detection and OODA diagnostics, soiling and recovery-gain analysis, asset prognostics, BESS state-of-health, P50/P90 forecasting, and a model training pipeline with challenger/production promotion and auditable rollback.
 
-Models degrade. Data distributions shift. Ona handles the MLOps so you don't have to.
+The SDK exposes that intelligence through stable API contracts. Your systems integrate once against the SDK surface. The underlying models improve, retrain, and iterate without breaking your integration.
 
-- **Automatic Retraining**: Models update as new data arrives
-- **Performance Monitoring**: Track model accuracy over time
-- **A/B Testing**: Compare model versions before deployment
-- **Rollback Support**: Revert to previous versions if needed
+---
+
+## What It Replaces
+
+Without this stack, teams build:
+
+- Per-OEM data cleaning pipelines
+- Feature engineering logic that breaks when OEM firmware updates
+- Model deployment and retraining processes
+- Glue code between data sources and analytics
+- Bespoke anomaly detection built against generic specifications rather than actual data contracts
+
+Ona centralises all of this behind a single integration boundary, with schema enforcement at ingestion and stable API contracts at consumption.
+
+---
+
+## What It Is Not
+
+- **Not a dashboard-first product** — It is backend infrastructure. Dashboards and KPI roll-ups are available via the Partner API and Core Platform UI, but the primary interface is the SDK.
+- **Not a single forecasting model** — It is a platform for managing many models across many sites, with versioning, A/B testing, and rollback.
+- **Not a CMMS** — Work-order management, parts inventory, technician dispatch, and field-mobile tooling are out of scope. Where those are required, Ona integrates as the intelligence upstream feed.
+- **Not a consulting workflow** — It is software you integrate with.
 
 ---
 
 ## Integration
 
-Install the SDK from [GitHub](https://github.com/AsobaCloud/sdk) and set your API key (contact support@asoba.org to get one).
+Install the SDK from [GitHub](https://github.com/AsobaCloud/sdk) and set your API key (contact [support@asoba.org](mailto:support@asoba.org) to get one).
 
 ```bash
 # JavaScript
@@ -106,7 +157,6 @@ const sdk = new OnaSDK({
   inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
 });
 
-// Query historical data
 const records = await sdk.inverterTelemetry.getInverterTelemetry({
   asset_id: "INV-1000000054495190",
   site_id: "Sibaya",
@@ -114,7 +164,6 @@ const records = await sdk.inverterTelemetry.getInverterTelemetry({
   limit: 100,
 });
 
-// Stream live data
 for await (const record of sdk.inverterTelemetry.streamInverter({
   asset_id: "INV-1000000054495190",
   site_id: "Sibaya",
@@ -137,14 +186,12 @@ client = OnaClient(
     ooda_terminal_api_key=os.environ["OODA_TERMINAL_API_KEY"],
 )
 
-# Query historical alerts
 alerts = client.ooda_terminal.get_terminal_alerts(
     terminal_device_id="TERM-1000000054495190",
     site_id="Sibaya",
     time_range=TimeRange(start="2025-11-01T00:00:00", end="2025-11-01T12:00:00"),
 )
 
-# Stream live alerts
 for alert in client.ooda_terminal.stream_terminal(
     terminal_device_id="TERM-1000000054495190",
     site_id="Sibaya",
@@ -160,7 +207,6 @@ const sdk = new OnaSDK({
   oodaTerminalApiKey: process.env.OODA_TERMINAL_API_KEY,
 });
 
-// Stream live alerts
 for await (const alert of sdk.oodaTerminal.streamTerminal({
   terminal_device_id: "TERM-1000000054495190",
   site_id: "Sibaya",
@@ -176,35 +222,7 @@ for await (const alert of sdk.oodaTerminal.streamTerminal({
 |-----|----------|
 | Inverter Telemetry | `https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod` |
 | OODA Terminal Alerts | `https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod` |
-
----
-
-## What It Guarantees
-
-- **Clear separation** between raw data and decisions
-- **Reproducible outputs** over time
-- **Safe iteration** on models without breaking integrations
-- **Stable API contract** even as models improve
-
----
-
-## What It Replaces
-
-Without an intelligence layer, teams build:
-- Per-OEM data cleaning pipelines
-- Feature engineering logic
-- Model deployment processes
-- Glue code between systems
-
-Ona centralizes all of this behind a single integration boundary.
-
----
-
-## What It Is Not
-
-- **Not a dashboard-first product** - It's backend infrastructure
-- **Not a single forecasting model** - It's a platform for managing many models
-- **Not a consulting workflow** - It's software you integrate with
+| Partner API | `https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod` |
 
 ---
 
@@ -230,11 +248,11 @@ Local installation for data sovereignty requirements.
 
 ## Getting Started
 
-### Week 1-2: Integration
+### Week 1–2: Integration
 
-Connect SCADA/inverters, ingest historical data, establish performance baselines.
+Connect SCADA/inverters via ODSE connectors, ingest historical data, establish performance baselines.
 
-### Week 3-12: Optimization
+### Week 3–12: Optimisation
 
 Real-time monitoring goes live. Weekly performance reports as models continuously improve.
 
@@ -248,6 +266,7 @@ Executive ROI analysis. Automatic conversion upon meeting metrics, followed by s
 
 ### Documentation
 - [SDK Repository](https://github.com/AsobaCloud/sdk)
+- [ODSE Specification](https://github.com/AsobaCloud/odse)
 - [API Reference](/api-reference/overview)
 - [Data Ingestion Guide](/api-reference/data-ingestion/overview)
 
