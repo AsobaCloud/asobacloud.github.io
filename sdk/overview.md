@@ -29,6 +29,7 @@ The Ona SDK provides seamless integration with the Ona Energy AI Platform, enabl
 ✔ **Edge Device Management** – Discovery, registration, and capability detection  
 ✔ **Data Collection** – Enphase, Huawei, and weather data integration  
 ✔ **ML Operations** – Model training, interpolation, and data standardization  
+✔ **Authentication** – User login, MFA verification, token management, SSO integration  
 ✔ **Dual SDK Support** – Use in both JavaScript and Python applications  
 ✔ **Comprehensive Error Handling** – Detailed API responses and logging for debugging
 
@@ -74,7 +75,12 @@ Official Python SDK for server-side and data science applications.
 ```python
 from ona_platform import OnaClient
 
-client = OnaClient()
+client = OnaClient(auth_endpoint='https://auth-api.asoba.co/prod')
+
+# Authenticate
+result = client.auth.login('user@example.com', 'password')
+if result.get('mfa_required'):
+    result = client.auth.verify_mfa(result['mfa_token'], '123456')
 
 # Get solar forecast
 forecast = client.forecasting.get_site_forecast('Sibaya', hours=24)
@@ -135,6 +141,7 @@ export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_REGION=af-south-1
 
 # Service Endpoints (optional)
+export ONA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod
 export ONA_FORECASTING_ENDPOINT=https://api.asoba.org
 export ONA_TERMINAL_ENDPOINT=https://api.asoba.org
 export PARTNER_API_ENDPOINT=https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod
@@ -229,6 +236,7 @@ from ona_platform import (
     ServiceUnavailableError,
     ValidationError,
     ResourceNotFoundError,
-    TimeoutError
+    TimeoutError,
+    AuthenticationError
 )
 ```
