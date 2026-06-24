@@ -6,6 +6,8 @@ nav_exclude: true
 
 This section provides a deeper look into the core technologies and methodologies that power the Ona Intelligence Layer. It is designed for **Developers** and other technical users who want to understand *how* our platform works under the hood, including our machine learning models, data processing pipelines, and architectural decisions.
 
+The platform is built on three layers: **ODSE** (the open data standard), **Ona** (the commercial intelligence platform), and **Nehanda & Zorora** (domain AI). This section covers the technical concepts behind the first two layers; see [Products](../products) for the AI layer.
+
 Understanding these technical concepts will help you make better decisions about data preparation, model selection, and integration patterns. Whether you're optimizing forecast accuracy or building custom integrations, this knowledge will prove invaluable.
 
 ## Quick Start

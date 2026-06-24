@@ -210,5 +210,5 @@ See the [API Reference](/api-reference/overview) for full documentation.
 For assistance with the Plant Performance interface:
 
 - **Email**: [support@asoba.org](mailto:support@asoba.org)
-- **Discord**: [Join our community](https://discord.gg/2MmDG2uTxX)
+- **Discord**: [Join our community](https://discord.gg/v4vD5EXSUD)
 - **Documentation**: [API Reference](/api-reference/overview)

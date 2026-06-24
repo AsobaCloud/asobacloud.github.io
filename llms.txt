@@ -6,8 +6,8 @@ Documentation is available at https://docs.asoba.org
 
 ## Products
 
-- [Products Overview](https://docs.asoba.org/products): Ona Intelligence Layer, Ona Edge, Nehanda, Zorora
-- [Nehanda](https://docs.asoba.org/products/nehanda): Fine-tuned LLM for energy policy and intelligence assessment
+- [Products Overview](https://docs.asoba.org/products): Ona Intelligence Layer, Ona Edge, Nehanda, Zorora — three layers: ODSE (open standard), Ona (commercial platform), Nehanda & Zorora (domain AI)
+- [Nehanda](https://docs.asoba.org/products/nehanda): Fine-tuned 27B LLM (Qwen3.6-27B) for energy policy and intelligence assessment with epistemic robustness
 
 ## Learn
 
@@ -61,4 +61,4 @@ Documentation is available at https://docs.asoba.org
 
 ## Ona Protocol (ODS-E)
 
-- [Ona Protocol](https://docs.asoba.org/ona-protocol): Open Data Schema for Energy interoperability protocol
+- [Ona Protocol](https://docs.asoba.org/ona-protocol): Open Data Schema for Energy — eliminates vendor lock-in, 120-160 hours saved per OEM integration. CC-BY-SA / Apache 2.0, free forever. `pip install odse`

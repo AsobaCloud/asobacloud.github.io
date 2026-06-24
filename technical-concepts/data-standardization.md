@@ -10,6 +10,33 @@ A major challenge in the energy industry is the lack of data standardization. Di
 
 This content is designed for **Developers** and technical users.
 
+## The Parser Hell Problem
+
+Every OEM speaks a different data language. Huawei, SolarEdge, SMA, Enphase, Solarman — each exports data in proprietary formats with different schemas, error codes, and conventions. Before you can run any analytics, you need to build and maintain per-vendor data cleaning pipelines. This typically costs **120–160 hours of integration engineering per OEM**. Switching vendors means rewriting pipelines. Adding new sites means new transformation logic. Your team spends more time wrangling data formats than extracting value from the data itself.
+
+This is what developers call **parser hell** — the daily grind of writing, debugging, and maintaining bespoke parsers for every OEM's export format. When OEM firmware updates break your parsers, the cycle starts again.
+
+### The ODSE Solution
+
+The **Open Data Schema for Energy (ODSE)** eliminates this problem. Install the open standard with a single command and transform data from any inverter manufacturer into a single, validated schema:
+
+```bash
+pip install odse
+```
+
+```python
+import odse
+
+# Transform any OEM format to a single open standard
+records = odse.transform("inverter_export.csv", source="huawei")
+
+# Validate against the ODSE schema
+result = odse.validate(records)
+assert result.is_valid  # schema-level + physics checks
+```
+
+ODSE is CC-BY-SA / Apache 2.0 licensed — community-driven, transparent, and free forever. See the [Ona Protocol documentation](../ona-protocol/overview) for the full specification.
+
 ## The Standardization Pipeline
 
 When you upload a CSV file to our platform (for example, via the [Freemium Forecasting API](./../api-reference/forecasting/freemium-forecast)), it passes through the following standardization steps:

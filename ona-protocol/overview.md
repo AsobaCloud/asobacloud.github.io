@@ -30,9 +30,18 @@ ods_data = transform("huawei_export.csv", source="huawei")
 
 ODS-E solves a fundamental problem in energy asset management: every OEM (Huawei, Enphase, Solarman, etc.) exports data in proprietary formats with different schemas, error codes, and conventions. This creates:
 
-- **Integration overhead**: Custom parsers for every OEM
+- **Integration overhead**: 120–160 hours of custom parser development per OEM
 - **Vendor lock-in**: Data trapped in proprietary formats
 - **Analytics friction**: Inconsistent schemas break pipelines
+
+### Why Open Standard?
+
+The open standard is not a teaser — it is the foundation. ODSE is licensed under CC-BY-SA / Apache 2.0, community-driven, and free forever. Here's why that matters:
+
+- **No vendor lock-in**: Switch hardware vendors without rewriting your analytics stack. One schema for all OEMs.
+- **120–160 hours saved per OEM**: Eliminate per-vendor integration engineering. `pip install odse` and you're done.
+- **Community-driven**: The standard is developed in the open. Anyone can contribute OEM transforms, propose schema changes, or audit the validation logic.
+- **Seamless upgrade path**: When your data is ODSE-native, upgrading to the Ona commercial platform (continuous monitoring, carbon reporting, trading intelligence) requires zero reintegration. The open standard is the foundation, not a trial.
 
 ODS-E provides:
 

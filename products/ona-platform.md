@@ -21,9 +21,9 @@ This is a platform that supports your technical roadmap, rather than forcing you
 
 Ona is not a single product — it is three layers that work together:
 
-- **ODSE** — Open Data Schema for Energy. The open specification and reference runtime that defines how raw device telemetry is ingested, normalised, and validated across OEM formats and industrial protocols. [github.com/AsobaCloud/odse](https://github.com/AsobaCloud/odse) (CC-BY-SA 4.0 / Apache 2.0)
-- **SDK** — The public integration surface. Three live APIs that expose stable intelligence endpoints your systems integrate against once. [github.com/AsobaCloud/sdk](https://github.com/AsobaCloud/sdk) (MIT)
-- **Core Platform** — The deployed Ona platform on AWS af-south-1. Fault detection, forecasting, prognostics, OODA diagnostics, model training, and the full analytics stack that the SDK sits in front of.
+- **ODSE** — Open Data Schema for Energy. The open specification and reference runtime that defines how raw device telemetry is ingested, normalised, and validated across OEM formats and industrial protocols. [github.com/AsobaCloud/odse](https://github.com/AsobaCloud/odse) (CC-BY-SA 4.0 / Apache 2.0). Install with `pip install odse`.
+- **SDK + Core Platform** — The public integration surface and deployed Ona platform on AWS af-south-1. Three live APIs expose stable intelligence endpoints your systems integrate against once. Fault detection, forecasting, prognostics, OODA diagnostics, model training, and the full analytics stack. [github.com/AsobaCloud/sdk](https://github.com/AsobaCloud/sdk) (MIT)
+- **Nehanda & Zorora** — The domain AI layer. A 27B parameter language model (Nehanda v3, fine-tuned from Qwen3.6-27B) for RAG synthesis and epistemic robustness in energy regulation and intelligence analysis. Powers Zorora's deep research workflows with inline citations and credibility scoring. Strict separation of authority: deterministic physical solvers govern control loops and battery dispatch; the LLM orchestrates research and synthesis.
 
 ---
 
@@ -84,13 +84,36 @@ The SDK exposes that intelligence through stable API contracts. Your systems int
 
 Without this stack, teams build:
 
-- Per-OEM data cleaning pipelines
+- Per-OEM data cleaning pipelines (120–160 hours of integration engineering per OEM)
 - Feature engineering logic that breaks when OEM firmware updates
 - Model deployment and retraining processes
 - Glue code between data sources and analytics
 - Bespoke anomaly detection built against generic specifications rather than actual data contracts
 
 Ona centralises all of this behind a single integration boundary, with schema enforcement at ingestion and stable API contracts at consumption.
+
+---
+
+## Why ODSE Is the Foundation
+
+The open standard is not a teaser — it is the foundation. Every developer who installs the SDK to resolve their daily **parser hell** (OEM data format errors, missing fields, timezone mismatches) normalises their data layer with `pip install odse`. This removes all integration barriers — so when you're ready for continuous monitoring, carbon reporting, or trading intelligence, the upgrade to the paid Ona platform is seamless. Zero reintegration.
+
+```bash
+pip install odse
+```
+
+```python
+import odse
+
+# Transform any OEM format to a single open standard
+records = odse.transform("inverter_export.csv", source="huawei")
+
+# Validate against the ODSE schema
+result = odse.validate(records)
+assert result.is_valid  # schema-level + physics checks
+```
+
+The standard is CC-BY-SA / Apache 2.0 — community-driven, transparent, and free forever.
 
 ---
 
@@ -272,7 +295,7 @@ Executive ROI analysis. Automatic conversion upon meeting metrics, followed by s
 
 ### Support
 - **Email**: [support@asoba.org](mailto:support@asoba.org)
-- **Discord**: [Join our community](https://discord.gg/2MmDG2uTxX)
+- **Discord**: [Join our community](https://discord.gg/v4vD5EXSUD)
 - **Documentation**: [docs.asoba.org](https://docs.asoba.org)
 
 ---
@@ -285,7 +308,7 @@ Executive ROI analysis. Automatic conversion upon meeting metrics, followed by s
       <h3>Contact Support</h3>
       <p>For technical assistance, feature requests, or any other questions, please reach out to our dedicated support team.</p>
       <a href="mailto:support@asoba.org" class="support-button">Email Support</a>
-      <a href="https://discord.gg/2MmDG2uTxX" target="_blank" class="support-button" style="margin-top: 10px; display: inline-block;">
+      <a href="https://discord.gg/v4vD5EXSUD" target="_blank" class="support-button" style="margin-top: 10px; display: inline-block;">
         <svg width="16" height="16" style="margin-right: 8px; vertical-align: middle;" viewBox="0 0 24 24" fill="currentColor">
           <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
         </svg>
