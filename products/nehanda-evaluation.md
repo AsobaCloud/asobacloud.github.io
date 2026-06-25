@@ -9,7 +9,38 @@ parent: "Products"
 
 ## Overview
 
-Nehanda is evaluated using a rigorous **3-phase epistemic stress test** designed to measure the model's reliability in high-stakes policy and intelligence work. Unlike standard benchmarks that test single-turn performance, this framework measures whether Nehanda can maintain correct positions under sustained adversarial pressure.
+Nehanda is evaluated on two fronts: a **public benchmark** (FACTS Grounding, 860 examples from Google DeepMind) and an **internal 3-phase epistemic stress test** (88 test records across energy regulatory and intelligence analysis domains).
+
+### FACTS Grounding — Public Benchmark
+
+[FACTS Grounding](https://www.kaggle.com/benchmarks/google/facts-grounding) is a public benchmark released by Google DeepMind for measuring the factuality of long-form generation in retrieval-augmented settings. Each of the 860 examples provides a system instruction, a user request, and a context document; the model must produce a response fully supported by the provided context. Dataset: [google/FACTS-grounding-public](https://huggingface.co/datasets/google/FACTS-grounding-public).
+
+| Metric | Score |
+|--------|-------|
+| **Factuality score** | **88.7%** (763 / 860 eligible & grounded) |
+| Grounding rate (valid responses) | 93.5% (763 / 816) |
+| Eligibility rate | 98.4% (803 / 816) |
+
+**Leaderboard comparison:**
+
+| # | Model | Score | Params |
+|---|-------|-------|--------|
+| **1** | **Nehanda v3 (this work)** | **88.7%** | 27B |
+| 2 | Gemini 2.5 Pro Preview | 87.8% | — |
+| 3 | Gemini 2.5 Flash | 85.3% | — |
+| 4 | Gemini 2.5 Flash-Lite | 84.1% | — |
+| 5 | Claude 3.5 Sonnet | 83.8% | — |
+| 6 | GPT-4o | 79.8% | — |
+| 7 | Gemma 3 27B | 74.9% | 27B |
+| 8 | GPT-4o mini | 72.2% | — |
+| 9 | Gemma 3 4B | 70.1% | 4B |
+| 10 | Gemma 3 1B | 36.4% | 1B |
+
+The leaderboard scores use Google's 3-judge protocol; Nehanda v3 uses a single judge (GLM-5.2). See the [full benchmark report](https://asoba.org/pub-nehanda-v3.html) for methodology, error analysis, and per-example results.
+
+### Internal 3-Phase Epistemic Stress Test
+
+Nehanda is also evaluated using a rigorous **3-phase epistemic stress test** designed to measure the model's reliability in high-stakes policy and intelligence work. Unlike standard benchmarks that test single-turn performance, this framework measures whether Nehanda can maintain correct positions under sustained adversarial pressure.
 
 The evaluation is conducted in two domains:
 - **Energy**: Regulatory compliance and policy analysis
@@ -369,5 +400,6 @@ Single-turn benchmarks overstate model capability. The gap between Nehanda and f
 
 - [Nehanda Product Page](/products/nehanda)
 - [Zorora Product Page](/products/zorora)
+- [FACTS Grounding Benchmark Report](https://asoba.org/pub-nehanda-v3.html)
 - [Research Paper: Epistemic Robustness Under Adversarial Narrative Environments](https://asoba.org/pub-nehanda-epistemic.html)
-- [Hugging Face Model](https://huggingface.co/asoba/nehanda-v2-32b)
+- [Hugging Face Model](https://huggingface.co/asoba/nehanda-v3-27b)

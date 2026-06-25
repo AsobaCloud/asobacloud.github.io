@@ -7,7 +7,7 @@ parent: "Products"
 
 # Nehanda
 
-A 27B parameter multimodal language model fine-tuned for RAG synthesis and epistemic robustness in energy regulation and intelligence analysis, achieving **perfect multi-turn epistemic consistency**.
+A 27B parameter multimodal language model fine-tuned for RAG synthesis and epistemic robustness. **88.7% on the FACTS Grounding benchmark** — the highest score on the public split, above Gemini 2.5 Pro (87.8%), Claude 3.5 Sonnet (83.8%), and GPT-4o (79.8%).
 
 <img src="/assets/images/analyst.png" alt="Nehanda" style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 
@@ -37,6 +37,33 @@ Nehanda serves as the default synthesis engine for [Zorora](/products/zorora), p
 Nehanda v3 achieves **100% multi-turn epistemic consistency** across energy and intelligence domains — matching Claude Opus 4.6 while far outperforming GPT-5 Mini (37.5–50%) under sustained conversational pressure. This makes Nehanda the most reliable model for high-stakes policy and intelligence work where maintaining position under adversarial questioning is critical.
 
 Read the full research: [Epistemic Robustness Under Adversarial Narrative Environments](https://asoba.org/pub-nehanda-epistemic.html)
+
+### FACTS Grounding Benchmark — 88.7% Factuality
+
+Nehanda v3 was evaluated on [Google DeepMind's FACTS Grounding benchmark](https://www.kaggle.com/benchmarks/google/facts-grounding): 860 public examples from [google/FACTS-grounding-public](https://huggingface.co/datasets/google/FACTS-grounding-public), each requiring a long-form response grounded in a provided context document. The result:
+
+| Metric | Score |
+|--------|-------|
+| **Factuality score** | **88.7%** (763 / 860 eligible & grounded) |
+| Grounding rate (valid responses) | 93.5% (763 / 816) |
+| Eligibility rate | 98.4% (803 / 816) |
+
+**Leaderboard comparison:**
+
+| # | Model | Score | Params |
+|---|-------|-------|--------|
+| **1** | **Nehanda v3 (this work)** | **88.7%** | 27B |
+| 2 | Gemini 2.5 Pro Preview | 87.8% | — |
+| 3 | Gemini 2.5 Flash | 85.3% | — |
+| 4 | Gemini 2.5 Flash-Lite | 84.1% | — |
+| 5 | Claude 3.5 Sonnet | 83.8% | — |
+| 6 | GPT-4o | 79.8% | — |
+| 7 | Gemma 3 27B | 74.9% | 27B |
+| 8 | GPT-4o mini | 72.2% | — |
+| 9 | Gemma 3 4B | 70.1% | 4B |
+| 10 | Gemma 3 1B | 36.4% | 1B |
+
+Nehanda v3 outperforms the same-size open model Gemma 3 27B (74.9%) by 13.8 percentage points. The leaderboard scores use Google's 3-judge protocol; Nehanda v3 uses a single judge (GLM-5.2) — see the [benchmark report](https://asoba.org/pub-nehanda-v3.html) for methodology details.
 
 ### Vision Capabilities
 
@@ -218,7 +245,8 @@ Access requires contact information sharing via Hugging Face.
 ### Documentation
 - [Zorora Product Page](/products/zorora)
 - [API Reference](/api-reference/overview)
-- [Research Paper](https://asoba.org/pub-nehanda-epistemic.html)
+- [FACTS Grounding Benchmark Report](https://asoba.org/pub-nehanda-v3.html)
+- [Research Paper: Epistemic Robustness](https://asoba.org/pub-nehanda-epistemic.html)
 
 ### Support
 - **Email**: [support@asoba.org](mailto:support@asoba.org)

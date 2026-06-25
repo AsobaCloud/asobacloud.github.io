@@ -7,7 +7,7 @@ Documentation is available at https://docs.asoba.org
 ## Products
 
 - [Products Overview](https://docs.asoba.org/products): Ona Intelligence Layer, Ona Edge, Nehanda, Zorora — three layers: ODSE (open standard), Ona (commercial platform), Nehanda & Zorora (domain AI)
-- [Nehanda](https://docs.asoba.org/products/nehanda): Fine-tuned 27B LLM (Qwen3.6-27B) for energy policy and intelligence assessment with epistemic robustness
+- [Nehanda](https://docs.asoba.org/products/nehanda): Fine-tuned 27B LLM (Qwen3.6-27B) for RAG synthesis and epistemic robustness. 88.7% on FACTS Grounding — highest public-split score, above Gemini 2.5 Pro (87.8%)
 
 ## Learn
 

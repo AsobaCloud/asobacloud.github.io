@@ -41,7 +41,7 @@ Backend infrastructure and tools for energy intelligence.
   <!-- Nehanda Card -->
   <div class="product-card analyst">
     <h3>Nehanda</h3>
-    <p>27B parameter model fine-tuned for RAG synthesis and epistemic robustness in energy regulation and intelligence analysis</p>
+    <p>27B model fine-tuned for RAG synthesis. 88.7% on FACTS Grounding — highest public-split score, above Gemini 2.5 Pro.</p>
     <div class="card-tags">
       <span class="tag">LLM</span>
       <span class="tag">Intelligence</span>
@@ -73,7 +73,7 @@ Ona is not a single product — it is three layers that work together:
 
 - **ODSE** (Open Data Schema for Energy) — The open standard. Free, Apache 2.0 licensed. One schema for all OEMs. `pip install odse`.
 - **Ona** (Commercial Intelligence Platform) — The paid SaaS built on ODSE. Per-meter anomaly monitoring, carbon/ESG reporting, PPA management, trading & settlement.
-- **Nehanda & Zorora** (Domain AI) — A 27B parameter language model fine-tuned for RAG synthesis and epistemic robustness in energy regulation and intelligence analysis.
+- **Nehanda & Zorora** (Domain AI) — A 27B language model fine-tuned for RAG synthesis. 88.7% on the FACTS Grounding benchmark — the highest public-split score, above Gemini 2.5 Pro (87.8%).
 
 ### Absorbs Unreliable Data
 - **Multi-OEM Support**: Connect Huawei, SolarEdge, SMA, Enphase, and SCADA systems
