@@ -135,7 +135,7 @@ If you're calling the API without the SDK, include the key in the `x-api-key` he
 
 ```bash
 curl -H "x-api-key: YOUR_API_KEY" \
-  "https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod/telemetry/inverter?asset_id=INV-1000000054495190&site_id=Sibaya&start=2025-11-01T00:00:00&end=2025-11-01T12:00:00"
+  "https://api.asoba.org/telemetry/inverter?asset_id=INV-1000000054495190&site_id=Sibaya&start=2025-11-01T00:00:00&end=2025-11-01T12:00:00"
 ```
 
 ---

@@ -13,7 +13,7 @@ The OODA Terminal Alerts API provides access to real-time and historical operati
 ## Base URL
 
 ```
-https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod
+https://api.asoba.org
 ```
 
 ## Authentication

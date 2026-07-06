@@ -144,7 +144,7 @@ export AWS_REGION=af-south-1
 export ONA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod
 export ONA_FORECASTING_ENDPOINT=https://api.asoba.org
 export ONA_TERMINAL_ENDPOINT=https://api.asoba.org
-export PARTNER_API_ENDPOINT=https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod
+export PARTNER_API_ENDPOINT=https://api.asoba.org
 export PARTNER_API_KEY=your_partner_api_key
 ```
 

@@ -36,10 +36,10 @@ npm install
 ## Step 2: Set Your Environment Variables
 
 ```bash
-export INVERTER_TELEMETRY_ENDPOINT=https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod
+export INVERTER_TELEMETRY_ENDPOINT=https://api.asoba.org
 export INVERTER_TELEMETRY_API_KEY=<your_api_key>
 
-export OODA_TERMINAL_ENDPOINT=https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod
+export OODA_TERMINAL_ENDPOINT=https://api.asoba.org
 export OODA_TERMINAL_API_KEY=<your_api_key>
 ```
 

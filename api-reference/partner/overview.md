@@ -20,7 +20,7 @@ The Partner API provides high-performance access to pre-computed JSON snapshots 
 ## Base URL
 
 ```
-https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod
+https://api.asoba.org
 ```
 
 ## Authentication
@@ -94,7 +94,7 @@ console.log(snapshot.performance.system_pr);</code></pre>
   </div>
   
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -i -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/kpi-rollup?site_id=Sibaya" \
+    <pre><code>curl -i -X GET "https://api.asoba.org/kpi-rollup?site_id=Sibaya" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>
@@ -135,7 +135,7 @@ Returns active alerts and prioritized maintenance tasks.
   </div>
   
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/maintenance-signals?site_id=Sibaya&severity=critical" \
+    <pre><code>curl -X GET "https://api.asoba.org/maintenance-signals?site_id=Sibaya&severity=critical" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>
@@ -169,7 +169,7 @@ Returns the most recent solar energy forecast rollup for the entire site.
   </div>
   
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/forecast-snapshot?site_id=Sibaya" \
+    <pre><code>curl -X GET "https://api.asoba.org/forecast-snapshot?site_id=Sibaya" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>
@@ -227,7 +227,7 @@ console.log(schedule.summary.total_tasks);</code></pre>
   </div>
 
   <div class="code-example-card" data-language="curl" style="display: none;">
-    <pre><code>curl -X GET "https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod/maintenance-schedule?site_id=Sibaya" \
+    <pre><code>curl -X GET "https://api.asoba.org/maintenance-schedule?site_id=Sibaya" \
   -H "x-api-key: YOUR_PARTNER_API_KEY"</code></pre>
   </div>
 </div>

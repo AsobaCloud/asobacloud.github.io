@@ -243,9 +243,9 @@ for await (const alert of sdk.oodaTerminal.streamTerminal({
 
 | API | Endpoint |
 |-----|----------|
-| Inverter Telemetry | `https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod` |
-| OODA Terminal Alerts | `https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod` |
-| Partner API | `https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod` |
+| Inverter Telemetry | `https://api.asoba.org` |
+| OODA Terminal Alerts | `https://api.asoba.org` |
+| Partner API | `https://api.asoba.org` |
 
 ---
 
