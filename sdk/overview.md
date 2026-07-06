@@ -43,7 +43,7 @@ This repository contains two SDK implementations:
 ### JavaScript SDK
 Official JavaScript/TypeScript SDK for Node.js and browser environments.
 
-📖 [View JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/prod/javascript/README.md) →
+📖 [View JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/javascript/README.md) →
 
 **Quick Start:**
 
@@ -68,7 +68,7 @@ const forecast = await sdk.forecasting.getSiteForecast({
 ### Python SDK
 Official Python SDK for server-side and data science applications.
 
-📖 [View Python SDK Documentation](https://github.com/AsobaCloud/sdk/blob/prod/python/README.md) →
+📖 [View Python SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/python/README.md) →
 
 **Quick Start:**
 
@@ -106,7 +106,7 @@ cd sdk/javascript
 npm install
 ```
 
-For detailed installation and setup instructions, see the [JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/prod/javascript/README.md).
+For detailed installation and setup instructions, see the [JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/javascript/README.md).
 
 ### Python SDK
 
@@ -123,7 +123,7 @@ cd python
 pip install -e .
 ```
 
-For detailed installation and setup instructions, see the [Python SDK Documentation](https://github.com/AsobaCloud/sdk/blob/prod/python/README.md).
+For detailed installation and setup instructions, see the [Python SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/python/README.md).
 
 ---
 
