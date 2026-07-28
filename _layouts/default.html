@@ -237,8 +237,9 @@ layout: default
         });
       });
 
-      // Auto-expand current section
-      document.querySelectorAll('.nav-header a, .sub-nav-header a').forEach(link => {
+      // Auto-expand current section (match all nav links, not just headers,
+      // so child pages like /sdk/services/inverter-telemetry expand their parents)
+      document.querySelectorAll('.nav-list a').forEach(link => {
         const href = link.getAttribute('href');
         const linkPath = href.split('#')[0].replace(/\/$/, '') || '/';
         const currentPathClean = currentPath.replace(/\/$/, '') || '/';
