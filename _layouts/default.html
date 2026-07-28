@@ -53,54 +53,12 @@ layout: default
           </div>
         </li>
 
-        <!-- Products -->
+        <!-- Getting Started -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/products">Products</a>
-            <span class="toggle-icon">+</span>
+            <a href="{{ site.baseurl }}/get-started">Getting Started</a>
           </div>
-          <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/products/ona-platform">Ona Intelligence Layer</a></li>
-            <li><a href="{{ site.baseurl }}/products/ona-edge">Ona Edge</a></li>
-            <li><a href="{{ site.baseurl }}/products/nehanda">Nehanda</a></li>
-            <li><a href="{{ site.baseurl }}/products/zorora">Zorora</a></li>
-          </ul>
         </li>
-
-        <!-- Learn -->
-        <li class="nav-item">
-          <div class="nav-header">
-            <a href="{{ site.baseurl }}/learn">Learn</a>
-            <span class="toggle-icon">+</span>
-          </div>
-          <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/technical-concepts/data-standardization">Data Standardization</a></li>
-            <li><a href="{{ site.baseurl }}/technical-concepts/machine-learning/overview">ML Overview</a></li>
-            <li><a href="{{ site.baseurl }}/technical-concepts/machine-learning/forecasting-models">Forecasting Models</a></li>
-          </ul>
-        </li>
-
-        <!-- Build -->
-        <li class="nav-item">
-          <div class="nav-header">
-            <a href="{{ site.baseurl }}/build">Build</a>
-            <span class="toggle-icon">+</span>
-          </div>
-          <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/build/quickstart">Quickstart</a></li>
-            <li><a href="{{ site.baseurl }}/guides/developer-guide">Developer Guide</a></li>
-            <li><a href="{{ site.baseurl }}/guides/data-management/preparing-data">Preparing Data</a></li>
-            <li><a href="{{ site.baseurl }}/guides/data-management/uploading-data">Uploading Data</a></li>
-            <li><a href="{{ site.baseurl }}/guides/data-management/data-quality">Data Quality</a></li>
-            <li><a href="{{ site.baseurl }}/guides/forecasting/generating-forecasts">Generating Forecasts</a></li>
-            <li><a href="{{ site.baseurl }}/guides/forecasting/improving-accuracy">Improving Accuracy</a></li>
-            <li><a href="{{ site.baseurl }}/guides/forecasting/interpreting-results">Interpreting Results</a></li>
-            <li><a href="{{ site.baseurl }}/guides/plant-performance/overview">Plant Performance</a></li>
-            <li><a href="{{ site.baseurl }}/guides/portfolio-management/overview">Portfolio Management</a></li>
-          </ul>
-        </li>
-
-
 
         <!-- SDK -->
         <li class="nav-item">
@@ -110,81 +68,58 @@ layout: default
           </div>
           <ul class="sub-menu">
             <li><a href="{{ site.baseurl }}/sdk/overview">Overview</a></li>
-            <li><a href="{{ site.baseurl }}/sdk/snapshots">Technical Reference</a></li>
-          </ul>
-        </li>
+            <li><a href="{{ site.baseurl }}/sdk/installation">Installation</a></li>
+            <li><a href="{{ site.baseurl }}/sdk/authentication">Authentication</a></li>
+            <li><a href="{{ site.baseurl }}/sdk/error-handling">Error Handling</a></li>
 
-        <!-- Reference -->
-        <li class="nav-item">
-          <div class="nav-header">
-            <a href="{{ site.baseurl }}/reference">Reference</a>
-            <span class="toggle-icon">+</span>
-          </div>
-          <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/api-reference/authentication">Authentication</a></li>
-            <li><a href="{{ site.baseurl }}/api-reference/partner/overview">Partner API</a></li>
-            <li><a href="{{ site.baseurl }}/api-reference/telemetry/overview">Inverter Telemetry</a></li>
-            <li><a href="{{ site.baseurl }}/api-reference/ooda-alerts/overview">OODA Terminal Alerts</a></li>
-
-            <!-- Data Ingestion Subsection -->
+            <!-- Service Guides Subsection -->
             <li class="nav-subsection">
               <div class="sub-nav-header">
-                <a href="{{ site.baseurl }}/api-reference/data-ingestion/overview">Data Ingestion</a>
+                <a href="{{ site.baseurl }}/sdk/service-guides">Service Guides</a>
                 <span class="sub-toggle-icon">+</span>
               </div>
               <ul class="sub-sub-menu">
-                <li><a href="{{ site.baseurl }}/api-reference/data-ingestion/upload-train">Upload Training Data</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/data-ingestion/upload-nowcast">Upload Nowcast Data</a></li>
-              </ul>
-            </li>
-
-            <!-- Forecasting API Subsection -->
-            <li class="nav-subsection">
-              <div class="sub-nav-header">
-                <a href="{{ site.baseurl }}/api-reference/forecasting/overview">Forecasting API</a>
-                <span class="sub-toggle-icon">+</span>
-              </div>
-              <ul class="sub-sub-menu">
-                <li><a href="{{ site.baseurl }}/api-reference/forecasting/forecast">Generate Forecast</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/forecasting/freemium-forecast">Freemium Forecast</a></li>
-              </ul>
-            </li>
-
-            <!-- Terminal API Subsection -->
-            <li class="nav-subsection">
-              <div class="sub-nav-header">
-                <a href="{{ site.baseurl }}/api-reference/terminal/overview">Terminal API</a>
-                <span class="sub-toggle-icon">+</span>
-              </div>
-              <ul class="sub-sub-menu">
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/assets">Assets</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/bom">Bill of Materials</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/detect">Fault Detection</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/diagnose">AI Diagnostics</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/forecast">Forecast Results</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/interpolation">Interpolation Results</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/ml-models">ML Model Registry</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/ooda">OODA Summaries</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/order">Work Orders</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/schedule">Maintenance Scheduling</a></li>
-                <li><a href="{{ site.baseurl }}/api-reference/terminal/track">Job Tracking</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/inverter-telemetry">Inverter Telemetry</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/ooda-terminal-alerts">OODA Terminal Alerts</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/forecasting">Forecasting</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/freemium-forecasting">Freemium Forecasting</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/terminal-ooda-workflow">Terminal OODA Workflow</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/partner-api">Partner API</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/energy-analyst">Energy Analyst</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/edge-devices">Edge Devices</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/data-ingestion-training">Data Ingestion &amp; Training</a></li>
+                <li><a href="{{ site.baseurl }}/sdk/services/pv-insight">PV Insight Service</a></li>
               </ul>
             </li>
           </ul>
         </li>
 
-        <!-- Ona Protocol (ODS-E) -->
+        <!-- ODS-E & Architecture -->
         <li class="nav-item">
           <div class="nav-header">
-            <a href="{{ site.baseurl }}/ona-protocol">Ona Protocol (ODS-E)</a>
+            <a href="{{ site.baseurl }}/odse/overview">ODS-E &amp; Architecture</a>
             <span class="toggle-icon">+</span>
           </div>
           <ul class="sub-menu">
-            <li><a href="{{ site.baseurl }}/ona-protocol">Overview</a></li>
-            <li><a href="{{ site.baseurl }}/ona-protocol/interoperability">Interoperability</a></li>
-            <li><a href="{{ site.baseurl }}/ona-protocol/schemas">Schema Reference</a></li>
-            <li><a href="{{ site.baseurl }}/ona-protocol/transforms">Transform Specifications</a></li>
-            <li><a href="{{ site.baseurl }}/ona-protocol/validation">Validation Guide</a></li>
+            <li><a href="{{ site.baseurl }}/odse/overview">Overview</a></li>
+            <li><a href="{{ site.baseurl }}/odse/architecture">Ona Intelligence Layer Architecture</a></li>
+            <li><a href="{{ site.baseurl }}/odse/sdk-integration">ODS-E &amp; the SDK</a></li>
+            <li><a href="{{ site.baseurl }}/odse/schemas">Schema Reference</a></li>
+            <li><a href="{{ site.baseurl }}/odse/transforms">Transform Specs</a></li>
+            <li><a href="{{ site.baseurl }}/odse/validation">Validation Guide</a></li>
+          </ul>
+        </li>
+
+        <!-- Code Examples -->
+        <li class="nav-item">
+          <div class="nav-header">
+            <a href="{{ site.baseurl }}/examples/overview">Code Examples</a>
+            <span class="toggle-icon">+</span>
+          </div>
+          <ul class="sub-menu">
+            <li><a href="{{ site.baseurl }}/examples/overview">Overview</a></li>
+            <li><a href="{{ site.baseurl }}/examples/complete-workflow">Complete Workflow</a></li>
+            <li><a href="{{ site.baseurl }}/examples/language-comparison">Python vs JavaScript</a></li>
           </ul>
         </li>
 
