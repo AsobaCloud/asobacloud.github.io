@@ -1,7 +1,7 @@
 ---
-title: "Get Started"
+title: "Getting Started"
 layout: default
-nav_exclude: true
+nav_order: 2
 ---
 
 # Get Started with the Ona SDK
@@ -149,8 +149,9 @@ for a in alerts:
 
 ## Next Steps
 
+- [SDK Overview](/sdk/overview) — architecture and service map
+- [Authentication](/sdk/authentication) — API key setup and configuration
+- [Inverter Telemetry Guide](/sdk/services/inverter-telemetry) — query and stream data
+- [OODA Terminal Alerts Guide](/sdk/services/ooda-terminal-alerts) — fault detection alerts
+- [Code Examples](/examples/overview) — complete workflows and language comparison
 - [SDK Repository](https://github.com/AsobaCloud/sdk) — full source, examples, and tests
-- [Inverter Telemetry examples](https://github.com/AsobaCloud/sdk/blob/main/python/examples/inverter_telemetry_example.py)
-- [OODA Terminal examples](https://github.com/AsobaCloud/sdk/blob/main/python/examples/ooda_terminal_example.py)
-- [API Reference](/api-reference/overview) — endpoint details
-- [Authentication](/api-reference/authentication) — API key setup

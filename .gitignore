@@ -41,3 +41,10 @@ samconfig.toml
 # Logs
 logs/
 *.log 
+
+# macOS
+.DS_Store
+
+# AI tool artifacts
+.devin/
+.claude/

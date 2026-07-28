@@ -3,134 +3,69 @@
 - title: Home
   url: /
 
-- title: Products
-  url: /products
-  children:
-    - title: Ona Intelligence Layer
-      url: /products/ona-intelligence-layer
-    - title: Ona Edge
-      url: /products/ona-edge
-    - title: Nehanda
-      url: /products/nehanda
-    - title: Zorora
-      url: /products/zorora
-
-- title: Learn
-  url: /learn
-  children:
-    - title: Data Standardization
-      url: /technical-concepts/data-standardization
-    - title: ML Overview
-      url: /technical-concepts/machine-learning/overview
-    - title: Forecasting Models
-      url: /technical-concepts/machine-learning/forecasting-models
-
-- title: Build
-  url: /build
-  children:
-    - title: Quickstart
-      url: /build/quickstart
-    - title: Developer Guide
-      url: /guides/developer-guide
-    - title: Preparing Data
-      url: /guides/data-management/preparing-data
-    - title: Uploading Data
-      url: /guides/data-management/uploading-data
-    - title: Data Quality
-      url: /guides/data-management/data-quality
-    - title: Generating Forecasts
-      url: /guides/forecasting/generating-forecasts
-    - title: Improving Accuracy
-      url: /guides/forecasting/improving-accuracy
-    - title: Interpreting Results
-      url: /guides/forecasting/interpreting-results
-    - title: Plant Performance
-      url: /guides/plant-performance/overview
-    - title: Portfolio Management
-      url: /guides/portfolio-management/overview
-
-- title: Patterns
-  url: /patterns
-  children:
-    - title: "O&M Optimization"
-      url: /use-cases/oam
-    - title: "Insurance & Risk"
-      url: /use-cases/insurance
-    - title: Energy Trading
-      url: /use-cases/energy-trading
-    - title: Sibaya Casino
-      url: /use-cases/sibaya-casino
-    - title: Avaron Infrastructure
-      url: /use-cases/avaron-infrastructure
-    - title: Cummins Portfolio
-      url: /use-cases/cummins-portfolio
-
+- title: Getting Started
+  url: /get-started
 
 - title: SDK
   url: /sdk/overview
   children:
     - title: Overview
       url: /sdk/overview
-    - title: Technical Reference
-      url: /sdk/snapshots
-
-- title: Reference
-  url: /reference
-  children:
+    - title: Installation
+      url: /sdk/installation
     - title: Authentication
-      url: /api-reference/authentication
-    - title: Data Ingestion
-      url: /api-reference/data-ingestion/overview
-    - title: Upload Training Data
-      url: /api-reference/data-ingestion/upload-train
-    - title: Upload Nowcast Data
-      url: /api-reference/data-ingestion/upload-nowcast
-    - title: Forecasting API
-      url: /api-reference/forecasting/overview
-    - title: Forecast
-      url: /api-reference/forecasting/forecast
-    - title: Freemium Forecast
-      url: /api-reference/forecasting/freemium-forecast
-    - title: Terminal API
-      url: /api-reference/terminal/overview
-    - title: Assets
-      url: /api-reference/terminal/assets
-    - title: BOM
-      url: /api-reference/terminal/bom
-    - title: Detect
-      url: /api-reference/terminal/detect
-    - title: Diagnose
-      url: /api-reference/terminal/diagnose
-    - title: Forecast Results
-      url: /api-reference/terminal/forecast
-    - title: Interpolation
-      url: /api-reference/terminal/interpolation
-    - title: ML Models
-      url: /api-reference/terminal/ml-models
-    - title: OODA
-      url: /api-reference/terminal/ooda
-    - title: Order
-      url: /api-reference/terminal/order
-    - title: Schedule
-      url: /api-reference/terminal/schedule
-    - title: Track
-      url: /api-reference/terminal/track
+      url: /sdk/authentication
+    - title: Error Handling
+      url: /sdk/error-handling
+    - title: Service Guides
+      url: /sdk/service-guides
+      children:
+        - title: Inverter Telemetry
+          url: /sdk/services/inverter-telemetry
+        - title: OODA Terminal Alerts
+          url: /sdk/services/ooda-terminal-alerts
+        - title: Forecasting
+          url: /sdk/services/forecasting
+        - title: Freemium Forecasting
+          url: /sdk/services/freemium-forecasting
+        - title: Terminal OODA Workflow
+          url: /sdk/services/terminal-ooda-workflow
+        - title: Partner API
+          url: /sdk/services/partner-api
+        - title: Energy Analyst
+          url: /sdk/services/energy-analyst
+        - title: Edge Devices
+          url: /sdk/services/edge-devices
+        - title: Data Ingestion & Training
+          url: /sdk/services/data-ingestion-training
+        - title: PV Insight Service
+          url: /sdk/services/pv-insight
 
-- title: "Ona Protocol (ODS-E)"
-  url: /ona-protocol
+- title: ODS-E & Architecture
+  url: /odse/overview
   children:
     - title: Overview
-      url: /ona-protocol/overview
-    - title: Interoperability
-      url: /ona-protocol/interoperability
+      url: /odse/overview
+    - title: Ona Intelligence Layer Architecture
+      url: /odse/architecture
+    - title: ODS-E & the SDK
+      url: /odse/sdk-integration
     - title: Schema Reference
-      url: /ona-protocol/schema-reference
-    - title: Transform Specifications
-      url: /ona-protocol/transform-specifications
+      url: /odse/schemas
+    - title: Transform Specs
+      url: /odse/transforms
     - title: Validation Guide
-      url: /ona-protocol/validation-guide
-    - title: Contributing
-      url: /ona-protocol/contributing
+      url: /odse/validation
+
+- title: Code Examples
+  url: /examples/overview
+  children:
+    - title: Overview
+      url: /examples/overview
+    - title: Complete Workflow
+      url: /examples/complete-workflow
+    - title: Python vs JavaScript
+      url: /examples/language-comparison
 
 - title: Legal
   url: /legal

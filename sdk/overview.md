@@ -1,242 +1,132 @@
 ---
-title: "Ona SDK"
+title: "SDK"
 layout: default
-nav_order: 1
+nav_order: 3
+has_children: true
 ---
 
 # Ona SDK
 
-The Ona SDK provides a streamlined way to integrate Ona Platform capabilities into your existing product stacks and applications. Instead of building custom API integrations from scratch, the SDK offers pre-built, tested, and maintained client libraries that handle authentication, request formatting, error handling, and response parsing. This enables rapid integration, reduces development time, and ensures consistency with Ona Platform's evolving API surface.
-
-Whether you're building dashboards, automation scripts, or enterprise integrations, the SDK abstracts away the complexity of direct API calls and provides a developer-friendly interface that follows best practices for your chosen language ecosystem.
+The Ona SDK provides a unified interface to all Ona Intelligence Layer services — solar PV, wind, battery storage (BESS), and grid meter data with ODS-E (Open Data Schema for Energy) standardization. It ships in two languages: **Python** and **JavaScript** (with TypeScript definitions), designed for feature parity across the stack.
 
 ---
 
-## Introduction
-{: #introduction }
+## What the SDK Does
 
-The Ona SDK provides seamless integration with the Ona Energy AI Platform, enabling developers to build applications that interact with Asoba's energy management services. This SDK supports both JavaScript (Node.js & Browser) and Python, making it easy to integrate Ona into third-party applications.
-
----
-
-## Key Features
-{: #key-features }
-
-✔ **Solar Energy Forecasting** – Device, site, and customer-level predictions  
-✔ **OODA Workflow** – Asset management, fault detection, diagnostics, and maintenance scheduling  
-✔ **Partner API** – High-performance pre-computed JSON snapshots with ETag caching  
-✔ **Energy Policy Analysis** – RAG-powered queries on energy regulations  
-✔ **Edge Device Management** – Discovery, registration, and capability detection  
-✔ **Data Collection** – Enphase, Huawei, and weather data integration  
-✔ **ML Operations** – Model training, interpolation, and data standardization  
-✔ **Authentication** – User login, MFA verification, token management, SSO integration  
-✔ **Dual SDK Support** – Use in both JavaScript and Python applications  
-✔ **Comprehensive Error Handling** – Detailed API responses and logging for debugging
+- **Query and stream live telemetry** from solar inverters, wind turbines, and battery systems
+- **Detect faults and run diagnostics** through the OODA (Observe, Orient, Decide, Act) workflow
+- **Generate energy forecasts** at device, site, and customer levels
+- **Fetch pre-computed snapshots** (KPIs, maintenance signals, schedules) via the Partner API
+- **Manage edge devices** with automatic capability detection
+- **Validate data** against the 65-field ODS-E energy-timeseries schema
+- **Train ML models**, detect data gaps, and run interpolation
 
 ---
 
-## SDKs
-{: #sdks }
+## Python vs JavaScript
 
-This repository contains two SDK implementations:
+| Aspect | Python | JavaScript |
+|--------|--------|------------|
+| Package | `ona-platform` (`pip3 install -e .`) | `@asoba/ona-sdk` (`npm install`) |
+| Entry point | `ona_platform.OnaClient` | `OnaSDK` from `src/index` |
+| Auth client | ✅ `AuthClient` (login, MFA, token management) | ❌ Not available |
+| Type system | Type hints + dataclasses | TypeScript `.d.ts` definitions |
+| Streaming | Generators (`yield`) | Async iterators (`for await...of`) |
+| ODS-E validation | ✅ Full 65-field + 6 conformance profiles | ❌ Not available |
+| Env-var config | `OnaConfig.from_env()` | `Config` class constructor |
+| Rate limiting | Built-in (60 req/min) | Built-in (60 req/min) |
 
-### JavaScript SDK
-Official JavaScript/TypeScript SDK for Node.js and browser environments.
+Both SDKs share the same API surface for all services except authentication (Python-only) and ODS-E local validation (Python-only).
 
-📖 [View JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/javascript/README.md) →
+---
 
-**Quick Start:**
+## Full Service Map
 
-```javascript
-const { OnaSDK } = require('./src/index');
+| Service | Python client | JavaScript client | API Key Required |
+|---------|--------------|-------------------|-----------------|
+| [Inverter Telemetry](/sdk/services/inverter-telemetry) | `client.inverter_telemetry` | `sdk.inverterTelemetry` | ✅ |
+| [OODA Terminal Alerts](/sdk/services/ooda-terminal-alerts) | `client.ooda_terminal` | `sdk.oodaTerminal` | ✅ |
+| [Forecasting](/sdk/services/forecasting) | `client.forecasting` | `sdk.forecasting` | AWS credentials |
+| [Freemium Forecasting](/sdk/services/freemium-forecasting) | `client.freemium_forecast` | `sdk.freemiumForecast` | ❌ No key needed |
+| [Terminal OODA Workflow](/sdk/services/terminal-ooda-workflow) | `client.terminal` | `sdk.terminal` | AWS credentials |
+| [Partner API](/sdk/services/partner-api) | `client.partner_api` | `sdk.partnerApi` | ✅ |
+| [Energy Analyst](/sdk/services/energy-analyst) | `client.energy_analyst` | `sdk.energyAnalyst` | Service URL |
+| [Edge Devices](/sdk/services/edge-devices) | `client.edge_devices` | `sdk.edgeRegistry` | Service URL |
+| [Data Ingestion](/sdk/services/data-ingestion-training) | `client.data_ingestion` | `sdk.dataIngestion` | AWS credentials |
+| [Training](/sdk/services/data-ingestion-training) | `client.training` | — | AWS credentials |
+| [Standardization](/sdk/services/data-ingestion-training) | `client.standardization` | — | AWS credentials |
+| [Gap Detection](/sdk/services/data-ingestion-training) | `client.gap_detection` | — | AWS credentials |
+| [Interpolation](/sdk/services/data-ingestion-training) | `client.interpolation` | — | AWS credentials |
+| [PV Insight](/sdk/services/pv-insight) | — *(proposed)* | — *(proposed)* | Service URL |
 
-const sdk = new OnaSDK({
-  region: 'af-south-1',
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
-  }
-});
+---
 
-// Get energy forecast
-const forecast = await sdk.forecasting.getSiteForecast({
-  site_id: 'Sibaya',
-  forecast_hours: 24
-});
-```
+## Design Philosophy
 
-### Python SDK
-Official Python SDK for server-side and data science applications.
+### Environment-Variable Configuration
 
-📖 [View Python SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/python/README.md) →
-
-**Quick Start:**
+Both SDKs auto-discover endpoints and credentials from environment variables. Zero-configuration initialization works if the right env vars are set:
 
 ```python
+# Python — no constructor args needed
 from ona_platform import OnaClient
-
-client = OnaClient(auth_endpoint='https://auth-api.asoba.co/prod')
-
-# Authenticate
-result = client.auth.login('user@example.com', 'password')
-if result.get('mfa_required'):
-    result = client.auth.verify_mfa(result['mfa_token'], '123456')
-
-# Get solar forecast
-forecast = client.forecasting.get_site_forecast('Sibaya', hours=24)
-
-# Run fault detection
-detection = client.terminal.run_detection(
-    customer_id='customer123',
-    asset_id='asset456',
-    lookback_hours=6
-)
+client = OnaClient()
 ```
-
----
-
-## Installation
-{: #installation }
-
-### JavaScript SDK
-
-```bash
-git clone https://github.com/AsobaCloud/sdk.git
-cd sdk/javascript
-npm install
-```
-
-For detailed installation and setup instructions, see the [JavaScript SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/javascript/README.md).
-
-### Python SDK
-
-```bash
-git clone https://github.com/AsobaCloud/sdk.git
-cd sdk/python
-pip3 install -e .
-```
-
-Or install from source:
-
-```bash
-cd python
-pip install -e .
-```
-
-For detailed installation and setup instructions, see the [Python SDK Documentation](https://github.com/AsobaCloud/sdk/blob/main/python/README.md).
-
----
-
-## Configuration
-{: #configuration }
-
-Both SDKs support configuration via environment variables or constructor parameters.
-
-### Environment Variables
-
-```bash
-# AWS Configuration
-export AWS_ACCESS_KEY_ID=your_access_key
-export AWS_SECRET_ACCESS_KEY=your_secret_key
-export AWS_REGION=af-south-1
-
-# Service Endpoints (optional)
-export ONA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod
-export ONA_FORECASTING_ENDPOINT=https://api.asoba.org
-export ONA_TERMINAL_ENDPOINT=https://api.asoba.org
-export PARTNER_API_ENDPOINT=https://api.asoba.org
-export PARTNER_API_KEY=your_partner_api_key
-```
-
----
-
-## Services
-{: #services }
-
-The Ona SDK provides access to the following platform services:
-
-### Partner API
-Fetch pre-computed JSON snapshots for embedding and partner integrations. This API is optimized for speed using ETag-based conditional GETs and in-memory caching.
-
-### Forecasting API
-Generate energy forecasts at device, site, or customer levels.
-
-### Terminal API (OODA Workflow)
-Comprehensive API for Observe, Orient, Decide, Act workflow operations including:
-
-- Asset management
-- Fault detection
-- AI diagnostics
-- Maintenance scheduling
-- Real-time monitoring
-
-### Energy Analyst (RAG)
-AI-powered energy policy and regulatory compliance analysis.
-
-### Edge Device Registry
-Manage distributed edge devices with automatic capability detection.
-
-### Data Collection
-Integration with Enphase, Huawei, and weather data services.
-
-### ML Operations
-Model training, interpolation, and data standardization services.
-
----
-
-## Examples
-{: #examples }
-
-Both SDKs include comprehensive examples:
-
-### JavaScript Examples
-Located in `javascript/examples/`:
-
-- `basic-usage.js` – Basic SDK initialization and usage
-- `forecasting-example.js` – Energy forecasting examples
-- `terminal-api-example.js` – OODA workflow examples
-- `edge-device-example.js` – Edge device management examples
-- `partner-api-example.js` – Partner API snapshot and caching example
-
-### Python Examples
-Located in `python/examples/`:
-
-- `forecasting_example.py` – Solar forecasting
-- `terminal_ooda_example.py` – OODA workflow
-- `energy_analyst_example.py` – Energy policy queries
-- `edge_device_example.py` – Edge device management
-- `complete_workflow_example.py` – Multi-service workflow
-- `partner_api_example.py` – Partner API usage with ETag caching
-
----
-
-## Error Handling
-{: #error-handling }
-
-Both SDKs provide comprehensive error handling with custom error classes:
-
-### JavaScript
 
 ```javascript
-const {
-  OnaSDKError,
-  APIError,
-  ValidationError,
-  AuthenticationError,
-  TimeoutError
-} = require('./src/index');
+// JavaScript — endpoint passed via constructor
+const { OnaSDK } = require('./src/index');
+const sdk = new OnaSDK({
+  endpoints: {
+    inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT,
+  },
+  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
+});
 ```
 
-### Python
+See [Installation](/sdk/installation) for the complete env-var reference.
+
+### Dual SDK Parity
+
+Python and JavaScript SDKs expose identical method names (snake_case vs camelCase) for all shared services. Example:
+
+| Python | JavaScript |
+|--------|------------|
+| `get_inverter_telemetry()` | `getInverterTelemetry()` |
+| `stream_inverter()` | `streamInverter()` |
+| `get_data_period()` | `getDataPeriod()` |
+
+### Rate Limiting
+
+All APIs enforce **60 requests per minute** per API key. The SDKs handle 429 responses by raising `RateLimitError` (Python) or `APIError` with status 429 (JavaScript). Design your polling loops with a minimum 5-second interval.
+
+### Cursor-Based Pagination
+
+Telemetry and alert queries use opaque cursor tokens for resumable pagination. Each record returned by a stream includes a `cursor` field — save it to resume from that exact position later:
 
 ```python
-from ona_platform import (
-    OnaError,
-    ConfigurationError,
-    ServiceUnavailableError,
-    ValidationError,
-    ResourceNotFoundError,
-    TimeoutError,
-    AuthenticationError
-)
+for record in client.inverter_telemetry.stream_inverter(asset_id='INV-001', site_id='Sibaya'):
+    save_cursor(record.cursor)  # persist for crash recovery
+    process(record)
 ```
+
+### Cost Protection
+
+- **Max 1000 records** per query (validated client-side)
+- **Max 31-day time range** per query (validated client-side)
+- **Min 5-second polling interval** for streaming (validated client-side)
+
+These limits are enforced in both SDKs before any network call, preventing accidental cost overruns.
+
+---
+
+## Next Steps
+
+- [Installation](/sdk/installation) — set up the SDK in your project
+- [Authentication](/sdk/authentication) — configure API keys and auth
+- [Error Handling](/sdk/error-handling) — understand error classes and retry logic
+- [Service Guides](/sdk/service-guides) — browse individual service documentation
+
+## Repository
+
+Full source code, examples, and tests: [github.com/AsobaCloud/sdk](https://github.com/AsobaCloud/sdk)

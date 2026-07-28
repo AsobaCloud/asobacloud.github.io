@@ -1,64 +1,49 @@
-# Ona Intelligence Layer Documentation
+# Ona SDK Documentation
 
-> The Ona Intelligence Layer is a solar energy forecasting and analytics platform. It provides APIs for data ingestion, ML-powered forecasting, fault detection (OODA workflow), and portfolio management.
+> The Ona SDK provides typed client libraries (Python & JavaScript) for integrating with the Ona Intelligence Layer — energy forecasting, fault detection, inverter telemetry, and O&M intelligence for solar, wind, and battery storage assets. The Ona Intelligence Layer uses ODS-E (Open Data Schema for Energy) as its native data format.
 
 Documentation is available at https://docs.asoba.org
 
-## Products
+## Getting Started
 
-- [Products Overview](https://docs.asoba.org/products): Ona Intelligence Layer, Ona Edge, Nehanda, Zorora — three layers: ODSE (open standard), Ona (commercial platform), Nehanda & Zorora (domain AI)
-- [Nehanda](https://docs.asoba.org/products/nehanda): Fine-tuned 27B LLM (Qwen3.6-27B) for RAG synthesis and epistemic robustness. 88.7% on FACTS Grounding — highest public-split score, above Gemini 2.5 Pro (87.8%)
+- [Quickstart](https://docs.asoba.org/get-started): Install the SDK and make your first call in 5 minutes — query inverter telemetry, stream live data, and get OODA alerts
 
-## Learn
+## SDK
 
-- [Data Standardization](https://docs.asoba.org/technical-concepts/data-standardization): How raw inverter data is normalized for ML training
-- [ML Overview](https://docs.asoba.org/technical-concepts/machine-learning/overview): Machine learning pipeline architecture
-- [Forecasting Models](https://docs.asoba.org/technical-concepts/machine-learning/forecasting-models): LSTM and model training details
+- [SDK Overview](https://docs.asoba.org/sdk/overview): Architecture, Python vs JavaScript comparison, full service map, and design philosophy
+- [Installation](https://docs.asoba.org/sdk/installation): Install both SDKs, environment variables, and constructor configuration
+- [Authentication](https://docs.asoba.org/sdk/authentication): API keys, environment variables, multi-endpoint configuration, and the auth service
+- [Error Handling](https://docs.asoba.org/sdk/error-handling): Error class hierarchy, retry logic, rate limiting, and cost protection
 
-## Build
+## SDK Service Guides
 
-- [Quickstart](https://docs.asoba.org/build/quickstart): Generate a forecast in 3 steps (no API key required)
-- [Developer Guide](https://docs.asoba.org/guides/developer-guide): SDK setup and authenticated API usage
-- [Preparing Data](https://docs.asoba.org/guides/data-management/preparing-data): Data format requirements
-- [Uploading Data](https://docs.asoba.org/guides/data-management/uploading-data): Training and nowcast data upload
-- [Data Quality](https://docs.asoba.org/guides/data-management/data-quality): Data validation and quality checks
-- [Generating Forecasts](https://docs.asoba.org/guides/forecasting/generating-forecasts): How to generate forecasts
-- [Improving Accuracy](https://docs.asoba.org/guides/forecasting/improving-accuracy): Tips for better forecast accuracy
-- [Interpreting Results](https://docs.asoba.org/guides/forecasting/interpreting-results): Understanding forecast output
-- [Plant Performance](https://docs.asoba.org/guides/plant-performance/overview): Plant performance monitoring
-- [Portfolio Management](https://docs.asoba.org/guides/portfolio-management/overview): Multi-site portfolio management
+- [Inverter Telemetry](https://docs.asoba.org/sdk/services/inverter-telemetry): Query historical and stream live inverter data with cursor-based pagination
+- [OODA Terminal Alerts](https://docs.asoba.org/sdk/services/ooda-terminal-alerts): Query and stream fault/diagnostic alerts from terminal devices
+- [Forecasting](https://docs.asoba.org/sdk/services/forecasting): Device, site, and customer-level energy forecasts
+- [Freemium Forecasting](https://docs.asoba.org/sdk/services/freemium-forecasting): No-API-key CSV-based solar forecasting with email verification
+- [Terminal OODA Workflow](https://docs.asoba.org/sdk/services/terminal-ooda-workflow): Full OODA loop — detect, diagnose, schedule, build BOM, create orders
+- [Partner API](https://docs.asoba.org/sdk/services/partner-api): Pre-computed JSON snapshots with ETag-based conditional GETs (sub-100ms)
+- [Energy Analyst](https://docs.asoba.org/sdk/services/energy-analyst): RAG-powered energy policy and regulatory compliance queries
+- [Edge Devices](https://docs.asoba.org/sdk/services/edge-devices): Device discovery, registration, capability detection, and management
+- [Data Ingestion & Training](https://docs.asoba.org/sdk/services/data-ingestion-training): Upload data, train ML models, standardize against ODS-E, detect gaps, interpolate
+- [PV Insight Service](https://docs.asoba.org/sdk/services/pv-insight): JEPA anomaly detection → O&M recommendation via hybrid RAG and Nehanda 27B (preview)
 
-## Patterns
+## ODS-E & Architecture
 
-- [O&M Optimization](https://docs.asoba.org/use-cases/oam): Operations and maintenance optimization
-- [Insurance & Risk](https://docs.asoba.org/use-cases/insurance): Insurance risk assessment with forecasts
-- [Energy Trading](https://docs.asoba.org/use-cases/energy-trading): Day-ahead energy trading
-- [Sibaya Casino](https://docs.asoba.org/use-cases/sibaya-casino): Casino solar deployment case study
-- [Avaron Infrastructure](https://docs.asoba.org/use-cases/avaron-infrastructure): Infrastructure fund case study
-- [Cummins Portfolio](https://docs.asoba.org/use-cases/cummins-portfolio): Industrial portfolio case study
+- [Overview](https://docs.asoba.org/odse/overview): What is ODS-E — the Open Data Schema for Energy specification, components, and quick start
+- [Ona Intelligence Layer Architecture](https://docs.asoba.org/odse/architecture): How ODS-E fits with the Ona Intelligence Layer — three-layer architecture and data flow
+- [ODS-E & the SDK](https://docs.asoba.org/odse/sdk-integration): How ODS-E connects to the SDK — standardization service, data ingestion, and validate-then-upload workflow
+- [Schema Reference](https://docs.asoba.org/odse/schemas): Energy-timeseries, asset-metadata, equipment-register schemas and the 7-category error taxonomy
+- [Transform Specifications](https://docs.asoba.org/odse/transforms): Declarative YAML OEM-to-ODS-E mappings for 20+ vendors
+- [Validation Guide](https://docs.asoba.org/odse/validation): Schema, semantic, temporal validation levels and 6 conformance profiles
 
-## Reference
+## Code Examples
 
-- [Authentication](https://docs.asoba.org/api-reference/authentication): API authentication and tokens
-- [Data Ingestion Overview](https://docs.asoba.org/api-reference/data-ingestion/overview): Data upload API group
-- [Upload Training Data](https://docs.asoba.org/api-reference/data-ingestion/upload-train): POST training data
-- [Upload Nowcast Data](https://docs.asoba.org/api-reference/data-ingestion/upload-nowcast): POST real-time data
-- [Forecasting Overview](https://docs.asoba.org/api-reference/forecasting/overview): Forecasting API group
-- [Forecast](https://docs.asoba.org/api-reference/forecasting/forecast): Generate authenticated forecast
-- [Freemium Forecast](https://docs.asoba.org/api-reference/forecasting/freemium-forecast): Free forecast endpoint
-- [Terminal Overview](https://docs.asoba.org/api-reference/terminal/overview): Terminal API group
-- [Assets](https://docs.asoba.org/api-reference/terminal/assets): Asset management endpoints
-- [BOM](https://docs.asoba.org/api-reference/terminal/bom): Bill of materials endpoints
-- [Detect](https://docs.asoba.org/api-reference/terminal/detect): Fault detection endpoints
-- [Diagnose](https://docs.asoba.org/api-reference/terminal/diagnose): Diagnostic analysis endpoints
-- [Forecast Results](https://docs.asoba.org/api-reference/terminal/forecast): Forecast result endpoints
-- [Interpolation](https://docs.asoba.org/api-reference/terminal/interpolation): Data interpolation endpoints
-- [ML Models](https://docs.asoba.org/api-reference/terminal/ml-models): ML model management endpoints
-- [OODA](https://docs.asoba.org/api-reference/terminal/ooda): OODA loop summary endpoints
-- [Order](https://docs.asoba.org/api-reference/terminal/order): Order management endpoints
-- [Schedule](https://docs.asoba.org/api-reference/terminal/schedule): Schedule management endpoints
-- [Track](https://docs.asoba.org/api-reference/terminal/track): Asset tracking endpoints
+- [Overview](https://docs.asoba.org/examples/overview): Index of all 17 example files across Python and JavaScript
+- [Complete Workflow](https://docs.asoba.org/examples/complete-workflow): Multi-service integration walkthrough — forecast, detect, diagnose, schedule
+- [Python vs JavaScript](https://docs.asoba.org/examples/language-comparison): Side-by-side comparison for common SDK operations
 
-## Ona Protocol (ODS-E)
+## Repositories
 
-- [Ona Protocol](https://docs.asoba.org/ona-protocol): Open Data Schema for Energy — eliminates vendor lock-in, 120-160 hours saved per OEM integration. CC-BY-SA / Apache 2.0, free forever. `pip install odse`
+- [Ona SDK](https://github.com/AsobaCloud/sdk): Python & JavaScript SDK source, examples, and tests
+- [ODS-E Protocol](https://github.com/AsobaCloud/odse): Open data schema specification, transforms, and reference runtime
