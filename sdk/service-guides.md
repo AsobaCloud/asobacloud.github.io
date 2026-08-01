@@ -22,6 +22,7 @@ Each guide covers a specific service client with code examples in both Python an
 | 8 | [Edge Devices](/sdk/services/edge-devices) | URL | Device discovery, registration, capability detection |
 | 9 | [Data Ingestion & Training](/sdk/services/data-ingestion-training) | AWS | Upload data, train models, standardize, detect gaps, interpolate |
 | 10 | [PV Insight Service](/sdk/services/pv-insight) | URL | JEPA anomaly → O&M recommendation via hybrid RAG (preview) |
+| 11 | [Nehanda ML Proxy](/sdk/services/nehanda-ml-proxy) | ❌ | OpenAI-compatible API Gateway proxy to SageMaker vLLM |
 
 ---
 
