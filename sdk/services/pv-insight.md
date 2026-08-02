@@ -10,39 +10,9 @@ grand_parent: "SDK"
 
 Turn JEPA inverter anomaly detections into grounded **O&M follow-up recommendations**. The service retrieves site-relevant manuals and troubleshooting guides using hybrid RAG, then synthesizes a recommendation using **Nehanda 27B** (Asoba's fine-tuned LLM for RAG synthesis).
 
-<a href="https://asoba.co/bounded-intelligence-jepa-llm.html" target="_blank" rel="noopener" style="display:block;text-decoration:none;color:inherit;border:1px solid #e0e0e0;border-radius:10px;padding:20px 24px;margin:24px 0;background:#fff;transition:box-shadow 0.2s;">
-  <div style="display:flex;align-items:flex-start;gap:20px;">
-    <div style="flex-shrink:0;width:72px;height:72px;">
-      <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" width="72" height="72">
-        <!-- Eye — System 1: fast, reactive perception (JEPA world model) -->
-        <ellipse cx="22" cy="28" rx="14" ry="9" fill="none" stroke="#455bf1" stroke-width="1.8"/>
-        <circle cx="22" cy="28" r="4.5" fill="#455bf1" opacity="0.9"/>
-        <circle cx="23.5" cy="26.5" r="1.4" fill="#fff" opacity="0.7"/>
-        <!-- Signal lines from eye -->
-        <line x1="36" y1="28" x2="42" y2="28" stroke="#455bf1" stroke-width="1.4" stroke-dasharray="2,2"/>
-        <!-- Red alert — the handoff, the anomaly trigger -->
-        <circle cx="46" cy="28" r="5.5" fill="#cc3333"/>
-        <text x="46" y="32" text-anchor="middle" font-size="7" font-weight="bold" fill="#fff">!</text>
-        <!-- Signal lines to library -->
-        <line x1="52" y1="28" x2="57" y2="28" stroke="#cc3333" stroke-width="1.4" stroke-dasharray="2,2"/>
-        <!-- Library stack — System 2: slow, deliberate synthesis (RAG + Nehanda) -->
-        <rect x="57" y="18" width="11" height="3.5" rx="1" fill="#455bf1" opacity="0.85"/>
-        <rect x="57" y="23" width="11" height="3.5" rx="1" fill="#455bf1" opacity="0.65"/>
-        <rect x="57" y="28" width="11" height="3.5" rx="1" fill="#455bf1" opacity="0.45"/>
-        <rect x="57" y="33" width="11" height="3.5" rx="1" fill="#455bf1" opacity="0.25"/>
-        <!-- Labels -->
-        <text x="22" y="46" text-anchor="middle" font-size="6" fill="#888" font-family="monospace">OBSERVE</text>
-        <text x="46" y="46" text-anchor="middle" font-size="6" fill="#cc3333" font-family="monospace">ALERT</text>
-        <text x="63" y="46" text-anchor="middle" font-size="6" fill="#888" font-family="monospace">ORIENT</text>
-      </svg>
-    </div>
-    <div style="flex:1;min-width:0;">
-      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#455bf1;margin-bottom:5px;font-family:monospace;">Research · Anomaly Detection</div>
-      <div style="font-size:0.95rem;font-weight:700;color:#1f2430;margin-bottom:6px;line-height:1.3;">Bounded Intelligence: JEPA World Models for Per-Inverter Anomaly Detection</div>
-      <div style="font-size:0.83rem;color:#4d4d4d;line-height:1.5;">How the System 1 / System 2 architecture works under the hood — JEPA world models as fast perceptual detectors, RAG synthesis as the deliberate diagnostic layer. Includes per-inverter AUROC results and F1 comparisons against rule-based thresholds.</div>
-      <div style="margin-top:10px;font-size:0.78rem;font-weight:600;color:#455bf1;">Read the paper → asoba.co</div>
-    </div>
-  </div>
+<a href="https://asoba.co/bounded-intelligence-jepa-llm.html" target="_blank" rel="noopener" class="product-category-card">
+  <h4>👁️ Bounded Intelligence: JEPA World Models for Per-Inverter Anomaly Detection</h4>
+  <p>How the System 1 / System 2 OODA architecture works — JEPA as the fast perceptual detector, RAG + Nehanda as the deliberate diagnostic layer. Per-inverter AUROC results and F1 comparisons against rule-based thresholds.</p>
 </a>
 
 **Architecture:**
