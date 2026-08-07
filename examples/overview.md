@@ -47,7 +47,7 @@ node examples/inverter-telemetry-example.js
 
 ## Complete Workflow
 
-The capstone example chains multiple services together — forecasting, fault detection, diagnostics, energy analyst queries, and maintenance scheduling. See the [Complete Workflow walkthrough](/examples/complete-workflow).
+The capstone example chains multiple services together — forecasting, fault detection, diagnostics, and maintenance scheduling. See the [Complete Workflow walkthrough](/examples/complete-workflow).
 
 | Language | Filename | Description |
 |----------|----------|-------------|
@@ -98,13 +98,6 @@ Access the free-tier forecasting API without an API key. See the [Freemium Forec
 | Python | [`freemium_forecast_example.py`](https://github.com/AsobaCloud/sdk/blob/main/python/examples/freemium_forecast_example.py) | Free-tier solar forecasts — no API key required |
 | JavaScript | [`freemium-forecast-example.js`](https://github.com/AsobaCloud/sdk/blob/main/javascript/examples/freemium-forecast-example.js) | Free-tier forecasts in JavaScript |
 
-## Energy Analyst
-
-Query the energy analyst RAG system for compliance, maintenance, and regulatory information. See the [Energy Analyst service guide](/sdk/services/energy-analyst).
-
-| Language | Filename | Description |
-|----------|----------|-------------|
-| Python | [`energy_analyst_example.py`](https://github.com/AsobaCloud/sdk/blob/main/python/examples/energy_analyst_example.py) | Ask natural-language questions about energy compliance and maintenance |
 
 ## Partner API
 

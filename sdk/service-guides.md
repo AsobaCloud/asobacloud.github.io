@@ -18,11 +18,10 @@ Each guide covers a specific service client with code examples in both Python an
 | 4 | [Freemium Forecasting](/sdk/services/freemium-forecasting) | ❌ | No-key CSV-based solar forecasting with email verification |
 | 5 | [Terminal OODA Workflow](/sdk/services/terminal-ooda-workflow) | AWS | Full OODA loop: detect, diagnose, schedule, build BOM, create orders |
 | 6 | [Partner API](/sdk/services/partner-api) | ✅ | Pre-computed JSON snapshots with ETag caching (sub-100ms) |
-| 7 | [Energy Analyst](/sdk/services/energy-analyst) | URL | RAG-powered energy policy and regulatory queries |
-| 8 | [Edge Devices](/sdk/services/edge-devices) | URL | Device discovery, registration, capability detection |
-| 9 | [Data Ingestion & Training](/sdk/services/data-ingestion-training) | AWS | Upload data, train models, standardize, detect gaps, interpolate |
-| 10 | [PV Insight Service](/sdk/services/pv-insight) | URL | JEPA anomaly → O&M recommendation via hybrid RAG (preview) |
-| 11 | [Nehanda ML Proxy](/sdk/services/nehanda-ml-proxy) | ❌ | OpenAI-compatible API Gateway proxy to SageMaker vLLM |
+| 7 | [Edge Devices](/sdk/services/edge-devices) | URL | Device discovery, registration, capability detection |
+| 8 | [Data Ingestion & Training](/sdk/services/data-ingestion-training) | AWS | Upload data, train models, standardize, detect gaps, interpolate |
+| 9 | [PV Insight Service](/sdk/services/pv-insight) | URL | JEPA anomaly → O&M recommendation via hybrid RAG (preview) |
+| 10 | [Nehanda ML Proxy](/sdk/services/nehanda-ml-proxy) | ❌ | OpenAI-compatible API Gateway proxy to SageMaker vLLM |
 
 ---
 
