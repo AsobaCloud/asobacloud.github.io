@@ -9,13 +9,13 @@ nav_order: 1
   <p class="hero-subtitle">Typed client libraries for Python and JavaScript, built for the Ona Intelligence Layer — energy forecasting, fault detection, inverter telemetry, and O&amp;M intelligence for solar, wind, and battery storage assets.</p>
   <div class="quick-start-section">
     <a href="/get-started" class="quick-start-button">Get Started →</a>
-    <p class="quick-start-subtext">New here? Contact <a href="mailto:support@asoba.org">support@asoba.org</a> for an API key first.</p>
+    <p class="quick-start-subtext">New here? Contact <a href="mailto:support@asoba.co">support@asoba.co</a> for an API key first.</p>
   </div>
 </div>
 
 <div class="callout callout-info">
   <div class="callout-icon">🔑</div>
-  <div class="callout-content"><strong>You'll need an API key.</strong> Email <a href="mailto:support@asoba.org">support@asoba.org</a> to get one before making your first call.</div>
+  <div class="callout-content"><strong>You'll need an API key.</strong> Email <a href="mailto:support@asoba.co">support@asoba.co</a> to get one before making your first call.</div>
 </div>
 
 ## Quick Start
@@ -204,10 +204,10 @@ print(f"Data available from {period['first_record']} to {period['last_record']}"
       <h4>GitHub Issues</h4>
       <p>AsobaCloud/sdk</p>
     </a>
-    <a href="mailto:support@asoba.org" class="community-link-card">
+    <a href="mailto:support@asoba.co" class="community-link-card">
       <div class="community-icon">✉️</div>
       <h4>Email</h4>
-      <p>support@asoba.org</p>
+      <p>support@asoba.co</p>
     </a>
     <a href="https://discord.gg/v4vD5EXSUD" class="community-link-card">
       <div class="community-icon">💬</div>

@@ -11,7 +11,7 @@ This guide gets you querying live inverter telemetry and OODA alerts in under 5 
 ## Prerequisites
 
 - Python 3.8+ or Node.js 16+
-- An API key — contact **support@asoba.org** to get one
+- An API key — contact **support@asoba.co** to get one
 
 ---
 

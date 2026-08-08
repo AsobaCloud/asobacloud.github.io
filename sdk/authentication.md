@@ -9,7 +9,7 @@ parent: "SDK"
 
 ## API Key Setup
 
-Contact **support@asoba.org** to obtain an API key. A single key works for all API-key-protected endpoints:
+Contact **support@asoba.co** to obtain an API key. A single key works for all API-key-protected endpoints:
 
 - Inverter Telemetry
 - OODA Terminal Alerts
@@ -60,7 +60,7 @@ client = OnaClient()
 
 # Only configure what you need explicitly
 client = OnaClient(
-    partner_api_endpoint='https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod',
+    partner_api_endpoint='https://partner.api.asoba.co',
     partner_api_key='<your_api_key>',
 )
 ```
@@ -187,7 +187,7 @@ headers = client.auth.get_auth_header()
 
 | Error | Cause | Solution |
 |-------|-------|----------|
-| `401 Unauthorized` | Invalid or missing API key | Verify env vars; contact support@asoba.org |
+| `401 Unauthorized` | Invalid or missing API key | Verify env vars; contact support@asoba.co |
 | `403 Forbidden` | API key not scoped to site | Request access to the `site_id` you're querying |
 | `AuthenticationError` | Token expired or invalid | Call `login()` or `refresh_token()` |
 | `ConfigurationError` | Missing endpoint or key | Set the required environment variable |

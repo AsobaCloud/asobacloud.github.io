@@ -17,4 +17,4 @@ Policies and terms governing the use of Asoba's platform and services.
 
 ## Questions?
 
-If you have questions about any of our policies or terms, please contact us at [support@asoba.org](mailto:support@asoba.org).
+If you have questions about any of our policies or terms, please contact us at [support@asoba.co](mailto:support@asoba.co).

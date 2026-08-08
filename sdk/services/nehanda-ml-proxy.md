@@ -40,7 +40,7 @@ It handles AWS SigV4 request signing transparently, enabling standard OpenAI-com
 
 ## Endpoint Details
 
-* **Base URL**: `https://nehanda-ml.asoba.co/v1` (or API Gateway `https://1yow94tpyk.execute-api.af-south-1.amazonaws.com/prod/v1`)
+* **Base URL**: `https://nehanda-ml.asoba.co/v1`
 * **Protocol**: HTTPS / JSON (OpenAI Chat Completions API specification)
 * **Target Model**: `nehanda-rag-synthesis-27b`
 

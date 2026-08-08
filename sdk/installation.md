@@ -72,21 +72,21 @@ The SDK reads endpoint URLs and API keys from environment variables. Set the one
 ### Inverter Telemetry
 
 ```bash
-export INVERTER_TELEMETRY_ENDPOINT=https://af5jy5ob3e.execute-api.af-south-1.amazonaws.com/prod
+export INVERTER_TELEMETRY_ENDPOINT=https://telemetry.api.asoba.co
 export INVERTER_TELEMETRY_API_KEY=<your_api_key>
 ```
 
 ### OODA Terminal Alerts
 
 ```bash
-export OODA_TERMINAL_ENDPOINT=https://3lpq00xevg.execute-api.af-south-1.amazonaws.com/prod
+export OODA_TERMINAL_ENDPOINT=https://ooda.api.asoba.co
 export OODA_TERMINAL_API_KEY=<your_api_key>
 ```
 
 ### Partner API
 
 ```bash
-export PARTNER_API_ENDPOINT=https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod
+export PARTNER_API_ENDPOINT=https://partner.api.asoba.co
 export PARTNER_API_KEY=<your_api_key>
 ```
 
@@ -142,7 +142,7 @@ client = OnaClient(
     energy_analyst_url='http://localhost:8000',
     edge_api_url='http://localhost:8082',
     auth_endpoint='https://auth-api.asoba.co/prod',
-    partner_api_endpoint='https://8el3o25tc1.execute-api.af-south-1.amazonaws.com/prod',
+    partner_api_endpoint='https://partner.api.asoba.co',
     partner_api_key='<your_api_key>',
     timeout=120,
     max_retries=3,
@@ -223,7 +223,7 @@ node examples/partner-api-example.js
 
 ## API Key
 
-Contact **support@asoba.org** to obtain an API key. The same key works for all API-key-protected endpoints (Inverter Telemetry, OODA Terminal, Partner API).
+Contact **support@asoba.co** to obtain an API key. The same key works for all API-key-protected endpoints (Inverter Telemetry, OODA Terminal, Partner API).
 
 For AWS-backed services (Forecasting, Terminal, Data Ingestion, Training), configure standard AWS credentials instead.
 
