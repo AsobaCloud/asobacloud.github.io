@@ -48,7 +48,7 @@ Both SDKs share the same API surface for all services except authentication (Pyt
 | [Inverter Telemetry](/sdk/services/inverter-telemetry) | `client.inverter_telemetry` | `sdk.inverterTelemetry` | `ASOBA_API_KEY` |
 | [OODA Terminal Alerts](/sdk/services/ooda-terminal-alerts) | `client.ooda_terminal` | `sdk.oodaTerminal` | `ASOBA_API_KEY` |
 | [Forecasting](/sdk/services/forecasting) | `client.forecasting` | `sdk.forecasting` | AWS credentials |
-| [Freemium Forecasting](/sdk/services/freemium-forecasting) | `FreemiumForecastClient` | `FreemiumForecastClient` | ❌ No key needed |
+| [Freemium Forecasting](/sdk/services/freemium-forecasting) | `client.freemium_forecast` | `sdk.freemiumForecast` | ❌ No key needed |
 | [Terminal OODA Workflow](/sdk/services/terminal-ooda-workflow) | `client.terminal` | `sdk.terminal` | JWT via `client.auth` / AWS |
 | [Partner API](/sdk/services/partner-api) | `client.partner` | `sdk.partner` | `ASOBA_API_KEY` |
 | Edge Devices | `client.edge_devices` | `sdk.edgeRegistry` | Service URL |
