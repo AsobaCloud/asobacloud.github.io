@@ -10,7 +10,7 @@ grand_parent: "SDK"
 
 Query and stream OODA (Observe, Orient, Decide, Act) fault detection and diagnostic alerts from terminal devices.
 
-**Requires:** `OODA_TERMINAL_ENDPOINT` and `OODA_TERMINAL_API_KEY` environment variables.
+**Requires:** `ASOBA_API_KEY` environment variable. Endpoint defaults to `https://ooda.api.asoba.co`.
 
 ---
 
@@ -18,8 +18,8 @@ Query and stream OODA (Observe, Orient, Decide, Act) fault detection and diagnos
 
 ```python
 from datetime import datetime, timedelta
-from ona_platform import OnaClient
-from ona_platform.models.ooda import TimeRange
+from asoba import OnaClient
+from asoba.models.ooda import TimeRange
 
 client = OnaClient()
 ot = client.ooda_terminal
@@ -90,15 +90,9 @@ while page_num <= 2:
 ## JavaScript
 
 ```javascript
-const { OnaSDK } = require('./src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
-const sdk = new OnaSDK({
-  endpoints: {
-    oodaTerminal: process.env.OODA_TERMINAL_ENDPOINT,
-  },
-  oodaTerminalApiKey: process.env.OODA_TERMINAL_API_KEY,
-});
-
+const sdk = new OnaSDK();  // apiKey from ASOBA_API_KEY
 const ot = sdk.oodaTerminal;
 const siteId = 'Sibaya';
 const terminalDeviceId = 'TERM-1000000054495190';

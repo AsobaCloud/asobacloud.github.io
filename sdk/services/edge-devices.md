@@ -21,7 +21,7 @@ export EDGE_API_URL=http://localhost:8082
 ## Python
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient(
     edge_api_url='http://localhost:8082'  # or set EDGE_API_URL
@@ -75,12 +75,12 @@ updated = client.edge_devices.update_device(
 ## JavaScript
 
 ```javascript
-const { OnaSDK } = require('../src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
 const sdk = new OnaSDK({
   endpoints: {
-    edgeRegistry: process.env.ONA_EDGE_REGISTRY_ENDPOINT || 'http://edge-registry:8082'
-  }
+    edgeRegistry: process.env.EDGE_API_URL || 'http://localhost:8082',
+  },
 });
 
 // ── Service health ──

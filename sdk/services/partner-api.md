@@ -14,24 +14,23 @@ The Partner API provides pre-computed JSON snapshots optimized for embedding and
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| KPI Rollup | `get_kpi_rollup()` | Key performance indicators for a site |
-| Maintenance Signals | `get_maintenance_signals()` | Fault and anomaly signals by severity |
-| Maintenance Schedule | `get_maintenance_schedule()` | Preventive maintenance schedule (SEP-062) |
-| Forecast Snapshot | `get_forecast_snapshot()` | Pre-computed forecast results |
-| Battery Health | `get_battery_health()` | Battery SOH and warranty tracking |
+| KPI Rollup | `get_kpi_rollup()` / `getKpiRollup()` | Key performance indicators for a site (`EarKpis` + `FinancialKpis`; optional `battery` block) |
+| Maintenance Signals | `get_maintenance_signals()` / `getMaintenanceSignals()` | Fault and anomaly signals by severity |
+| Maintenance Schedule | `get_maintenance_schedule()` / `getMaintenanceSchedule()` | Preventive maintenance schedule (SEP-062) |
+| Forecast Snapshot | `get_forecast_snapshot()` / `getForecastSnapshot()` | Pre-computed 24h solar forecast |
+| Generic Snapshot | `get_snapshot()` / `getSnapshot()` | Fetch any snapshot kind by name |
+
+Access via `client.partner` (Python) or `sdk.partner` (JavaScript).
 
 ---
 
 ## Configuration
 
-Set the Partner API endpoint and key:
-
 ```bash
-export PARTNER_API_ENDPOINT=https://api.asoba.org
-export PARTNER_API_KEY=<your_api_key>
+export ASOBA_API_KEY=<your_api_key>
 ```
 
-> The same API key works for all Ona endpoints.
+Endpoint defaults to `https://partner.api.asoba.co`. Optional override: `ASOBA_PARTNER_ENDPOINT`.
 
 ---
 
@@ -40,25 +39,21 @@ export PARTNER_API_KEY=<your_api_key>
 ```python
 import json
 import time
-from ona_platform import OnaClient
+from asoba import OnaClient
 
-client = OnaClient(
-    partner_api_endpoint=os.getenv("PARTNER_API_ENDPOINT"),
-    partner_api_key=os.getenv("PARTNER_API_KEY")
-)
-
+client = OnaClient()  # api_key from ASOBA_API_KEY
 site_id = "Sibaya"
 
 # ── KPI Rollup (with ETag caching demo) ──
 start = time.time()
-kpis = client.partner_api.get_kpi_rollup(site_id=site_id)
+kpis = client.partner.get_kpi_rollup(site_id=site_id)
 duration = (time.time() - start) * 1000
 print(f"Fetch 1: {duration:.2f}ms")
-print(json.dumps(kpis, indent=2))
+print(json.dumps(kpis, indent=2, default=str))
 
 # Second fetch — served from cache via 304 Not Modified
 start2 = time.time()
-cached_kpis = client.partner_api.get_kpi_rollup(site_id=site_id)
+cached_kpis = client.partner.get_kpi_rollup(site_id=site_id)
 duration2 = (time.time() - start2) * 1000
 print(f"Fetch 2: {duration2:.2f}ms (cache hit)")
 ```
@@ -73,25 +68,33 @@ Fetch 2: 3.12ms (cache hit)
 ### Maintenance Signals
 
 ```python
-signals = client.partner_api.get_maintenance_signals(
+signals = client.partner.get_maintenance_signals(
     site_id=site_id,
-    severity="high"
+    since='2025-11-01T00:00:00',
+    severity="high",
 )
 for signal in signals.get('signals', []):
     print(f"  [{signal['severity']}] {signal['message']}")
 ```
 
+### Forecast Snapshot
+
+```python
+forecast = client.partner.get_forecast_snapshot(site_id=site_id)
+print(f"{forecast['horizon_hours']}h, {len(forecast['intervals'])} intervals")
+```
+
 ### Maintenance Schedule (SEP-062)
 
 ```python
-schedule = client.partner_api.get_maintenance_schedule(site_id=site_id)
+schedule = client.partner.get_maintenance_schedule(site_id=site_id)
 summary = schedule.get("summary", {})
 print(f"Horizon: {schedule.get('horizon')}")
 print(f"Total tasks: {summary.get('total_tasks')}")
 print(f"By priority: {summary.get('by_priority')}")
 
 for task in schedule.get("tasks", [])[:3]:
-    print(f"  - {task['title']} (priority: {task['priority']})")
+    print(f"  - {task.get('task_type') or task.get('title')} (priority: {task['priority']})")
 ```
 
 ---
@@ -99,36 +102,35 @@ for task in schedule.get("tasks", [])[:3]:
 ## JavaScript
 
 ```javascript
-const { OnaSDK } = require('../src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
-const sdk = new OnaSDK({
-  endpoints: {
-    partnerApi: process.env.PARTNER_API_ENDPOINT,
-  },
-  partnerApiKey: process.env.PARTNER_API_KEY,
-});
-
+const sdk = new OnaSDK();  // apiKey from ASOBA_API_KEY
 const siteId = 'Sibaya';
 
 // ── KPI Rollup (with ETag caching demo) ──
 const start = Date.now();
-const kpis = await sdk.partnerApi.getKpiRollup({ site_id: siteId });
+const kpis = await sdk.partner.getKpiRollup({ site_id: siteId });
 console.log(`Fetch 1: ${Date.now() - start}ms`);
 console.log(JSON.stringify(kpis, null, 2));
 
 // Second fetch — served from cache
 const start2 = Date.now();
-const cachedKpis = await sdk.partnerApi.getKpiRollup({ site_id: siteId });
+const cachedKpis = await sdk.partner.getKpiRollup({ site_id: siteId });
 console.log(`Fetch 2: ${Date.now() - start2}ms (cache hit)`);
 
 // ── Maintenance Signals ──
-const signals = await sdk.partnerApi.getMaintenanceSignals({
+const signals = await sdk.partner.getMaintenanceSignals({
   site_id: siteId,
+  since: '2025-11-01T00:00:00',
   severity: 'high',
 });
 
+// ── Forecast Snapshot ──
+const forecast = await sdk.partner.getForecastSnapshot({ site_id: siteId });
+console.log(`${forecast.horizon_hours}h, ${forecast.intervals.length} intervals`);
+
 // ── Maintenance Schedule (SEP-062) ──
-const schedule = await sdk.partnerApi.getMaintenanceSchedule({ site_id: siteId });
+const schedule = await sdk.partner.getMaintenanceSchedule({ site_id: siteId });
 console.log('Horizon:', schedule.horizon);
 console.log('Total tasks:', schedule.summary.total_tasks);
 console.log('By priority:', JSON.stringify(schedule.summary.by_priority));

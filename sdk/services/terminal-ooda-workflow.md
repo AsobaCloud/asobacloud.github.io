@@ -24,7 +24,7 @@ The Terminal API implements the full **OODA loop** (Observe → Orient → Decid
 ## Python
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 customer_id = "customer123"
@@ -97,7 +97,7 @@ models = client.terminal.get_ml_models()
 ## JavaScript
 
 ```javascript
-const { OnaSDK } = require('../src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
 const sdk = new OnaSDK({
   region: 'af-south-1',
@@ -106,7 +106,7 @@ const sdk = new OnaSDK({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
   },
   endpoints: {
-    terminal: process.env.ONA_TERMINAL_ENDPOINT || 'https://terminal.api.asoba.co'
+    terminal: process.env.ASOBA_TERMINAL_ENDPOINT || 'https://api.asoba.co'
   }
 });
 

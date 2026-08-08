@@ -10,7 +10,7 @@ grand_parent: "SDK"
 
 Query historical and stream live power output, energy, temperature, and state data from solar inverters, wind turbines, and battery systems.
 
-**Requires:** `INVERTER_TELEMETRY_ENDPOINT` and `INVERTER_TELEMETRY_API_KEY` environment variables.
+**Requires:** `ASOBA_API_KEY` environment variable. Endpoint defaults to `https://telemetry.api.asoba.co`.
 
 ---
 
@@ -27,10 +27,10 @@ Always call `get_data_period()` **first** to discover what time range has data. 
 ## Python
 
 ```python
-from ona_platform import OnaClient
-from ona_platform.models.telemetry import TimeRange
+from asoba import OnaClient
+from asoba.models.telemetry import TimeRange
 
-client = OnaClient()
+client = OnaClient()  # api_key from ASOBA_API_KEY
 it = client.inverter_telemetry
 
 site_id = "Sibaya"
@@ -116,16 +116,9 @@ Data from 2025-11-01T02:40:00 to 2025-11-01T12:00:00
 ## JavaScript
 
 ```javascript
-const { OnaSDK } = require('./src/index');
-const { RateLimitError } = require('../src/services/InverterTelemetryClient');
+const { OnaSDK } = require('@asobacloud/sdk');
 
-const sdk = new OnaSDK({
-  endpoints: {
-    inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT,
-  },
-  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
-});
-
+const sdk = new OnaSDK();  // apiKey from ASOBA_API_KEY
 const it = sdk.inverterTelemetry;
 const siteId = 'Sibaya';
 const assetId = 'INV-1000000054495190';

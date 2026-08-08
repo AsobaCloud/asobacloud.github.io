@@ -31,7 +31,7 @@ Upload training and nowcast data to the platform for processing.
 ### Python
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 
@@ -61,7 +61,7 @@ print(f"Summary: {validation['summary']}")
 ### JavaScript
 
 ```javascript
-const { OnaSDK } = require('../src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
 const sdk = new OnaSDK({
   region: 'af-south-1',

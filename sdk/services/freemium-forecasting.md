@@ -26,17 +26,17 @@ You must accept the Terms of Use (`tou_accepted=True`) to use this service.
 ## Python
 
 ```python
-from ona_platform import OnaClient
+from asoba.services.freemium_forecast import FreemiumForecastClient
 
-client = OnaClient()
+client = FreemiumForecastClient()
 
 # Step 1 — request a one-time verification code (emailed to you)
-client.freemium_forecast.request_verification_code(email="you@example.com")
+client.request_verification_code(email="you@example.com")
 
 verification_code = input("Enter the verification code from your email: ").strip()
 
 # Step 2 — submit the CSV with the code and installed capacity
-result = client.freemium_forecast.get_forecast(
+result = client.get_forecast(
     csv_path="data/historical_production.csv",
     email="you@example.com",
     verification_code=verification_code,
@@ -67,17 +67,18 @@ for point in forecast["forecasts"][:6]:
 ## JavaScript
 
 ```javascript
-const { OnaSDK } = require('./src/index');
+// FreemiumForecastClient ships with the package; import from the service module
+const { FreemiumForecastClient } = require('@asobacloud/sdk/src/services/FreemiumForecastClient');
 
-const sdk = new OnaSDK();
+const freemium = new FreemiumForecastClient();
 
 // Step 1 — request a one-time verification code (emailed to you)
-await sdk.freemiumForecast.requestVerificationCode({ email: 'you@example.com' });
+await freemium.requestVerificationCode({ email: 'you@example.com' });
 
 const verificationCode = await prompt('Enter the verification code from your email: ');
 
 // Step 2 — submit the CSV with the code and installed capacity
-const result = await sdk.freemiumForecast.getForecast({
+const result = await freemium.getForecast({
   csvPath: 'data/historical_production.csv',
   email: 'you@example.com',
   verificationCode,
@@ -128,7 +129,7 @@ Timestamp,Power (kW)
 The `capacity_kw` parameter specifies the installed capacity of the solar installation in kilowatts. This is used to scale and validate the forecast. Set it accurately for best results.
 
 ```python
-result = client.freemium_forecast.get_forecast(
+result = client.get_forecast(
     csv_path="data.csv",
     email="you@example.com",
     verification_code="123456",

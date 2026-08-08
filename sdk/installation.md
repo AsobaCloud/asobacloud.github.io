@@ -16,6 +16,12 @@ parent: "SDK"
 
 ## Python SDK
 
+### Install from PyPI
+
+```bash
+pip install asoba
+```
+
 ### Install from source
 
 ```bash
@@ -26,21 +32,21 @@ pip3 install -e .
 
 The `-e` flag installs in editable mode — changes to the source are picked up immediately.
 
-### Install from PyPI
-
-```bash
-pip install ona-platform
-```
-
 ### Verify
 
 ```bash
-python3 -c "from ona_platform import OnaClient; print('OK')"
+python3 -c "from asoba import OnaClient; print('OK')"
 ```
 
 ---
 
 ## JavaScript SDK
+
+### Install from npm
+
+```bash
+npm install @asobacloud/sdk
+```
 
 ### Install from source
 
@@ -50,16 +56,10 @@ cd sdk/javascript
 npm install
 ```
 
-### Install from npm
-
-```bash
-npm install @asoba/ona-sdk
-```
-
 ### Verify
 
 ```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
+const { OnaSDK } = require('@asobacloud/sdk');
 console.log(typeof OnaSDK); // 'function'
 ```
 
@@ -67,30 +67,25 @@ console.log(typeof OnaSDK); // 'function'
 
 ## Environment Variables
 
-The SDK reads endpoint URLs and API keys from environment variables. Set the ones relevant to the services you use.
-
-### Inverter Telemetry
+### Required for telemetry, alerts, and Partner API
 
 ```bash
-export INVERTER_TELEMETRY_ENDPOINT=https://telemetry.api.asoba.co
-export INVERTER_TELEMETRY_API_KEY=<your_api_key>
+export ASOBA_API_KEY=<your_api_key>
 ```
 
-### OODA Terminal Alerts
+One key works for Inverter Telemetry, OODA Terminal Alerts, and the Partner API. Endpoint URLs default to the canonical production values and do not need to be set.
+
+### Optional endpoint overrides
 
 ```bash
-export OODA_TERMINAL_ENDPOINT=https://ooda.api.asoba.co
-export OODA_TERMINAL_API_KEY=<your_api_key>
+export ASOBA_TELEMETRY_ENDPOINT=https://telemetry.api.asoba.co   # default
+export ASOBA_OODA_ENDPOINT=https://ooda.api.asoba.co             # default
+export ASOBA_PARTNER_ENDPOINT=https://partner.api.asoba.co       # default
+export ASOBA_TERMINAL_ENDPOINT=https://api.asoba.co              # default
+export ASOBA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod        # Python auth
 ```
 
-### Partner API
-
-```bash
-export PARTNER_API_ENDPOINT=https://partner.api.asoba.co
-export PARTNER_API_KEY=<your_api_key>
-```
-
-### AWS Services (Forecasting, Terminal, Data Ingestion, Training)
+### AWS Services (Forecasting, Terminal internals, Data Ingestion, Training)
 
 ```bash
 export AWS_REGION=af-south-1
@@ -98,22 +93,11 @@ export AWS_ACCESS_KEY_ID=<your_access_key>
 export AWS_SECRET_ACCESS_KEY=<your_secret_key>
 ```
 
-### Energy Analyst
+### Optional service URLs
 
 ```bash
 export ENERGY_ANALYST_URL=http://localhost:8000
-```
-
-### Edge Device Registry
-
-```bash
 export EDGE_API_URL=http://localhost:8082
-```
-
-### Auth Service (Python only)
-
-```bash
-export ONA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod
 ```
 
 ### Tuning (Python only)
@@ -124,8 +108,6 @@ export ONA_MAX_RETRIES=3        # Max retry attempts
 export ONA_RETRY_BACKOFF=2.0    # Backoff multiplier
 ```
 
-> **Same API key for all endpoints.** A single API key works for Inverter Telemetry, OODA Terminal, and Partner API. Set it under all three `*_API_KEY` variables.
-
 ---
 
 ## Constructor Configuration
@@ -135,67 +117,56 @@ If you prefer not to use environment variables, pass configuration directly.
 ### Python
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient(
-    aws_region='af-south-1',
+    api_key='<your_api_key>',
+    auth_endpoint='https://auth-api.asoba.co/prod',
+    terminal_endpoint='https://api.asoba.co',
     energy_analyst_url='http://localhost:8000',
     edge_api_url='http://localhost:8082',
-    auth_endpoint='https://auth-api.asoba.co/prod',
-    partner_api_endpoint='https://partner.api.asoba.co',
-    partner_api_key='<your_api_key>',
     timeout=120,
     max_retries=3,
-    retry_backoff=2.0,
 )
 ```
 
-The Python SDK uses the `OnaConfig` dataclass internally. All fields have defaults; only override what you need. The `from_env()` classmethod loads from environment variables automatically when you call `OnaClient()` with no arguments.
+`OnaClient()` with no arguments loads `ASOBA_API_KEY` and optional overrides via `OnaConfig.from_env()`.
 
 ### JavaScript
 
 ```javascript
-const { OnaSDK } = require('./src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
 const sdk = new OnaSDK({
-  region: 'af-south-1',
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-  endpoints: {
-    inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT,
-    oodaTerminal: process.env.OODA_TERMINAL_ENDPOINT,
-    partnerApi: process.env.PARTNER_API_ENDPOINT,
-    forecasting: 'https://forecasting.api.asoba.co',
-    terminal: 'https://terminal.api.asoba.co',
-    edgeRegistry: 'http://localhost:8082',
-    energyAnalyst: 'http://localhost:8000',
-  },
-  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
-  oodaTerminalApiKey: process.env.OODA_TERMINAL_API_KEY,
-  partnerApiKey: process.env.PARTNER_API_KEY,
+  apiKey: process.env.ASOBA_API_KEY,
   timeout: 30000,
   retries: 3,
   retryDelay: 1000,
+  // Advanced: override a specific endpoint
+  // endpoints: { partnerApi: 'https://partner.api.asoba.co' },
 });
 ```
 
 ### HTTPS Enforcement
 
-The Partner API endpoint **must** use `https://`. Both SDKs raise a `ConfigurationError` at initialization if the scheme is not HTTPS:
+The Partner API endpoint **must** use `https://`. The Python SDK raises `ConfigurationError` at init if `partner_endpoint` does not use HTTPS. Telemetry clients also require HTTPS endpoints.
 
 ```python
 # Python — raises ConfigurationError
-client = OnaClient(partner_api_endpoint='http://example.com')
+from asoba.config import OnaConfig
+OnaConfig(partner_endpoint='http://example.com')
 ```
 
-```javascript
-// JavaScript — ConfigurationError thrown in Config.validate()
-const sdk = new OnaSDK({
-  endpoints: { partnerApi: 'http://example.com' },
-});
-```
+---
+
+## Default Endpoints
+
+| API | Endpoint |
+|-----|----------|
+| Inverter Telemetry | `https://telemetry.api.asoba.co` |
+| OODA Terminal Alerts | `https://ooda.api.asoba.co` |
+| Partner API | `https://partner.api.asoba.co` |
+| Terminal API | `https://api.asoba.co` |
 
 ---
 
@@ -225,7 +196,7 @@ node examples/partner-api-example.js
 
 Contact **support@asoba.co** to obtain an API key. The same key works for all API-key-protected endpoints (Inverter Telemetry, OODA Terminal, Partner API).
 
-For AWS-backed services (Forecasting, Terminal, Data Ingestion, Training), configure standard AWS credentials instead.
+For AWS-backed services (Forecasting, Terminal internals, Data Ingestion, Training), configure standard AWS credentials instead.
 
 ---
 

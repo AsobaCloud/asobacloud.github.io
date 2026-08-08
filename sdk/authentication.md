@@ -15,17 +15,13 @@ Contact **support@asoba.co** to obtain an API key. A single key works for all AP
 - OODA Terminal Alerts
 - Partner API
 
-Set the key in each endpoint's environment variable:
-
 ```bash
-export INVERTER_TELEMETRY_API_KEY=<your_api_key>
-export OODA_TERMINAL_API_KEY=<your_api_key>
-export PARTNER_API_KEY=<your_api_key>
+export ASOBA_API_KEY=<your_api_key>
 ```
 
-> **Same key, three variables.** Export the same value under all three names. The SDK sends it as the `x-api-key` header on every request.
+> The SDK sends this value as the `x-api-key` header on every request to those APIs. Endpoint URLs are hardcoded to production defaults.
 
-For AWS-backed services (Forecasting, Terminal, Data Ingestion, Training), use standard AWS credentials instead of an API key:
+For AWS-backed services (Forecasting, Terminal internals, Data Ingestion, Training), use standard AWS credentials instead of an API key:
 
 ```bash
 export AWS_ACCESS_KEY_ID=<your_access_key>
@@ -39,10 +35,8 @@ export AWS_REGION=af-south-1
 
 | Endpoint | Env Var | Header |
 |----------|---------|--------|
-| Inverter Telemetry | `INVERTER_TELEMETRY_API_KEY` | `x-api-key` |
-| OODA Terminal | `OODA_TERMINAL_API_KEY` | `x-api-key` |
-| Partner API | `PARTNER_API_KEY` | `x-api-key` |
-| Auth Service | `ONA_AUTH_ENDPOINT` (URL only) | `Authorization: Bearer <token>` |
+| Inverter Telemetry / OODA / Partner | `ASOBA_API_KEY` | `x-api-key` |
+| Auth Service | `ASOBA_AUTH_ENDPOINT` (URL only) | `Authorization: Bearer <token>` |
 | Energy Analyst | `ENERGY_ANALYST_URL` (URL only) | No auth header |
 | Edge Registry | `EDGE_API_URL` (URL only) | No auth header |
 
@@ -50,46 +44,35 @@ export AWS_REGION=af-south-1
 
 ## Multi-Endpoint Configuration Pattern
 
-Each service client validates its own configuration at initialization. If an endpoint or key is missing, the SDK raises a `ConfigurationError` (Python) or `ConfigurationError` (JavaScript) immediately — not on the first request.
+If an API key is missing when a protected client is used, the SDK raises `AuthenticationError` (or `ConfigurationError` where an endpoint override is invalid).
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
-# All env vars picked up automatically
+# Picks up ASOBA_API_KEY automatically
 client = OnaClient()
 
-# Only configure what you need explicitly
-client = OnaClient(
-    partner_api_endpoint='https://partner.api.asoba.co',
-    partner_api_key='<your_api_key>',
-)
+# Or pass the key explicitly
+client = OnaClient(api_key='<your_api_key>')
 ```
 
 ```javascript
-const { OnaSDK } = require('./src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
-const sdk = new OnaSDK({
-  endpoints: {
-    inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT,
-    oodaTerminal: process.env.OODA_TERMINAL_ENDPOINT,
-    partnerApi: process.env.PARTNER_API_ENDPOINT,
-  },
-  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
-  oodaTerminalApiKey: process.env.OODA_TERMINAL_API_KEY,
-  partnerApiKey: process.env.PARTNER_API_KEY,
-});
+const sdk = new OnaSDK();
+// or: new OnaSDK({ apiKey: '<your_api_key>' });
 ```
 
 ---
 
 ## Auth Service (Python Only)
 
-The Python SDK includes an `AuthClient` for user authentication, MFA, token management, and API key introspection. The JavaScript SDK does not include an auth client.
+The Python SDK includes an `AuthClient` for user authentication, MFA, token management, and API key introspection. The JavaScript SDK does not include an auth client. Terminal API calls that require a user JWT should go through `client.auth.login()` first.
 
 ### Login with Username/Password
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient(auth_endpoint='https://auth-api.asoba.co/prod')
 
@@ -159,7 +142,7 @@ print(f"Ona token: {result['token']}")
 ### Auth Service Configuration
 
 ```bash
-export ONA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod
+export ASOBA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod
 ```
 
 The auth endpoint must use HTTPS — the SDK raises `ConfigurationError` otherwise. The Lambda function name is derived from the endpoint URL:
@@ -187,10 +170,10 @@ headers = client.auth.get_auth_header()
 
 | Error | Cause | Solution |
 |-------|-------|----------|
-| `401 Unauthorized` | Invalid or missing API key | Verify env vars; contact support@asoba.co |
+| `401 Unauthorized` | Invalid or missing API key | Verify `ASOBA_API_KEY`; contact support@asoba.co |
 | `403 Forbidden` | API key not scoped to site | Request access to the `site_id` you're querying |
 | `AuthenticationError` | Token expired or invalid | Call `login()` or `refresh_token()` |
-| `ConfigurationError` | Missing endpoint or key | Set the required environment variable |
+| `ConfigurationError` | Invalid endpoint scheme/config | Check HTTPS endpoints and env vars |
 
 ---
 

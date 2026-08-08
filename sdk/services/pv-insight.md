@@ -45,7 +45,7 @@ PV Insight synthesis is exposed on the **TerminalClient** as `run_pv_insight_syn
 ### Python
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 
@@ -81,7 +81,7 @@ if analysis["status"] == "ok":
 ### JavaScript
 
 ```javascript
-const { OnaSDK } = require('@asoba/ona-sdk');
+const { OnaSDK } = require('@asobacloud/sdk');
 
 const sdk = new OnaSDK({
   region: 'af-south-1',
@@ -90,7 +90,7 @@ const sdk = new OnaSDK({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
   },
   endpoints: {
-    terminal: 'https://api.asoba.co/terminal',
+    terminal: process.env.ASOBA_TERMINAL_ENDPOINT || 'https://api.asoba.co',
   },
   timeout: 90000,  // synthesis can take up to ~90s
 });

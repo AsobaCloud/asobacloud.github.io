@@ -29,8 +29,8 @@ OnaError
 ### Usage
 
 ```python
-from ona_platform import OnaClient
-from ona_platform.exceptions import (
+from asoba import OnaClient
+from asoba.exceptions import (
     OnaError,
     ConfigurationError,
     ServiceUnavailableError,
@@ -82,22 +82,17 @@ OnaSDKError
 ### Usage
 
 ```javascript
-const { OnaSDK } = require('./src/index');
 const {
+  OnaSDK,
   OnaSDKError,
   APIError,
   ConfigurationError,
   ValidationError,
   AuthenticationError,
   TimeoutError,
-} = require('./src/utils/errors');
+} = require('@asobacloud/sdk');
 
-const sdk = new OnaSDK({
-  endpoints: {
-    inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT,
-  },
-  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
-});
+const sdk = new OnaSDK();
 
 try {
   const records = await sdk.inverterTelemetry.getInverterTelemetry({
@@ -136,10 +131,9 @@ try {
 The SDK uses exponential backoff via the `retry_with_backoff` decorator. Retries apply to `ServiceUnavailableError` and `TimeoutError` only — not to auth, validation, or rate-limit errors.
 
 ```python
-from ona_platform.utils.retry import retry_with_backoff
+from asoba.utils.retry import retry_with_backoff
 
 # Default: 3 retries, 2.0 backoff factor (2s, 4s, 8s)
-# The decorator can be applied to any function
 @retry_with_backoff(max_retries=3, backoff_factor=2.0)
 def my_api_call():
     ...
@@ -148,20 +142,10 @@ def my_api_call():
 Configure retry behavior at the client level:
 
 ```python
-client = OnaClient(max_retries=5, retry_backoff=2.5)
+client = OnaClient(max_retries=5)
 ```
 
-The telemetry and OODA clients implement their own retry loop for 5xx responses with the same exponential backoff:
-
-```python
-# Internal retry logic (InverterTelemetryClient._get_with_retry)
-for attempt in range(1, max_retries + 2):
-    resp = session.get(url, params=params, timeout=30)
-    if resp.status_code >= 500 and attempt <= max_retries:
-        time.sleep(2 ** (attempt - 1))  # 2s, 4s, 8s...
-        continue
-    return handle_response(resp)
-```
+The telemetry and OODA clients implement their own retry loop for 5xx responses with the same exponential backoff.
 
 ### JavaScript
 
@@ -209,12 +193,14 @@ client.inverter_telemetry.get_inverter_telemetry(
 
 4. **Validate locally before uploading.** Use the Python SDK's `validate_batch()` to check ODS-E compliance before calling the ingestion service — this avoids wasting API calls on invalid records.
 
-5. **Use configuration errors for fail-fast setup.** Wrap client initialization in a try/except for `ConfigurationError` to give users clear setup guidance:
+5. **Use configuration errors for fail-fast setup.** Wrap client initialization in a try/except for `ConfigurationError` / `AuthenticationError` to give users clear setup guidance:
 
    ```python
    try:
        client = OnaClient()
-   except ConfigurationError as e:
+       # first call will fail fast if ASOBA_API_KEY is missing
+       client.inverter_telemetry.get_data_period(site_id='Sibaya')
+   except (ConfigurationError, AuthenticationError) as e:
        print(f"Setup incomplete: {e}")
        print("See https://docs.asoba.co/sdk/installation")
        sys.exit(1)
@@ -233,7 +219,7 @@ client.inverter_telemetry.get_inverter_telemetry(
 | 429 | `RateLimitError` | `APIError` (429) | Rate limit exceeded (60 req/min) |
 | 5xx | `ServiceUnavailableError` | `APIError` (5xx) | Server error (auto-retried) |
 | — | `TimeoutError` | `TimeoutError` | Request timed out |
-| — | `ConfigurationError` | `ConfigurationError` | Missing endpoint or key |
+| — | `ConfigurationError` | `ConfigurationError` | Invalid endpoint or config |
 
 ---
 
