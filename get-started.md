@@ -19,12 +19,22 @@ This guide gets you querying live inverter telemetry and OODA alerts in under 5 
 
 **Python:**
 ```bash
+pip install asoba
+```
+
+Or install from source:
+```bash
 git clone https://github.com/AsobaCloud/sdk.git
 cd sdk/python
 pip3 install -e .
 ```
 
 **JavaScript:**
+```bash
+npm install @asobacloud/sdk
+```
+
+Or install from source:
 ```bash
 git clone https://github.com/AsobaCloud/sdk.git
 cd sdk/javascript
@@ -33,17 +43,12 @@ npm install
 
 ---
 
-## Step 2: Set Your Environment Variables
+## Step 2: Set Your Environment Variable
 
 ```bash
-export INVERTER_TELEMETRY_ENDPOINT=https://api.asoba.org
-export INVERTER_TELEMETRY_API_KEY=<your_api_key>
-
-export OODA_TERMINAL_ENDPOINT=https://api.asoba.org
-export OODA_TERMINAL_API_KEY=<your_api_key>
+export ASOBA_API_KEY=<your_api_key>
 ```
 
-> The same API key works for both endpoints.
 
 ---
 
@@ -53,7 +58,7 @@ export OODA_TERMINAL_API_KEY=<your_api_key>
 
 **Python:**
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 
@@ -63,12 +68,9 @@ print(f"Data available from {period['first_record']} to {period['last_record']}"
 
 **JavaScript:**
 ```javascript
-const { OnaSDK } = require('./src/index');
+const { OnaSDK } = require('@asobacloud/sdk');
 
-const sdk = new OnaSDK({
-  endpoints: { inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT },
-  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
-});
+const sdk = new OnaSDK();
 
 const period = await sdk.inverterTelemetry.getDataPeriod({ site_id: 'Sibaya' });
 console.log(`Data from ${period.first_record} to ${period.last_record}`);
@@ -78,7 +80,10 @@ console.log(`Data from ${period.first_record} to ${period.last_record}`);
 
 **Python:**
 ```python
-from ona_platform.models.telemetry import TimeRange
+from asoba import OnaClient
+from asoba.models.telemetry import TimeRange
+
+client = OnaClient()
 
 records = client.inverter_telemetry.get_inverter_telemetry(
     asset_id="INV-1000000054495190",
@@ -130,9 +135,10 @@ for await (const record of sdk.inverterTelemetry.streamInverter({
 
 **Python:**
 ```python
-from ona_platform.models.ooda import TimeRange as OodaTimeRange
+from asoba import OnaClient
+from asoba.models.ooda import TimeRange as OodaTimeRange
 
-client_ooda = OnaClient()  # uses OODA_TERMINAL_ENDPOINT + OODA_TERMINAL_API_KEY from env
+client_ooda = OnaClient()
 
 alerts = client_ooda.ooda_terminal.get_terminal_alerts(
     terminal_device_id="TERM-1000000054495190",

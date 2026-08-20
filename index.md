@@ -14,7 +14,7 @@ nav_order: 1
 </div>
 
 <div class="callout callout-info">
-  <div class="callout-icon">🔑</div>
+  <div class="callout-icon"></div>
   <div class="callout-content"><strong>You'll need an API key.</strong> Email <a href="mailto:support@asoba.co">support@asoba.co</a> to get one before making your first call.</div>
 </div>
 
@@ -23,24 +23,24 @@ nav_order: 1
 <div class="sdk-links-section">
   <div class="sdk-links-grid">
     <div class="sdk-link-card">
-      <div class="sdk-icon">🐍</div>
+      <div class="sdk-icon"></div>
       <h3>Python</h3>
-      <code class="sdk-install">git clone https://github.com/AsobaCloud/sdk.git</code>
-      <code class="sdk-install">cd sdk/python && pip3 install -e .</code>
+      <code class="sdk-install">pip install asoba</code>
+      <p class="sdk-alt-install">Or from source: <code>git clone https://github.com/AsobaCloud/sdk.git && cd sdk/python && pip3 install -e .</code></p>
       <p>Typed client for scripts, notebooks, and backend services.</p>
     </div>
     <div class="sdk-link-card">
-      <div class="sdk-icon">🟨</div>
+      <div class="sdk-icon"></div>
       <h3>JavaScript</h3>
-      <code class="sdk-install">git clone https://github.com/AsobaCloud/sdk.git</code>
-      <code class="sdk-install">cd sdk/javascript && npm install</code>
+      <code class="sdk-install">npm install @asobacloud/sdk</code>
+      <p class="sdk-alt-install">Or from source: <code>git clone https://github.com/AsobaCloud/sdk.git && cd sdk/javascript && npm install</code></p>
       <p>Typed client for Node.js and browser applications.</p>
     </div>
   </div>
 </div>
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 period = client.inverter_telemetry.get_data_period(site_id="Sibaya")
@@ -77,14 +77,6 @@ print(f"Data available from {period['first_record']} to {period['last_record']}"
       <h4>Partner API</h4>
       <p>Pre-computed JSON snapshots with ETag caching</p>
     </a>
-    <a href="/sdk/services/energy-analyst" class="product-category-card">
-      <h4>Energy Analyst</h4>
-      <p>RAG-powered energy policy queries</p>
-    </a>
-    <a href="/sdk/services/edge-devices" class="product-category-card">
-      <h4>Edge Devices</h4>
-      <p>Device discovery and management</p>
-    </a>
     <a href="/sdk/services/data-ingestion-training" class="product-category-card">
       <h4>Data Ingestion &amp; Training</h4>
       <p>Upload data and manage ML models</p>
@@ -101,32 +93,32 @@ print(f"Data available from {period['first_record']} to {period['last_record']}"
 <div class="quick-links-section">
   <div class="quick-links-grid">
     <a href="/odse/overview" class="quick-link-card">
-      <div class="quick-link-icon">📐</div>
+      <div class="quick-link-icon"></div>
       <h4>What is ODS-E?</h4>
       <p>The Open Data Schema for Energy specification</p>
     </a>
     <a href="/odse/architecture" class="quick-link-card">
-      <div class="quick-link-icon">🏗️</div>
+      <div class="quick-link-icon"></div>
       <h4>Ona Intelligence Layer Architecture</h4>
       <p>How ODS-E fits with the platform</p>
     </a>
     <a href="/odse/sdk-integration" class="quick-link-card">
-      <div class="quick-link-icon">🔗</div>
+      <div class="quick-link-icon"></div>
       <h4>ODS-E & the SDK</h4>
       <p>How ODS-E connects to SDK data flows</p>
     </a>
     <a href="/odse/schemas" class="quick-link-card">
-      <div class="quick-link-icon">📋</div>
+      <div class="quick-link-icon"></div>
       <h4>Schema Reference</h4>
       <p>Field-level ODS-E schema definitions</p>
     </a>
     <a href="/odse/transforms" class="quick-link-card">
-      <div class="quick-link-icon">🔄</div>
+      <div class="quick-link-icon"></div>
       <h4>Transform Specs</h4>
       <p>How raw data maps to ODS-E</p>
     </a>
     <a href="/odse/validation" class="quick-link-card">
-      <div class="quick-link-icon">✅</div>
+      <div class="quick-link-icon"></div>
       <h4>Validation Guide</h4>
       <p>Validating data against the schema</p>
     </a>
@@ -163,22 +155,22 @@ print(f"Data available from {period['first_record']} to {period['last_record']}"
 <div class="quick-links-section">
   <div class="quick-links-grid">
     <a href="/sdk/overview" class="quick-link-card">
-      <div class="quick-link-icon">🧭</div>
+      <div class="quick-link-icon"></div>
       <h4>SDK Overview</h4>
       <p>Architecture, service map, and design philosophy</p>
     </a>
     <a href="/sdk/installation" class="quick-link-card">
-      <div class="quick-link-icon">⚙️</div>
+      <div class="quick-link-icon"></div>
       <h4>Installation</h4>
       <p>Setup and configuration</p>
     </a>
     <a href="/sdk/authentication" class="quick-link-card">
-      <div class="quick-link-icon">🔐</div>
+      <div class="quick-link-icon"></div>
       <h4>Authentication</h4>
       <p>API keys and multi-endpoint config</p>
     </a>
     <a href="/sdk/error-handling" class="quick-link-card">
-      <div class="quick-link-icon">🧯</div>
+      <div class="quick-link-icon"></div>
       <h4>Error Handling</h4>
       <p>Error classes, retry logic, rate limiting</p>
     </a>
@@ -190,27 +182,27 @@ print(f"Data available from {period['first_record']} to {period['last_record']}"
 <div class="community-section">
   <div class="community-links-grid">
     <a href="https://github.com/AsobaCloud/sdk" class="community-link-card">
-      <div class="community-icon">📦</div>
+      <div class="community-icon"></div>
       <h4>Ona SDK</h4>
       <p>Python & JavaScript SDKs</p>
     </a>
     <a href="https://github.com/AsobaCloud/odse" class="community-link-card">
-      <div class="community-icon">📄</div>
+      <div class="community-icon"></div>
       <h4>ODS-E Protocol</h4>
       <p>Open data schema specification</p>
     </a>
     <a href="https://github.com/AsobaCloud/sdk/issues" class="community-link-card">
-      <div class="community-icon">🐛</div>
+      <div class="community-icon"></div>
       <h4>GitHub Issues</h4>
       <p>AsobaCloud/sdk</p>
     </a>
     <a href="mailto:support@asoba.co" class="community-link-card">
-      <div class="community-icon">✉️</div>
+      <div class="community-icon"></div>
       <h4>Email</h4>
       <p>support@asoba.co</p>
     </a>
     <a href="https://discord.gg/v4vD5EXSUD" class="community-link-card">
-      <div class="community-icon">💬</div>
+      <div class="community-icon"></div>
       <h4>Discord</h4>
       <p>Join our community</p>
     </a>

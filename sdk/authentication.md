@@ -21,26 +21,12 @@ export ASOBA_API_KEY=<your_api_key>
 
 > The SDK sends this value as the `x-api-key` header on every request to those APIs. Endpoint URLs are hardcoded to production defaults.
 
-For AWS-backed services (Forecasting, Terminal internals, Data Ingestion, Training), use standard AWS credentials instead of an API key:
-
-```bash
-export AWS_ACCESS_KEY_ID=<your_access_key>
-export AWS_SECRET_ACCESS_KEY=<your_secret_key>
-export AWS_REGION=af-south-1
-```
-
----
-
 ## Environment Variables per Endpoint
 
 | Endpoint | Env Var | Header |
 |----------|---------|--------|
 | Inverter Telemetry / OODA / Partner | `ASOBA_API_KEY` | `x-api-key` |
 | Auth Service | `ASOBA_AUTH_ENDPOINT` (URL only) | `Authorization: Bearer <token>` |
-| Energy Analyst | `ENERGY_ANALYST_URL` (URL only) | No auth header |
-| Edge Registry | `EDGE_API_URL` (URL only) | No auth header |
-
----
 
 ## Multi-Endpoint Configuration Pattern
 
@@ -62,8 +48,6 @@ const { OnaSDK } = require('@asobacloud/sdk');
 const sdk = new OnaSDK();
 // or: new OnaSDK({ apiKey: '<your_api_key>' });
 ```
-
----
 
 ## Auth Service (Python Only)
 
@@ -153,8 +137,6 @@ The auth endpoint must use HTTPS — the SDK raises `ConfigurationError` otherwi
 | `dev` or `localhost` | `ona-user-auth-dev` |
 | *(default)* | `ona-user-auth-prod` |
 
----
-
 ## Authorization Header
 
 The `AuthClient.get_auth_header()` method returns a dict with the `Authorization` header for use in custom HTTP requests:
@@ -164,8 +146,6 @@ headers = client.auth.get_auth_header()
 # {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIs...'}
 ```
 
----
-
 ## Troubleshooting
 
 | Error | Cause | Solution |
@@ -174,8 +154,6 @@ headers = client.auth.get_auth_header()
 | `403 Forbidden` | API key not scoped to site | Request access to the `site_id` you're querying |
 | `AuthenticationError` | Token expired or invalid | Call `login()` or `refresh_token()` |
 | `ConfigurationError` | Invalid endpoint scheme/config | Check HTTPS endpoints and env vars |
-
----
 
 ## Next Steps
 

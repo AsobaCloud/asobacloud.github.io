@@ -191,9 +191,7 @@ client.inverter_telemetry.get_inverter_telemetry(
 
 3. **Handle rate limits gracefully.** When you catch `RateLimitError` (Python) or `APIError` with status 429 (JavaScript), back off and retry after a delay. The limit is 60 requests per minute.
 
-4. **Validate locally before uploading.** Use the Python SDK's `validate_batch()` to check ODS-E compliance before calling the ingestion service — this avoids wasting API calls on invalid records.
-
-5. **Use configuration errors for fail-fast setup.** Wrap client initialization in a try/except for `ConfigurationError` / `AuthenticationError` to give users clear setup guidance:
+4. **Use configuration errors for fail-fast setup.** Wrap client initialization in a try/except for `ConfigurationError` / `AuthenticationError` to give users clear setup guidance:
 
    ```python
    try:

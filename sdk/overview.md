@@ -7,20 +7,18 @@ has_children: true
 
 # Ona SDK
 
-The Ona SDK provides a unified interface to all Ona Intelligence Layer services — solar PV, wind, battery storage (BESS), and grid meter data with ODS-E (Open Data Schema for Energy) standardization. It ships in two languages: **Python** (`asoba` v1.0.3) and **JavaScript** (`@asobacloud/sdk` v1.0.3), designed for feature parity across the stack.
+The Ona SDK provides a unified interface to the Asoba energy intelligence platform for solar PV, wind, battery storage (BESS), and grid meter data. It ships in two languages: **Python** (`asoba` v1.1.0) and **JavaScript** (`@asobacloud/sdk`), designed for feature parity across the public API surface.
 
 ---
 
 ## What the SDK Does
 
 - **Query and stream live telemetry** from solar inverters, wind turbines, and battery systems
-- **Detect faults and run diagnostics** through the OODA (Observe, Orient, Decide, Act) workflow
-- **Monitor battery health & warranty** — SOH, capacity, and warranty expiry by date or throughput
-- **Generate energy forecasts** at device, site, and customer levels
-- **Fetch pre-computed snapshots** (KPIs, maintenance signals, schedules) via the Partner API
-- **Manage edge devices** with automatic capability detection
-- **Validate data** against the 65-field ODS-E energy-timeseries schema (Python)
-- **Train ML models**, detect data gaps, and run interpolation
+- **Detect faults and run diagnostics** through OODA (Observe, Orient, Decide, Act) alert streams
+- **Fetch pre-computed snapshots** (KPIs, maintenance signals, schedules, forecasts) via the Partner API
+- **Generate solar forecasts** per device or per site
+- **Generate freemium forecasts** with email-based verification (no API key required)
+- **Expose all tools via MCP** for AI agent integration (Claude Desktop, Cursor, Windsurf, nehanda-cli)
 
 ---
 
@@ -30,35 +28,26 @@ The Ona SDK provides a unified interface to all Ona Intelligence Layer services 
 |--------|--------|------------|
 | Package | `asoba` (`pip install asoba`) | `@asobacloud/sdk` (`npm install @asobacloud/sdk`) |
 | Entry point | `asoba.OnaClient` | `OnaSDK` from `@asobacloud/sdk` |
-| Auth client | ✅ `AuthClient` (login, MFA, token management) | ❌ Not available |
 | Type system | Type hints + dataclasses | TypeScript `.d.ts` definitions |
 | Streaming | Generators (`yield`) | Async iterators (`for await...of`) |
-| ODS-E validation | ✅ Full 65-field + 6 conformance profiles | ❌ Not available |
 | Env-var config | `OnaConfig.from_env()` / `ASOBA_API_KEY` | `ASOBA_API_KEY` via `Config` |
 | Rate limiting | Built-in (60 req/min) | Built-in (60 req/min) |
+| MCP server | ✅ `asoba-mcp-server` | — |
 
-Both SDKs share the same API surface for all services except authentication (Python-only) and ODS-E local validation (Python-only).
+Both SDKs expose identical method names (snake_case vs camelCase) for all public services.
 
 ---
 
-## Full Service Map
+## Public Service Map
 
 | Service | Python client | JavaScript client | Auth |
 |---------|--------------|-------------------|------|
 | [Inverter Telemetry](/sdk/services/inverter-telemetry) | `client.inverter_telemetry` | `sdk.inverterTelemetry` | `ASOBA_API_KEY` |
 | [OODA Terminal Alerts](/sdk/services/ooda-terminal-alerts) | `client.ooda_terminal` | `sdk.oodaTerminal` | `ASOBA_API_KEY` |
-| [Forecasting](/sdk/services/forecasting) | `client.forecasting` | `sdk.forecasting` | AWS credentials |
-| [Freemium Forecasting](/sdk/services/freemium-forecasting) | `client.freemium_forecast` | `sdk.freemiumForecast` | ❌ No key needed |
-| [Terminal OODA Workflow](/sdk/services/terminal-ooda-workflow) | `client.terminal` | `sdk.terminal` | JWT via `client.auth` / AWS |
 | [Partner API](/sdk/services/partner-api) | `client.partner` | `sdk.partner` | `ASOBA_API_KEY` |
-| Edge Devices | `client.edge_devices` | `sdk.edgeRegistry` | Service URL |
-| Energy Analyst | `client.energy_analyst` | `sdk.energyAnalyst` | Service URL |
-| [Data Ingestion](/sdk/services/data-ingestion-training) | `client.data_ingestion` | `sdk.dataIngestion` | AWS credentials |
-| [Training](/sdk/services/data-ingestion-training) | `client.training` | — | AWS credentials |
-| [Standardization](/sdk/services/data-ingestion-training) | `client.standardization` | — | AWS credentials |
-| [Gap Detection](/sdk/services/data-ingestion-training) | `client.gap_detection` | — | AWS credentials |
-| [Interpolation](/sdk/services/data-ingestion-training) | `client.interpolation` | `sdk.interpolation` | AWS credentials |
-| [PV Insight](/sdk/services/pv-insight) | `client.terminal` | `sdk.terminal` | JWT / AWS |
+| [Forecasting](/sdk/services/forecasting) | `client.forecasting` | — | `ASOBA_API_KEY` |
+| [Freemium Forecasting](/sdk/services/freemium-forecasting) | `client.freemium_forecast` | `sdk.freemiumForecast` | ❌ No key needed |
+| [MCP Server](/sdk/services/mcp-server) | `asoba-mcp-server` | — | `ASOBA_API_KEY` |
 
 ---
 
@@ -66,7 +55,7 @@ Both SDKs share the same API surface for all services except authentication (Pyt
 
 ### Single API Key, Hardcoded Endpoints
 
-One credential — `ASOBA_API_KEY` — covers Inverter Telemetry, OODA Terminal Alerts, and the Partner API. Production endpoint URLs are built into the SDK; you do not need to set them for normal use.
+One credential — `ASOBA_API_KEY` — covers all public services. Production endpoint URLs are built into the SDK; you do not need to set them for normal use.
 
 ```python
 # Python — api_key from ASOBA_API_KEY env var
@@ -84,7 +73,7 @@ See [Installation](/sdk/installation) for optional endpoint overrides and the fu
 
 ### Dual SDK Parity
 
-Python and JavaScript SDKs expose identical method names (snake_case vs camelCase) for all shared services. Example:
+Python and JavaScript SDKs expose identical method names (snake_case vs camelCase) for all shared public services. Example:
 
 | Python | JavaScript |
 |--------|------------|

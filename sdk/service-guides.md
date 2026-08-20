@@ -8,20 +8,16 @@ has_children: true
 
 # Service Guides
 
-Each guide covers a specific service client with code examples in both Python and JavaScript, parameter references, and expected output.
+Each guide covers a specific service client with code examples in Python and JavaScript, parameter references, and expected output.
 
 | # | Service | Auth | Description |
 |---|---------|------|-------------|
 | 1 | [Inverter Telemetry](/sdk/services/inverter-telemetry) | `ASOBA_API_KEY` | Query historical and stream live inverter data (5-min and daily resolution) |
 | 2 | [OODA Terminal Alerts](/sdk/services/ooda-terminal-alerts) | `ASOBA_API_KEY` | Query and stream fault/diagnostic alerts from terminal devices |
-| 3 | [Forecasting](/sdk/services/forecasting) | AWS | Device, site, and customer-level energy forecasts |
-| 4 | [Freemium Forecasting](/sdk/services/freemium-forecasting) | ❌ | No-key CSV-based solar forecasting with email verification |
-| 5 | [Terminal OODA Workflow](/sdk/services/terminal-ooda-workflow) | JWT / AWS | Full OODA loop: detect, diagnose, schedule, build BOM, create orders |
-| 6 | [Partner API](/sdk/services/partner-api) | `ASOBA_API_KEY` | Pre-computed JSON snapshots with ETag caching (sub-100ms) |
-| 7 | [Edge Devices](/sdk/services/edge-devices) | URL | Device discovery, registration, capability detection |
-| 8 | [Data Ingestion & Training](/sdk/services/data-ingestion-training) | AWS | Upload data, train models, standardize, detect gaps, interpolate |
-| 9 | [PV Insight Service](/sdk/services/pv-insight) | JWT / AWS | JEPA anomaly → O&M recommendation via hybrid RAG |
-| 10 | [Nehanda ML Proxy](/sdk/services/nehanda-ml-proxy) | ❌ | OpenAI-compatible API Gateway proxy to SageMaker vLLM |
+| 3 | [Partner API](/sdk/services/partner-api) | `ASOBA_API_KEY` | Pre-computed JSON snapshots with ETag caching (sub-100ms) |
+| 4 | [Forecasting](/sdk/services/forecasting) | `ASOBA_API_KEY` | Per-device and per-site solar energy forecasts |
+| 5 | [Freemium Forecasting](/sdk/services/freemium-forecasting) | ❌ | No-key CSV-based solar forecasting with email verification |
+| 6 | [MCP Server](/sdk/services/mcp-server) | `ASOBA_API_KEY` | Expose all SDK tools to AI agents via the Model Context Protocol |
 
 ---
 

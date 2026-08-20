@@ -85,19 +85,10 @@ export ASOBA_TERMINAL_ENDPOINT=https://api.asoba.co              # default
 export ASOBA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod        # Python auth
 ```
 
-### AWS Services (Forecasting, Terminal internals, Data Ingestion, Training)
-
-```bash
-export AWS_REGION=af-south-1
-export AWS_ACCESS_KEY_ID=<your_access_key>
-export AWS_SECRET_ACCESS_KEY=<your_secret_key>
-```
-
 ### Optional service URLs
 
 ```bash
-export ENERGY_ANALYST_URL=http://localhost:8000
-export EDGE_API_URL=http://localhost:8082
+export ASOBA_AUTH_ENDPOINT=https://auth-api.asoba.co/prod        # Python auth
 ```
 
 ### Tuning (Python only)
@@ -123,8 +114,6 @@ client = OnaClient(
     api_key='<your_api_key>',
     auth_endpoint='https://auth-api.asoba.co/prod',
     terminal_endpoint='https://api.asoba.co',
-    energy_analyst_url='http://localhost:8000',
-    edge_api_url='http://localhost:8082',
     timeout=120,
     max_retries=3,
 )
@@ -195,8 +184,6 @@ node examples/partner-api-example.js
 ## API Key
 
 Contact **support@asoba.co** to obtain an API key. The same key works for all API-key-protected endpoints (Inverter Telemetry, OODA Terminal, Partner API).
-
-For AWS-backed services (Forecasting, Terminal internals, Data Ingestion, Training), configure standard AWS credentials instead.
 
 ---
 
