@@ -27,15 +27,17 @@ Use the **Jump to lat, lon** field to center the map on a known coordinate, or p
 
 ## From Map to Site Card
 
-Clicking any marker opens a popup with the asset's core attributes — capacity, technology, operator, and construction status for generation assets; commodity and deposit type for mineral deposits.
+Clicking any marker opens a popup with the asset's core attributes.
 
-<img src="{{ site.baseurl }}/assets/images/zorora-discovery-popup.png" alt="Zorora Discovery popup for a solar farm showing capacity, status, and Research/Diligence buttons" class="screenshot">
-<p class="screenshot-caption">Every asset popup exposes one-click hand-off into Research or Diligence</p>
+<img src="{{ site.baseurl }}/assets/images/zorora-discovery-popup.png" alt="Zorora Discovery popup for Keimoes South solar farm showing technology, capacity, status, operator, and owner, with Research, Diligence, and +Scouting buttons and a GEM project page link" class="screenshot">
+<p class="screenshot-caption">A generation-asset popup: Technology, Capacity, Status, Operator, and Owner, with Research, Diligence, +Scouting, and a link to the source GEM project page</p>
 
-Every popup carries two actions:
+For a generation asset, the popup shows Technology, Capacity, Status, Operator, and Owner. For a mineral deposit, it shows commodity and deposit type instead. Every popup carries:
 
-- **Research** — opens a Deep Research query scoped to that asset, pulling in the same regulatory and market sources used elsewhere in Zorora
+- **Research** — opens a Deep Research query scoped to that asset
 - **Diligence** — launches a diligence search against that specific site
+- **+ Scouting** — adds the site directly to the Scouting pipeline's Identified column
+- A link back to the source record (e.g. the GEM project page for a generation asset)
 
 ## Handing Off to Scouting
 
@@ -43,7 +45,7 @@ Discovery is where a candidate is *found*. [Scouting](/zorora-scouting) is where
 
 1. Locate a candidate site in Discovery — by browsing the map or jumping to known coordinates
 2. Open the asset popup and review its baseline attributes
-3. Push the site into Scouting's **Identified** column, or launch a Research/Diligence query directly if you need more context first
+3. Click **+ Scouting** to add it directly to the **Identified** column, or run Research/Diligence first if you need more context
 4. From there, Scouting takes over: resource, grid, regulatory, and financial scoring, then a full feasibility study
 
 This means Discovery's map counts double as a sourcing tool: as of this writing, it surfaces 1,144 mapped mineral deposits and 739 generation assets across the SADC region, all of which are eligible to enter the Scouting pipeline directly from the map.
