@@ -18,6 +18,10 @@ nav_order: 1
   <div class="callout-content"><strong>You'll need an API key.</strong> Email <a href="mailto:support@asoba.co">support@asoba.co</a> to get one before making your first call.</div>
 </div>
 
+## Introduction
+
+Ona is an asset intelligence ecosystem built to autonomously operate distributed renewable energy systems — solar, wind, and battery storage — across large, geographically dispersed fleets. At its core, Ona implements a hybrid decision architecture modeled on the cognitive split between fast, automatic processing and slow, deliberate reasoning: a continuously running world model monitors every asset at five-minute intervals, flagging physical deviations the moment they emerge, while a retrieval-grounded language model activates only when a deviation crosses an explicit severity threshold and synthesizes cited diagnostic guidance from technical documentation. This separation ensures that cheap, narrow intelligence handles the vast majority of monitoring tasks, reserving expensive reasoning for conditions that have earned the compute cost. Alongside real-time fault detection and O&M decision support, Ona produces device-, site-, and customer-level production forecasts that incorporate asset-specific history, weather data, and irradiance physics — enabling operators and their systems to anticipate output rather than only react to it. The result is a platform that closes the OODA loop end-to-end: from raw inverter telemetry through anomaly detection, diagnostic synthesis, and forward-looking production intelligence, all exposed through typed SDK clients for Python and JavaScript.
+
 ## Quick Start
 
 <div class="sdk-links-section">
