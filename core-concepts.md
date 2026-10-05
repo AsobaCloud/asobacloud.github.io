@@ -22,7 +22,7 @@ When physical behavior departs from the model's learned expectations, prediction
 
 The diagram below maps this architecture: the world model runs cheaply on the left, gating access to the reasoner on the right. The threshold is not a tuning parameter — it is the economic and epistemic boundary between the two systems.
 
-![Ona System 1 / System 2 Architecture — the JEPA world model gates access to the Nehanda reasoning layer]({{ site.baseurl }}/assets/images/ona-system1-system2-architecture.svg)
+<img src="{{ site.baseurl }}/assets/images/ona-system1-system2-architecture.svg" alt="Ona System 1 / System 2 Architecture — the JEPA world model gates access to the Nehanda reasoning layer" style="max-width: 100%; height: auto; display: block; margin: 1.5rem 0;" />
 
 ### Why not just use threshold rules?
 
