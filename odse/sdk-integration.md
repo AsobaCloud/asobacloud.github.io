@@ -27,7 +27,7 @@ from ona_platform.models.odse import (
 |----------|-------------|
 | `ODSE_REQUIRED_FIELDS` | The 3 required fields: `timestamp`, `kWh`, `error_type` |
 | `ODSE_ALLOWED_FIELDS` | Full 65-field whitelist (plus `asset_id`, `device_id` for backward compat) |
-| `ODSE_PROFILES` | 6 conformance profiles with required fields and value constraints |
+| `ODSE_PROFILES` | 4 conformance profiles with required fields and value constraints |
 | `ODSE_ENUM_FIELDS` | 13 enum-constrained fields mapped to allowed value sets |
 | `ODSE_NUMERIC_RANGES` | Numeric bounds (e.g., `soc` 0–100, `PF` 0–1, `nacelle_direction_deg` 0–360) |
 
@@ -161,7 +161,7 @@ The SDK's local validation (`ona_platform.utils.validation`) checks:
 - **Numeric bounds** — `soc`/`soh` 0–100, `PF` 0–1, `nacelle_direction_deg` 0–360, etc.
 - **Timestamp format** — must be valid ISO 8601 date-time
 - **Enum matching** — 13 enum-constrained fields validated against allowed values
-- **Conformance profiles** — 6 profiles enforce context-specific required fields
+- **Conformance profiles** — 4 profiles enforce context-specific required fields
 
 ## Related Pages
 

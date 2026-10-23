@@ -15,7 +15,7 @@ layout: default
 </div>
 
 <div class="quick-start-section">
-  <a href="https://zorora.asoba.org" class="quick-start-button" target="_blank">
+  <a href="https://zorora.asoba.co" class="quick-start-button" target="_blank">
     Launch Zorora
   </a>
   <p class="quick-start-subtext">
@@ -27,7 +27,8 @@ layout: default
 
 Zorora provides seven integrated intelligence modes. Every component below is documented in the pages listed under **Zorora** in the sidebar.
 
-<img src="{{ site.baseurl }}/assets/images/zorora-ui.png" alt="Zorora Web UI" class="screenshot">
+<img src="{{ site.baseurl }}/assets/images/zorora-deep-research-report.png" alt="Zorora Deep Research: report with inline citations and a ranked Sources panel" class="screenshot" width="800" height="458" style="max-width:100%;height:auto;">
+<p class="screenshot-caption">A Deep Research report — see the <a href="/zorora-deep-research">Deep Research</a> and <a href="/zorora-scouting">Scouting</a> pages for the other six modes</p>
 
 | Mode | What it does | Documented in |
 |------|---------------|---------------|

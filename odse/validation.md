@@ -44,7 +44,7 @@ validation:
 
 ## Conformance Profiles
 
-Profiles are a validator-level concept layered on top of the schema. They specify which fields must be present (and which values are allowed) for a given operating context. Six profiles are defined:
+Profiles are a validator-level concept layered on top of the schema. They specify which fields must be present (and which values are allowed) for a given operating context. Four profiles are defined:
 
 ### 1. `bilateral` — PPA / Bilateral Trade Settlement
 
@@ -95,23 +95,6 @@ For municipal billing and reconciliation workflows.
 | `billing_period` | — |
 | `billed_kWh` | — |
 | `billing_status` | — |
-
-### 5. `bess_dispatch` — BESS Dispatch Validation (SEP-026)
-
-For battery energy storage system dispatch records.
-
-| Required Field | Value Constraint |
-|----------------|------------------|
-| `dispatch_mode` | one of `charging`, `discharging`, `standby`, `balancing` |
-| `soc` | — |
-
-### 6. `wind_scada` — Wind Turbine SCADA Validation (SEP-025)
-
-For wind turbine SCADA records.
-
-| Required Field | Value Constraint |
-|----------------|------------------|
-| `wind_speed_ms` | — |
 
 Profile validation runs **after** schema validation passes. If schema validation produces errors, profile validation is skipped to avoid confusing duplicate messages.
 
@@ -204,27 +187,27 @@ bilateral_record = {
 result = validate(bilateral_record, level="schema", profile="bilateral")
 print(result.is_valid)  # True
 
-# BESS dispatch record
-bess_record = {
-    "timestamp": "2026-06-27T10:00:00Z",
-    "kWh": 50.0,
+# Wheeling record
+wheeling_record = {
+    "timestamp": "2026-02-18T14:00:00+02:00",
+    "kWh": 87.3,
     "error_type": "normal",
-    "dispatch_mode": "charging",
-    "soc": 75.0,
+    "direction": "generation",
+    "seller_party_id": "nersa:trader:ENPOWER-001",
+    "buyer_party_id": "za-city-capetown:offtaker:METRO-4401",
+    "settlement_period_start": "2026-02-18T14:00:00+02:00",
+    "settlement_period_end": "2026-02-18T14:30:00+02:00",
+    "contract_reference": "PPA-ENPOWER-CCT-2025-017",
+    "settlement_type": "bilateral",
+    "network_operator_id": "nersa:dso:eskom-tx",
+    "wheeling_type": "virtual",
+    "injection_point_id": "NCAPE-SOLAR-GEN-12",
+    "offtake_point_id": "CCT-DIST-MV-BELLVILLE-03",
+    "wheeling_status": "confirmed",
+    "loss_factor": 0.032,
 }
 
-result = validate(bess_record, level="schema", profile="bess_dispatch")
-print(result.is_valid)  # True
-
-# Wind SCADA record
-wind_record = {
-    "timestamp": "2026-06-27T10:00:00Z",
-    "kWh": 320.0,
-    "error_type": "normal",
-    "wind_speed_ms": 8.5,
-}
-
-result = validate(wind_record, level="schema", profile="wind_scada")
+result = validate(wheeling_record, level="schema", profile="wheeling")
 print(result.is_valid)  # True
 ```
 

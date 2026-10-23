@@ -35,8 +35,8 @@ The Ona Intelligence Layer is a three-tier architecture that separates open data
 │  Layer 1: ODS-E (Open Standard — Free Forever)                  │
 │  ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌─────────────┐  │
 │  │ JSON       │ │ Transform  │ │ Python     │ │ Conformance │  │
-│  │ Schemas    │ │ Specs (20  │ │ Runtime +  │ │ Profiles    │  │
-│  │ (8 schemas)│ │ vendors)   │ │ CLI        │ │ (6 profiles)│  │
+│  │ Schemas    │ │ Specs (21  │ │ Runtime +  │ │ Profiles    │  │
+│  │(10 schemas)│ │ vendors)   │ │ CLI        │ │ (4 profiles)│  │
 │  └────────────┘ └────────────┘ └────────────┘ └─────────────┘  │
 │  License: CC-BY-SA 4.0 (spec) / Apache 2.0 (code)              │
 └─────────────────────────────────────────────────────────────────┘
@@ -48,10 +48,10 @@ ODS-E is the foundation. It is an open specification with versioned JSON schemas
 
 This layer defines:
 
-- **Schemas** — 8 JSON Schema definitions covering energy timeseries, asset metadata, equipment registers, maintenance history, failure taxonomy, and more.
-- **Transform specs** — 20 YAML files mapping OEM-specific data (Huawei, Enphase, Vestas, Eskom, etc.) to canonical ODS-E records.
+- **Schemas** — 10 JSON Schema definitions covering energy timeseries, asset metadata, equipment registers, maintenance history, failure taxonomy, and more.
+- **Transform specs** — 21 YAML files mapping OEM-specific data (Huawei, Enphase, Vestas, Eskom, etc.) to canonical ODS-E records.
 - **Reference runtime** — Python package with `transform()`, `validate()`, `validate_batch()`, `to_json()`, and `to_parquet()` functions plus CLI commands.
-- **Conformance profiles** — 6 profiles enforcing minimum field sets for specific trading contexts (bilateral, wheeling, SAWEM BRP, municipal reconciliation, BESS dispatch, wind SCADA).
+- **Conformance profiles** — 4 profiles enforcing minimum field sets for specific trading contexts (bilateral, wheeling, SAWEM BRP, municipal reconciliation).
 
 ### Layer 2: Ona Intelligence Layer — Commercial Platform
 

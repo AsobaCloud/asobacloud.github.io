@@ -11,7 +11,7 @@ ODS-E transforms are declarative YAML specifications that map vendor-specific da
 
 ## Supported OEMs
 
-20 vendor transforms are included, covering solar PV, wind, BESS, utility metering, and industrial systems:
+21 vendor transforms are included, covering solar PV, wind, BESS, utility metering, and industrial systems:
 
 | Asset Type | Vendor | Source Key | Transform File |
 |------------|--------|------------|----------------|
@@ -31,6 +31,7 @@ ODS-E transforms are declarative YAML specifications that map vendor-specific da
 | Wind | Nordex Control | `nordex` | `nordex-control.yaml` |
 | Wind | Siemens Gamesa | `siemens_gamesa` | `siemens-gamesa-diagnostic.yaml` |
 | Meter | Switch Meter | `switch-meter` | `switch-meter.yaml` |
+| Meter | IEC 62056 Meter | `iec62056-meter` | `iec62056-meter.yaml` |
 | Industrial | Higeco API | `higeco-api` | `higeco-api.yaml` |
 | Industrial | Terraco Historian | `terraco-historian` | `terraco-historian.yaml` |
 | Utility | Eskom AMR | `eskom-amr` | `eskom-amr.yaml` |

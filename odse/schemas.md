@@ -159,7 +159,7 @@ OEM-specific error codes are preserved in the `error_code` field. The transform 
 
 ## Additional Schemas
 
-ODS-E includes 5 additional schemas beyond the three covered above:
+ODS-E includes 7 additional schemas beyond the three covered above:
 
 | Schema | Purpose |
 |--------|---------|

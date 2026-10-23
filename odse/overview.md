@@ -9,6 +9,8 @@ has_children: true
 
 ODS-E (Open Data Schema for Energy) is an open specification for interoperable energy asset data across generation, consumption, and net metering. It ships with versioned JSON schemas, vendor transforms, a Python reference runtime with CLI, and integration guides for inverters, industrial protocols, SCADA, and utility data portals.
 
+<a href="https://opendataschema.energy/docs" class="quick-start-button">Read the Docs</a>
+
 ## The Problem
 
 Every OEM — Huawei, Enphase, SolarEdge, Fronius, SMA, Vestas, and dozens more — exposes telemetry through proprietary APIs, CSV exports, and SCADA protocols with different field names, units, and error taxonomies. Integrating each new vendor typically costs **120–160 hours** of engineering effort: mapping columns, normalizing timestamps, classifying error states, and writing bespoke validation. With 20+ common OEMs across solar PV, wind, BESS, and utility metering, the integration tax compounds rapidly.
@@ -24,7 +26,7 @@ Versioned JSON Schema (Draft 2020-12) definitions for energy data structures:
 - **`energy-timeseries.json`** — 65-field canonical record for a single energy reading (3 required fields, 62 optional). Covers core telemetry, market settlement, wheeling, tariffs, curtailment, BESS dispatch, wind SCADA, and renewable certificates.
 - **`asset-metadata.json`** — asset configuration, location, and grid connection details.
 - **`equipment-register.json`** — equipment hierarchy and technical attributes from ERP/EAM systems.
-- 5 additional schemas for equipment ID mapping, maintenance history, spare parts, failure taxonomy, and more.
+- 7 additional schemas for equipment ID mapping, maintenance history, spare parts, failure taxonomy, and more.
 
 ### Error Taxonomy
 
@@ -42,7 +44,7 @@ Seven standardized error categories that replace OEM-specific error codes:
 
 ### Transform Specifications
 
-Declarative YAML files that map OEM-specific data to ODS-E records. Each spec defines input column aliases, output field mappings, error code mappings, and validation bounds. 20 vendor transforms are included — see [Transform Specifications](/odse/transforms).
+Declarative YAML files that map OEM-specific data to ODS-E records. Each spec defines input column aliases, output field mappings, error code mappings, and validation bounds. 21 vendor transforms are included — see [Transform Specifications](/odse/transforms).
 
 ### Python Reference Runtime + CLI
 
