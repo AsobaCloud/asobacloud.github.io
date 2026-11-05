@@ -48,6 +48,7 @@ Both SDKs expose identical method names (snake_case vs camelCase) for all public
 | [Forecasting](/sdk/services/forecasting) | `client.forecasting` | — | `ASOBA_API_KEY` |
 | [Freemium Forecasting](/sdk/services/freemium-forecasting) | `client.freemium_forecast` | `sdk.freemiumForecast` | ❌ No key needed |
 | [MCP Server](/sdk/services/mcp-server) | `asoba-mcp-server` | — | `ASOBA_API_KEY` |
+| [Edge Mode](/edge/sdk) | `client.anomaly`, `client.solar_resource`, `client.asset_intelligence`, `client.list_huawei_customers` | — | `ONA_MODE=edge` |
 
 ---
 
@@ -56,6 +57,8 @@ Both SDKs expose identical method names (snake_case vs camelCase) for all public
 ### Single API Key, Hardcoded Endpoints
 
 One credential — `ASOBA_API_KEY` — covers all public services. Production endpoint URLs are built into the SDK; you do not need to set them for normal use.
+
+For local edge deployments (Ubuntu 22.04, no cloud), set `ONA_MODE=edge` and the service endpoint vars instead. See [Edge Deployment Mode](/edge/sdk).
 
 ```python
 # Python — api_key from ASOBA_API_KEY env var

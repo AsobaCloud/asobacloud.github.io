@@ -148,6 +148,37 @@ OnaConfig(partner_endpoint='http://example.com')
 
 ---
 
+## Edge Deployment Mode
+
+The SDK supports local edge deployments (`ONA_MODE=edge`) where the Ona Platform runs on Ubuntu 22.04 without cloud dependencies. In edge mode, all service calls route to localhost HTTP endpoints instead of AWS Lambda — no boto3 required.
+
+```bash
+export ONA_MODE=edge
+export FORECAST_API_URL=http://localhost:8002
+export TERMINAL_API_URL=http://localhost:8001
+export WEATHER_API_URL=http://localhost:8004
+export HUAWEI_REALTIME_URL=http://localhost:8011
+export HUAWEI_HISTORICAL_URL=http://localhost:8012
+export GAP_DETECTION_URL=http://localhost:8008
+export STANDARDIZATION_URL=http://localhost:8009
+export AUTH_API_URL=http://localhost:8013
+export ANOMALY_API_URL=http://localhost:8005
+export ASSET_INTELLIGENCE_URL=http://localhost:8010
+export SOLAR_RESOURCE_URL=http://localhost:8006
+export LIST_HUAWEI_CUSTOMERS_URL=http://localhost:8007
+```
+
+boto3 is not required in edge mode. Install without the cloud extra:
+
+```bash
+pip install asoba          # edge mode
+pip install asoba[cloud]   # cloud mode (includes boto3)
+```
+
+See [Edge Deployment → SDK Edge Mode](/edge/sdk) for the full client reference, including four new clients (`anomaly`, `solar_resource`, `asset_intelligence`, `list_huawei_customers`) that are only available on edge.
+
+---
+
 ## Default Endpoints
 
 | API | Endpoint |
