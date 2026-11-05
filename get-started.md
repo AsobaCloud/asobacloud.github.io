@@ -6,23 +6,35 @@ nav_order: 2
 
 # Get Started with the Ona SDK
 
-This guide gets you querying live inverter telemetry and OODA alerts in under 5 minutes using the Ona SDK.
+The Ona SDK is dual-mode: the same client talks to **Asoba cloud** or to a **local edge** deployment (`ONA_MODE=edge`). This guide covers both paths. In either case you need an API key — contact **support@asoba.co**.
 
 ## Prerequisites
 
 - Python 3.8+ or Node.js 16+
-- An API key — contact **support@asoba.co** to get one
+- An API key (`ASOBA_API_KEY`) — contact **support@asoba.co**
+- **Edge path only:** an Ubuntu 22.04 host where you can install the platform stack first (see [Deploy](/edge/deploy))
 
 ---
 
-## Step 1: Install the SDK
+## Choose your path
+
+| Path | When to use | What you point the SDK at |
+|---|---|---|
+| [Cloud](#cloud-path) | Hosted Asoba APIs | Production cloud endpoints (defaults built into the SDK) |
+| [Edge](#edge-path) | On-prem Ubuntu 22.04 stack | Localhost service URLs after [Deploy](/edge/deploy) |
+
+---
+
+## Cloud path
+
+### Step 1: Install the SDK
 
 **Python:**
 ```bash
 pip install asoba
 ```
 
-Or install from source:
+Or from source:
 ```bash
 git clone https://github.com/AsobaCloud/sdk.git
 cd sdk/python
@@ -34,27 +46,22 @@ pip3 install -e .
 npm install @asobacloud/sdk
 ```
 
-Or install from source:
+Or from source:
 ```bash
 git clone https://github.com/AsobaCloud/sdk.git
 cd sdk/javascript
 npm install
 ```
 
----
-
-## Step 2: Set Your Environment Variable
+### Step 2: Set your API key
 
 ```bash
 export ASOBA_API_KEY=<your_api_key>
 ```
 
+### Step 3: Make your first call
 
----
-
-## Step 3: Make Your First Call
-
-### Discover available data
+#### Discover available data
 
 **Python:**
 ```python
@@ -76,7 +83,7 @@ const period = await sdk.inverterTelemetry.getDataPeriod({ site_id: 'Sibaya' });
 console.log(`Data from ${period.first_record} to ${period.last_record}`);
 ```
 
-### Query historical telemetry
+#### Query historical telemetry
 
 **Python:**
 ```python
@@ -104,9 +111,7 @@ for r in records:
 ...
 ```
 
----
-
-## Step 4: Stream Live Data
+### Step 4: Stream live data
 
 **Python:**
 ```python
@@ -129,9 +134,7 @@ for await (const record of sdk.inverterTelemetry.streamInverter({
 }
 ```
 
----
-
-## Step 5: Query OODA Alerts
+### Step 5: Query OODA alerts
 
 **Python:**
 ```python
@@ -153,11 +156,59 @@ for a in alerts:
 
 ---
 
+## Edge path
+
+Install the platform on the edge host **before** using the SDK. The stack must be running locally; the SDK only switches transport mode.
+
+### Step 1: Install and deploy the edge stack
+
+Follow **[Edge Deployment → Deploy](/edge/deploy)** for hardware preflight, Docker prerequisites, `install.sh`, verification, and UI access. When that guide’s post-install checks pass, return here.
+
+### Step 2: Install the SDK
+
+```bash
+pip install asoba          # edge mode — no boto3 required
+# pip install asoba[cloud]  # only if you also need cloud/AWS transport
+```
+
+### Step 3: Set your API key and edge mode
+
+```bash
+export ASOBA_API_KEY=<your_api_key>
+export ONA_MODE=edge
+```
+
+Point the SDK at the local services (full list on [SDK Edge Mode](/edge/sdk)):
+
+```bash
+export FORECAST_API_URL=http://localhost:8002
+export TERMINAL_API_URL=http://localhost:8001
+export AUTH_API_URL=http://localhost:8013
+# …plus any other services you use — see /edge/sdk
+```
+
+### Step 4: Make your first call
+
+```python
+from asoba import OnaClient
+
+client = OnaClient()  # reads ONA_MODE=edge and endpoint vars
+
+forecast = client.forecasting.get_site_forecast("Sibaya", forecast_hours=24)
+print(f"Next hour: {forecast['forecasts'][0]['kWh_forecast']} kWh")
+```
+
+More edge clients and env vars: [SDK Edge Mode](/edge/sdk). Architecture and training: [Edge Deployment](/edge/).
+
+---
+
 ## Next Steps
 
 - [SDK Overview](/sdk/overview) — architecture and service map
 - [Authentication](/sdk/authentication) — API key setup and configuration
 - [Inverter Telemetry Guide](/sdk/services/inverter-telemetry) — query and stream data
 - [OODA Terminal Alerts Guide](/sdk/services/ooda-terminal-alerts) — fault detection alerts
+- [Edge Deploy](/edge/deploy) — full on-prem install
+- [SDK Edge Mode](/edge/sdk) — edge clients and endpoints
 - [Code Examples](/examples/overview) — complete workflows and language comparison
 - [SDK Repository](https://github.com/AsobaCloud/sdk) — full source, examples, and tests

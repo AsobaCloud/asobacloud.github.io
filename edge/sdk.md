@@ -214,4 +214,4 @@ Then use `http://localhost:PORT` in your SDK configuration as normal.
 
 - [Installation](/sdk/installation) — cloud vs edge install options
 - [SDK Overview](/sdk/overview) — full service map
-- [Getting Started](./getting-started) — deploy the edge stack
+- [Deploy](./deploy) — deploy the edge stack

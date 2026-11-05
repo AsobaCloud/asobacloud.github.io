@@ -30,7 +30,7 @@ This section covers everything needed to deploy, operate, and build against an e
 
 | Page | What it covers |
 |---|---|
-| [Getting Started](./getting-started) | Hardware preflight, install script, post-install verification, accessing the UI |
+| [Deploy](./deploy) | Hardware preflight, install script, post-install verification, accessing the UI |
 | [Architecture](./architecture) | Service map, data planes, training pipeline, FastAPI wrapper pattern |
 | [Training CLI](./training-cli) | `ona_train.py` command reference with examples |
 | [Security](./security) | Auth model, network isolation, ISO 27001 behavioral test suite |

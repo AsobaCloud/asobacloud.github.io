@@ -1,11 +1,11 @@
 ---
-title: "Getting Started"
+title: "Deploy"
 layout: default
 nav_order: 1
 parent: "Edge Deployment"
 ---
 
-# Getting Started with Edge Deployment
+# Deploy the Edge Stack
 
 This guide deploys the full Ona Platform stack on Ubuntu 22.04 — real-time monitoring, LSTM/TCN forecasting, JEPA anomaly detection, and automated maintenance workflows. No cloud account required.
 
