@@ -22,50 +22,58 @@ nav_order: 1
 <button type="button" class="quick-start-button ona-pricing-trigger" onclick="document.getElementById('ona-pricing-modal').showModal()">Pick the right one for you</button>
 
 <dialog id="ona-pricing-modal" class="ona-pricing-modal">
-  <div class="ona-pricing-header">
-    <h2>Choose Your Deployment</h2>
-    <button type="button" class="ona-pricing-close" onclick="document.getElementById('ona-pricing-modal').close()">Close</button>
-  </div>
-  <div class="ona-pricing-grid">
-    <section class="ona-pricing-card">
-      <div class="ona-pricing-icon">
-        <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
-          <path fill="var(--primary-blue)" d="M34 30H15a7 7 0 0 1 0-14 7 7 0 0 1 7-7 11 11 0 0 1 18 6 7 7 0 0 1-1 14Z"/>
-          <path fill="var(--white)" d="M18 36h12M24 28v8" stroke-linecap="round"/>
-        </svg>
+  <button type="button" class="ona-pricing-close" onclick="document.getElementById('ona-pricing-modal').close()" aria-label="Close">&times;</button>
+  <h2>Choose Your Deployment</h2>
+  <div class="pricing-cards">
+    <section class="pricing-card">
+      <div class="pricing-header">
+        <div class="pricing-icon">
+          <svg viewBox="0 0 56 56" width="48" height="48" aria-hidden="true" focusable="false">
+            <path fill="var(--primary-blue)" d="M38 33H18a9 9 0 0 1 0-18 9 9 0 0 1 9-9 13 13 0 0 1 22 8 8 8 0 0 1-1 19Z"/>
+            <path fill="var(--white)" d="M21 43h14M28 34v9" stroke="var(--white)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="pricing-tier">Cloud</div>
+        <div class="pricing-price">$100</div>
+        <div class="pricing-unit">per month</div>
       </div>
-      <h3>Cloud</h3>
-      <p class="ona-pricing-tagline">Fully managed SaaS on Asoba-hosted infrastructure.</p>
-      <ul>
-        <li>Zero server provisioning or maintenance</li>
-        <li>Automatic platform updates and security patches</li>
-        <li>Managed backups and high-availability hosting</li>
-        <li>Global endpoint access for distributed SDK clients</li>
-        <li>Fastest time-to-value for new solar, wind, and battery fleets</li>
-      </ul>
-      <button type="button" class="btn-primary">$100/month</button>
+      <div class="pricing-body">
+        <ul class="pricing-features">
+          <li>Zero server provisioning or maintenance</li>
+          <li>Automatic platform updates and security patches</li>
+          <li>Managed backups and high-availability hosting</li>
+          <li>Global endpoint access for distributed SDK clients</li>
+          <li>Fastest time-to-value for new solar, wind, and battery fleets</li>
+        </ul>
+        <button type="button" class="pricing-cta">$100/month</button>
+      </div>
     </section>
-    <section class="ona-pricing-card">
-      <div class="ona-pricing-icon">
-        <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
-          <rect x="9" y="8" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
-          <rect x="9" y="20" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
-          <rect x="9" y="32" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
-          <circle cx="33" cy="12.5" r="1.5" fill="var(--white)"/>
-          <circle cx="33" cy="24.5" r="1.5" fill="var(--white)"/>
-          <circle cx="33" cy="36.5" r="1.5" fill="var(--white)"/>
-        </svg>
+    <section class="pricing-card">
+      <div class="pricing-header">
+        <div class="pricing-icon">
+          <svg viewBox="0 0 56 56" width="48" height="48" aria-hidden="true" focusable="false">
+            <rect x="10" y="8" width="36" height="10" rx="2" fill="var(--primary-blue)"/>
+            <rect x="10" y="23" width="36" height="10" rx="2" fill="var(--primary-blue)"/>
+            <rect x="10" y="38" width="36" height="10" rx="2" fill="var(--primary-blue)"/>
+            <circle cx="40" cy="13" r="1.6" fill="var(--white)"/>
+            <circle cx="40" cy="28" r="1.6" fill="var(--white)"/>
+            <circle cx="40" cy="43" r="1.6" fill="var(--white)"/>
+          </svg>
+        </div>
+        <div class="pricing-tier">On-Prem</div>
+        <div class="pricing-price">$800</div>
+        <div class="pricing-unit">per year</div>
       </div>
-      <h3>On-Prem</h3>
-      <p class="ona-pricing-tagline">Licensed edge deployment on your own infrastructure.</p>
-      <ul>
-        <li>Air-gapped operation from licensed edge bundles</li>
-        <li>Full data sovereignty with no external network dependency</li>
-        <li>Offline forecasting, auditing, and monitoring for qualified partner environments</li>
-        <li>License-controlled deployments for regulated or classified sites</li>
-        <li>Optional local support and maintenance contract</li>
-      </ul>
-      <button type="button" class="btn-primary">$800/year</button>
+      <div class="pricing-body">
+        <ul class="pricing-features">
+          <li>Air-gapped operation from licensed edge bundles</li>
+          <li>Full data sovereignty with no external network dependency</li>
+          <li>Offline forecasting, auditing, and monitoring for qualified partner environments</li>
+          <li>License-controlled deployments for regulated or classified sites</li>
+          <li>Optional local support and maintenance contract</li>
+        </ul>
+        <button type="button" class="pricing-cta">$800/year</button>
+      </div>
     </section>
   </div>
 </dialog>

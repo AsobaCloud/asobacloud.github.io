@@ -3080,9 +3080,14 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Documentation pricing modal — aligned to website modal patterns */
-.ona-pricing-trigger {
-  margin-top: 16px;
+:root {
+  --neutral-light: #F9F9F9;
+  --success-green: #28ca42;
+}
+
+/* Documentation pricing modal — follows website pricing-card visual language */
+.pricing-card + .pricing-card {
+  margin-left: 0;
 }
 
 .ona-pricing-modal {
@@ -3090,7 +3095,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   border: none;
   border-radius: 16px;
   padding: 40px;
-  max-width: 600px;
+  max-width: 760px;
   width: 90%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   font-family: 'DM Sans', Helvetica, Arial, sans-serif;
@@ -3102,7 +3107,11 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.ona-pricing-header h2 {
+.ona-pricing-trigger {
+  margin-top: 16px;
+}
+
+#ona-pricing-modal h2 {
   font-size: 1.5rem;
   color: var(--text-dark);
   margin: 0 0 20px;
@@ -3123,66 +3132,137 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-.ona-pricing-grid {
+.pricing-cards {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-  margin-bottom: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  margin: 0;
 }
 
-@media (max-width: 600px) {
-  .ona-pricing-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.ona-pricing-card {
+.pricing-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--border-grey);
-  border-radius: 8px;
-  background: var(--neutral-grey);
-  padding: 20px 16px;
+  transition: all 0.3s ease;
+  min-width: 0;
+}
+
+.pricing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--primary-blue);
+  transform: scale(1.05);
+}
+
+.pricing-header {
+  background: var(--neutral-light);
+  padding: 30px;
   text-align: center;
-  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--border-grey);
 }
 
-.ona-pricing-card:hover {
-  border-color: var(--primary-blue);
-  box-shadow: 0 2px 8px rgba(69, 91, 241, 0.1);
+.pricing-card.featured .pricing-header {
+  background: var(--primary-blue);
+  color: var(--white);
 }
 
-.ona-pricing-icon {
+.pricing-tier {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.pricing-price {
+  font-size: 2.5rem;
+  font-weight: 700;
   color: var(--primary-blue);
-  margin-bottom: 12px;
+  margin-bottom: 5px;
+  line-height: 1;
+}
+
+.pricing-card.featured .pricing-price {
+  color: var(--white);
+}
+
+.pricing-unit {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  color: var(--text-light);
+}
+
+.pricing-icon {
+  color: var(--primary-blue);
+  margin: 0 0 16px;
   display: flex;
   justify-content: center;
 }
 
-.ona-pricing-card h3 {
-  font-size: 1.1rem;
-  margin: 0 0 8px;
-  color: var(--text-dark);
+.pricing-card.featured .pricing-icon {
+  color: var(--white);
 }
 
-.ona-pricing-tagline {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin: 0 0 12px;
+.pricing-body {
+  padding: 30px;
 }
 
-.ona-pricing-card ul {
-  text-align: left;
-  margin: 0 0 16px;
-  padding-left: 18px;
-  font-size: 0.9rem;
+.pricing-features {
+  list-style: none;
+  margin: 0 0 30px 0;
+  padding: 0;
+}
+
+.pricing-features li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border-grey);
+  position: relative;
+  padding-left: 25px;
+  font-size: 0.95rem;
   line-height: 1.45;
-  color: var(--text-dark);
-  list-style: disc;
+  color: var(--text-light);
 }
 
-.ona-pricing-card .btn-primary {
-  display: inline-block;
-  min-width: 150px;
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-features li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success-green);
+  font-weight: 700;
+}
+
+.pricing-cta {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background: var(--primary-blue);
+  color: var(--white);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.pricing-cta:hover {
+  background: var(--accent-blue);
+}
+
+@media (max-width: 760px) {
+  .pricing-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 480px) {
