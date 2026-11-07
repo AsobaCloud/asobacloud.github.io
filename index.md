@@ -13,12 +13,11 @@ nav_order: 1
   </div>
 </div>
 
-<div class="callout callout-info">
-  <div class="callout-icon"></div>
-  <div class="callout-content"><strong>Available for Cloud Hosted and for On-Prem deployment.</strong></div>
-</div>
-
-<div class="quick-start-section">
+<div class="pricing-callout-row">
+  <div class="callout callout-info pricing-callout">
+    <div class="callout-icon"></div>
+    <div class="callout-content"><strong>Available for Cloud Hosted and for On-Prem deployment.</strong></div>
+  </div>
   <button type="button" class="quick-start-button ona-pricing-trigger" onclick="openOnaPricingModal()">Pick the right one for you</button>
 </div>
 
