@@ -3079,3 +3079,80 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   color: var(--primary-blue);
   font-weight: 700;
 }
+
+/* Documentation pricing modal — brand-aligned */
+.ona-pricing-modal {
+  border: 1px solid var(--border-grey);
+  border-radius: 14px;
+  padding: 1.25rem;
+  max-width: 760px;
+  width: calc(100vw - 2rem);
+  box-shadow: 0 24px 60px rgba(4, 14, 46, 0.2);
+  font-family: inherit;
+  color: var(--text-dark);
+  background: var(--white);
+}
+
+.ona-pricing-modal::backdrop {
+  background: rgba(4, 14, 46, 0.45);
+}
+
+.ona-pricing-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.ona-pricing-close {
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-light);
+}
+
+.ona-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .ona-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ona-pricing-card {
+  border: 1px solid var(--border-grey);
+  border-radius: 10px;
+  padding: 1.25rem;
+  text-align: center;
+  background: var(--neutral-grey);
+}
+
+.ona-pricing-icon {
+  color: var(--primary-blue);
+  margin: 0.5rem 0 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ona-pricing-tagline {
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.ona-pricing-card ul {
+  text-align: left;
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+  line-height: 1.45;
+  list-style: disc;
+}
+
+.ona-pricing-card .btn-primary {
+  min-width: 164px;
+}

@@ -18,20 +18,6 @@ nav_order: 1
   <div class="callout-content"><strong>Available for Cloud Hosted and for On-Prem deployment.</strong></div>
 </div>
 
-<style>
-#ona-pricing-modal { border: none; border-radius: 14px; padding: 1.25rem; max-width: 760px; width: calc(100vw - 2rem); box-shadow: 0 24px 60px rgba(0,0,0,.28); font-family: inherit; }
-#ona-pricing-modal::backdrop { background: rgba(10,20,40,.45); }
-.ona-pricing-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-.ona-pricing-close { border: none; background: transparent; font-size: 1.5rem; line-height: 1; cursor: pointer; color: #445; }
-.ona-pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
-@media (max-width: 640px) { .ona-pricing-grid { grid-template-columns: 1fr; } }
-.ona-pricing-card { border: 1px solid rgba(0,0,0,.1); border-radius: 10px; padding: 1rem; text-align: center; }
-.ona-pricing-icon { margin: .5rem 0; }
-.ona-pricing-tagline { color: #526071; margin-bottom: 1rem; }
-.ona-pricing-card ul { text-align: left; margin: 0 0 1.25rem; padding-left: 1.25rem; line-height: 1.45; }
-.ona-pricing-button { display: inline-block; min-width: 164px; border: none; border-radius: 8px; padding: .75rem 1rem; font-weight: 700; cursor: pointer; color: #fff; background: #1f6feb; }
-.ona-pricing-card:last-child .ona-pricing-button { background: #0e8a5a; }
-</style>
 
 <button type="button" class="quick-start-button" onclick="document.getElementById('ona-pricing-modal').showModal()">Pick the right one for you</button>
 
@@ -44,8 +30,8 @@ nav_order: 1
     <section class="ona-pricing-card">
       <div class="ona-pricing-icon">
         <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true" focusable="false">
-          <path fill="#2d7ff9" d="M34 30H15a7 7 0 0 1 0-14 7 7 0 0 1 7-7 11 11 0 0 1 18 6 7 7 0 0 1-1 14Z"/>
-          <path fill="#ffffff" d="M18 36h12M24 28v8" stroke-linecap="round"/>
+          <path fill="var(--primary-blue)" d="M34 30H15a7 7 0 0 1 0-14 7 7 0 0 1 7-7 11 11 0 0 1 18 6 7 7 0 0 1-1 14Z"/>
+          <path fill="var(--white)" d="M18 36h12M24 28v8" stroke-linecap="round"/>
         </svg>
       </div>
       <h3>Cloud</h3>
@@ -57,17 +43,17 @@ nav_order: 1
         <li>Global endpoint access for distributed SDK clients</li>
         <li>Fastest time-to-value for new solar, wind, and battery fleets</li>
       </ul>
-      <button type="button" class="ona-pricing-button">$100/month</button>
+      <button type="button" class="btn-primary">$100/month</button>
     </section>
     <section class="ona-pricing-card">
       <div class="ona-pricing-icon">
         <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true" focusable="false">
-          <rect x="9" y="8" width="30" height="9" rx="2" fill="#0e8a5a"/>
-          <rect x="9" y="20" width="30" height="9" rx="2" fill="#0e8a5a"/>
-          <rect x="9" y="32" width="30" height="9" rx="2" fill="#0e8a5a"/>
-          <circle cx="33" cy="12.5" r="1.5" fill="#ffffff"/>
-          <circle cx="33" cy="24.5" r="1.5" fill="#ffffff"/>
-          <circle cx="33" cy="36.5" r="1.5" fill="#ffffff"/>
+          <rect x="9" y="8" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
+          <rect x="9" y="20" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
+          <rect x="9" y="32" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
+          <circle cx="33" cy="12.5" r="1.5" fill="var(--white)"/>
+          <circle cx="33" cy="24.5" r="1.5" fill="var(--white)"/>
+          <circle cx="33" cy="36.5" r="1.5" fill="var(--white)"/>
         </svg>
       </div>
       <h3>On-Prem</h3>
@@ -79,7 +65,7 @@ nav_order: 1
         <li>License-controlled deployments for regulated or classified sites</li>
         <li>Optional local support and maintenance contract</li>
       </ul>
-      <button type="button" class="ona-pricing-button">$800/year</button>
+      <button type="button" class="btn-primary">$800/year</button>
     </section>
   </div>
 </dialog>
