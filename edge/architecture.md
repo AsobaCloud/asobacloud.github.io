@@ -9,6 +9,8 @@ parent: "Edge Deployment"
 
 The Ona Platform edge stack runs entirely on a single Ubuntu 22.04 machine. All services are Docker containers orchestrated by Docker Compose. There are no cloud dependencies — no AWS, no external APIs except for the optional Huawei FusionSolar and Visual Crossing integrations.
 
+Commands below that reference `~/platform/` are **Asoba-internal source-build tooling**. Licensed customer deployments do not need a platform checkout: install from the downloaded bundle (`load_edge_bundle.sh` + `install_edge.sh`) and use [`docker-compose.edge.yml`](https://license.asoba.co) indirectly through the installer. Do not give customers the internal build path as a supported workflow.
+
 ---
 
 ## Four Operational Flows

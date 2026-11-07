@@ -9,6 +9,8 @@ parent: "Edge Deployment"
 
 `ona_train.py` wraps the entire ML pipeline into one-line commands. It manages memory automatically — stopping non-essential containers before each operation and restarting them afterward.
 
+> This CLI is currently an **Asoba-internal / operator** tool that runs from a platform source checkout. Licensed customer bundles do not include the full `platform` repo path; for customer sites, coordinate training with Asoba support unless the customer has an operator-level support agreement.
+
 ```bash
 python3 ~/platform/scripts/local/ona_train.py <command> --customer <name> [options]
 ```

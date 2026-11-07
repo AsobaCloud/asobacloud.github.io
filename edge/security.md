@@ -70,6 +70,8 @@ The platform ships a behavioral test suite mapped to ISO/IEC 27001:2022 Annex A 
 
 ### Setup (review workstation on the LAN)
 
+> The commands below assume an Asoba-provided platform checkout. They are intended for Asoba/internal or partner review under a support agreement, not for an end-customer portal-only bundle.
+
 Run the suite from a **separate workstation on the same LAN** as the edge device. Running it on the device itself does not validate LAN isolation.
 
 ```bash

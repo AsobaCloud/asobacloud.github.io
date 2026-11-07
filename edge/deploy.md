@@ -9,6 +9,11 @@ parent: "Edge Deployment"
 
 This guide deploys the full Ona Platform stack on Ubuntu 22.04 — real-time monitoring, LSTM/TCN forecasting, JEPA anomaly detection, and automated maintenance workflows. No cloud account required.
 
+The supported **customer** path is a licensed, offline edge bundle downloaded from the [Ona Edge License Portal](https://license.asoba.co). It does **not** require cloning the private `platform` repository, building from source, logging in to a container registry, or internet access on the target host after the bundle has been transferred.
+
+> **Commercial path:** sales/contract → deposit → entitlement active → one-time set-password email → sign in at https://license.asoba.co → download entitled `ona-edge-<tag>.tar.gz` → load + install on the edge host.  
+> **Internal/source path:** Asoba engineering only. If you are not running a licensed customer install, use the internal build flow in the platform repository.
+
 ---
 
 ## Hardware Requirements
@@ -68,18 +73,16 @@ sudo apt install -y python3 python3-pip
 pip3 install psycopg bcrypt
 ```
 
-### Clone the repository
+### License portal credentials
 
-```bash
-git clone https://github.com/AsobaCloud/platform.git ~/platform
-cp ~/platform/docker-compose.local.yml ~/docker-compose.local.yml
-```
+Edge bundles are entitlement-gated. You need:
 
-The compose file must live in the home directory (`~`). Running it from `~/platform/` creates a conflicting Docker project name.
+- A license portal account created through your Ona Edge purchase (Stripe checkout flow), and
+- The one-time set-password link emailed by `license@asoba.co`, or existing portal credentials.
 
----
+Sign in at https://license.asoba.co, confirm your entitlement shows the release tag(s) you are licensed for, and download the matching `ona-edge-<tag>.tar.gz`. Do not use `git clone`, `docker compose build`, or registry logins as the customer install path.
 
-## API Keys
+### API Keys
 
 | Key | Required For | How to Obtain |
 |---|---|---|
@@ -100,11 +103,33 @@ The platform starts without Huawei credentials if you are not collecting from Hu
 
 ---
 
-## Installation
+## Obtain And Verify The Bundle
+
+1. Download `ona-edge-<tag>.tar.gz` from the license portal (or transfer it by USB/`scp` for air-gapped sites).
+2. Verify its integrity before loading it:
 
 ```bash
-bash ~/platform/scripts/local/install.sh
+# Use the SHA-256 value shown in the portal for your release
+echo "<sha256-from-portal>  ona-edge-<tag>.tar.gz" | sha256sum -c
 ```
+
+If verification fails, re-download the bundle from the portal. Do not load a bundle whose checksum does not match.
+
+---
+
+## Installation
+
+Transfer the bundle to the edge host, then run:
+
+```bash
+# 1) Load all container images into the local Docker daemon
+bash load_edge_bundle.sh ./ona-edge-<tag>.tar.gz
+
+# 2) Install and start the edge stack from the image-only compose file
+bash ./ona-edge-<tag>/scripts/local/install_edge.sh ./ona-edge-<tag>
+```
+
+The bundle loader verifies `SHA256SUMS` and runs `docker load -i images.tar`. The installer uses only `docker-compose.edge.yml`, starts PostgreSQL and Redis, initializes the databases, seeds `admin` / `admin`, brings up the microservices, and deploys Nginx and the web UI.
 
 The installer is idempotent — safe to re-run. It performs these steps:
 
@@ -112,9 +137,9 @@ The installer is idempotent — safe to re-run. It performs these steps:
 |---|---|
 | 1 | Preflight checks (Docker, Python, psql) |
 | 2 | Start PostgreSQL and Redis |
-| 3 | Initialize databases (ona_telemetry, ona_auth, ona_control, pvinsight) |
-| 4 | Seed auth (admin/admin) and control-plane baseline data |
-| 5 | Start all microservices and copy shared utilities into containers |
+| 3 | Initialize databases (`ona_telemetry`, `ona_auth`, `ona_control`, `pvinsight`) |
+| 4 | Seed auth (`admin`/`admin`) and control-plane baseline data |
+| 5 | Start all microservices |
 | 6 | Deploy Nginx edge proxy and web UI |
 | 7 | Verify key API endpoints (auth, customers, telemetry) |
 
@@ -137,6 +162,10 @@ curl -s -X POST http://localhost:8004/run \
   -d '{"mode": "forecast"}' | python3 -m json.tool
 ```
 
+### Change the default password immediately
+
+The stack is seeded with `admin` / `admin` for first-run convenience only. Change this password before connecting the device to any network beyond local development.
+
 ---
 
 ## Accessing the Platform
@@ -150,8 +179,6 @@ curl -s -X POST http://localhost:8004/run \
 | `http://localhost:8001/` | terminalApi (OODA, nowcast, assets) |
 | `http://localhost:8002/health` | forecastingApi health |
 | `http://localhost:8005/` | anomalyModelService |
-
-Default credentials: `admin` / `admin`. Change these before exposing to a network.
 
 ### Remote access via SSH
 
@@ -195,8 +222,19 @@ For production WAN access, consider WireGuard VPN or reverse SSH tunnel rather t
 
 ---
 
+## Common Failures
+
+| Symptom | Likely cause | Action |
+|---|---|---|
+| Bundle SHA-256 verification fails | Corrupt download or partial transfer | Re-download from the portal; compare the portal checksum |
+| `missing image asoba/ona-edge-…` on compose up | Bundle load skipped or wrong tag | Re-run `load_edge_bundle.sh`; confirm with `docker images \| grep asoba/ona-edge` |
+| Auth login returns no token | `userManagement` not healthy | Check `docker logs ona-user-management`; confirm port 8013 and Nginx |
+| Support asks for `git clone` | Wrong playbook | Redirect to this bundle-only path and the license portal |
+
+---
+
 ## Next Steps
 
 - [Architecture](./architecture) — understand the service map and data planes
-- [Training CLI](./training-cli) — train site-specific LSTM and JEPA models
+- [Training CLI](./training-cli) — train site-specific LSTM and JEPA models (requires an Asoba-provided training runtime or internal environment)
 - [SDK Edge Mode](./sdk) — connect the SDK to your edge deployment

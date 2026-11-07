@@ -8,6 +8,8 @@ nav_order: 5
 
 The Ona Platform runs fully on-premise on Ubuntu 22.04 — no AWS, no internet connection required after initial setup. All services run as Docker containers on a single machine, with PostgreSQL as the data plane, a local filesystem volume for ML artifacts, and Redis for caching.
 
+Edge is distributed as a licensed offline bundle. Entitled customers sign in at https://license.asoba.co, download `ona-edge-<tag>.tar.gz`, and load/install it on an Ubuntu 22.04 host. The bundle includes all app images, the image-only compose file, SQL init helpers, the UI, and checksums. It does not require cloning a private repository, building from source, or logging in to a container registry.
+
 This section covers everything needed to deploy, operate, and build against an edge installation.
 
 ---

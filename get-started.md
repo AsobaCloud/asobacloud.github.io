@@ -158,20 +158,28 @@ for a in alerts:
 
 ## Edge path
 
-Install the platform on the edge host **before** using the SDK. The stack must be running locally; the SDK only switches transport mode.
+The on-prem edge stack is delivered as a licensed offline bundle, not a source repository build. Install and verify it before using the SDK; the SDK then switches transport mode to your local services.
 
-### Step 1: Install and deploy the edge stack
+### Step 1: Obtain your license and download the bundle
 
-Follow **[Edge Deployment → Deploy](/edge/deploy)** for hardware preflight, Docker prerequisites, `install.sh`, verification, and UI access. When that guide’s post-install checks pass, return here.
+1. Complete the Ona Edge purchase / entitlement flow and use the set-password link emailed by `license@asoba.co`.
+2. Sign in at https://license.asoba.co and download the entitled `ona-edge-<tag>.tar.gz` for your licensed release.
+3. Verify and load the bundle, then install the stack by following **[Edge Deployment → Deploy](/edge/deploy)**.
 
-### Step 2: Install the SDK
+### Step 2: Install and deploy the edge stack
+
+Follow **[Edge Deployment → Deploy](/edge/deploy)** for hardware preflight, Docker prerequisites, bundle download/checksum verification, `load_edge_bundle.sh`, `install_edge.sh`, post-install verification, and UI access. Change the seeded `admin` / `admin` credentials before exposing the device to any network.
+
+When that guide’s post-install checks pass, return here.
+
+### Step 3: Install the SDK
 
 ```bash
 pip install asoba          # edge mode — no boto3 required
 # pip install asoba[cloud]  # only if you also need cloud/AWS transport
 ```
 
-### Step 3: Set your API key and edge mode
+### Step 4: Set your API key and edge mode
 
 ```bash
 export ASOBA_API_KEY=<your_api_key>
@@ -187,7 +195,7 @@ export AUTH_API_URL=http://localhost:8013
 # …plus any other services you use — see /edge/sdk
 ```
 
-### Step 4: Make your first call
+### Step 5: Make your first call
 
 ```python
 from asoba import OnaClient
