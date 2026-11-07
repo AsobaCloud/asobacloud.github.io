@@ -3085,51 +3085,73 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   --success-green: #28ca42;
 }
 
-/* Documentation pricing modal — follows website pricing-card visual language */
-.pricing-card + .pricing-card {
-  margin-left: 0;
+:root {
+  --neutral-light: #F9F9F9;
+  --success-green: #28ca42;
 }
 
+/* Existing website subscribe modal */
+.subscribe-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.subscribe-modal {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 760px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    font-family: 'DM Sans', Helvetica, Arial, sans-serif;
+    color: var(--text-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.subscribe-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.subscribe-modal-icon {
+    margin-bottom: 20px;
+}
+
+/* Documentation-specific pricing modal */
 .ona-pricing-modal {
-  position: relative;
-  border: none;
-  border-radius: 16px;
-  padding: 40px;
-  max-width: 760px;
-  width: 90%;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  font-family: 'DM Sans', Helvetica, Arial, sans-serif;
-  color: var(--text-dark);
-  background: var(--white);
-}
-
-.ona-pricing-modal::backdrop {
-  background: rgba(0, 0, 0, 0.5);
+  margin: 0;
 }
 
 .ona-pricing-trigger {
-  margin-top: 16px;
+  margin-top: 0;
 }
 
-#ona-pricing-modal h2 {
+#ona-pricing-title {
   font-size: 1.5rem;
   color: var(--text-dark);
-  margin: 0 0 20px;
+  margin: 0 0 8px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border-grey);
-}
-
-.ona-pricing-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
-  color: var(--text-light);
-  padding: 0;
+  display: block;
 }
 
 .pricing-cards {
@@ -3137,6 +3159,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 28px;
   margin: 0;
+  text-align: left;
 }
 
 .pricing-card {
@@ -3266,7 +3289,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 480px) {
-  .ona-pricing-modal {
+  .subscribe-modal {
     padding: 28px;
   }
 }

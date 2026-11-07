@@ -18,12 +18,16 @@ nav_order: 1
   <div class="callout-content"><strong>Available for Cloud Hosted and for On-Prem deployment.</strong></div>
 </div>
 
+<div class="quick-start-section">
+  <button type="button" class="quick-start-button ona-pricing-trigger" onclick="openOnaPricingModal()">Pick the right one for you</button>
+</div>
 
-<button type="button" class="quick-start-button ona-pricing-trigger" onclick="document.getElementById('ona-pricing-modal').showModal()">Pick the right one for you</button>
-
-<dialog id="ona-pricing-modal" class="ona-pricing-modal">
-  <button type="button" class="ona-pricing-close" onclick="document.getElementById('ona-pricing-modal').close()" aria-label="Close">&times;</button>
-  <h2>Choose Your Deployment</h2>
+<div id="ona-pricing-modal" class="subscribe-modal-overlay" style="display: none;" onclick="if (event.target === this) closeOnaPricingModal();" role="dialog" aria-modal="true" aria-labelledby="ona-pricing-title">
+  <div class="subscribe-modal ona-pricing-modal">
+    <button type="button" class="subscribe-modal-close" onclick="closeOnaPricingModal()" aria-label="Close">&times;</button>
+    <div class="subscribe-modal-icon">
+      <h2 id="ona-pricing-title">Choose Your Deployment</h2>
+    </div>
   <div class="pricing-cards">
     <section class="pricing-card">
       <div class="pricing-header">
@@ -76,7 +80,15 @@ nav_order: 1
       </div>
     </section>
   </div>
-</dialog>
+</div>
+</div>
+
+
+<script>
+function openOnaPricingModal() { document.getElementById('ona-pricing-modal').style.display = 'flex'; }
+function closeOnaPricingModal() { document.getElementById('ona-pricing-modal').style.display = 'none'; }
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeOnaPricingModal(); });
+</script>
 
 ## Introduction
 
