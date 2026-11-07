@@ -3107,7 +3107,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 .subscribe-modal {
     background: var(--white);
     border-radius: 16px;
-    padding: 40px;
+    padding: 24px;
     max-width: 760px;
     width: 90%;
     text-align: center;
@@ -3115,8 +3115,8 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
     font-family: 'DM Sans', Helvetica, Arial, sans-serif;
     color: var(--text-dark);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: none;
+    overflow: visible;
 }
 
 .subscribe-modal-close {
@@ -3133,7 +3133,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 }
 
 .subscribe-modal-icon {
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 /* Documentation-specific pricing modal */
@@ -3146,10 +3146,10 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 }
 
 #ona-pricing-title {
-  font-size: 1.5rem;
+  font-size: 1.28rem;
   color: var(--text-dark);
-  margin: 0 0 8px;
-  padding-bottom: 10px;
+  margin: 0 0 6px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--border-grey);
   display: block;
 }
@@ -3157,7 +3157,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 .pricing-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
+  gap: 16px;
   margin: 0;
   text-align: left;
 }
@@ -3184,7 +3184,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 
 .pricing-header {
   background: var(--neutral-light);
-  padding: 30px;
+  padding: 14px 18px;
   text-align: center;
   border-bottom: 1px solid var(--border-grey);
 }
@@ -3195,17 +3195,17 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-tier {
-  font-size: 1.3rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   color: var(--text-dark);
 }
 
 .pricing-price {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--primary-blue);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   line-height: 1;
 }
 
@@ -3221,7 +3221,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 
 .pricing-icon {
   color: var(--primary-blue);
-  margin: 0 0 16px;
+  margin: 0 0 8px;
   display: flex;
   justify-content: center;
 }
@@ -3231,21 +3231,21 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 }
 
 .pricing-body {
-  padding: 30px;
+  padding: 14px 18px 16px;
 }
 
 .pricing-features {
   list-style: none;
-  margin: 0 0 30px 0;
+  margin: 0 0 16px 0;
   padding: 0;
 }
 
 .pricing-features li {
-  padding: 12px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--border-grey);
   position: relative;
-  padding-left: 25px;
-  font-size: 0.95rem;
+  padding-left: 22px;
+  font-size: 0.875rem;
   line-height: 1.45;
   color: var(--text-light);
 }
@@ -3265,7 +3265,7 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 .pricing-cta {
   display: block;
   width: 100%;
-  padding: 15px;
+  padding: 10px 12px;
   background: var(--primary-blue);
   color: var(--white);
   text-align: center;
@@ -3290,6 +3290,10 @@ p, ul, ol, div, blockquote, table, h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
   .subscribe-modal {
-    padding: 28px;
+    padding: 16px;
+    max-width: 96vw;
+  }
+  .pricing-cards {
+    gap: 12px;
   }
 }

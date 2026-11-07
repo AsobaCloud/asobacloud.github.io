@@ -32,9 +32,8 @@ nav_order: 1
     <section class="pricing-card">
       <div class="pricing-header">
         <div class="pricing-icon">
-          <svg viewBox="0 0 56 56" width="48" height="48" aria-hidden="true" focusable="false">
-            <path fill="var(--primary-blue)" d="M38 33H18a9 9 0 0 1 0-18 9 9 0 0 1 9-9 13 13 0 0 1 22 8 8 8 0 0 1-1 19Z"/>
-            <path fill="var(--white)" d="M21 43h14M28 34v9" stroke="var(--white)" stroke-width="2" stroke-linecap="round"/>
+          <svg viewBox="0 0 24 24" width="42" height="42" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z"/>
           </svg>
         </div>
         <div class="pricing-tier">Cloud</div>
@@ -55,13 +54,8 @@ nav_order: 1
     <section class="pricing-card">
       <div class="pricing-header">
         <div class="pricing-icon">
-          <svg viewBox="0 0 56 56" width="48" height="48" aria-hidden="true" focusable="false">
-            <rect x="10" y="8" width="36" height="10" rx="2" fill="var(--primary-blue)"/>
-            <rect x="10" y="23" width="36" height="10" rx="2" fill="var(--primary-blue)"/>
-            <rect x="10" y="38" width="36" height="10" rx="2" fill="var(--primary-blue)"/>
-            <circle cx="40" cy="13" r="1.6" fill="var(--white)"/>
-            <circle cx="40" cy="28" r="1.6" fill="var(--white)"/>
-            <circle cx="40" cy="43" r="1.6" fill="var(--white)"/>
+          <svg viewBox="0 0 24 24" width="42" height="42" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 0 0-3-3m-13.5 0a3 3 0 0 0-3 3M8.25 9.75V9A3 3 0 0 1 11.25 6h1.5a3 3 0 0 1 3 3v.75M8.25 9.75h7.5" />
           </svg>
         </div>
         <div class="pricing-tier">On-Prem</div>
