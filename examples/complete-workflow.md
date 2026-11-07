@@ -7,28 +7,29 @@ parent: "Code Examples"
 
 # Complete Workflow
 
-The `complete_workflow_example.py` is the capstone example for the Ona Intelligence Layer SDK. It demonstrates how to chain multiple services together into a single end-to-end workflow: from solar forecasting through fault detection, diagnostics, and maintenance scheduling.
+The `complete_workflow_example.py` is the capstone example for the Ona Intelligence Layer SDK. It demonstrates how to chain multiple services together into a single end-to-end workflow: forecasting, fault detection, diagnostics, energy-analyst compliance queries, maintenance scheduling, activity review, ML model registry checks, and nowcast monitoring.
 
 **Source:** [`complete_workflow_example.py`](https://github.com/AsobaCloud/sdk/blob/main/python/examples/complete_workflow_example.py)
 
 ## Workflow Overview
 
-The example follows a 7-step pipeline that mirrors a real operational scenario:
+The example follows an 8-step pipeline that mirrors a real operational scenario:
 
 1. **Get Solar Forecast** — Retrieve the next 24-hour production forecast
 2. **Run Fault Detection** — Analyze an inverter for anomalies
 3. **Run Diagnostics** — If a fault is detected, diagnose the root cause
-4. **Create Maintenance Schedule** — Schedule a work order based on the diagnosis
-5. **Review Activities** — List recent terminal activities
-6. **Check ML Model Registry** — Inspect registered detection models
-7. **Get Nowcast Data** — Pull real-time site metrics
+4. **Query Energy Analyst** — Ask a compliance/maintenance question based on the diagnosis
+5. **Create Maintenance Schedule** — Schedule a work order based on the diagnosis
+6. **Review Activities** — List recent terminal activities
+7. **Check ML Model Registry** — Inspect registered detection models
+8. **Get Nowcast Data** — Pull real-time site metrics
 
 ## Initialization
 
 The workflow begins by initializing a single `OnaClient` instance. This client provides access to all services — no separate initialization is needed per service.
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 def main():
     """Demonstrate a complete workflow across multiple services."""
@@ -42,7 +43,7 @@ def main():
     print("=== COMPLETE WORKFLOW EXAMPLE ===\n")
 ```
 
-The `OnaClient` constructor reads endpoint URLs and API keys from environment variables. The same client object exposes `.forecasting`, `.terminal`, and other service attributes.
+The `OnaClient` constructor reads your API key and endpoint configuration from the environment (primarily `ASOBA_API_KEY`). The same client object exposes `.forecasting`, `.terminal`, `.energy_analyst`, and other service attributes.
 
 ## Step 1: Get Solar Forecast
 
@@ -56,7 +57,7 @@ Retrieve the site-level production forecast for the next 24 hours. The forecasti
         forecast_hours=24
     )
     print(f"  - Site: {forecast['site_id']}")
-    print(f"  - Devices: {forecast['devices_included']}")
+    print(f"  - Devices: {forecast['device_count']}")
     print(f"  - Next hour forecast: {forecast['forecasts'][0]['kWh_forecast']} kWh")
 ```
 
@@ -69,7 +70,7 @@ Step 1: Get Solar Forecast
   - Next hour forecast: 45.2 kWh
 ```
 
-The forecast response includes `site_id`, `devices_included`, and a `forecasts` array where each entry contains a timestamp, `kWh_forecast` value, `hour_ahead` count, and a `confidence` score.
+The forecast response includes `site_id`, `device_count`, and a `forecasts` array where each entry contains a timestamp, `kWh_forecast` value, `hour_ahead` count, and (where available) a `confidence` score.
 
 ## Step 2: Run Fault Detection
 
@@ -87,8 +88,7 @@ Pass the inverter asset ID to the terminal service's detection endpoint. This tr
     severity = detection['analysis']['severity_label']
     print(f"  - Detection ID: {detection_id}")
     print(f"  - Severity: {severity}")
-    print(f"  - Fault type: {detection['analysis']['fault_type']}")
-    print(f"  - Summary: {detection['analysis']['summary']}")
+    print(f"  - Status: {detection['analysis']['status']}")
 ```
 
 **Expected output:**
@@ -97,11 +97,10 @@ Pass the inverter asset ID to the terminal service's detection endpoint. This tr
 Step 2: Run Fault Detection
   - Detection ID: det_8f3a2b1c
   - Severity: High
-  - Fault type: capacity_drop
-  - Summary: Significant power drop detected on INV001 over the last 6 hours
+  - Status: anomaly_detected
 ```
 
-The detection response includes a `detection_id` (needed for diagnostics) and an `analysis` object with `severity_label` (`Low`, `Medium`, or `High`), `fault_type`, and `summary`.
+The detection response includes a `detection_id` (needed for diagnostics) and an `analysis` object with `severity_label`, `status`, `fault_type` where present, and `summary`.
 
 ## Step 3: Run Diagnostics (Conditional)
 
@@ -114,14 +113,11 @@ If the detection severity is `High` or `Medium`, the workflow escalates to diagn
         diagnostic = client.terminal.run_diagnostics(
             customer_id=customer_id,
             asset_id=asset_id,
-            detection_id=detection_id,
-            lookback_hours=6
+            detection_id=detection_id
         )
         print(f"  - Root cause: {diagnostic['analysis']['root_cause']}")
         print(f"  - Category: {diagnostic['analysis']['category']}")
         print(f"  - Confidence: {diagnostic['analysis']['confidence']}")
-        for action in diagnostic['analysis'].get('recommended_actions', []):
-            print(f"  - Action: {action}")
 ```
 
 **Expected output:**
@@ -131,19 +127,36 @@ Step 3: Run Diagnostics (fault detected)
   - Root cause: DC string underperformance — possible soiling or partial shading
   - Category: string_fault
   - Confidence: 0.87
-  - Action: Inspect DC connectors and wiring within 48 hours
-  - Action: Check for vegetation growth or soiling on panels
 ```
 
-The diagnostic response provides a human-readable `root_cause`, a machine-readable `category`, a `confidence` score (0–1), and a `recommended_actions` list with specific remediation steps.
+The diagnostic response provides a human-readable `root_cause`, a machine-readable `category`, and a `confidence` score (0–1).
 
-## Step 4: Create Maintenance Schedule
+## Step 4: Query Energy Analyst for Compliance
+
+After the diagnosis, the workflow asks the Energy Analyst (RAG-based) service a scoped question based on the detected category. This step is also useful for pulling grid-code or maintenance-policy context.
+
+```python
+        # Step 4: Query energy analyst for compliance info
+        print("\nStep 4: Query Energy Analyst for Compliance")
+        try:
+            compliance_info = client.energy_analyst.query(
+                question=f"What are the maintenance requirements for {diagnostic['analysis']['category']}?",
+                n_results=2
+            )
+            print(f"  - Answer: {compliance_info['answer'][:200]}...")
+        except Exception as e:
+            print(f"  - Energy Analyst unavailable: {e}")
+```
+
+Because the Energy Analyst is a RAG endpoint that can occasionally be unavailable or require additional configuration, the example wraps this call in a `try/except` and continues the workflow if it is unavailable.
+
+## Step 5: Create Maintenance Schedule
 
 Based on the diagnostic root cause and severity, the workflow creates a maintenance schedule with an estimated duration.
 
 ```python
-        # Step 4: Create maintenance schedule
-        print("\nStep 4: Create Maintenance Schedule")
+        # Step 5: Create maintenance schedule
+        print("\nStep 5: Create Maintenance Schedule")
         schedule = client.terminal.create_schedule(
             customer_id=customer_id,
             asset_id=asset_id,
@@ -157,19 +170,19 @@ Based on the diagnostic root cause and severity, the workflow creates a maintena
 **Expected output:**
 
 ```
-Step 4: Create Maintenance Schedule
+Step 5: Create Maintenance Schedule
   - Schedule created: sched_a1b2c3d4
 ```
 
 The `create_schedule` method accepts a `description`, `priority` (`High` or `Medium`), and `estimated_duration_hours`. It returns a `schedule_id` that can be tracked in the activity stream.
 
-## Step 5: Review Recent Activities
+## Step 6: Review Recent Activities
 
 List the terminal activities from the last 24 hours. This includes detections, diagnostics, and schedules created in the current workflow.
 
 ```python
-    # Step 5: Review activity stream
-    print("\nStep 5: Review Recent Activities")
+    # Step 6: Review activity stream
+    print("\nStep 6: Review Recent Activities")
     activities = client.terminal.list_activities(customer_id=customer_id)
     print(f"  - Total activities (24h): {len(activities)}")
     print("  - Recent activities:")
@@ -180,7 +193,7 @@ List the terminal activities from the last 24 hours. This includes detections, d
 **Expected output:**
 
 ```
-Step 5: Review Recent Activities
+Step 6: Review Recent Activities
   - Total activities (24h): 7
   - Recent activities:
     [act] Maintenance schedule created
@@ -190,13 +203,13 @@ Step 5: Review Recent Activities
 
 Each activity includes a `phase` (corresponding to the OODA loop: `observe`, `orient`, `decide`, `act`) and a `title`.
 
-## Step 6: Check ML Model Registry
+## Step 7: Check ML Model Registry
 
 Inspect the registered ML models used for detection and diagnostics. This is useful for auditing which model versions are active.
 
 ```python
-    # Step 6: Check ML model registry
-    print("\nStep 6: Check ML Model Registry")
+    # Step 7: Check ML model registry
+    print("\nStep 7: Check ML Model Registry")
     models = client.terminal.get_ml_models()
     print(f"  - Registered models: {len(models)}")
     if models:
@@ -208,26 +221,25 @@ Inspect the registered ML models used for detection and diagnostics. This is use
 **Expected output:**
 
 ```
-Step 6: Check ML Model Registry
+Step 7: Check ML Model Registry
   - Registered models: 4
   - Latest: ona-anomaly-detector (version 2.1.3)
 ```
 
-## Step 7: Get Nowcast Data
+## Step 8: Get Nowcast Data
 
 Finally, pull real-time nowcast metrics for monitoring. This provides a snapshot of current site performance.
 
 ```python
-    # Step 7: Get nowcast data for monitoring
-    print("\nStep 7: Get Nowcast Data")
+    # Step 8: Get nowcast data for monitoring
+    print("\nStep 8: Get Nowcast Data")
     nowcast = client.terminal.get_nowcast_data(
         customer_id=customer_id,
         time_range="1h"
     )
-    metrics = nowcast.get('data', {}).get('latest_metrics', {})
+    metrics = nowcast.get('latest_metrics', {})
     print(f"  - Total power: {metrics.get('total_power_kw', 0)} kW")
-    print(f"  - Active inverters: {metrics.get('active_inverters', 0)}/{metrics.get('total_inverters', 0)}")
-    print(f"  - Producing: {metrics.get('producing_inverters', 0)}")
+    print(f"  - Active inverters: {metrics.get('active_inverters', 0)}")
     print(f"  - Avg temperature: {metrics.get('avg_temperature_c', 0)}°C")
 
     print("\n=== WORKFLOW COMPLETE ===")
@@ -240,22 +252,22 @@ if __name__ == '__main__':
 **Expected output:**
 
 ```
-Step 7: Get Nowcast Data
+Step 8: Get Nowcast Data
   - Total power: 312.5 kW
-  - Active inverters: 11/12
-  - Producing: 11
+  - Active inverters: 11
   - Avg temperature: 42.3°C
 
 === WORKFLOW COMPLETE ===
 ```
 
-The nowcast response wraps metrics inside a `data` envelope — access `latest_metrics` via `nowcast['data']['latest_metrics']`. The `active_inverters` count includes all online inverters; `producing_inverters` counts only those actively generating power.
+The nowcast response returns `latest_metrics` at the top level (not nested under a `data` envelope), so access it directly via `nowcast.get('latest_metrics', {})`.
 
 ## Key Takeaways
 
-- **Single client, multiple services** — One `OnaClient` instance provides access to forecasting, terminal, and all other services.
+- **Single client, multiple services** — One `OnaClient` instance provides access to forecasting, terminal, energy analyst, and all other services.
 - **Detection → Diagnostics chain** — The `detection_id` from `run_detection()` is the input to `run_diagnostics()`, creating a natural pipeline.
-- **Conditional escalation** — Diagnostics and scheduling only run when severity warrants it (`High` or `Medium`).
+- **Energy Analyst enrichment** — Diagnostic categories can be contextualized with policy/compliance answers.
+- **Conditional escalation** — Diagnostics, analyst queries, and scheduling only run when severity warrants it (`High` or `Medium`).
 - **Activity audit trail** — Every action (detection, diagnostic, schedule) appears in the activity stream, tagged with its OODA phase.
 
 For a comparison of how this same workflow looks in JavaScript, see [Python vs JavaScript](/examples/language-comparison). For the full list of available examples, see [Code Examples](/examples/overview).

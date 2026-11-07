@@ -11,10 +11,10 @@ The Ona SDK ([github.com/AsobaCloud/sdk](https://github.com/AsobaCloud/sdk)) pro
 
 ## SDK ODS-E Models
 
-The SDK's `ona_platform.models.odse` module encodes the full ODS-E energy-timeseries schema as Python constants. These are used by the SDK's validation utilities and can be imported directly:
+The SDK's `asoba.models.odse` module encodes the full ODS-E energy-timeseries schema as Python constants. These are used by the SDK's validation utilities and can be imported directly:
 
 ```python
-from ona_platform.models.odse import (
+from asoba.models.odse import (
     ODSE_REQUIRED_FIELDS,
     ODSE_ALLOWED_FIELDS,
     ODSE_PROFILES,
@@ -41,7 +41,7 @@ The SDK also ships JSON schema files for record validation:
 The SDK's `StandardizationClient` invokes a server-side Lambda function (`dataStandardizationService`) that normalizes and validates datasets against ODS-E schemas:
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 
@@ -58,7 +58,7 @@ This service runs server-side normalization — it applies ODS-E field mapping, 
 The `DataIngestionClient` accepts ODS-E-formatted records and triggers server-side ingestion. It also provides a local validation method that checks records against the full ODS-E schema without making a service call:
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 
@@ -125,7 +125,7 @@ See the [Validation Guide](/odse/validation) for all validation levels and profi
 Once records pass validation, upload them through the SDK's data ingestion service:
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 client = OnaClient()
 
@@ -154,7 +154,7 @@ client.data_ingestion.ingest(customer_id="Sibaya", records=records)
 
 ## Validation Details
 
-The SDK's local validation (`ona_platform.utils.validation`) checks:
+The SDK's local validation (`asoba.utils.validation`) checks:
 
 - **Required fields** — `timestamp`, `kWh`, `error_type` must be present
 - **Allowed field whitelist** — rejects unknown fields not in the 65-field schema

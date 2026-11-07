@@ -19,7 +19,7 @@ This page provides side-by-side comparisons for the most common operations. All 
 ### Python
 
 ```python
-from ona_platform import OnaClient
+from asoba import OnaClient
 
 # Reads endpoint URLs and API keys from environment variables
 client = OnaClient()
@@ -33,13 +33,8 @@ it = client.inverter_telemetry
 ```javascript
 const { OnaSDK } = require('../src/index');
 
-// Explicitly pass endpoints and API keys
-const sdk = new OnaSDK({
-  endpoints: {
-    inverterTelemetry: process.env.INVERTER_TELEMETRY_ENDPOINT,
-  },
-  inverterTelemetryApiKey: process.env.INVERTER_TELEMETRY_API_KEY,
-});
+// Picks up ASOBA_API_KEY from the environment (endpoint URLs are built in)
+const sdk = new OnaSDK();
 
 // Access a service
 const it = sdk.inverterTelemetry;
@@ -50,7 +45,7 @@ const it = sdk.inverterTelemetry;
 | Aspect | Python | JavaScript |
 |--------|--------|------------|
 | Class name | `OnaClient` | `OnaSDK` |
-| Config | Auto-reads from environment variables | Explicitly passed in constructor options |
+| Config | Auto-reads `ASOBA_API_KEY` from the environment (endpoints built in) | `new OnaSDK()` reads `ASOBA_API_KEY`; endpoints are built in and can be overridden via `endpoints` |
 | Service access | `client.inverter_telemetry` (snake_case) | `sdk.inverterTelemetry` (camelCase) |
 
 ## Querying Historical Telemetry
@@ -58,7 +53,7 @@ const it = sdk.inverterTelemetry;
 ### Python
 
 ```python
-from ona_platform.models.telemetry import TimeRange
+from asoba.models.telemetry import TimeRange
 
 records = it.get_inverter_telemetry(
     asset_id=asset_id,
@@ -148,7 +143,7 @@ for await (const record of it.streamInverter({
 ### Python
 
 ```python
-from ona_platform.models.ooda import TimeRange
+from asoba.models.ooda import TimeRange
 from datetime import datetime, timedelta
 
 end_time = datetime.now()
@@ -201,7 +196,7 @@ alerts.slice(0, 3).forEach(alert => {
 |--------|--------|------------|
 | Date math | `datetime` + `timedelta(hours=24)` | `new Date()` with millisecond subtraction |
 | Service access | `client.ooda_terminal` (snake_case) | `sdk.oodaTerminal` (camelCase) |
-| Time range | `TimeRange` typed object from `ona_platform.models.ooda` | Plain `{ start, end }` object |
+| Time range | `TimeRange` typed object from `asoba.models.ooda` | Plain `{ start, end }` object |
 | Slicing | `alerts[:3]` (Python slice syntax) | `alerts.slice(0, 3)` (method call) |
 | Async | Synchronous call | `await` required |
 
@@ -210,8 +205,8 @@ alerts.slice(0, 3).forEach(alert => {
 ### Python
 
 ```python
-from ona_platform.exceptions import AuthenticationError, ValidationError
-from ona_platform.services.inverter_telemetry import RateLimitError
+from asoba.exceptions import AuthenticationError, ValidationError
+from asoba.services.inverter_telemetry import RateLimitError
 
 try:
     records = it.get_inverter_telemetry(...)
@@ -250,7 +245,7 @@ try {
 |--------|--------|------------|
 | Exception type | `Exception` subclasses | `Error` subclasses (instanceof checks) |
 | Error message | `str(e)` or `f"{e}"` | `err.message` |
-| Exception imports | From `ona_platform.exceptions` | From SDK root or service module |
+| Exception imports | From `asoba.exceptions` | From SDK root or service module |
 | Re-throwing | Not needed (no catch-all) | `throw err` for unhandled cases |
 | Catch-all | Last `except Exception` | Final `else { throw err }` branch |
 

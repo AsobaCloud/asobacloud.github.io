@@ -13,23 +13,23 @@ This section indexes every available example, organized by service. Browse the t
 
 ## How to Run Examples
 
-**Prerequisites** — Set the relevant environment variables for the services you want to use:
+**Prerequisites** — Set your Asoba API key. Endpoint URLs are built into the current SDK, so examples do not require per-service endpoint variables:
 
 ```bash
-# Inverter Telemetry
-export INVERTER_TELEMETRY_ENDPOINT=https://your-endpoint/prod
-export INVERTER_TELEMETRY_API_KEY=your_api_key
-
-# OODA Terminal
-export OODA_TERMINAL_ENDPOINT=https://your-endpoint/prod
-export OODA_TERMINAL_API_KEY=your_api_key
-
-# Partner API
-export PARTNER_API_ENDPOINT=https://your-endpoint/prod
-export PARTNER_API_KEY=your_api_key
+export ASOBA_API_KEY=your_api_key
 ```
 
-> The same API key works for all endpoints — set it in each respective variable.
+Running examples from source:
+
+```bash
+cd sdk/python
+python3 examples/inverter_telemetry_example.py
+
+cd ../javascript
+node examples/inverter-telemetry-example.js
+```
+
+Individual examples may print their own prerequisite notes (for example, the freemium forecast flow requires an email-verification step).
 
 **Run Python examples:**
 
@@ -107,6 +107,14 @@ Multi-tenant partner API for managing customers, sites, and assets. See the [Par
 |----------|----------|-------------|
 | Python | [`partner_api_example.py`](https://github.com/AsobaCloud/sdk/blob/main/python/examples/partner_api_example.py) | Manage customers, sites, and assets via the partner API |
 | JavaScript | [`partner-api-example.js`](https://github.com/AsobaCloud/sdk/blob/main/javascript/examples/partner-api-example.js) | Same partner API workflow in JavaScript |
+
+## Energy Analyst
+
+Ask policy, compliance, and operational questions using the SDK's RAG-backed Energy Analyst service. See the [service guide](/sdk/services/energy-analyst) if available.
+
+| Language | Filename | Description |
+|----------|----------|-------------|
+| Python | [`energy_analyst_example.py`](https://github.com/AsobaCloud/sdk/blob/main/python/examples/energy_analyst_example.py) | Ask a natural-language compliance question and inspect generated/RAG-sourced answers |
 
 ## Edge Device
 
