@@ -8,12 +8,8 @@ nav_order: 1
   <h1>Ona SDK Documentation</h1>
   <p class="hero-subtitle">Typed client libraries for Python and JavaScript, built for the Ona Intelligence Layer — energy forecasting, fault detection, inverter telemetry, and O&amp;M intelligence for solar, wind, and battery storage assets.</p>
   <div class="quick-start-section">
-    <a href="/get-started" class="quick-start-button">Get Started →</a>
+    <a href="#ona-pricing-modal" class="quick-start-button ona-pricing-trigger" onclick="openOnaPricingModal(); return false;">Get Started →</a>
     <p class="quick-start-subtext">New here? Contact <a href="mailto:support@asoba.co">support@asoba.co</a> for an API key first.</p>
-    <p class="quick-start-subtext">
-      <strong>Available for Cloud Hosted and for On-Prem deployment.</strong>
-      <button type="button" class="quick-start-button ona-pricing-trigger" onclick="openOnaPricingModal()">Pick the right one for you</button>
-    </p>
   </div>
 </div>
 
@@ -50,7 +46,7 @@ nav_order: 1
       <div class="pricing-header">
         <div class="pricing-icon">
           <svg viewBox="0 0 24 24" width="42" height="42" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 0 1-3-3m3 3a3 3 0 1 0 0 6h13.5a3 3 0 0 0-3-3m-13.5 0a3 3 0 0 0-3 3M8.25 9.75V9A3 3 0 0 1 11.25 6h1.5a3 3 0 0 1 3 3v.75M8.25 9.75h7.5" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11M8 14h8M8 18h8" />
           </svg>
         </div>
         <div class="pricing-tier">On-Prem</div>
