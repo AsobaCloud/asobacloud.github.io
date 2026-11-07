@@ -6,13 +6,13 @@ nav_order: 2
 
 # Get Started with the Ona SDK
 
-The Ona SDK is dual-mode: the same client talks to **Asoba cloud** or to a **local edge** deployment (`ONA_MODE=edge`). This guide covers both paths. In either case you need an API key — contact **support@asoba.co**.
+The Ona SDK is dual-mode: the same client talks to **Asoba cloud** or to a **local edge** deployment (`ONA_MODE=edge`). This guide covers both paths.
 
 ## Prerequisites
 
 - Python 3.8+ or Node.js 16+
-- An API key (`ASOBA_API_KEY`) — contact **support@asoba.co**
-- **Edge path only:** an Ubuntu 22.04 host where you can install the platform stack first (see [Deploy](/edge/deploy))
+- **Cloud path:** an API key (`ASOBA_API_KEY`) — contact **support@asoba.co**
+- **Edge path only:** an Ubuntu 22.04 host where you can install the platform stack first (see [Deploy](/edge/deploy)). Pure edge/local-network clients do not need an Asoba cloud API key; authentication is handled by the local `userManagement` service after deployment. Set `ASOBA_API_KEY` only if you also call cloud-only endpoints from the edge site.
 
 ---
 
@@ -179,21 +179,19 @@ pip install asoba          # edge mode — no boto3 required
 # pip install asoba[cloud]  # only if you also need cloud/AWS transport
 ```
 
-### Step 4: Set your API key and edge mode
+### Step 4: Set edge mode and local endpoint variables
 
 ```bash
-export ASOBA_API_KEY=<your_api_key>
 export ONA_MODE=edge
-```
 
-Point the SDK at the local services (full list on [SDK Edge Mode](/edge/sdk)):
+# Optional: only if you also use cloud-only endpoints from this host
+# export ASOBA_API_KEY=<your_api_key>
 
-```bash
+# Point the SDK at the local services (full list on [SDK Edge Mode](/edge/sdk))
 export FORECAST_API_URL=http://localhost:8002
 export TERMINAL_API_URL=http://localhost:8001
 export AUTH_API_URL=http://localhost:8013
 # …plus any other services you use — see /edge/sdk
-```
 
 ### Step 5: Make your first call
 
