@@ -10,15 +10,11 @@ nav_order: 1
   <div class="quick-start-section">
     <a href="/get-started" class="quick-start-button">Get Started →</a>
     <p class="quick-start-subtext">New here? Contact <a href="mailto:support@asoba.co">support@asoba.co</a> for an API key first.</p>
+    <p class="quick-start-subtext">
+      <strong>Available for Cloud Hosted and for On-Prem deployment.</strong>
+      <button type="button" class="quick-start-button ona-pricing-trigger" onclick="openOnaPricingModal()">Pick the right one for you</button>
+    </p>
   </div>
-</div>
-
-<div class="pricing-callout-row">
-  <div class="callout callout-info pricing-callout">
-    <div class="callout-icon"></div>
-    <div class="callout-content"><strong>Available for Cloud Hosted and for On-Prem deployment.</strong></div>
-  </div>
-  <button type="button" class="quick-start-button ona-pricing-trigger" onclick="openOnaPricingModal()">Pick the right one for you</button>
 </div>
 
 <div id="ona-pricing-modal" class="subscribe-modal-overlay" style="display: none;" onclick="if (event.target === this) closeOnaPricingModal();" role="dialog" aria-modal="true" aria-labelledby="ona-pricing-title">
