@@ -19,7 +19,7 @@ nav_order: 1
 </div>
 
 
-<button type="button" class="quick-start-button" onclick="document.getElementById('ona-pricing-modal').showModal()">Pick the right one for you</button>
+<button type="button" class="quick-start-button ona-pricing-trigger" onclick="document.getElementById('ona-pricing-modal').showModal()">Pick the right one for you</button>
 
 <dialog id="ona-pricing-modal" class="ona-pricing-modal">
   <div class="ona-pricing-header">
@@ -29,7 +29,7 @@ nav_order: 1
   <div class="ona-pricing-grid">
     <section class="ona-pricing-card">
       <div class="ona-pricing-icon">
-        <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true" focusable="false">
+        <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
           <path fill="var(--primary-blue)" d="M34 30H15a7 7 0 0 1 0-14 7 7 0 0 1 7-7 11 11 0 0 1 18 6 7 7 0 0 1-1 14Z"/>
           <path fill="var(--white)" d="M18 36h12M24 28v8" stroke-linecap="round"/>
         </svg>
@@ -47,7 +47,7 @@ nav_order: 1
     </section>
     <section class="ona-pricing-card">
       <div class="ona-pricing-icon">
-        <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true" focusable="false">
+        <svg viewBox="0 0 48 48" width="44" height="44" aria-hidden="true" focusable="false">
           <rect x="9" y="8" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
           <rect x="9" y="20" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
           <rect x="9" y="32" width="30" height="9" rx="2" fill="var(--primary-blue)"/>
@@ -59,7 +59,7 @@ nav_order: 1
       <h3>On-Prem</h3>
       <p class="ona-pricing-tagline">Licensed edge deployment on your own infrastructure.</p>
       <ul>
-        <li>Runs locally via the OGD URL and your browser for air-gapped operation</li>
+        <li>Air-gapped operation from licensed edge bundles</li>
         <li>Full data sovereignty with no external network dependency</li>
         <li>Offline forecasting, auditing, and monitoring for qualified partner environments</li>
         <li>License-controlled deployments for regulated or classified sites</li>
