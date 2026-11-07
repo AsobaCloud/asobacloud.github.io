@@ -7,7 +7,7 @@ has_children: true
 
 # Ona SDK
 
-The Ona SDK provides a unified interface to the Asoba energy intelligence platform for solar PV, wind, battery storage (BESS), and grid meter data. It ships in two languages: **Python** (`asoba` v1.1.0) and **JavaScript** (`@asobacloud/sdk`), designed for feature parity across the public API surface.
+The Ona SDK provides a unified interface to the Asoba energy intelligence platform for solar PV, wind, battery storage (BESS), and grid meter data. It ships in two languages: **Python** (`asoba` v2.0.1) and **JavaScript** (`@asobacloud/sdk` v2.0.1), designed for feature parity across the public API surface.
 
 ---
 

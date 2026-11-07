@@ -116,12 +116,12 @@ const forecast = await sdk.forecasting.getSiteForecast({
 | `client.terminal` | `sdk.terminal` | `TERMINAL_API_URL` | OODA workflow, assets, detections |
 | `client.weather` | `sdk.weather` | `WEATHER_API_URL` | Weather cache trigger |
 | `client.huawei` | `sdk.huawei` | `HUAWEI_REALTIME_URL` / `HUAWEI_HISTORICAL_URL` | Huawei inverter data |
-| `client.gap_detection` | `sdk.gapDetection` | `GAP_DETECTION_URL` | Telemetry gap scanning |
-| `client.standardization` | `sdk.interpolation` | `STANDARDIZATION_URL` | CSV normalization |
-| `client.training` | `sdk.globalTraining` | `TRAINING_API_URL` | Training status and model listing |
+| `client.gap_detection` | — | `GAP_DETECTION_URL` | Python edge only; the JavaScript SDK does not expose `gapDetection` |
+| `client.standardization` | `sdk.interpolation` | `STANDARDIZATION_URL` (`INTERPOLATION_URL` on JS side) | CSV / ODS-E normalization |
+| `client.training` | — | `TRAINING_API_URL` | Python edge only; the JavaScript SDK does not expose `globalTraining` |
 | `client.auth` | — | `AUTH_API_URL` | JWT authentication |
-| `client.energy_analyst` | `sdk.energyAnalyst` | `ENERGY_ANALYST_URL` | RAG synthesis (pvInsightService) |
-| `client.edge_devices` | `sdk.edgeRegistry` | `EDGE_API_URL` | Edge device registry |
+| `client.energy_analyst` | `sdk.energyAnalyst` | `ENERGY_ANALYST_URL` (Python env mapping; JS endpoint override required) | RAG synthesis (pvInsightService) |
+| `client.edge_devices` | `sdk.edgeRegistry` | `EDGE_API_URL` (Python env mapping; JS endpoint override required) | Edge device registry |
 
 ### New clients available only on edge
 
