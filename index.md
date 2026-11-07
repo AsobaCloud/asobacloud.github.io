@@ -15,8 +15,74 @@ nav_order: 1
 
 <div class="callout callout-info">
   <div class="callout-icon"></div>
-  <div class="callout-content"><strong>You'll need an API key.</strong> Email <a href="mailto:support@asoba.co">support@asoba.co</a> to get one before making your first call.</div>
+  <div class="callout-content"><strong>Available for Cloud Hosted and for On-Prem deployment.</strong></div>
 </div>
+
+<style>
+#ona-pricing-modal { border: none; border-radius: 14px; padding: 1.25rem; max-width: 760px; width: calc(100vw - 2rem); box-shadow: 0 24px 60px rgba(0,0,0,.28); font-family: inherit; }
+#ona-pricing-modal::backdrop { background: rgba(10,20,40,.45); }
+.ona-pricing-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+.ona-pricing-close { border: none; background: transparent; font-size: 1.5rem; line-height: 1; cursor: pointer; color: #445; }
+.ona-pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+@media (max-width: 640px) { .ona-pricing-grid { grid-template-columns: 1fr; } }
+.ona-pricing-card { border: 1px solid rgba(0,0,0,.1); border-radius: 10px; padding: 1rem; text-align: center; }
+.ona-pricing-icon { margin: .5rem 0; }
+.ona-pricing-tagline { color: #526071; margin-bottom: 1rem; }
+.ona-pricing-card ul { text-align: left; margin: 0 0 1.25rem; padding-left: 1.25rem; line-height: 1.45; }
+.ona-pricing-button { display: inline-block; min-width: 164px; border: none; border-radius: 8px; padding: .75rem 1rem; font-weight: 700; cursor: pointer; color: #fff; background: #1f6feb; }
+.ona-pricing-card:last-child .ona-pricing-button { background: #0e8a5a; }
+</style>
+
+<button type="button" class="quick-start-button" onclick="document.getElementById('ona-pricing-modal').showModal()">Pick the right one for you</button>
+
+<dialog id="ona-pricing-modal" class="ona-pricing-modal">
+  <div class="ona-pricing-header">
+    <h2>Choose Your Deployment</h2>
+    <button type="button" class="ona-pricing-close" onclick="document.getElementById('ona-pricing-modal').close()">Close</button>
+  </div>
+  <div class="ona-pricing-grid">
+    <section class="ona-pricing-card">
+      <div class="ona-pricing-icon">
+        <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true" focusable="false">
+          <path fill="#2d7ff9" d="M34 30H15a7 7 0 0 1 0-14 7 7 0 0 1 7-7 11 11 0 0 1 18 6 7 7 0 0 1-1 14Z"/>
+          <path fill="#ffffff" d="M18 36h12M24 28v8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Cloud</h3>
+      <p class="ona-pricing-tagline">Fully managed SaaS on Asoba-hosted infrastructure.</p>
+      <ul>
+        <li>Zero server provisioning or maintenance</li>
+        <li>Automatic platform updates and security patches</li>
+        <li>Managed backups and high-availability hosting</li>
+        <li>Global endpoint access for distributed SDK clients</li>
+        <li>Fastest time-to-value for new solar, wind, and battery fleets</li>
+      </ul>
+      <button type="button" class="ona-pricing-button">$100/month</button>
+    </section>
+    <section class="ona-pricing-card">
+      <div class="ona-pricing-icon">
+        <svg viewBox="0 0 48 48" width="64" height="64" aria-hidden="true" focusable="false">
+          <rect x="9" y="8" width="30" height="9" rx="2" fill="#0e8a5a"/>
+          <rect x="9" y="20" width="30" height="9" rx="2" fill="#0e8a5a"/>
+          <rect x="9" y="32" width="30" height="9" rx="2" fill="#0e8a5a"/>
+          <circle cx="33" cy="12.5" r="1.5" fill="#ffffff"/>
+          <circle cx="33" cy="24.5" r="1.5" fill="#ffffff"/>
+          <circle cx="33" cy="36.5" r="1.5" fill="#ffffff"/>
+        </svg>
+      </div>
+      <h3>On-Prem</h3>
+      <p class="ona-pricing-tagline">Licensed edge deployment on your own infrastructure.</p>
+      <ul>
+        <li>Runs locally via the OGD URL and your browser for air-gapped operation</li>
+        <li>Full data sovereignty with no external network dependency</li>
+        <li>Offline forecasting, auditing, and monitoring for qualified partner environments</li>
+        <li>License-controlled deployments for regulated or classified sites</li>
+        <li>Optional local support and maintenance contract</li>
+      </ul>
+      <button type="button" class="ona-pricing-button">$800/year</button>
+    </section>
+  </div>
+</dialog>
 
 ## Introduction
 
