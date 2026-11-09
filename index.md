@@ -29,7 +29,7 @@ nav_order: 1
         </div>
         <div class="pricing-tier">Cloud</div>
         <div class="pricing-price">$100</div>
-        <div class="pricing-unit">per month</div>
+        <div class="pricing-unit">per month (per MW)</div>
       </div>
       <div class="pricing-body">
         <ul class="pricing-features">
