@@ -118,8 +118,8 @@ Specialized AI models built on top of the Ona platform:
 ## Data Flow
 
 <div style="margin:20px 0 24px 0;">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="auto" style="display:block; border-radius:16px;">
-  <rect width="960" height="360" rx="16" fill="#4551BF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="100%" height="auto" style="display:block; border-radius:16px;">
+  <rect width="960" height="400" rx="16" fill="#4551BF"/>
   <text x="32" y="36" font-family="'DM Sans', system-ui, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" letter-spacing="1.2">ODS-E DATA FLOW</text>
   <text x="32" y="52" font-family="'DM Sans', system-ui, sans-serif" font-size="11" font-weight="500" fill="#C7CCF2" letter-spacing="0.5">From vendor telemetry to commercial platform APIs</text>
   <line x1="32" y1="62" x2="928" y2="62" stroke="#C7CCF2" stroke-opacity="0.3" stroke-width="1"/>
