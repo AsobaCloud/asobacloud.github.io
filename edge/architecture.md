@@ -13,6 +13,10 @@ Commands below that reference `~/platform/` are **Asoba-internal source-build to
 
 ---
 
+## High-Level Architecture
+
+<img src="{{ site.baseurl }}/assets/images/edge-platform-architecture.svg" alt="Ona Platform high-level architecture — containers, storage, and external systems" style="max-width: 100%; height: auto; display: block; margin: 1.5rem 0;" />
+
 ## Four Operational Flows
 
 | Flow | Path |
@@ -21,6 +25,10 @@ Commands below that reference `~/platform/` are **Asoba-internal source-build to
 | **Nowcast ingestion** | Huawei API → `huaweiRealTime` → PostgreSQL → `anomalyModel` → OODA detection event |
 | **Weather refresh** | Visual Crossing → `weatherCache` → artifact store (every 15 minutes) |
 | **Forecast generation** | API call → `forecastingApi` → load model + weather → 30-day LSTM inference → kWh forecast |
+
+## Platform Data Flow
+
+<img src="{{ site.baseurl }}/assets/images/edge-platform-data-flow.svg" alt="Ona Platform data flow — edge deployment container interactions" style="max-width: 100%; height: auto; display: block; margin: 1.5rem 0;" />
 
 ---
 
