@@ -117,25 +117,76 @@ Specialized AI models built on top of the Ona platform:
 
 ## Data Flow
 
-```
-OEM Data Sources              ODS-E Layer              Ona Platform
-─────────────────         ──────────────────       ──────────────────
-Huawei FusionSolar   ─┐                         ┌─→ Ingestion API
-Enphase Envoy         │                         │
-SolarEdge Monitoring  ├─→ Transform  ─→ Validate ─┤
-SMA Monitoring        │   (YAML spec)   (schema)  │  ┌─→ Forecasting
-Fronius Solar API     │                         │  ├─→ OODA Terminal
-Vestas Online         │                         ├─→├─→ Partner API
-Nordex Control        │                         │  ├─→ ML Training
-Siemens Gamesa        │                         │  └─→ Edge Management
-Eskom AMR            ─┘                         │
-                                                 │
-Generic CSV / SCADA ──→ Transform ──→ Validate ──┘
-                       (column_map)   (schema +
-                                      profile)
-```
+<div style="margin:20px 0 24px 0;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="100%" height="auto" style="display:block; border-radius:16px;">
+  <rect width="960" height="360" rx="16" fill="#4551BF"/>
+  <text x="32" y="36" font-family="'DM Sans', system-ui, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF" letter-spacing="1.2">ODS-E DATA FLOW</text>
+  <text x="32" y="52" font-family="'DM Sans', system-ui, sans-serif" font-size="11" font-weight="500" fill="#C7CCF2" letter-spacing="0.5">From vendor telemetry to commercial platform APIs</text>
+  <line x1="32" y1="62" x2="928" y2="62" stroke="#C7CCF2" stroke-opacity="0.3" stroke-width="1"/>
 
-The flow is:
+  <line x1="288" y1="205" x2="328" y2="205" stroke="#8892E0" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <polygon points="328,205 320,200 320,210" fill="#8892E0"/>
+  <line x1="628" y1="205" x2="668" y2="205" stroke="#8892E0" stroke-width="2.5" stroke-dasharray="4,3"/>
+  <polygon points="668,205 660,200 660,210" fill="#8892E0"/>
+
+  <g transform="translate(30,78)">
+    <rect x="0" y="0" width="258" height="300" rx="12" fill="#2E378C" stroke="#5C67DE" stroke-width="1.2"/>
+    <rect x="12" y="14" width="84" height="20" rx="4" fill="#3B4CCA"/>
+    <text x="54" y="28" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" letter-spacing="0.8">INPUTS</text>
+    <text x="20" y="60" font-family="'DM Sans', system-ui, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">OEM Data Sources</text>
+    <text x="20" y="80" font-family="'DM Sans', system-ui, sans-serif" font-size="11" font-weight="500" fill="#C7CCF2">Vendor APIs, CSV exports, SCADA</text>
+    <g font-family="'DM Sans', system-ui, sans-serif" font-size="11" fill="#FFFFFF">
+      <text x="24" y="108">• Huawei FusionSolar</text>
+      <text x="24" y="128">• Enphase Envoy</text>
+      <text x="24" y="148">• SolarEdge Monitoring</text>
+      <text x="24" y="168">• SMA Monitoring</text>
+      <text x="24" y="188">• Fronius Solar API</text>
+      <text x="24" y="208">• Vestas Online</text>
+      <text x="24" y="228">• Nordex Control</text>
+      <text x="24" y="248">• Siemens Gamesa</text>
+      <text x="24" y="268">• Eskom AMR</text>
+    </g>
+    <rect x="12" y="268" width="234" height="24" rx="8" fill="#0A0A0A" stroke="#333333" stroke-width="1"/>
+    <text x="129" y="284" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="700" fill="#C7CCF2">Generic CSV / SCADA (column_map)</text>
+  </g>
+
+  <g transform="translate(336,78)">
+    <rect x="0" y="0" width="292" height="300" rx="12" fill="#2E378C" stroke="#5C67DE" stroke-width="1.2"/>
+    <rect x="12" y="14" width="84" height="20" rx="4" fill="#5C67DE"/>
+    <text x="54" y="28" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" letter-spacing="0.8">ODS-E</text>
+    <text x="20" y="60" font-family="'DM Sans', system-ui, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">ODS-E Layer</text>
+    <text x="20" y="80" font-family="'DM Sans', system-ui, sans-serif" font-size="11" font-weight="500" fill="#C7CCF2">Canonical records and validation</text>
+    <rect x="20" y="104" width="252" height="56" rx="10" fill="#2A3390" stroke="#5C67DE" stroke-width="1"/>
+    <text x="146" y="128" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">Transform</text>
+    <text x="146" y="148" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#C7CCF2">YAML spec / column_map</text>
+    <line x1="146" y1="160" x2="146" y2="178" stroke="#8892E0" stroke-width="2" stroke-dasharray="3,3"/>
+    <polygon points="146,182 141,174 151,174" fill="#8892E0"/>
+    <rect x="20" y="186" width="252" height="56" rx="10" fill="#2A3390" stroke="#7B86EE" stroke-width="1"/>
+    <text x="146" y="210" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="13" font-weight="800" fill="#FFFFFF">Validate</text>
+    <text x="146" y="230" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="500" fill="#C7CCF2">Schema + conformance profile</text>
+  </g>
+
+  <g transform="translate(672,78)">
+    <rect x="0" y="0" width="258" height="300" rx="12" fill="#2E378C" stroke="#5C67DE" stroke-width="1.2"/>
+    <rect x="12" y="14" width="84" height="20" rx="4" fill="#7B86EE"/>
+    <text x="54" y="28" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" letter-spacing="0.8">OUTPUTS</text>
+    <text x="20" y="60" font-family="'DM Sans', system-ui, sans-serif" font-size="15" font-weight="800" fill="#FFFFFF">Ona Platform</text>
+    <text x="20" y="80" font-family="'DM Sans', system-ui, sans-serif" font-size="11" font-weight="500" fill="#C7CCF2">Commercial services and APIs</text>
+    <g font-family="'DM Sans', system-ui, sans-serif" font-size="11" fill="#FFFFFF">
+      <text x="24" y="108">• Ingestion API</text>
+      <text x="24" y="128">• Forecasting</text>
+      <text x="24" y="148">• OODA Terminal</text>
+      <text x="24" y="168">• Partner API</text>
+      <text x="24" y="188">• ML Training</text>
+      <text x="24" y="208">• Edge Management</text>
+    </g>
+    <rect x="12" y="264" width="234" height="26" rx="8" fill="#0A0A0A" stroke="#333333" stroke-width="1"/>
+    <text x="129" y="281" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="700" fill="#C7CCF2">Validated ODS-E records</text>
+  </g>
+</svg>
+</div>
+
+The flow is:The flow is:
 
 1. **Raw OEM data** arrives in vendor-specific formats (CSV exports, API responses, SCADA feeds).
 2. **Transform** — the ODS-E runtime applies the appropriate vendor transform spec (or a generic column mapping) to produce canonical ODS-E records.
