@@ -146,8 +146,8 @@ Specialized AI models built on top of the Ona platform:
       <text x="24" y="248">• Siemens Gamesa</text>
       <text x="24" y="268">• Eskom AMR</text>
     </g>
-    <rect x="12" y="268" width="234" height="24" rx="8" fill="#0A0A0A" stroke="#333333" stroke-width="1"/>
-    <text x="129" y="284" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="700" fill="#C7CCF2">Generic CSV / SCADA (column_map)</text>
+    <rect x="12" y="276" width="234" height="24" rx="8" fill="#0A0A0A" stroke="#333333" stroke-width="1"/>
+    <text x="129" y="292" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="10" font-weight="700" fill="#C7CCF2">Generic CSV / SCADA (column_map)</text>
   </g>
 
   <g transform="translate(336,78)">
